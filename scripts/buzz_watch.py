@@ -159,15 +159,20 @@ def title_to_keyword(title: str) -> str:
 ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 
 
-def extract_keyword_with_ai(title: str, company_name: str) -> str | None:
-    """Claude APIでニュースタイトルから追跡すべき商品キーワードを抽出する。
-    店舗イベント・決算・人事など商品と無関係な内容であれば None を返す
-    (=バズ監視の対象に追加しない)。
-    ANTHROPIC_API_KEY が未設定の場合は簡易ヒューリスティックにフォールバックする。
+GROWTH_CATEGORIES = ("新商品", "新店舗", "新業態", "新販路", "コラボ", "その他")
+
+
+def extract_keyword_with_ai(title: str, company_name: str) -> tuple[str, str] | None:
+    """Claude APIでニュースタイトルを判定し、業績インパクトが期待できる内容なら
+    (種別, 検索キーワード) を返す。決算・人事・定型お知らせなど業績に直接
+    関係なさそうな内容であれば None を返す(=バズ監視の対象に追加しない)。
+    ANTHROPIC_API_KEY が未設定の場合は簡易ヒューリスティックにフォールバックする
+    (この場合は種別を「その他」として扱う)。
     """
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
-        return title_to_keyword(title)
+        kw = title_to_keyword(title)
+        return ("その他", kw) if kw else None
     try:
         resp = requests.post(
             "https://api.anthropic.com/v1/messages",
@@ -185,12 +190,19 @@ def extract_keyword_with_ai(title: str, company_name: str) -> str | None:
                         "content": (
                             f"企業「{company_name}」が公式サイトに出した新着情報のタイトル:\n"
                             f"「{title}」\n\n"
-                            "これはSNSでバズる可能性のある新商品・新シリーズ・コラボ商品の"
-                            "発表ですか？\n"
-                            "そうであれば、Google検索やX検索で使う短い商品名/シリーズ名だけを"
-                            "日本語で1行で出力してください(説明・記号・句読点は不要)。\n"
-                            "店舗の開店・イベント・キャンペーン告知・決算・人事・その他"
-                            "商品と無関係な内容であれば「NONE」とだけ出力してください。"
+                            "この内容は、売上や株価にプラスの影響を与えうる出来事ですか？\n"
+                            "該当例: 新商品・新シリーズの発売、新店舗のオープン、新しい業態・"
+                            "コンセプト店の展開、新しい販路への進出(コンビニ・量販店・海外展開・"
+                            "ECモール出店等)、話題性のあるコラボ、SNSでバズりそうな企画・"
+                            "キャンペーン。\n\n"
+                            "該当する場合は次の形式で1行だけ出力してください(説明・前置き不要):\n"
+                            "種別|検索キーワード\n"
+                            "種別は 新商品/新店舗/新業態/新販路/コラボ/その他 のいずれか。\n"
+                            "検索キーワードは、Google検索やX検索で使える固有名詞"
+                            "(商品名・店舗名・シリーズ名など)を日本語で。\n\n"
+                            "該当しない場合(決算発表、人事異動、システムメンテナンス、"
+                            "定型の事務連絡など業績に直接関係なさそうな内容)は"
+                            "「NONE」とだけ出力してください。"
                         ),
                     }
                 ],
@@ -202,10 +214,19 @@ def extract_keyword_with_ai(title: str, company_name: str) -> str | None:
         text = data["content"][0]["text"].strip()
         if not text or text.upper().startswith("NONE"):
             return None
-        return text.strip(" 　「」『』:：")[:40]
+        if "|" in text:
+            category, keyword = text.split("|", 1)
+            category = category.strip()
+            if category not in GROWTH_CATEGORIES:
+                category = "その他"
+        else:
+            category, keyword = "その他", text
+        keyword = keyword.strip(" 　「」『』:：")[:40]
+        return (category, keyword) if keyword else None
     except Exception as e:  # noqa: BLE001
         log(f"  [WARN] AI keyword extraction failed, falling back to heuristic: {type(e).__name__}: {e}")
-        return title_to_keyword(title)
+        kw = title_to_keyword(title)
+        return ("その他", kw) if kw else None
 
 
 # ============================================================
@@ -443,22 +464,27 @@ def main():
             for it in new_items:
                 seen_urls.add(it.url)
             for it in new_items[:MAX_TRACKED_PRODUCT_KEYWORDS]:
-                kw = extract_keyword_with_ai(it.title, name)
+                result = extract_keyword_with_ai(it.title, name)
                 time.sleep(0.3)
-                if kw and kw not in kw_list:
-                    kw_list.append(kw)
+                if result:
+                    _, kw = result
+                    if kw not in kw_list:
+                        kw_list.append(kw)
         else:
             for it in new_items:
                 seen_urls.add(it.url)
-                kw = extract_keyword_with_ai(it.title, name)
+                result = extract_keyword_with_ai(it.title, name)
                 time.sleep(0.3)
-                if kw:
-                    log(f"  [NEW/PRODUCT] {it.title} ({it.date}) -> keyword: {kw}")
+                if result:
+                    category, kw = result
+                    log(f"  [NEW/{category}] {it.title} ({it.date}) -> keyword: {kw}")
                     if kw not in kw_list:
                         kw_list.append(kw)
-                    new_product_lines.append(f"・**{name}**: {it.title} ({it.date})\n  <{it.url}>")
+                    new_product_lines.append(
+                        f"・**{name}**[{category}]: {it.title} ({it.date})\n  <{it.url}>"
+                    )
                 else:
-                    log(f"  [NEW/other] {it.title} ({it.date}) -> not product-related, skipped")
+                    log(f"  [NEW/other] {it.title} ({it.date}) -> not growth-related, skipped")
 
         # 商品キーワード数を上限に丸める(社名などbase_keywordsは常に維持)
         product_kws = [k for k in kw_list if k not in company["base_keywords"]]
@@ -509,7 +535,7 @@ def main():
             if new_product_lines:
                 send_discord(
                     webhook_url,
-                    ["**\U0001f4e6 新商品を検知・追跡開始**"] + new_product_lines,
+                    ["**\U0001f4e2 業績インパクトが期待できる新着を検知・追跡開始**"] + new_product_lines,
                 )
             if discord_lines:
                 send_discord(
