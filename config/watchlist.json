@@ -1,0 +1,29 @@
+[
+  {
+    "code": "7800",
+    "name": "アミファ",
+    "base_keywords": ["アミファ"],
+    "news_source": {
+      "type": "rss",
+      "url": "https://products.amifa.co.jp/feed/"
+    }
+  },
+  {
+    "code": "6570",
+    "name": "共和コーポレーション",
+    "base_keywords": ["iBLOOM", "共和コーポレーション"],
+    "news_source": {
+      "type": "html_list_ibloom",
+      "url": "https://i-bloom-squishy.com/news/"
+    }
+  },
+  {
+    "code": "3070",
+    "name": "ジェリービーンズグループ",
+    "base_keywords": ["3Dアイス", "ジェリービーンズグループ"],
+    "news_source": {
+      "type": "html_list_jbg",
+      "url": "https://www.jelly-beans-group.co.jp/topics/"
+    }
+  }
+]
