@@ -86,7 +86,7 @@ def fetch_rss_news(url: str) -> list[NewsItem]:
     resp.encoding = "utf-8"
     text = resp.text
     items = []
-    for m in re.finditer(r"<item>(.*?)</item>", text, re.S):
+    for m in re.finditer(r"<item[^>]*>(.*?)</item>", text, re.S):
         block = m.group(1)
         title_m = re.search(r"<title>(?:<!\[CDATA\[(.*?)\]\]>|(.*?))</title>", block, re.S)
         link_m = re.search(r"<link>(.*?)</link>", block, re.S)

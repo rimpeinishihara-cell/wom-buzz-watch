@@ -56,7 +56,12 @@
       "ポメラ",
       "Toffy",
       "ラドンナ"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kingjim.co.jp/news/",
+      "pattern": "<span class=\"news_date\">(?P<date>[^<]+)</span>[\\s\\S]{0,100}?<h3 class=\"news_title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "7792",
@@ -89,7 +94,12 @@
     "base_keywords": [
       "リヒトラブ",
       "LIHIT LAB"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.lihit-lab.com/new/",
+      "pattern": "<li class=\"new_item\">\\s*<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,300}?<p class=\"new_item_ttl\">(?P<title>.*?)</p>[\\s\\S]{0,300}?<dd>(?P<date>\\d{4}-\\d{2}-\\d{2})</dd>"
+    }
   },
   {
     "code": "7810",
@@ -219,7 +229,12 @@
     "base_keywords": [
       "モロゾフ",
       "ファヤージュ"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.morozoff.co.jp/",
+      "pattern": "<span>(?P<date>[\\d.]+)</span><strong><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)<strong class=\"new\">"
+    }
   },
   {
     "code": "2209",
@@ -232,7 +247,7 @@
     ],
     "news_source": {
       "type": "rss",
-      "url": "https://www.imuraya-group.com/news/feed/"
+      "url": "https://www.imuraya-group.com/feed/"
     }
   },
   {
@@ -259,7 +274,12 @@
     "base_keywords": [
       "六甲バター",
       "QBB"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.qbb.co.jp/",
+      "pattern": "<span class=\"date1\">(?P<date>[^<]+)</span>\\s*<span class=\"cat1\">[^<]*</span>\\s*</span>\\s*<p class=\"txt1\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "2652",
@@ -360,13 +380,18 @@
     "code": "4933",
     "edinet_code": "E35928",
     "name": "I-ne",
-    "homepage_url": "https://www.i-ne.co.jp/",
+    "homepage_url": "https://i-ne.co.jp/",
     "base_keywords": [
       "I-ne",
       "BOTANIST",
       "SALONIA",
       "YOLU"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://i-ne.co.jp/news/",
+      "pattern": "<a class=\"news-card-layout-wrapper[^\"]*\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,900}?<time[^>]*datetime=\"(?P<date>[^\"]+)\"[\\s\\S]{0,200}?<p class=\"news-card-layout__text\">(?P<title>.*?)</p>"
+    }
   },
   {
     "code": "4931",
@@ -377,7 +402,12 @@
       "新日本製薬",
       "パーフェクトワン",
       "PERFECT ONE"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.shinnihonseiyaku.co.jp/",
+      "pattern": "<a href=\"(?P<url>/news/\\d+/)\"[^>]*class=\"newsTitle\"[^>]*>[\\s\\S]{0,400}?news_date\">(?P<date>[^<]+)</span>[\\s\\S]{0,100}?<p class=\"news_text\">(?P<title>.*?)</p>"
+    }
   },
   {
     "code": "2930",
@@ -392,7 +422,7 @@
     ],
     "news_source": {
       "type": "rss",
-      "url": "https://www.kitanotatsujin.com/news/feed/"
+      "url": "https://www.kitanotatsujin.com/feed/"
     }
   },
   {
@@ -610,12 +640,17 @@
     "code": "7806",
     "edinet_code": "E34054",
     "name": "MTG",
-    "homepage_url": "https://www.mtgco.jp/",
+    "homepage_url": "https://www.mtg.gr.jp/",
     "base_keywords": [
       "MTG",
       "ReFa",
       "SIXPAD"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mtg.gr.jp/news/",
+      "pattern": "<dt>(?P<date>[\\d/]+)</dt>\\s*<dd>[\\s\\S]{0,50}?</dd>\\s*</dl>\\s*<h3>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "7803",
@@ -629,7 +664,12 @@
       "Shadowverse",
       "新日本プロレス",
       "BanG Dream!"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://bushiroad.com/news/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<span class=\"category\"[^>]*>[^<]*</span>[\\s\\S]{0,300}?<h2><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "4574",
@@ -650,7 +690,12 @@
     "base_keywords": [
       "森下仁丹",
       "仁丹"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.jintan.co.jp/news/",
+      "pattern": "<dt><p class=\"date\"><span>[^<]*</span>(?P<date>[\\d.]+)</p></dt>\\s*<dd>\\s*<a href=\"(?P<url>[^\"]+)\" title=\"(?P<title>[^\"]+)\""
+    }
   },
   {
     "code": "9166",
@@ -660,6 +705,11 @@
     "base_keywords": [
       "GENDA",
       "GiGO"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.genda.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div[^>]*>\\s*<img[^>]*alt=\"(?P<title>[^\"]+)\"[\\s\\S]{0,200}?<time[^>]*datetime=\"(?P<date>[^\"]+)\""
+    }
   }
 ]
