@@ -4,7 +4,10 @@
     "edinet_code": "E34028",
     "name": "アミファ",
     "homepage_url": "https://www.amifa.co.jp/",
-    "base_keywords": ["アミファ", "はらぺこあおむし シール"],
+    "base_keywords": [
+      "アミファ",
+      "はらぺこあおむし シール"
+    ],
     "news_source": {
       "type": "rss",
       "url": "https://products.amifa.co.jp/feed/"
@@ -32,7 +35,11 @@
     "edinet_code": "E03004",
     "name": "ジェリービーンズグループ",
     "homepage_url": "https://www.jelly-beans-group.co.jp/",
-    "base_keywords": ["3Dアイス", "ジェリービーンズグループ", "361°"],
+    "base_keywords": [
+      "3Dアイス",
+      "ジェリービーンズグループ",
+      "361°"
+    ],
     "news_source": {
       "type": "html_list_jbg",
       "url": "https://www.jelly-beans-group.co.jp/topics/"
@@ -43,49 +50,86 @@
     "edinet_code": "E02398",
     "name": "キングジム",
     "homepage_url": "https://www.kingjim.co.jp/",
-    "base_keywords": ["キングジム", "テプラ", "ポメラ", "Toffy", "ラドンナ"]
+    "base_keywords": [
+      "キングジム",
+      "テプラ",
+      "ポメラ",
+      "Toffy",
+      "ラドンナ"
+    ]
   },
   {
     "code": "7792",
     "edinet_code": "E36670",
     "name": "コラントッテ",
     "homepage_url": "https://colantotte.jp/",
-    "base_keywords": ["コラントッテ", "Colantotte", "TAO", "Lierrey"]
+    "base_keywords": [
+      "コラントッテ",
+      "Colantotte",
+      "TAO",
+      "Lierrey"
+    ]
   },
   {
     "code": "7809",
     "edinet_code": "E33392",
     "name": "壽屋",
     "homepage_url": "https://www.kotobukiya.co.jp/",
-    "base_keywords": ["コトブキヤ", "フレームアームズ・ガール", "フレームアームズ"]
+    "base_keywords": [
+      "コトブキヤ",
+      "フレームアームズ・ガール",
+      "フレームアームズ"
+    ]
   },
   {
     "code": "7975",
     "edinet_code": "E00667",
     "name": "リヒトラブ",
     "homepage_url": "https://www.lihit-lab.com/",
-    "base_keywords": ["リヒトラブ", "LIHIT LAB"]
+    "base_keywords": [
+      "リヒトラブ",
+      "LIHIT LAB"
+    ]
   },
   {
     "code": "7810",
     "edinet_code": "E33313",
     "name": "クロスフォー",
     "homepage_url": "https://www.crossfor.com/",
-    "base_keywords": ["クロスフォー", "Dancing Stone", "ダンシングストーン"]
+    "base_keywords": [
+      "クロスフォー",
+      "Dancing Stone",
+      "ダンシングストーン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://crossfor.co.jp/news/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<span class=\"title\">(?P<title>.*?)</span>"
+    }
   },
   {
     "code": "7987",
     "edinet_code": "E00679",
     "name": "ナカバヤシ",
     "homepage_url": "https://www.nakabayashi.co.jp/",
-    "base_keywords": ["ナカバヤシ", "フエルアルバム"]
+    "base_keywords": [
+      "ナカバヤシ",
+      "フエルアルバム"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nakabayashi.co.jp/news/2026/release",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"cate[^\"]*\">[^<]*</span>\\s*<span class=\"ttl\">\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "7823",
     "edinet_code": "E03493",
     "name": "アートネイチャー",
     "homepage_url": "https://corp.artnature.co.jp/",
-    "base_keywords": ["アートネイチャー"]
+    "base_keywords": [
+      "アートネイチャー"
+    ]
   },
   {
     "code": "2226",
@@ -100,244 +144,466 @@
       "ポリンキー",
       "ドンタコス",
       "スコーン"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://koikeya.co.jp/news/",
+      "pattern": "<dt>(?P<date>[\\d.]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "2216",
     "edinet_code": "E00378",
     "name": "カンロ",
     "homepage_url": "https://www.kanro.co.jp/",
-    "base_keywords": ["カンロ", "ピュレグミ"]
+    "base_keywords": [
+      "カンロ",
+      "ピュレグミ"
+    ]
   },
   {
     "code": "2221",
     "edinet_code": "E00386",
     "name": "岩塚製菓",
     "homepage_url": "https://www.iwatsukaseika.co.jp/",
-    "base_keywords": ["岩塚製菓", "瑞花"]
+    "base_keywords": [
+      "岩塚製菓",
+      "瑞花"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.iwatsukaseika.co.jp/feed/"
+    }
   },
   {
     "code": "2208",
     "edinet_code": "E00380",
     "name": "ブルボン",
     "homepage_url": "https://www.bourbon.co.jp/",
-    "base_keywords": ["ブルボン", "ルマンド", "アルフォート", "プチシリーズ"]
+    "base_keywords": [
+      "ブルボン",
+      "ルマンド",
+      "アルフォート",
+      "プチシリーズ"
+    ]
   },
   {
     "code": "2937",
     "edinet_code": "E38168",
     "name": "サンクゼール",
     "homepage_url": "https://www.stcousair.co.jp/",
-    "base_keywords": ["サンクゼール", "久世福商店", "KUZE FUKU & SONS"]
+    "base_keywords": [
+      "サンクゼール",
+      "久世福商店",
+      "KUZE FUKU & SONS"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.stcousair.co.jp/feed"
+    }
   },
   {
     "code": "2224",
     "edinet_code": "E00388",
     "name": "コモ",
     "homepage_url": "https://www.como.co.jp/",
-    "base_keywords": ["コモ"]
+    "base_keywords": [
+      "コモ"
+    ]
   },
   {
     "code": "2217",
     "edinet_code": "E00381",
     "name": "モロゾフ",
     "homepage_url": "https://www.morozoff.co.jp/",
-    "base_keywords": ["モロゾフ", "ファヤージュ"]
+    "base_keywords": [
+      "モロゾフ",
+      "ファヤージュ"
+    ]
   },
   {
     "code": "2209",
     "edinet_code": "E00371",
     "name": "井村屋グループ",
     "homepage_url": "https://www.imuraya-group.com/",
-    "base_keywords": ["井村屋", "あずきバー"]
+    "base_keywords": [
+      "井村屋",
+      "あずきバー"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.imuraya-group.com/news/feed/"
+    }
   },
   {
     "code": "2922",
     "edinet_code": "E00506",
     "name": "なとり",
     "homepage_url": "https://www.natori.co.jp/",
-    "base_keywords": ["なとり", "チーズ鱈", "ジャッキーカルパス"]
+    "base_keywords": [
+      "なとり",
+      "チーズ鱈",
+      "ジャッキーカルパス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.natori.co.jp/news.html",
+      "pattern": "<dt[^>]*>(?P<date>[\\d/\\.\\-年月日]{6,14})</dt>\\s*<dd[^>]*>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "2266",
     "edinet_code": "E00337",
     "name": "六甲バター",
     "homepage_url": "https://www.qbb.co.jp/",
-    "base_keywords": ["六甲バター", "QBB"]
+    "base_keywords": [
+      "六甲バター",
+      "QBB"
+    ]
   },
   {
     "code": "2652",
     "edinet_code": "E03347",
     "name": "まんだらけ",
     "homepage_url": "https://www.mandarake.co.jp/",
-    "base_keywords": ["まんだらけ"]
+    "base_keywords": [
+      "まんだらけ"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.mandarake.co.jp/information/rss/headline.xml"
+    }
   },
   {
     "code": "3560",
     "edinet_code": "E32991",
     "name": "ほぼ日",
     "homepage_url": "https://www.hobonichi.co.jp/",
-    "base_keywords": ["ほぼ日", "ほぼ日手帳", "アースボール"]
+    "base_keywords": [
+      "ほぼ日",
+      "ほぼ日手帳",
+      "アースボール"
+    ]
   },
   {
     "code": "3134",
     "edinet_code": "E31386",
     "name": "Hamee",
     "homepage_url": "https://hamee.co.jp/",
-    "base_keywords": ["Hamee", "iFace", "Pixio", "ByUR"]
+    "base_keywords": [
+      "Hamee",
+      "iFace",
+      "Pixio",
+      "ByUR"
+    ]
   },
   {
     "code": "9904",
     "edinet_code": "E03181",
     "name": "ベリテ",
     "homepage_url": "https://www.verite.jp/",
-    "base_keywords": ["ベリテ", "キレイニ", "ベリシア"]
+    "base_keywords": [
+      "ベリテ",
+      "キレイニ",
+      "ベリシア"
+    ]
   },
   {
     "code": "3396",
     "edinet_code": "E03467",
     "name": "フェリシモ",
     "homepage_url": "https://www.felissimo.co.jp/",
-    "base_keywords": ["フェリシモ", "フェリシモ定期便", "YOU+MORE!"]
+    "base_keywords": [
+      "フェリシモ",
+      "フェリシモ定期便",
+      "YOU+MORE!"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.felissimo.co.jp/company/contents/category/press/",
+      "pattern": "<time[^>]*class=\"home-articleList_publishDate_cy\">(?P<date>[^<]+)</time>[\\s\\S]{0,400}?<h2 class=\"home-articleList_title_cy\">\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "4985",
     "edinet_code": "E01015",
     "name": "アース製薬",
     "homepage_url": "https://www.earth.jp/",
-    "base_keywords": ["アース製薬", "アースノーマット", "ごきぶりホイホイ", "ブラックキャップ", "モンダミン", "バスクリン", "アイスノン"]
+    "base_keywords": [
+      "アース製薬",
+      "アースノーマット",
+      "ごきぶりホイホイ",
+      "ブラックキャップ",
+      "モンダミン",
+      "バスクリン",
+      "アイスノン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.earth.jp/new-products/index.html",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\"><img[^>]*/?>\\s*<span class=\"product-insecticide-name\">(?P<title>.*?)</span></a>"
+    }
   },
   {
     "code": "4951",
     "edinet_code": "E01019",
     "name": "エステー",
     "homepage_url": "https://www.st-c.co.jp/",
-    "base_keywords": ["エステー", "消臭力", "ニャンとも清潔トイレ", "ムシューダ"]
+    "base_keywords": [
+      "エステー",
+      "消臭力",
+      "ニャンとも清潔トイレ",
+      "ムシューダ"
+    ]
   },
   {
     "code": "4933",
     "edinet_code": "E35928",
     "name": "I-ne",
     "homepage_url": "https://www.i-ne.co.jp/",
-    "base_keywords": ["I-ne", "BOTANIST", "SALONIA", "YOLU"]
+    "base_keywords": [
+      "I-ne",
+      "BOTANIST",
+      "SALONIA",
+      "YOLU"
+    ]
   },
   {
     "code": "4931",
     "edinet_code": "E34965",
     "name": "新日本製薬",
     "homepage_url": "https://www.shinnihonseiyaku.co.jp/",
-    "base_keywords": ["新日本製薬", "パーフェクトワン", "PERFECT ONE"]
+    "base_keywords": [
+      "新日本製薬",
+      "パーフェクトワン",
+      "PERFECT ONE"
+    ]
   },
   {
     "code": "2930",
     "edinet_code": "E26549",
     "name": "北の達人コーポレーション",
     "homepage_url": "https://www.kitanotatsujin.com/",
-    "base_keywords": ["北の達人コーポレーション", "北の快適工房", "ヒアロディープパッチ", "カイテキオリゴ"]
+    "base_keywords": [
+      "北の達人コーポレーション",
+      "北の快適工房",
+      "ヒアロディープパッチ",
+      "カイテキオリゴ"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.kitanotatsujin.com/news/feed/"
+    }
   },
   {
     "code": "4218",
     "edinet_code": "E01000",
     "name": "ニチバン",
     "homepage_url": "https://www.nichiban.co.jp/",
-    "base_keywords": ["ニチバン", "セロテープ", "ケアリーヴ"]
+    "base_keywords": [
+      "ニチバン",
+      "セロテープ",
+      "ケアリーヴ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nichiban.co.jp/news/2026/",
+      "pattern": "<a class=\"inner\" href=\"(?P<url>[^\"]+)\">\\s*<span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"content\">(?P<title>.*?)</span>"
+    }
   },
   {
     "code": "5032",
     "edinet_code": "E37573",
     "name": "ANYCOLOR",
     "homepage_url": "https://www.anycolor.co.jp/",
-    "base_keywords": ["ANYCOLOR", "にじさんじ"]
+    "base_keywords": [
+      "ANYCOLOR",
+      "にじさんじ"
+    ]
   },
   {
     "code": "3182",
     "edinet_code": "E27260",
     "name": "オイシックス・ラ・大地",
     "homepage_url": "https://oisixradaichi.co.jp/",
-    "base_keywords": ["オイシックス・ラ・大地", "Oisix", "らでぃっしゅぼーや"]
+    "base_keywords": [
+      "オイシックス・ラ・大地",
+      "Oisix",
+      "らでぃっしゅぼーや"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.oisix.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+/news/posts/[^\"]+)\">\\s*<div class=\"ph\"[^>]*>\\s*<time>(?P<date>[^<]+)</time>\\s*</div>\\s*<div class=\"txt\">\\s*<h3>[^<]*</h3>\\s*<p>(?P<title>.*?)</p>"
+    }
   },
   {
     "code": "2305",
     "edinet_code": "E03393",
     "name": "スタジオアリス",
     "homepage_url": "https://www.studio-alice.co.jp/",
-    "base_keywords": ["スタジオアリス"]
+    "base_keywords": [
+      "スタジオアリス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.studio-alice.co.jp/company/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<time[^>]*>(?P<date>[^<]+)</time>\\s*<[^>]+>(?P<title>.*?)</[^>]+>\\s*</a>"
+    }
   },
   {
     "code": "2767",
     "edinet_code": "E03407",
     "name": "円谷フィールズホールディングス",
     "homepage_url": "https://tsuburaya-fields.co.jp/",
-    "base_keywords": ["円谷フィールズホールディングス", "ウルトラマン", "円谷プロダクション"]
+    "base_keywords": [
+      "円谷フィールズホールディングス",
+      "ウルトラマン",
+      "円谷プロダクション"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.tsuburaya-fields.co.jp/news/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]{0,200}?<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "7458",
     "edinet_code": "E02824",
     "name": "第一興商",
     "homepage_url": "https://www.dik.co.jp/",
-    "base_keywords": ["第一興商", "DAM", "ビッグエコー"]
+    "base_keywords": [
+      "第一興商",
+      "DAM",
+      "ビッグエコー"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.dik.co.jp/news/feed/"
+    }
   },
   {
     "code": "3765",
     "edinet_code": "E05474",
     "name": "ガンホー・オンライン・エンターテイメント",
     "homepage_url": "https://www.gungho.co.jp/",
-    "base_keywords": ["ガンホー", "パズドラ", "パズル&ドラゴンズ"]
+    "base_keywords": [
+      "ガンホー",
+      "パズドラ",
+      "パズル&ドラゴンズ"
+    ]
   },
   {
     "code": "2928",
     "edinet_code": "E00518",
     "name": "RIZAPグループ",
     "homepage_url": "https://www.rizapgroup.com/",
-    "base_keywords": ["RIZAP", "ライザップ", "chocoZAP", "チョコザップ", "BRUNO"]
+    "base_keywords": [
+      "RIZAP",
+      "ライザップ",
+      "chocoZAP",
+      "チョコザップ",
+      "BRUNO"
+    ]
   },
   {
     "code": "2769",
     "edinet_code": "E03409",
     "name": "ヴィレッジヴァンガード",
     "homepage_url": "https://www.village-v.co.jp/",
-    "base_keywords": ["ヴィレッジヴァンガード"]
+    "base_keywords": [
+      "ヴィレッジヴァンガード"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.village-v.co.jp/info/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<p class=\"title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "8165",
     "edinet_code": "E03092",
     "name": "千趣会",
     "homepage_url": "https://www.senshukai.co.jp/",
-    "base_keywords": ["千趣会", "ベルメゾン"]
+    "base_keywords": [
+      "千趣会",
+      "ベルメゾン"
+    ]
   },
   {
     "code": "2936",
     "edinet_code": "E38104",
     "name": "ベースフード",
     "homepage_url": "https://basefood.co.jp/",
-    "base_keywords": ["ベースフード", "BASE BREAD", "BASE YAKISOBA", "BASE RAMEN"]
+    "base_keywords": [
+      "ベースフード",
+      "BASE BREAD",
+      "BASE YAKISOBA",
+      "BASE RAMEN"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://basefood.co.jp/news",
+      "pattern": "<dt[^>]*><span>(?P<date>[^<]+)</span>.*?</dt>\\s*<dd[^>]*>\\s*<a href=\"(?P<url>/news/\\d+)\">(?P<title>[^<]+)</a></dd>"
+    }
   },
   {
     "code": "7110",
     "edinet_code": "E37848",
     "name": "クラシコム",
     "homepage_url": "https://kurashicom.jp/",
-    "base_keywords": ["クラシコム", "北欧、暮らしの道具店", "foufou"]
+    "base_keywords": [
+      "クラシコム",
+      "北欧、暮らしの道具店",
+      "foufou"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://kurashi.com/news/",
+      "pattern": "<a href=\"(?P<url>https://kurashi\\.com/news/\\d+)\">[\\s\\S]{0,1500}?<div class=\"date\">(?P<date>[^<]+)</div><div class=\"title\">(?P<title>.*?)</div>"
+    }
   },
   {
     "code": "2268",
     "edinet_code": "E00474",
     "name": "B-Rサーティワンアイスクリーム",
     "homepage_url": "https://www.31ice.co.jp/",
-    "base_keywords": ["サーティワン", "31アイス", "31ice"]
+    "base_keywords": [
+      "サーティワン",
+      "31アイス",
+      "31ice"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.31ice.co.jp/contents/topics/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"newsLink\">\\s*<img[^>]*alt=\"(?P<title>[^\"]+)\""
+    }
   },
   {
     "code": "2805",
     "edinet_code": "E00452",
     "name": "ヱスビー食品",
     "homepage_url": "https://www.sbfoods.co.jp/",
-    "base_keywords": ["エスビー食品", "赤缶カレー粉", "ゴールデンカレー"]
+    "base_keywords": [
+      "エスビー食品",
+      "赤缶カレー粉",
+      "ゴールデンカレー"
+    ]
   },
   {
     "code": "2819",
     "edinet_code": "E00514",
     "name": "エバラ食品工業",
     "homepage_url": "https://www.ebarafoods.com/",
-    "base_keywords": ["エバラ食品", "黄金の味", "プチッと鍋"]
+    "base_keywords": [
+      "エバラ食品",
+      "黄金の味",
+      "プチッと鍋"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ebarafoods.com/oishii_news/",
+      "pattern": "<a href=\"(?P<url>/oishii_news/\\d+\\.html)\">\\s*<img[^>]*>\\s*<div class=\"box-colum-txt\">\\s*<p class=\"txt-intro\">(?P<title>[^<]+)</p>\\s*<p class=\"date\">(?P<date>[^<]+)</p>"
+    }
   }
 ]

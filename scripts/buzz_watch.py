@@ -142,6 +142,33 @@ def fetch_jbg_topics(url: str) -> list[NewsItem]:
     return items
 
 
+def fetch_html_regex_news(url: str, pattern: str) -> list[NewsItem]:
+    """企業ごとに個別パーサー関数を書く代わりに、watchlist.json側に正規表現
+    (名前付きグループ url/title/date、dateは任意)を持たせて汎用的にニュース
+    一覧をパースする。企業サイトの構造が多種多様(WordPress/独自CMS/SPA等)で、
+    サイトの数だけPythonの関数を増やすと保守が破綻するため、この方式にした。
+    """
+    resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=30)
+    resp.raise_for_status()
+    # サイトによってShift-JIS/EUC-JP等UTF-8以外のエンコーディングを使うことがあるため、
+    # HTTPヘッダ/HTMLのcharset宣言からrequestsが推定したエンコーディングを尊重する
+    # (決め打ちでutf-8にすると文字化けする)。
+    if resp.encoding is None or resp.encoding.lower() == "iso-8859-1":
+        resp.encoding = resp.apparent_encoding
+    html = resp.text
+    items = []
+    for m in re.finditer(pattern, html, re.S):
+        gd = m.groupdict()
+        link = (gd.get("url") or "").strip()
+        title = nfkc(re.sub(r"<[^>]+>", "", gd.get("title") or ""))
+        date = nfkc(re.sub(r"<[^>]+>", "", gd.get("date") or ""))
+        if not link or not title:
+            continue
+        link = urllib.parse.urljoin(url, link)  # 相対パス(../a.php等)も含めて絶対URL化
+        items.append(NewsItem(title=title, url=link, date=date))
+    return items
+
+
 NEWS_FETCHERS = {
     "rss": fetch_rss_news,
     "html_list_ibloom": fetch_ibloom_news,
@@ -684,13 +711,16 @@ def main():
             if ck not in kw_list:
                 kw_list.append(ck)
 
-        # --- 新商品検知(Tier 2のnews_source未設定企業はスキップし、キーワード追跡のみ行う) ---
+        # --- 新商品検知(news_source未設定企業はスキップし、キーワード追跡のみ行う) ---
         news_source = company.get("news_source")
-        fetcher = NEWS_FETCHERS.get(news_source["type"]) if news_source else None
         new_items: list[NewsItem] = []
-        if fetcher:
+        if news_source:
             try:
-                items = fetcher(news_source["url"])
+                if news_source["type"] == "html_regex":
+                    items = fetch_html_regex_news(news_source["url"], news_source["pattern"])
+                else:
+                    fetcher = NEWS_FETCHERS.get(news_source["type"])
+                    items = fetcher(news_source["url"]) if fetcher else []
                 new_items = [it for it in items if it.url not in seen_urls]
             except Exception as e:  # noqa: BLE001
                 log(f"  [WARN] news fetch failed: {type(e).__name__}: {e}")
