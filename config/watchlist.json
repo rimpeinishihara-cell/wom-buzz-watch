@@ -605,5 +605,61 @@
       "url": "https://www.ebarafoods.com/oishii_news/",
       "pattern": "<a href=\"(?P<url>/oishii_news/\\d+\\.html)\">\\s*<img[^>]*>\\s*<div class=\"box-colum-txt\">\\s*<p class=\"txt-intro\">(?P<title>[^<]+)</p>\\s*<p class=\"date\">(?P<date>[^<]+)</p>"
     }
+  },
+  {
+    "code": "7806",
+    "edinet_code": "E34054",
+    "name": "MTG",
+    "homepage_url": "https://www.mtgco.jp/",
+    "base_keywords": [
+      "MTG",
+      "ReFa",
+      "SIXPAD"
+    ]
+  },
+  {
+    "code": "7803",
+    "edinet_code": "E35004",
+    "name": "ブシロード",
+    "homepage_url": "https://bushiroad.com/",
+    "base_keywords": [
+      "ブシロード",
+      "カードファイト!!ヴァンガード",
+      "ヴァイスシュヴァルツ",
+      "Shadowverse",
+      "新日本プロレス",
+      "BanG Dream!"
+    ]
+  },
+  {
+    "code": "4574",
+    "edinet_code": "E22560",
+    "name": "大幸薬品",
+    "homepage_url": "https://www.seirogan.co.jp/",
+    "base_keywords": [
+      "大幸薬品",
+      "正露丸",
+      "クレベリン"
+    ]
+  },
+  {
+    "code": "4540",
+    "edinet_code": "E00941",
+    "name": "森下仁丹",
+    "homepage_url": "https://www.jintan.co.jp/",
+    "base_keywords": [
+      "森下仁丹",
+      "仁丹"
+    ]
+  },
+  {
+    "code": "9166",
+    "edinet_code": "E38739",
+    "name": "GENDA",
+    "homepage_url": "https://www.genda.jp/",
+    "base_keywords": [
+      "GENDA",
+      "GiGO"
+    ]
   }
 ]
