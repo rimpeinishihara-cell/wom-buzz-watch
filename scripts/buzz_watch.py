@@ -37,6 +37,9 @@ STATE_DIR = ROOT / "state"
 SEEN_NEWS_PATH = STATE_DIR / "seen_news.json"
 HISTORY_PATH = STATE_DIR / "history.json"
 LAST_CHECKED_PATH = STATE_DIR / "last_checked.json"
+BUSINESS_OVERVIEW_VERSION_PATH = STATE_DIR / "business_overview_versions.json"
+
+EDINETDB_BASE = "https://edinetdb.jp/v1"
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -248,6 +251,114 @@ def extract_keyword_with_ai(
 
 
 # ============================================================
+# EDINET DB: 有価証券報告書「事業の内容」から主力ブランド・事業名を発見
+# 新しい報告書が出た時だけ再抽出する(毎月同じ書類を読み直す無駄を避けるため、
+# latest_fiscal_year が前回と変わっていない限りスキップする)
+# ============================================================
+
+
+def get_edinetdb_fiscal_year(edinet_code: str, api_key: str) -> int | None:
+    try:
+        r = requests.get(
+            f"{EDINETDB_BASE}/companies/{edinet_code}",
+            headers={"X-API-Key": api_key},
+            timeout=20,
+        )
+        r.raise_for_status()
+        return r.json()["data"].get("latest_fiscal_year")
+    except Exception as e:  # noqa: BLE001
+        log(f"  [WARN] EDINET DB company lookup failed: {type(e).__name__}: {e}")
+        return None
+
+
+def get_edinetdb_business_overview(edinet_code: str, api_key: str) -> str | None:
+    try:
+        r = requests.get(
+            f"{EDINETDB_BASE}/companies/{edinet_code}/text-blocks",
+            headers={"X-API-Key": api_key},
+            params={"full": "true", "sections": "business-overview"},
+            timeout=20,
+        )
+        r.raise_for_status()
+        data = r.json()["data"]
+        return data[0]["text"] if data else None
+    except Exception as e:  # noqa: BLE001
+        log(f"  [WARN] EDINET DB business-overview fetch failed: {type(e).__name__}: {e}")
+        return None
+
+
+def discover_segment_keywords_with_ai(business_overview: str, company_name: str) -> list[str]:
+    """有報の「事業の内容」全文から、業績インパクトが大きい主力事業・ブランド名を
+    複数抽出する(新商品ニュースの巡回では拾えない、既存の稼ぎ頭を見逃さないため)。
+    """
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        return []
+    try:
+        resp = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json",
+            },
+            json={
+                "model": ANTHROPIC_MODEL,
+                "max_tokens": 200,
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": (
+                            f"企業「{company_name}」の有価証券報告書「事業の内容」全文:\n"
+                            f"{business_overview}\n\n"
+                            "この中から、売上・利益への貢献度が高い(または今後高まりそうな)"
+                            "主力事業・ブランド名・店舗名・商品カテゴリを、SNSやGoogle検索で"
+                            "実際に使われそうな自然な言葉で最大5個抽出してください。\n"
+                            "抽象的すぎるセグメント名(例:「アミューズメント施設運営事業」)ではなく、"
+                            "具体的な固有名詞(例:「トレーディングカードピット」「361°」)を優先してください。\n"
+                            "1行1キーワードで出力し、他の説明は一切不要です。該当なしなら「NONE」とだけ"
+                            "出力してください。"
+                        ),
+                    }
+                ],
+            },
+            timeout=30,
+        )
+        resp.raise_for_status()
+        text = resp.json()["content"][0]["text"].strip()
+        if not text or text.upper().startswith("NONE"):
+            return []
+        keywords = [line.strip(" 　「」『』:：・-") for line in text.splitlines()]
+        return [k[:40] for k in keywords if k]
+    except Exception as e:  # noqa: BLE001
+        log(f"  [WARN] segment keyword discovery failed: {type(e).__name__}: {e}")
+        return []
+
+
+def discover_new_segment_keywords(company: dict, versions: dict) -> list[str]:
+    """latest_fiscal_yearが前回チェック時から変わっていれば(=新しい有報が出ていれば)
+    事業内容を読み直してキーワード候補を返す。変わっていなければ何もしない。
+    """
+    edinet_code = company.get("edinet_code")
+    edinetdb_key = os.environ.get("EDINETDB_API_KEY")
+    if not edinet_code or not edinetdb_key:
+        return []
+    code = company["code"]
+    fy = get_edinetdb_fiscal_year(edinet_code, edinetdb_key)
+    if fy is None:
+        return []
+    if versions.get(code) == fy:
+        log(f"  [SEGMENT] business overview unchanged (FY{fy}), skipping re-extraction")
+        return []
+    log(f"  [SEGMENT] new filing detected (FY{versions.get(code)} -> FY{fy}), re-reading business overview")
+    versions[code] = fy
+    overview = get_edinetdb_business_overview(edinet_code, edinetdb_key)
+    if not overview:
+        return []
+    return discover_segment_keywords_with_ai(overview, company["name"])
+
+
+# ============================================================
 # Google Trends (非公式・直接API叩き)
 # ============================================================
 
@@ -450,6 +561,7 @@ def main():
     history = load_json(HISTORY_PATH, {})  # {code: {keyword: {date: {trends, yahoo}}}}
     tracked_keywords = load_json(STATE_DIR / "tracked_keywords.json", {})  # {code: [keyword, ...]}
     last_checked = load_json(LAST_CHECKED_PATH, {})  # {code: "YYYY-MM-DD"}
+    bo_versions = load_json(BUSINESS_OVERVIEW_VERSION_PATH, {})  # {code: fiscal_year}
 
     # --- ローテーション選定: 1社あたり月1回、1回の実行で最大MAX_COMPANIES_PER_RUN社まで ---
     # (今は3社だが、将来300社規模になっても1日あたりの負荷を一定に保つための仕組み)
@@ -483,6 +595,22 @@ def main():
         for bk in company["base_keywords"]:
             if bk not in kw_list:
                 kw_list.append(bk)
+
+        # --- 主力事業・ブランド名の発見(有報が更新された時だけ実行、通常はスキップ) ---
+        segment_keywords = load_json(STATE_DIR / "segment_keywords.json", {})
+        company_segment_kws = segment_keywords.get(code, [])
+        new_segment_kws = discover_new_segment_keywords(company, bo_versions)
+        for kw in new_segment_kws:
+            if kw not in company_segment_kws:
+                company_segment_kws.append(kw)
+                log(f"  [SEGMENT/new] discovered core keyword: {kw}")
+                new_product_lines.append(f"・**{name}**[主力事業]: 「{kw}」を新たに常時監視対象に追加")
+        segment_keywords[code] = company_segment_kws
+        save_json(STATE_DIR / "segment_keywords.json", segment_keywords)
+        core_keywords = list(company["base_keywords"]) + company_segment_kws
+        for ck in core_keywords:
+            if ck not in kw_list:
+                kw_list.append(ck)
 
         # --- 新商品検知 ---
         fetcher = NEWS_FETCHERS.get(company["news_source"]["type"])
@@ -523,10 +651,11 @@ def main():
                 else:
                     log(f"  [NEW/other] {it.title} ({it.date}) -> not growth-related, skipped")
 
-        # 商品キーワード数を上限に丸める(社名などbase_keywordsは常に維持)
-        product_kws = [k for k in kw_list if k not in company["base_keywords"]]
+        # 商品キーワード数を上限に丸める(社名・主力事業ブランド名は常に維持し、
+        # 新商品ニュース由来のキーワードだけを直近N件に絞る)
+        product_kws = [k for k in kw_list if k not in core_keywords]
         product_kws = product_kws[-MAX_TRACKED_PRODUCT_KEYWORDS:]
-        kw_list = list(company["base_keywords"]) + product_kws
+        kw_list = core_keywords + product_kws
 
         seen_news[code] = sorted(seen_urls)
         tracked_keywords[code] = kw_list
@@ -567,6 +696,7 @@ def main():
     save_json(HISTORY_PATH, history)
     save_json(STATE_DIR / "tracked_keywords.json", tracked_keywords)
     save_json(LAST_CHECKED_PATH, last_checked)
+    save_json(BUSINESS_OVERVIEW_VERSION_PATH, bo_versions)
 
     if not args.dry_run:
         webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")

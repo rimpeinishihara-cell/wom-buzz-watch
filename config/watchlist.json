@@ -1,6 +1,7 @@
 [
   {
     "code": "7800",
+    "edinet_code": "E34028",
     "name": "アミファ",
     "base_keywords": ["アミファ", "はらぺこあおむし シール"],
     "news_source": {
@@ -10,6 +11,7 @@
   },
   {
     "code": "6570",
+    "edinet_code": "E33822",
     "name": "共和コーポレーション",
     "base_keywords": [
       "MOOOSH",
@@ -25,6 +27,7 @@
   },
   {
     "code": "3070",
+    "edinet_code": "E03004",
     "name": "ジェリービーンズグループ",
     "base_keywords": ["3Dアイス", "ジェリービーンズグループ", "361° スポーツ", "リカバリーウエア"],
     "news_source": {
