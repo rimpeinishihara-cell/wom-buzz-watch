@@ -139,7 +139,12 @@
     "homepage_url": "https://corp.artnature.co.jp/",
     "base_keywords": [
       "アートネイチャー"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.artnature.co.jp/ja/news.html",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*target=\"_blank\">\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,150}?<span class=\"news_tx\">(?P<title>.*?)</span>"
+    }
   },
   {
     "code": "2226",
@@ -195,7 +200,12 @@
       "ルマンド",
       "アルフォート",
       "プチシリーズ"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.bourbon.co.jp/",
+      "pattern": "<span class=\"mod-newsList-day[^\"]*\">(?P<date>[^<]+)</span>[\\s\\S]{0,150}?<a href=\"(?P<url>[^\"]+)\"[^>]*><span class=\"rt_cf_n_title\">(?P<title>.*?)</span>"
+    }
   },
   {
     "code": "2937",
@@ -326,7 +336,12 @@
       "ベリテ",
       "キレイニ",
       "ベリシア"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.verite.jp/media_top.html",
+      "pattern": "<dd class=\"block-pagecategory-page-list--date\">\\s*(?P<date>[\\d/]+)[\\s\\S]{0,150}?</dd>\\s*<dd class=\"block-pagecategory-page-list--page-caption\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
   },
   {
     "code": "3396",
@@ -374,7 +389,12 @@
       "消臭力",
       "ニャンとも清潔トイレ",
       "ムシューダ"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.st-c.co.jp/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\"><div class=\"mod-news-list_inner\"><dl><dt><span class=\"mod-news-list_date\">(?P<date>[^<]+)</span>[\\s\\S]{0,100}?</dt><dd><p>(?P<title>.*?)</p>"
+    }
   },
   {
     "code": "4933",
@@ -521,7 +541,12 @@
       "ガンホー",
       "パズドラ",
       "パズル&ドラゴンズ"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gungho.co.jp/news/",
+      "pattern": "<span class=\"_day\">(?P<date>[^<]+)</span>[\\s\\S]{0,200}?<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,50}?<span class=\"_in\">(?P<title>.*?)</span>"
+    }
   },
   {
     "code": "2928",
@@ -618,7 +643,12 @@
       "エスビー食品",
       "赤缶カレー粉",
       "ゴールデンカレー"
-    ]
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sbfoods.co.jp/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*class=\"top-news-release-list_link\">\\s*<span class=\"top-news-release-list_date\">(?P<date>[^<]+)</span>\\s*<p class=\"top-news-release-list_text\">(?P<title>.*?)(?:<img|</p>)"
+    }
   },
   {
     "code": "2819",
