@@ -43,7 +43,7 @@
     "edinet_code": "E02398",
     "name": "キングジム",
     "homepage_url": "https://www.kingjim.co.jp/",
-    "base_keywords": ["キングジム", "テプラ", "ポメラ"]
+    "base_keywords": ["キングジム", "テプラ", "ポメラ", "Toffy", "ラドンナ"]
   },
   {
     "code": "7792",
@@ -198,6 +198,83 @@
     "edinet_code": "E03467",
     "name": "フェリシモ",
     "homepage_url": "https://www.felissimo.co.jp/",
-    "base_keywords": ["フェリシモ"]
+    "base_keywords": ["フェリシモ", "フェリシモ定期便", "YOU+MORE!"]
+  },
+  {
+    "code": "4985",
+    "edinet_code": "E01015",
+    "name": "アース製薬",
+    "homepage_url": "https://www.earth.jp/",
+    "base_keywords": ["アース製薬", "アースノーマット", "ごきぶりホイホイ", "ブラックキャップ", "モンダミン", "バスクリン", "アイスノン"]
+  },
+  {
+    "code": "4951",
+    "edinet_code": "E01019",
+    "name": "エステー",
+    "homepage_url": "https://www.st-c.co.jp/",
+    "base_keywords": ["エステー", "消臭力", "ニャンとも清潔トイレ", "ムシューダ"]
+  },
+  {
+    "code": "4933",
+    "edinet_code": "E35928",
+    "name": "I-ne",
+    "homepage_url": "https://www.i-ne.co.jp/",
+    "base_keywords": ["I-ne", "BOTANIST", "SALONIA", "YOLU"]
+  },
+  {
+    "code": "4931",
+    "edinet_code": "E34965",
+    "name": "新日本製薬",
+    "homepage_url": "https://www.shinnihonseiyaku.co.jp/",
+    "base_keywords": ["新日本製薬", "パーフェクトワン", "PERFECT ONE"]
+  },
+  {
+    "code": "2930",
+    "edinet_code": "E26549",
+    "name": "北の達人コーポレーション",
+    "homepage_url": "https://www.kitanotatsujin.com/",
+    "base_keywords": ["北の達人コーポレーション", "北の快適工房", "ヒアロディープパッチ", "カイテキオリゴ"]
+  },
+  {
+    "code": "4218",
+    "edinet_code": "E01000",
+    "name": "ニチバン",
+    "homepage_url": "https://www.nichiban.co.jp/",
+    "base_keywords": ["ニチバン", "セロテープ", "ケアリーヴ"]
+  },
+  {
+    "code": "5032",
+    "edinet_code": "E37573",
+    "name": "ANYCOLOR",
+    "homepage_url": "https://www.anycolor.co.jp/",
+    "base_keywords": ["ANYCOLOR", "にじさんじ"]
+  },
+  {
+    "code": "3182",
+    "edinet_code": "E27260",
+    "name": "オイシックス・ラ・大地",
+    "homepage_url": "https://oisixradaichi.co.jp/",
+    "base_keywords": ["オイシックス・ラ・大地", "Oisix", "らでぃっしゅぼーや"]
+  },
+  {
+    "code": "2305",
+    "edinet_code": "E03393",
+    "name": "スタジオアリス",
+    "homepage_url": "https://www.studio-alice.co.jp/",
+    "base_keywords": ["スタジオアリス"]
+  },
+  {
+    "code": "2767",
+    "edinet_code": "E03407",
+    "name": "円谷フィールズホールディングス",
+    "homepage_url": "https://tsuburaya-fields.co.jp/",
+    "base_keywords": ["円谷フィールズホールディングス", "ウルトラマン", "円谷プロダクション"]
+  },
+  {
+    "code": "7458",
+    "edinet_code": "E02824",
+    "name": "第一興商",
+    "homepage_url": "https://www.dik.co.jp/",
+    "base_keywords": ["第一興商", "DAM", "ビッグエコー"]
   }
 ]
