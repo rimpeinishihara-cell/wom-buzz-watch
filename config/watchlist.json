@@ -741,5 +741,66 @@
       "url": "https://www.genda.jp/news/",
       "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div[^>]*>\\s*<img[^>]*alt=\"(?P<title>[^\"]+)\"[\\s\\S]{0,200}?<time[^>]*datetime=\"(?P<date>[^\"]+)\""
     }
+  },
+  {
+    "code": "5331",
+    "edinet_code": "E01139",
+    "name": "ノリタケ",
+    "homepage_url": "https://www.noritake.co.jp/",
+    "base_keywords": [
+      "ノリタケ",
+      "Noritake"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.noritake.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"list-top\">\\s*<p class=\"list-date\">(?P<date>[^<]+)</p>[\\s\\S]{0,150}?</div>\\s*<p class=\"list-txt\">(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "5204",
+    "edinet_code": "E01123",
+    "name": "石塚硝子",
+    "homepage_url": "https://www.ishizuka.co.jp/",
+    "base_keywords": [
+      "石塚硝子",
+      "アデリア",
+      "ADERIA"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://aderia.jp/news/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,100}?<span class=\"title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "5122",
+    "edinet_code": "E01100",
+    "name": "オカモト",
+    "homepage_url": "https://www.okamoto-inc.jp/",
+    "base_keywords": [
+      "オカモト",
+      "オカモトコンドームズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.okamoto-inc.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"p-news-item\"[^>]*>[\\s\\S]{0,300}?<time class=\"p-news-item__date\">(?P<date>[^<]+)</time>[\\s\\S]{0,150}?<p class=\"p-news-item__title\">(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "5194",
+    "edinet_code": "E01095",
+    "name": "相模ゴム工業",
+    "homepage_url": "https://www.sagami-gomu.co.jp/",
+    "base_keywords": [
+      "相模ゴム工業",
+      "サガミオリジナル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sagami-gomu.co.jp/release/",
+      "pattern": "<dt><span>(?P<date>[^<]+)</span>\\s*<span>[^<]*</span>\\s*</dt><dd>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>.*?)\\s*</a>"
+    }
   }
 ]
