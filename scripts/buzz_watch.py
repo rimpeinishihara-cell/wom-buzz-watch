@@ -272,16 +272,23 @@ def get_edinetdb_fiscal_year(edinet_code: str, api_key: str) -> int | None:
 
 
 def get_edinetdb_business_overview(edinet_code: str, api_key: str) -> str | None:
+    """「事業の内容」は抽象的な事業区分の表現に留まることが多く、消費者向けの
+    通称ブランド名(例:「アピナ」)が出てこない場合がある。一方「沿革」は
+    店舗・ブランドの開業を実名で年表形式で語ることが多いため、両方を結合して
+    AIに読ませることで実際のブランド名を拾いやすくする。
+    """
     try:
         r = requests.get(
             f"{EDINETDB_BASE}/companies/{edinet_code}/text-blocks",
             headers={"X-API-Key": api_key},
-            params={"full": "true", "sections": "business-overview"},
+            params={"full": "true", "sections": "business-overview,history"},
             timeout=20,
         )
         r.raise_for_status()
         data = r.json()["data"]
-        return data[0]["text"] if data else None
+        if not data:
+            return None
+        return "\n\n".join(f"【{item['section']}】\n{item['text']}" for item in data)
     except Exception as e:  # noqa: BLE001
         log(f"  [WARN] EDINET DB business-overview fetch failed: {type(e).__name__}: {e}")
         return None
@@ -309,13 +316,17 @@ def discover_segment_keywords_with_ai(business_overview: str, company_name: str)
                     {
                         "role": "user",
                         "content": (
-                            f"企業「{company_name}」の有価証券報告書「事業の内容」全文:\n"
+                            f"企業「{company_name}」の有価証券報告書「事業の内容」「沿革」全文:\n"
                             f"{business_overview}\n\n"
                             "この中から、売上・利益への貢献度が高い(または今後高まりそうな)"
-                            "主力事業・ブランド名・店舗名・商品カテゴリを、SNSやGoogle検索で"
+                            "主力事業・ブランド名・店舗ブランド名・商品カテゴリを、SNSやGoogle検索で"
                             "実際に使われそうな自然な言葉で最大5個抽出してください。\n"
                             "抽象的すぎるセグメント名(例:「アミューズメント施設運営事業」)ではなく、"
-                            "具体的な固有名詞(例:「トレーディングカードピット」「361°」)を優先してください。\n"
+                            "具体的な固有名詞を優先してください。\n"
+                            "「沿革」には同じ店舗ブランドの出店(例:「アピナ○○店」)が何十件も"
+                            "繰り返し登場することがありますが、それらは1つの代表的なブランド名"
+                            "(例:「アピナ」)にまとめて1個としてください。個別の店舗名・地名を"
+                            "そのまま列挙しないでください。\n"
                             "1行1キーワードで出力し、他の説明は一切不要です。該当なしなら「NONE」とだけ"
                             "出力してください。"
                         ),
