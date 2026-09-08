@@ -24,6 +24,7 @@ import re
 import sys
 import time
 import unicodedata
+import urllib.parse
 from dataclasses import dataclass, field
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -316,19 +317,41 @@ def discover_segment_keywords_with_ai(business_overview: str, company_name: str)
                     {
                         "role": "user",
                         "content": (
-                            f"企業「{company_name}」の有価証券報告書「事業の内容」「沿革」全文:\n"
+                            f"企業「{company_name}」の有価証券報告書「事業の内容」「沿革」全文"
+                            "(末尾に公式サイトトップページの外部リンク一覧が付くこともあります):\n"
                             f"{business_overview}\n\n"
-                            "この中から、売上・利益への貢献度が高い(または今後高まりそうな)"
-                            "主力事業・ブランド名・店舗ブランド名・商品カテゴリを、SNSやGoogle検索で"
-                            "実際に使われそうな自然な言葉で最大5個抽出してください。\n"
-                            "抽象的すぎるセグメント名(例:「アミューズメント施設運営事業」)ではなく、"
-                            "具体的な固有名詞を優先してください。\n"
+                            "外部リンク一覧がある場合、そのリンクの説明文(alt属性等)には英語の"
+                            "業種名(例:「BATTING CENTER」「BOWLING」)と固有ブランド名"
+                            "(例:「iBLOOM」)が混在していることがあります。英語の一般的な業種名は"
+                            "除外し、固有ブランド名だけを候補にしてください。\n\n"
+                            "この中から、この企業に固有の(=これで検索すれば他社ではなくこの企業の"
+                            "話題がヒットする)ブランド名・屋号・具体的な商品(シリーズ)名を、"
+                            "SNSやGoogle検索で実際に使われそうな自然な言葉で最大5個抽出してください。\n\n"
+                            "判定基準は「一般名詞っぽい響きかどうか」ではなく「その言葉で検索した時に"
+                            "この企業の話題が中心にヒットするか、無関係な他社の話題ばかりヒットするか」"
+                            "です。たとえ普通の単語の組み合わせに見えても、この企業が独自に展開する"
+                            "特定の商品・店舗を指す言葉なら含めてください"
+                            "(例:「3Dアイス」はGold Starが独自に販売する具体的な商品名なので含める。"
+                            "一方「アイスクリーム」は業界全体を指す一般名詞なので含めない)。\n\n"
+                            "【絶対に含めないもの】\n"
+                            "・業界・施設タイプそのものを指す一般名詞(例:「バッティングセンター」"
+                            "「ボウリング場」「蓄電池システム」)。これは特定の店舗ブランド名"
+                            "(例:「アピナ」)ではなく、どの会社の同種施設・製品にも当てはまる"
+                            "言葉だからです。\n"
+                            "・抽象的すぎるセグメント名(例:「アミューズメント施設運営事業」)。\n\n"
+                            "【含めるべきものの例】\n"
+                            "・固有の屋号・ブランド名(例:「アピナ」「MOOOSH」「361°」)\n"
+                            "・この企業が独自に展開する具体的な商品(シリーズ)名"
+                            "(例:「3Dアイス」「3Dフルーツアイス」)\n"
+                            "・企業名を含む具体的な店舗ブランド名(例:「トレーディングカードピット」)\n"
+                            "・子会社名(例:「Gold Star」)\n\n"
                             "「沿革」には同じ店舗ブランドの出店(例:「アピナ○○店」)が何十件も"
                             "繰り返し登場することがありますが、それらは1つの代表的なブランド名"
                             "(例:「アピナ」)にまとめて1個としてください。個別の店舗名・地名を"
                             "そのまま列挙しないでください。\n"
-                            "1行1キーワードで出力し、他の説明は一切不要です。該当なしなら「NONE」とだけ"
-                            "出力してください。"
+                            "固有名詞が1つも見つからなければ、無理に一般名詞を出力せず"
+                            "「NONE」としてください。\n"
+                            "1行1キーワードで出力し、他の説明は一切不要です。"
                         ),
                     }
                 ],
@@ -346,9 +369,44 @@ def discover_segment_keywords_with_ai(business_overview: str, company_name: str)
         return []
 
 
+def fetch_homepage_brand_links(homepage_url: str) -> str:
+    """公式トップページが外部サイト(子会社・ブランドサイト)にリンクしている箇所を、
+    リンクテキストやimgのalt属性と合わせて抽出する。持株会社・多角化企業のトップページは
+    各ブランドサイトへの導線をバナー等で並べていることが多く、有報の本文には出てこない
+    消費者向けブランド名(例:「iBLOOM」)を拾える。
+    """
+    try:
+        resp = requests.get(homepage_url, headers={"User-Agent": USER_AGENT}, timeout=20)
+        resp.raise_for_status()
+        html = resp.text
+        own_domain = urllib.parse.urlparse(homepage_url).netloc
+        lines = []
+        for m in re.finditer(r'<a\s+[^>]*href="(https?://[^"]+)"[^>]*>(.*?)</a>', html, re.S):
+            url, inner = m.groups()
+            domain = urllib.parse.urlparse(url).netloc
+            if not domain or domain == own_domain:
+                continue
+            alt_m = re.search(r'alt="([^"]*)"', inner)
+            label = nfkc(alt_m.group(1)) if alt_m else nfkc(re.sub(r"<[^>]+>", "", inner))
+            if label:
+                lines.append(f"{label} ({url})")
+        seen: set[str] = set()
+        uniq = []
+        for l in lines:
+            if l not in seen:
+                seen.add(l)
+                uniq.append(l)
+        return "\n".join(uniq[:30])
+    except Exception as e:  # noqa: BLE001
+        log(f"  [WARN] homepage brand link fetch failed: {type(e).__name__}: {e}")
+        return ""
+
+
 def discover_new_segment_keywords(company: dict, versions: dict) -> list[str]:
     """latest_fiscal_yearが前回チェック時から変わっていれば(=新しい有報が出ていれば)
-    事業内容を読み直してキーワード候補を返す。変わっていなければ何もしない。
+    事業内容・沿革・公式トップページの外部リンクを読み直してキーワード候補を返す。
+    変わっていなければ何もしない(公式トップページの内容は有報と無関係に変わりうるが、
+    ブランド構成が月次で変わることは稀なので、簡易的に同じ変更検知条件に相乗りしている)。
     """
     edinet_code = company.get("edinet_code")
     edinetdb_key = os.environ.get("EDINETDB_API_KEY")
@@ -363,8 +421,13 @@ def discover_new_segment_keywords(company: dict, versions: dict) -> list[str]:
         return []
     log(f"  [SEGMENT] new filing detected (FY{versions.get(code)} -> FY{fy}), re-reading business overview")
     versions[code] = fy
-    overview = get_edinetdb_business_overview(edinet_code, edinetdb_key)
-    if not overview:
+    overview = get_edinetdb_business_overview(edinet_code, edinetdb_key) or ""
+    homepage_url = company.get("homepage_url")
+    if homepage_url:
+        brand_links = fetch_homepage_brand_links(homepage_url)
+        if brand_links:
+            overview += "\n\n【公式サイトのトップページからリンクされている外部サイト】\n" + brand_links
+    if not overview.strip():
         return []
     return discover_segment_keywords_with_ai(overview, company["name"])
 
@@ -450,8 +513,6 @@ def get_yahoo_realtime_count(keyword: str) -> int | None:
     密度(投稿/時間)を逆算する。値は整数(件/時間 ×10)に丸めて保存する。
     """
     try:
-        import urllib.parse
-
         url = f"https://search.yahoo.co.jp/realtime/search/{urllib.parse.quote(keyword)}"
         resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=20)
         if resp.status_code != 200:

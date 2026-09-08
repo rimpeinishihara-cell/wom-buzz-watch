@@ -1,0 +1,60 @@
+[12:53:09] [ROTATION] 3 companies total, 3 due, processing 3 today (0 skipped)
+[12:53:09] === アミファ (7800) ===
+[12:53:09]   [SEGMENT] new filing detected (FYNone -> FY2025), re-reading business overview
+[12:53:11]   [SEGMENT/new] discovered core keyword: amifa
+[12:53:11]   [SEGMENT/new] discovered core keyword: エメルスタイル
+[12:53:11]   checking keyword: アミファ
+[12:53:20]   checking keyword: はらぺこあおむし シール
+[12:53:28]   checking keyword: amifa
+[12:53:36]   checking keyword: エメルスタイル
+[12:53:39]   [WARN] trends multiline (エメルスタイル) 429, retrying in 15s (attempt 1/3)
+[12:53:59]   checking keyword: ギフトラッピング商品
+[12:54:07]   checking keyword: デザイン文具
+[12:54:15]   checking keyword: キッチン・テーブルウエア
+[12:54:22]   checking keyword: フラワー関連商品
+[12:54:30]   checking keyword: 均一価格ショップ
+[12:54:38] === 共和コーポレーション (6570) ===
+[12:54:38]   [SEGMENT] new filing detected (FYNone -> FY2026), re-reading business overview
+[12:54:40]   [SEGMENT/new] discovered core keyword: アピナ
+[12:54:40]   [SEGMENT/new] discovered core keyword: iBLOOM
+[12:54:40]   [SEGMENT/new] discovered core keyword: トレーディングカードピット
+[12:54:40]   [SEGMENT/new] discovered core keyword: トレカ道楽
+[12:54:40]   [SEGMENT/new] discovered core keyword: MOOOSH
+[12:54:41]   checking keyword: MOOOSH
+[12:54:49]   checking keyword: iBLOOM
+[12:54:57]   checking keyword: 共和コーポレーション
+[12:55:05]   checking keyword: アピナ
+[12:55:13]   checking keyword: トレーディングカードピット
+[12:55:21]   checking keyword: アピナ
+[12:55:28]   checking keyword: iBLOOM
+[12:55:36]   checking keyword: トレーディングカードピット
+[12:55:44]   checking keyword: トレカ道楽
+[12:55:52]   checking keyword: MOOOSH
+[12:56:00]   checking keyword: バッティングセンター
+[12:56:08]   checking keyword: ボウリング場
+[12:56:16]   checking keyword: トレーディングカード
+[12:56:24]   checking keyword: スクイーズ
+[12:56:32]   checking keyword: ゲームセンター
+[12:56:40] === ジェリービーンズグループ (3070) ===
+[12:56:40]   [SEGMENT] new filing detected (FYNone -> FY2026), re-reading business overview
+[12:56:41]   [SEGMENT/new] discovered core keyword: JELLY BEANS
+[12:56:41]   [SEGMENT/new] discovered core keyword: 361°
+[12:56:41]   [SEGMENT/new] discovered core keyword: Gold Star
+[12:56:41]   [SEGMENT/new] discovered core keyword: VOVO
+[12:56:41]   [SEGMENT/new] discovered core keyword: MAKE BEAUTURE
+[12:56:42]   checking keyword: 3Dアイス
+[12:56:44]   [WARN] trends multiline (3Dアイス) 429, retrying in 15s (attempt 1/3)
+[12:57:05]   checking keyword: ジェリービーンズグループ
+[12:57:13]   checking keyword: 361°
+[12:57:20]   checking keyword: JELLY BEANS
+[12:57:28]   checking keyword: 361°
+[12:57:36]   checking keyword: Gold Star
+[12:57:44]   checking keyword: VOVO
+[12:57:52]   checking keyword: MAKE BEAUTURE
+[12:58:00]   checking keyword: リカバリーウエア
+[12:58:08]   checking keyword: Gold Star アイスクリーム
+[12:58:16]   checking keyword: リカバリーウエア
+[12:58:23]   checking keyword: 蓄電池システム
+[12:58:31]   checking keyword: アイスクリーム
+[12:58:39]   checking keyword: 蓄電池
+[12:58:47] Done. new_products=12 spikes=0

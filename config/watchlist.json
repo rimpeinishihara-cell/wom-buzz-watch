@@ -3,6 +3,7 @@
     "code": "7800",
     "edinet_code": "E34028",
     "name": "アミファ",
+    "homepage_url": "https://www.amifa.co.jp/",
     "base_keywords": ["アミファ", "はらぺこあおむし シール"],
     "news_source": {
       "type": "rss",
@@ -13,6 +14,7 @@
     "code": "6570",
     "edinet_code": "E33822",
     "name": "共和コーポレーション",
+    "homepage_url": "https://www.kyowa-corp.co.jp/",
     "base_keywords": [
       "MOOOSH",
       "iBLOOM",
@@ -29,7 +31,8 @@
     "code": "3070",
     "edinet_code": "E03004",
     "name": "ジェリービーンズグループ",
-    "base_keywords": ["3Dアイス", "ジェリービーンズグループ", "361° スポーツ", "リカバリーウエア"],
+    "homepage_url": "https://www.jelly-beans-group.co.jp/",
+    "base_keywords": ["3Dアイス", "ジェリービーンズグループ", "361°"],
     "news_source": {
       "type": "html_list_jbg",
       "url": "https://www.jelly-beans-group.co.jp/topics/"
