@@ -36,6 +36,7 @@ WATCHLIST_PATH = ROOT / "config" / "watchlist.json"
 STATE_DIR = ROOT / "state"
 SEEN_NEWS_PATH = STATE_DIR / "seen_news.json"
 HISTORY_PATH = STATE_DIR / "history.json"
+LAST_CHECKED_PATH = STATE_DIR / "last_checked.json"
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -43,6 +44,8 @@ USER_AGENT = (
 )
 
 MAX_TRACKED_PRODUCT_KEYWORDS = 6  # 社名以外に追跡する商品キーワードの上限(API負荷抑制)
+CHECK_INTERVAL_DAYS = 30  # 1社あたりのチェック間隔(月1回)
+MAX_COMPANIES_PER_RUN = 10  # 1回の実行で処理する企業数の上限(将来300社規模でも1日10社に抑える)
 MIN_HISTORY_FOR_SPIKE = 5  # 急上昇判定に必要な最低日数
 BASELINE_WINDOW = 28  # 直近何日を基準値計算に使うか
 
@@ -441,16 +444,35 @@ def main():
     args = parser.parse_args()
 
     today = datetime.datetime.now(JST).strftime("%Y-%m-%d")
+    today_date = datetime.datetime.now(JST).date()
     watchlist = load_json(WATCHLIST_PATH, [])
     seen_news = load_json(SEEN_NEWS_PATH, {})  # {code: [url, ...]}
     history = load_json(HISTORY_PATH, {})  # {code: {keyword: {date: {trends, yahoo}}}}
     tracked_keywords = load_json(STATE_DIR / "tracked_keywords.json", {})  # {code: [keyword, ...]}
+    last_checked = load_json(LAST_CHECKED_PATH, {})  # {code: "YYYY-MM-DD"}
+
+    # --- ローテーション選定: 1社あたり月1回、1回の実行で最大MAX_COMPANIES_PER_RUN社まで ---
+    # (今は3社だが、将来300社規模になっても1日あたりの負荷を一定に保つための仕組み)
+    def days_since_checked(company):
+        last = last_checked.get(company["code"])
+        if last is None:
+            return 10**9  # 未チェックの企業を最優先
+        return (today_date - datetime.date.fromisoformat(last)).days
+
+    due = [c for c in watchlist if days_since_checked(c) >= CHECK_INTERVAL_DAYS]
+    due.sort(key=days_since_checked, reverse=True)
+    todays_batch = due[:MAX_COMPANIES_PER_RUN]
+    skipped = len(watchlist) - len(todays_batch)
+    log(
+        f"[ROTATION] {len(watchlist)} companies total, {len(due)} due, "
+        f"processing {len(todays_batch)} today ({skipped} skipped)"
+    )
 
     trends_client = TrendsClient()
     discord_lines: list[str] = []
     new_product_lines: list[str] = []
 
-    for company in watchlist:
+    for company in todays_batch:
         code = company["code"]
         name = company["name"]
         log(f"=== {name} ({code}) ===")
@@ -508,6 +530,7 @@ def main():
 
         seen_news[code] = sorted(seen_urls)
         tracked_keywords[code] = kw_list
+        last_checked[code] = today
 
         # --- 各キーワードの信号取得 ---
         company_history = history.setdefault(code, {})
@@ -543,6 +566,7 @@ def main():
     save_json(SEEN_NEWS_PATH, seen_news)
     save_json(HISTORY_PATH, history)
     save_json(STATE_DIR / "tracked_keywords.json", tracked_keywords)
+    save_json(LAST_CHECKED_PATH, last_checked)
 
     if not args.dry_run:
         webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
