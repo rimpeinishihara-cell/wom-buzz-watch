@@ -70,6 +70,7 @@ class NewsItem:
     title: str
     url: str
     date: str
+    categories: list = field(default_factory=list)
 
 
 def fetch_rss_news(url: str) -> list[NewsItem]:
@@ -86,8 +87,16 @@ def fetch_rss_news(url: str) -> list[NewsItem]:
         if not title_m or not link_m:
             continue
         title = nfkc(title_m.group(1) or title_m.group(2) or "")
+        categories = [
+            nfkc(c) for c in re.findall(r"<category><!\[CDATA\[(.*?)\]\]></category>", block)
+        ]
         items.append(
-            NewsItem(title=title, url=link_m.group(1).strip(), date=(date_m.group(1).strip() if date_m else ""))
+            NewsItem(
+                title=title,
+                url=link_m.group(1).strip(),
+                date=(date_m.group(1).strip() if date_m else ""),
+                categories=categories,
+            )
         )
     return items
 
@@ -162,7 +171,9 @@ ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 GROWTH_CATEGORIES = ("新商品", "新店舗", "新業態", "新販路", "コラボ", "その他")
 
 
-def extract_keyword_with_ai(title: str, company_name: str) -> tuple[str, str] | None:
+def extract_keyword_with_ai(
+    title: str, company_name: str, categories: list | None = None
+) -> tuple[str, str] | None:
     """Claude APIでニュースタイトルを判定し、業績インパクトが期待できる内容なら
     (種別, 検索キーワード) を返す。決算・人事・定型お知らせなど業績に直接
     関係なさそうな内容であれば None を返す(=バズ監視の対象に追加しない)。
@@ -189,8 +200,9 @@ def extract_keyword_with_ai(title: str, company_name: str) -> tuple[str, str] | 
                         "role": "user",
                         "content": (
                             f"企業「{company_name}」が公式サイトに出した新着情報のタイトル:\n"
-                            f"「{title}」\n\n"
-                            "この内容は、売上や株価にプラスの影響を与えうる出来事ですか？\n"
+                            f"「{title}」\n"
+                            + (f"付随するタグ情報: {', '.join(categories)}\n" if categories else "")
+                            + "\nこの内容は、売上や株価にプラスの影響を与えうる出来事ですか？\n"
                             "該当例: 新商品・新シリーズの発売、新店舗のオープン、新しい業態・"
                             "コンセプト店の展開、新しい販路への進出(コンビニ・量販店・海外展開・"
                             "ECモール出店等)、話題性のあるコラボ、SNSでバズりそうな企画・"
@@ -198,8 +210,11 @@ def extract_keyword_with_ai(title: str, company_name: str) -> tuple[str, str] | 
                             "該当する場合は次の形式で1行だけ出力してください(説明・前置き不要):\n"
                             "種別|検索キーワード\n"
                             "種別は 新商品/新店舗/新業態/新販路/コラボ/その他 のいずれか。\n"
-                            "検索キーワードは、Google検索やX検索で使える固有名詞"
-                            "(商品名・店舗名・シリーズ名など)を日本語で。\n\n"
+                            "検索キーワードは、実際にSNSや検索でユーザーが使いそうな自然な言葉に"
+                            "してください。固有名詞(キャラクター名・シリーズ名・店舗名)だけだと"
+                            "他の意味と混ざって検索精度が落ちる場合は、商品カテゴリ語"
+                            "(シール/ぬいぐるみ/フィギュア/マスキングテープ 等)を1語添えてください。"
+                            "例: 「はらぺこあおむし」だけでなく「はらぺこあおむし シール」。\n\n"
                             "該当しない場合(決算発表、人事異動、システムメンテナンス、"
                             "定型の事務連絡など業績に直接関係なさそうな内容)は"
                             "「NONE」とだけ出力してください。"
@@ -464,7 +479,7 @@ def main():
             for it in new_items:
                 seen_urls.add(it.url)
             for it in new_items[:MAX_TRACKED_PRODUCT_KEYWORDS]:
-                result = extract_keyword_with_ai(it.title, name)
+                result = extract_keyword_with_ai(it.title, name, it.categories)
                 time.sleep(0.3)
                 if result:
                     _, kw = result
@@ -473,7 +488,7 @@ def main():
         else:
             for it in new_items:
                 seen_urls.add(it.url)
-                result = extract_keyword_with_ai(it.title, name)
+                result = extract_keyword_with_ai(it.title, name, it.categories)
                 time.sleep(0.3)
                 if result:
                     category, kw = result

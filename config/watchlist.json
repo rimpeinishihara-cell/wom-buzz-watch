@@ -2,7 +2,7 @@
   {
     "code": "7800",
     "name": "アミファ",
-    "base_keywords": ["アミファ"],
+    "base_keywords": ["アミファ", "はらぺこあおむし シール"],
     "news_source": {
       "type": "rss",
       "url": "https://products.amifa.co.jp/feed/"
@@ -11,7 +11,7 @@
   {
     "code": "6570",
     "name": "共和コーポレーション",
-    "base_keywords": ["iBLOOM", "共和コーポレーション"],
+    "base_keywords": ["MOOOSH", "iBLOOM", "共和コーポレーション"],
     "news_source": {
       "type": "html_list_ibloom",
       "url": "https://i-bloom-squishy.com/news/"
