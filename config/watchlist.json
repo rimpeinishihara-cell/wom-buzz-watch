@@ -276,5 +276,68 @@
     "name": "第一興商",
     "homepage_url": "https://www.dik.co.jp/",
     "base_keywords": ["第一興商", "DAM", "ビッグエコー"]
+  },
+  {
+    "code": "3765",
+    "edinet_code": "E05474",
+    "name": "ガンホー・オンライン・エンターテイメント",
+    "homepage_url": "https://www.gungho.co.jp/",
+    "base_keywords": ["ガンホー", "パズドラ", "パズル&ドラゴンズ"]
+  },
+  {
+    "code": "2928",
+    "edinet_code": "E00518",
+    "name": "RIZAPグループ",
+    "homepage_url": "https://www.rizapgroup.com/",
+    "base_keywords": ["RIZAP", "ライザップ", "chocoZAP", "チョコザップ", "BRUNO"]
+  },
+  {
+    "code": "2769",
+    "edinet_code": "E03409",
+    "name": "ヴィレッジヴァンガード",
+    "homepage_url": "https://www.village-v.co.jp/",
+    "base_keywords": ["ヴィレッジヴァンガード"]
+  },
+  {
+    "code": "8165",
+    "edinet_code": "E03092",
+    "name": "千趣会",
+    "homepage_url": "https://www.senshukai.co.jp/",
+    "base_keywords": ["千趣会", "ベルメゾン"]
+  },
+  {
+    "code": "2936",
+    "edinet_code": "E38104",
+    "name": "ベースフード",
+    "homepage_url": "https://basefood.co.jp/",
+    "base_keywords": ["ベースフード", "BASE BREAD", "BASE YAKISOBA", "BASE RAMEN"]
+  },
+  {
+    "code": "7110",
+    "edinet_code": "E37848",
+    "name": "クラシコム",
+    "homepage_url": "https://kurashicom.jp/",
+    "base_keywords": ["クラシコム", "北欧、暮らしの道具店", "foufou"]
+  },
+  {
+    "code": "2268",
+    "edinet_code": "E00474",
+    "name": "B-Rサーティワンアイスクリーム",
+    "homepage_url": "https://www.31ice.co.jp/",
+    "base_keywords": ["サーティワン", "31アイス", "31ice"]
+  },
+  {
+    "code": "2805",
+    "edinet_code": "E00452",
+    "name": "ヱスビー食品",
+    "homepage_url": "https://www.sbfoods.co.jp/",
+    "base_keywords": ["エスビー食品", "赤缶カレー粉", "ゴールデンカレー"]
+  },
+  {
+    "code": "2819",
+    "edinet_code": "E00514",
+    "name": "エバラ食品工業",
+    "homepage_url": "https://www.ebarafoods.com/",
+    "base_keywords": ["エバラ食品", "黄金の味", "プチッと鍋"]
   }
 ]
