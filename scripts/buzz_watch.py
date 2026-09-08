@@ -684,12 +684,13 @@ def main():
             if ck not in kw_list:
                 kw_list.append(ck)
 
-        # --- 新商品検知 ---
-        fetcher = NEWS_FETCHERS.get(company["news_source"]["type"])
+        # --- 新商品検知(Tier 2のnews_source未設定企業はスキップし、キーワード追跡のみ行う) ---
+        news_source = company.get("news_source")
+        fetcher = NEWS_FETCHERS.get(news_source["type"]) if news_source else None
         new_items: list[NewsItem] = []
         if fetcher:
             try:
-                items = fetcher(company["news_source"]["url"])
+                items = fetcher(news_source["url"])
                 new_items = [it for it in items if it.url not in seen_urls]
             except Exception as e:  # noqa: BLE001
                 log(f"  [WARN] news fetch failed: {type(e).__name__}: {e}")

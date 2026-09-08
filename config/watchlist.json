@@ -37,5 +37,167 @@
       "type": "html_list_jbg",
       "url": "https://www.jelly-beans-group.co.jp/topics/"
     }
+  },
+  {
+    "code": "7962",
+    "edinet_code": "E02398",
+    "name": "キングジム",
+    "homepage_url": "https://www.kingjim.co.jp/",
+    "base_keywords": ["キングジム", "テプラ", "ポメラ"]
+  },
+  {
+    "code": "7792",
+    "edinet_code": "E36670",
+    "name": "コラントッテ",
+    "homepage_url": "https://colantotte.jp/",
+    "base_keywords": ["コラントッテ", "Colantotte", "TAO", "Lierrey"]
+  },
+  {
+    "code": "7809",
+    "edinet_code": "E33392",
+    "name": "壽屋",
+    "homepage_url": "https://www.kotobukiya.co.jp/",
+    "base_keywords": ["コトブキヤ", "フレームアームズ・ガール", "フレームアームズ"]
+  },
+  {
+    "code": "7975",
+    "edinet_code": "E00667",
+    "name": "リヒトラブ",
+    "homepage_url": "https://www.lihit-lab.com/",
+    "base_keywords": ["リヒトラブ", "LIHIT LAB"]
+  },
+  {
+    "code": "7810",
+    "edinet_code": "E33313",
+    "name": "クロスフォー",
+    "homepage_url": "https://www.crossfor.com/",
+    "base_keywords": ["クロスフォー", "Dancing Stone", "ダンシングストーン"]
+  },
+  {
+    "code": "7987",
+    "edinet_code": "E00679",
+    "name": "ナカバヤシ",
+    "homepage_url": "https://www.nakabayashi.co.jp/",
+    "base_keywords": ["ナカバヤシ", "フエルアルバム"]
+  },
+  {
+    "code": "7823",
+    "edinet_code": "E03493",
+    "name": "アートネイチャー",
+    "homepage_url": "https://corp.artnature.co.jp/",
+    "base_keywords": ["アートネイチャー"]
+  },
+  {
+    "code": "2226",
+    "edinet_code": "E00389",
+    "name": "湖池屋",
+    "homepage_url": "https://koike-ya.com/",
+    "base_keywords": [
+      "湖池屋",
+      "カラムーチョ",
+      "すっぱムーチョ",
+      "プライドポテト",
+      "ポリンキー",
+      "ドンタコス",
+      "スコーン"
+    ]
+  },
+  {
+    "code": "2216",
+    "edinet_code": "E00378",
+    "name": "カンロ",
+    "homepage_url": "https://www.kanro.co.jp/",
+    "base_keywords": ["カンロ", "ピュレグミ"]
+  },
+  {
+    "code": "2221",
+    "edinet_code": "E00386",
+    "name": "岩塚製菓",
+    "homepage_url": "https://www.iwatsukaseika.co.jp/",
+    "base_keywords": ["岩塚製菓", "瑞花"]
+  },
+  {
+    "code": "2208",
+    "edinet_code": "E00380",
+    "name": "ブルボン",
+    "homepage_url": "https://www.bourbon.co.jp/",
+    "base_keywords": ["ブルボン", "ルマンド", "アルフォート", "プチシリーズ"]
+  },
+  {
+    "code": "2937",
+    "edinet_code": "E38168",
+    "name": "サンクゼール",
+    "homepage_url": "https://www.stcousair.co.jp/",
+    "base_keywords": ["サンクゼール", "久世福商店", "KUZE FUKU & SONS"]
+  },
+  {
+    "code": "2224",
+    "edinet_code": "E00388",
+    "name": "コモ",
+    "homepage_url": "https://www.como.co.jp/",
+    "base_keywords": ["コモ"]
+  },
+  {
+    "code": "2217",
+    "edinet_code": "E00381",
+    "name": "モロゾフ",
+    "homepage_url": "https://www.morozoff.co.jp/",
+    "base_keywords": ["モロゾフ", "ファヤージュ"]
+  },
+  {
+    "code": "2209",
+    "edinet_code": "E00371",
+    "name": "井村屋グループ",
+    "homepage_url": "https://www.imuraya-group.com/",
+    "base_keywords": ["井村屋", "あずきバー"]
+  },
+  {
+    "code": "2922",
+    "edinet_code": "E00506",
+    "name": "なとり",
+    "homepage_url": "https://www.natori.co.jp/",
+    "base_keywords": ["なとり", "チーズ鱈", "ジャッキーカルパス"]
+  },
+  {
+    "code": "2266",
+    "edinet_code": "E00337",
+    "name": "六甲バター",
+    "homepage_url": "https://www.qbb.co.jp/",
+    "base_keywords": ["六甲バター", "QBB"]
+  },
+  {
+    "code": "2652",
+    "edinet_code": "E03347",
+    "name": "まんだらけ",
+    "homepage_url": "https://www.mandarake.co.jp/",
+    "base_keywords": ["まんだらけ"]
+  },
+  {
+    "code": "3560",
+    "edinet_code": "E32991",
+    "name": "ほぼ日",
+    "homepage_url": "https://www.hobonichi.co.jp/",
+    "base_keywords": ["ほぼ日", "ほぼ日手帳", "アースボール"]
+  },
+  {
+    "code": "3134",
+    "edinet_code": "E31386",
+    "name": "Hamee",
+    "homepage_url": "https://hamee.co.jp/",
+    "base_keywords": ["Hamee", "iFace", "Pixio", "ByUR"]
+  },
+  {
+    "code": "9904",
+    "edinet_code": "E03181",
+    "name": "ベリテ",
+    "homepage_url": "https://www.verite.jp/",
+    "base_keywords": ["ベリテ", "キレイニ", "ベリシア"]
+  },
+  {
+    "code": "3396",
+    "edinet_code": "E03467",
+    "name": "フェリシモ",
+    "homepage_url": "https://www.felissimo.co.jp/",
+    "base_keywords": ["フェリシモ"]
   }
 ]
