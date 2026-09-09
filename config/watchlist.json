@@ -835,5 +835,21 @@
       "url": "https://cover-corp.com/news",
       "pattern": "<a class=\"[^\"]*\" href=\"(?P<url>/news/detail/[^\"]+)\">[\\s\\S]{0,6000}?<time[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,500}?<div class=\"title[^\"]*\"><p>(?P<title>.*?)</p>"
     }
+  },
+  {
+    "code": "3880",
+    "edinet_code": "E00660",
+    "name": "大王製紙",
+    "homepage_url": "https://www.daio-paper.co.jp/",
+    "base_keywords": [
+      "エリエール",
+      "アテント",
+      "大王製紙"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daio-paper.co.jp/news/",
+      "pattern": "<p class=\"date\"><time[^>]*>(?P<date>[^<]+)</time></p>[\\s\\S]{0,250}?<p class=\"title\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
   }
 ]
