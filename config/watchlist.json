@@ -851,5 +851,84 @@
       "url": "https://www.daio-paper.co.jp/news/",
       "pattern": "<p class=\"date\"><time[^>]*>(?P<date>[^<]+)</time></p>[\\s\\S]{0,250}?<p class=\"title\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
     }
+  },
+  {
+    "code": "3002",
+    "edinet_code": "E00520",
+    "name": "グンゼ",
+    "homepage_url": "https://www.gunze.co.jp/",
+    "base_keywords": [
+      "グンゼ",
+      "GUNZE",
+      "SmaShee"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gunze.co.jp/corporate/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"[^\"]*\">[\\s\\S]{0,300}?<time[^>]*datetime=\"(?P<date>[^\"]+)\">[\\s\\S]{0,300}?<div class=\"section__news-title[^\"]*\">\\s*(?P<title>.*?)\\s*</div>"
+    }
+  },
+  {
+    "code": "7846",
+    "edinet_code": "E02466",
+    "name": "パイロットコーポレーション",
+    "homepage_url": "https://www.pilot.co.jp/",
+    "base_keywords": [
+      "パイロット",
+      "FriXion",
+      "フリクション"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.pilot.co.jp/press_release/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*>[\\s\\S]{0,300}?<span class=\"newsItem_date\">(?P<date>[^<]+)</span>[\\s\\S]{0,300}?<p class=\"description\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "7976",
+    "edinet_code": "E02366",
+    "name": "三菱鉛筆",
+    "homepage_url": "https://www.mpuni.co.jp/",
+    "base_keywords": [
+      "三菱鉛筆",
+      "uni",
+      "ジェットストリーム"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mpuni.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,400}?<dd class=\"date\">(?P<date>[^<]+)</dd>[\\s\\S]{0,300}?<dt class=\"text\">(?P<title>[^<]+)</dt>"
+    }
+  },
+  {
+    "code": "7956",
+    "edinet_code": "E02404",
+    "name": "ピジョン",
+    "homepage_url": "https://www.pigeon.co.jp/",
+    "base_keywords": [
+      "ピジョン",
+      "Pigeon"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.pigeon.co.jp/news/data.json",
+      "pattern": "\"date\":\"(?P<date>[^\"]+)\",\"summary\":\"[^\"]*\",\"permalink\":\"(?P<url>[^\"]+)\",\"title\":\"(?P<title>[^\"]+)\""
+    }
+  },
+  {
+    "code": "7990",
+    "edinet_code": "E02382",
+    "name": "グローブライド",
+    "homepage_url": "https://www.globeride.co.jp/",
+    "base_keywords": [
+      "ダイワ",
+      "DAIWA",
+      "グローブライド"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daiwa.com/jp/news/",
+      "pattern": "<a href=\"(?P<url>(?!/jp/news\\?)[^\"]+)\"[^>]*>[\\s\\S]{0,400}?<div class=\"category\">[^<]*</div>\\s*<div class=\"title\">(?P<title>[^<]+)</div>[\\s\\S]{0,200}?<div class=\"date\">(?P<date>[^<]+)</div>"
+    }
   }
 ]
