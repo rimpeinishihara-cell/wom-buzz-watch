@@ -802,5 +802,38 @@
       "url": "https://www.sagami-gomu.co.jp/release/",
       "pattern": "<dt><span>(?P<date>[^<]+)</span>\\s*<span>[^<]*</span>\\s*</dt><dd>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>.*?)\\s*</a>"
     }
+  },
+  {
+    "code": "4934",
+    "edinet_code": "E36046",
+    "name": "プレミアアンチエイジング",
+    "homepage_url": "https://www.p-antiaging.co.jp/",
+    "base_keywords": [
+      "デュオ",
+      "DUO クレンジングバーム",
+      "プレミアアンチエイジング"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.p-antiaging.co.jp/ja/news.html",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*>\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,200}?<span class=\"news_tx\">(?P<title>.*?)</span>"
+    }
+  },
+  {
+    "code": "5253",
+    "edinet_code": "E38478",
+    "name": "カバー",
+    "homepage_url": "https://cover-corp.com/",
+    "base_keywords": [
+      "hololive",
+      "ホロライブ",
+      "HOLOSTARS",
+      "カバー株式会社"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://cover-corp.com/news",
+      "pattern": "<a class=\"[^\"]*\" href=\"(?P<url>/news/detail/[^\"]+)\">[\\s\\S]{0,6000}?<time[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,500}?<div class=\"title[^\"]*\"><p>(?P<title>.*?)</p>"
+    }
   }
 ]
