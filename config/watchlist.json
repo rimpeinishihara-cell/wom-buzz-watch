@@ -1759,5 +1759,117 @@
       "url": "https://www.tear.co.jp/company/news/update.html",
       "pattern": "<p>(?P<date>20\\d{2}年\\d{1,2}月\\d{1,2}日)\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "9270",
+    "edinet_code": "E33807",
+    "name": "バリュエンスホールディングス",
+    "homepage_url": "https://www.valuence.inc/",
+    "base_keywords": [
+      "なんぼや",
+      "バリュエンス",
+      "ALLU"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.valuence.inc/news/",
+      "pattern": "<article class=\"articleStyle_03\">\\s*<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,1300}?<div class=\"col-update\">\\s*<p>(?P<date>[^<]+)</p>[\\s\\S]{0,300}?<h2><span>(?P<title>[^<]+)</span></h2>"
+    }
+  },
+  {
+    "code": "7685",
+    "edinet_code": "E35116",
+    "name": "BuySell Technologies",
+    "homepage_url": "https://buysell-technologies.com/",
+    "base_keywords": [
+      "バイセル",
+      "BuySell",
+      "出張買取"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://buysell-technologies.com/news_all/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<p class=\"date\">(?P<date>[^<]+)</p>\\s*<p class=\"category\">[^<]*</p>\\s*<p class=\"title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "7482",
+    "edinet_code": "E02839",
+    "name": "シモジマ",
+    "homepage_url": "https://www.shimojima.co.jp/",
+    "base_keywords": [
+      "シモジマ",
+      "パッケージプラザ",
+      "ラッピング"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.shimojima.co.jp/ir/topics.html",
+      "pattern": "<dt>(?P<date>[\\d/]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "7599",
+    "edinet_code": "E02892",
+    "name": "IDOM",
+    "homepage_url": "https://idom-inc.com/",
+    "base_keywords": [
+      "ガリバー",
+      "IDOM",
+      "中古車"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://idom-inc.com/news/press/",
+      "pattern": "<time\\s*datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,700}?<h3 class=\"c-cardNews__title\">\\s*<a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "3660",
+    "edinet_code": "E26301",
+    "name": "アイスタイル",
+    "homepage_url": "https://www.istyle.co.jp/",
+    "base_keywords": [
+      "アイスタイル",
+      "cosme",
+      "@cosme"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.istyle.co.jp/news/press/",
+      "pattern": "<article class=\"news-postcard\"><a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,300}?<time[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,50}?<h2 class=\"hdl\">(?P<title>[^<]+)</h2>"
+    }
+  },
+  {
+    "code": "4477",
+    "edinet_code": "E35163",
+    "name": "BASE",
+    "homepage_url": "https://binc.jp/",
+    "base_keywords": [
+      "BASE",
+      "ネットショップ",
+      "PAY.JP"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://binc.jp/press-room/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"><span class=\"date\">(?P<date>[^<]+)</span><span class=\"category[^\"]*\">[^<]*</span>\\s*<p>\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "3665",
+    "edinet_code": "E26703",
+    "name": "エニグモ",
+    "homepage_url": "https://enigmo.co.jp/",
+    "base_keywords": [
+      "エニグモ",
+      "BUYMA",
+      "バイマ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://enigmo.co.jp/press/news/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span><span class=\"tags\">[^<]*</span></p>\\s*<p class=\"title\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
   }
 ]
