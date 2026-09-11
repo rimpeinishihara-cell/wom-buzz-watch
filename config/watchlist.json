@@ -2061,5 +2061,97 @@
       "url": "https://www.nippon-ski.jp/",
       "pattern": "<li class=\"information-item\">\\s*<a href=\"(?P<url>[^\"]+)\" class=\"main-link\">[\\s\\S]{0,200}?<div class=\"date\">(?P<date>20\\d{2}/\\d{1,2}/\\d{1,2})</div>\\s*<div class=\"subject\">[\\s\\S]{0,200}?(?P<title>[^\\n<]{5,150})\\s*</div>"
     }
+  },
+  {
+    "code": "9603",
+    "edinet_code": "E04358",
+    "name": "エイチ・アイ・エス",
+    "homepage_url": "https://www.his.co.jp/",
+    "base_keywords": [
+      "H.I.S.",
+      "エイチアイエス",
+      "海外旅行"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.his.co.jp/news/",
+      "pattern": "<span class=\"mews-list-date\">(?P<date>[^<]+)</span>[\\s\\S]{0,300}?<span class=\"news-list-title\">\\s*<span[^>]*>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "2440",
+    "edinet_code": "E05456",
+    "name": "ぐるなび",
+    "homepage_url": "https://corporate.gnavi.co.jp/",
+    "base_keywords": [
+      "ぐるなび",
+      "飲食店検索"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corporate.gnavi.co.jp/release/",
+      "pattern": "<span class=\"[^\"]*__date\">(?P<date>[^<]+)</span></div><div class=\"[^\"]*__text\"><a href=\"(?P<url>[^\"]+)\" class=\"[^\"]*__link\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7082",
+    "edinet_code": "E35289",
+    "name": "ジモティー",
+    "homepage_url": "https://jmty.co.jp/",
+    "base_keywords": [
+      "ジモティー",
+      "地域情報サイト"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://jmty.co.jp/news_all/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"blog-title\">\\s*(?P<title>[^\\n<]+?)\\s*</a>\\s*<div class=\"blog-details\">\\s*<span[^>]*>(?P<date>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "4176",
+    "edinet_code": "E36351",
+    "name": "ココナラ",
+    "homepage_url": "https://coconala.co.jp/",
+    "base_keywords": [
+      "ココナラ",
+      "coconala",
+      "スキルマーケット"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://coconala.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-list-news__link[^\"]*\">\\s*<div class=\"c-list-news__meta\">\\s*<time class=\"c-list-news__date\">(?P<date>[^<]+)</time>[\\s\\S]{0,150}?<p class=\"c-list-news__ttl\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "9731",
+    "edinet_code": "E04754",
+    "name": "白洋舍",
+    "homepage_url": "https://www.hakuyosha.co.jp/",
+    "base_keywords": [
+      "白洋舍",
+      "クリーニング"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hakuyosha.co.jp/news/",
+      "pattern": "<dt class=\"rss_date\">(?P<date>[^<]+)</dt>\\s*<dd class=\"rss_title\"><a href=\"(?P<url>[^\"]+)\"><span>[^<]*</span>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9661",
+    "edinet_code": "E04606",
+    "name": "歌舞伎座",
+    "homepage_url": "https://www.kabuki-za.co.jp/",
+    "base_keywords": [
+      "歌舞伎座",
+      "歌舞伎"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kabuki-za.co.jp/news_archive/",
+      "pattern": "<dt><span class=\"list-news__date\">\\s*(?P<date>[^<]+?)\\s*</span>[\\s\\S]{0,150}?</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^\\n<]+)"
+    }
   }
 ]
