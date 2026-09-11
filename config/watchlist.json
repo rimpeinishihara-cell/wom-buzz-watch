@@ -1554,5 +1554,101 @@
       "url": "https://www.waseda-ac.co.jp/info/",
       "pattern": "<dt>(?P<date>[\\d/]+)</dt>\\s*<dd><p>(?:<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>|[^<]*<a href=\"[^\"]+\">(?P<title2>[^<]+)</a>)"
     }
+  },
+  {
+    "code": "3632",
+    "edinet_code": "E22012",
+    "name": "グリーホールディングス",
+    "homepage_url": "https://corp.gree.net/jp/ja/",
+    "base_keywords": [
+      "GREE",
+      "グリー",
+      "REALITY"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.gree.net/jp/ja/news/press/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,400}?<p class=\"c-archives__caption\">(?P<title>[^<]+)</p>[\\s\\S]{0,150}?<time class=\"c-archives__date\"[^>]*>(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "3932",
+    "edinet_code": "E32200",
+    "name": "アカツキ",
+    "homepage_url": "https://aktsk.jp/",
+    "base_keywords": [
+      "アカツキ",
+      "Akatsuki",
+      "陰陽師"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://aktsk.jp/press/",
+      "pattern": "<span class=\"list-news__date\">(?P<date>[^<]+)</span>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3903",
+    "edinet_code": "E31060",
+    "name": "gumi",
+    "homepage_url": "https://gu3.co.jp/",
+    "base_keywords": [
+      "gumi",
+      "ジョジョの奇妙な冒険",
+      "FFBE"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://gu3.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,550}?<div class=\"news__card__date\">\\s*(?P<date>[^<\\n]+)\\s*</div>[\\s\\S]{0,350}?<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "7844",
+    "edinet_code": "E02467",
+    "name": "マーベラス",
+    "homepage_url": "https://www.marv.jp/",
+    "base_keywords": [
+      "マーベラス",
+      "ルーンファクトリー",
+      "剣と魔法のログレス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.marv.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,500}?<span class=\"c-date-icon\">(?P<date>[^<]+)</span>[\\s\\S]{0,300}?<div class=\"big-news-panel__title\">\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "3723",
+    "edinet_code": "E05360",
+    "name": "日本ファルコム",
+    "homepage_url": "https://www.falcom.co.jp/",
+    "base_keywords": [
+      "日本ファルコム",
+      "英雄伝説",
+      "イース"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.falcom.co.jp/archives/ir_type/news",
+      "pattern": "<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time></div>\\s*<div>\\s*<a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^<]{5,150}?)\\s*</a>"
+    }
+  },
+  {
+    "code": "3663",
+    "edinet_code": "E26231",
+    "name": "セルシス",
+    "homepage_url": "https://www.celsys.com/",
+    "base_keywords": [
+      "セルシス",
+      "CLIP STUDIO PAINT",
+      "クリスタ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.celsys.com/company/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,600}?<p class=\"p-news__date\">(?P<date>[^<]+)</p>[\\s\\S]{0,150}?<p class=\"p-news__title\">(?P<title>[^<]+)</p>"
+    }
   }
 ]
