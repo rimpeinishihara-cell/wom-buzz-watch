@@ -1966,5 +1966,100 @@
       "url": "https://restaurant.balnibarbi.com/news/",
       "pattern": "<li class=\"news-item\"><a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,400}?<time class=\"news-date en\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<h3 class=\"news-title\">(?P<title>[^<]+)</h3>"
     }
+  },
+  {
+    "code": "6082",
+    "edinet_code": "E30065",
+    "name": "ライドオンエクスプレスホールディングス",
+    "homepage_url": "https://www.rideonexpresshd.co.jp/",
+    "base_keywords": [
+      "銀のさら",
+      "宅配寿司",
+      "ライドオンエクスプレス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.rideonexpresshd.co.jp/news/",
+      "pattern": "<dt><span class=\"ff-en\">(?P<date>[^<]+)</span>[\\s\\S]{0,200}?</dt>\\s*<dd><a class=\"c-hov-text\" href=\"(?P<url>[^\"]+)\"><span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "6537",
+    "edinet_code": "E32753",
+    "name": "WASHハウス",
+    "homepage_url": "https://corporate.wash-house.jp/",
+    "base_keywords": [
+      "WASHハウス",
+      "コインランドリー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corporate.wash-house.jp/topics/",
+      "pattern": "<dt>(?P<date>[^<]+)<span[^>]*>[^<]*</span></dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "6039",
+    "edinet_code": "E31381",
+    "name": "日本動物高度医療センター",
+    "homepage_url": "https://jarmec.jp/",
+    "base_keywords": [
+      "JARMeC",
+      "動物病院",
+      "高度動物医療"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://jarmec.jp/news/",
+      "pattern": "<li><div class=\"post-meta\"><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,300}?</div><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></li>"
+    }
+  },
+  {
+    "code": "6184",
+    "edinet_code": "E31871",
+    "name": "鎌倉新書",
+    "homepage_url": "https://www.kamakura-net.co.jp/",
+    "base_keywords": [
+      "鎌倉新書",
+      "いい葬儀",
+      "終活"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kamakura-net.co.jp/newstopics/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"cat-press\">\\s*<span class=\"cate\">[^<]*</span>\\s*<span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"ttl\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "6819",
+    "edinet_code": "E01987",
+    "name": "伊豆シャボテンリゾート",
+    "homepage_url": "https://shaboten.co.jp/",
+    "base_keywords": [
+      "伊豆シャボテン動物公園",
+      "カピバラ",
+      "伊豆ぐらんぱる公園"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://shaboten.co.jp/press/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<article>[\\s\\S]{0,1300}?<span class=\"value\">(?P<title>[^<]+)</span>[\\s\\S]{0,200}?<div class=\"date ff_ubuntu\">(?P<date>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "6040",
+    "edinet_code": "E31408",
+    "name": "日本スキー場開発",
+    "homepage_url": "https://www.nippon-ski.jp/",
+    "base_keywords": [
+      "ニセコ",
+      "キロロ",
+      "日本スキー場開発"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nippon-ski.jp/",
+      "pattern": "<li class=\"information-item\">\\s*<a href=\"(?P<url>[^\"]+)\" class=\"main-link\">[\\s\\S]{0,200}?<div class=\"date\">(?P<date>20\\d{2}/\\d{1,2}/\\d{1,2})</div>\\s*<div class=\"subject\">[\\s\\S]{0,200}?(?P<title>[^\\n<]{5,150})\\s*</div>"
+    }
   }
 ]
