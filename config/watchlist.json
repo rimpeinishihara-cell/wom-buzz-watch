@@ -1250,5 +1250,85 @@
       "url": "https://www.sanyo-shokai.co.jp/news/pressrelease/brand/",
       "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"column4__block\">[\\s\\S]{0,400}?<span class=\"cmnDate[^\"]*\">(?P<date>[^<]+)</span>[\\s\\S]{0,300}?<p class=\"cmnTextLink[^\"]*\">(?P<title>[^<]+)</p>"
     }
+  },
+  {
+    "code": "7840",
+    "edinet_code": "E02472",
+    "name": "フランスベッドホールディングス",
+    "homepage_url": "https://www.francebed.co.jp/",
+    "base_keywords": [
+      "フランスベッド",
+      "francebed",
+      "ベッド"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.francebed.co.jp/info_medical/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<time>(?P<date>[^<]+)</time>\\s*<span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "7938",
+    "edinet_code": "E01118",
+    "name": "リーガルコーポレーション",
+    "homepage_url": "https://www.regal.co.jp/",
+    "base_keywords": [
+      "REGAL",
+      "リーガル",
+      "革靴"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.regal.co.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*>\\s*<div class=\"brand_info_time\">(?P<date>[^<]+)</div>[\\s\\S]{0,2000}?<div class=\"brand_info_ttl\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "4956",
+    "edinet_code": "E02686",
+    "name": "コニシ",
+    "homepage_url": "https://www.bond.co.jp/",
+    "base_keywords": [
+      "コニシ",
+      "ボンド",
+      "接着剤"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.bond.co.jp/bond/information/",
+      "pattern": "<p>(?P<date>[\\d.]+)\\s*</p>\\s*<p>[^<]*</p>[\\s\\S]{0,150}?<p[^>]*><a[^>]*href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4464",
+    "edinet_code": "E01057",
+    "name": "ソフト99コーポレーション",
+    "homepage_url": "https://www.soft99.co.jp/",
+    "base_keywords": [
+      "ソフト99",
+      "Soft99",
+      "洗車用品"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.soft99.co.jp/news/category/product/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*>\\s*<dt>(?P<date>[^<]+)<span[^>]*>[^<]*</span></dt>\\s*<dd><span[^>]*>(?P<title>[^<]+)</span></dd>"
+    }
+  },
+  {
+    "code": "4919",
+    "edinet_code": "E01039",
+    "name": "ミルボン",
+    "homepage_url": "https://www.milbon.co.jp/",
+    "base_keywords": [
+      "ミルボン",
+      "MILBON",
+      "美容室"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "http://www.milbon.co.jp/news/index/1",
+      "pattern": "<div class=\"c_news\"><a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<time class=\"u_date_news\">(?P<date>[^<]+)</time>[\\s\\S]{0,250}?<span>(?P<title>[^<]+)</span>"
+    }
   }
 ]
