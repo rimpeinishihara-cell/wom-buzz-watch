@@ -1138,5 +1138,117 @@
       "url": "https://www.hks-power.co.jp/news/",
       "pattern": "<dt>(?P<date>[\\d.]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></dd>"
     }
+  },
+  {
+    "code": "7228",
+    "edinet_code": "E02877",
+    "name": "デイトナ",
+    "homepage_url": "https://www.daytona.co.jp/",
+    "base_keywords": [
+      "デイトナ",
+      "DAYTONA",
+      "バイク用品"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daytona.co.jp/news/",
+      "pattern": "<time class=\"date\">(?P<date>[^<]+)</time>[\\s\\S]{0,700}?<a href=\"(?P<url>[^\"]+)\" class=\"newsList02_title[^\"]*\">\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "7297",
+    "edinet_code": "E02223",
+    "name": "カーメイト",
+    "homepage_url": "https://www.carmate.co.jp/",
+    "base_keywords": [
+      "カーメイト",
+      "carmate",
+      "カー用品"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.carmate.co.jp/news/news/",
+      "pattern": "<dd>(?P<date>[^<]+)</dd>\\s*<dt>\\s*<h3><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></h3>"
+    }
+  },
+  {
+    "code": "7952",
+    "edinet_code": "E02363",
+    "name": "河合楽器製作所",
+    "homepage_url": "https://www.kawai.jp/",
+    "base_keywords": [
+      "Kawai",
+      "カワイ",
+      "ピアノ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kawai.jp/news/newsc/pro/",
+      "pattern": "<a href=\"\\s*(?P<url>[^\"]+)\" class=\"l pro\">\\s*<dl class=\"cf\">\\s*<dt class=\"pro\">(?P<date>[^<]+)</dt>\\s*<dd>(?P<title>[^<]+)</dd>"
+    }
+  },
+  {
+    "code": "7839",
+    "edinet_code": "E02470",
+    "name": "SHOEI",
+    "homepage_url": "https://www.shoei.com/",
+    "base_keywords": [
+      "SHOEI",
+      "ショウエイ",
+      "バイクヘルメット"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.shoei.com/news/",
+      "pattern": "<div class=\"news-list01__date\">(?P<date>[^<]+)</div>[\\s\\S]{0,250}?<a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "2668",
+    "edinet_code": "E02923",
+    "name": "タビオ",
+    "homepage_url": "https://tabio.com/jp/",
+    "base_keywords": [
+      "タビオ",
+      "Tabio",
+      "靴下屋"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corporate.tabio.com/jp/corporate/news/press/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"><img[^>]*/><em><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time></em><span>(?P<title>[^<]+)</span></a>"
+    }
+  },
+  {
+    "code": "8115",
+    "edinet_code": "E02639",
+    "name": "ムーンバット",
+    "homepage_url": "https://www.moonbat.co.jp/",
+    "base_keywords": [
+      "ムーンバット",
+      "MOONBAT",
+      "日傘"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.moonbat.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"inner\">\\s*<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,150}?</div>\\s*<h2>(?P<title>[^<]+)</h2>"
+    }
+  },
+  {
+    "code": "8011",
+    "edinet_code": "E00593",
+    "name": "三陽商会",
+    "homepage_url": "https://www.sanyo-shokai.co.jp/",
+    "base_keywords": [
+      "三陽商会",
+      "マッキントッシュロンドン",
+      "ポールスチュアート"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sanyo-shokai.co.jp/news/pressrelease/brand/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"column4__block\">[\\s\\S]{0,400}?<span class=\"cmnDate[^\"]*\">(?P<date>[^<]+)</span>[\\s\\S]{0,300}?<p class=\"cmnTextLink[^\"]*\">(?P<title>[^<]+)</p>"
+    }
   }
 ]
