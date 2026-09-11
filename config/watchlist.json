@@ -1871,5 +1871,100 @@
       "url": "https://enigmo.co.jp/press/news/",
       "pattern": "<span class=\"date\">(?P<date>[^<]+)</span><span class=\"tags\">[^<]*</span></p>\\s*<p class=\"title\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "4479",
+    "edinet_code": "E34557",
+    "name": "マクアケ",
+    "homepage_url": "https://www.makuake.co.jp/",
+    "base_keywords": [
+      "Makuake",
+      "マクアケ",
+      "クラウドファンディング"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.makuake.co.jp/news/category/press_release/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"block\">[\\s\\S]{0,300}?<span class=\"dates\">\\s*(?P<date>[^<]+?)\\s*</span>[\\s\\S]{0,250}?<h3>\\s*<a href=\"[^\"]+\">\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "4839",
+    "edinet_code": "E04427",
+    "name": "WOWOW",
+    "homepage_url": "https://corporate.wowow.co.jp/",
+    "base_keywords": [
+      "WOWOW",
+      "ワウワウ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corporate.wowow.co.jp/news/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span><span class=\"label[\\s\\S]{0,200}?\">[^<]*</span>\\s*<h3 class=\"news-title fz12\">\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9470",
+    "edinet_code": "E00707",
+    "name": "学研ホールディングス",
+    "homepage_url": "https://www.gakken.co.jp/",
+    "base_keywords": [
+      "学研",
+      "Gakken",
+      "学研ゼミ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gakken.co.jp/ja/news.html",
+      "pattern": "entrydate=\"(?P<date>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,600}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "9475",
+    "edinet_code": "E00721",
+    "name": "昭文社ホールディングス",
+    "homepage_url": "https://www.mapple.co.jp/",
+    "base_keywords": [
+      "昭文社",
+      "まっぷる",
+      "MAPPLE"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mapple.co.jp/category/news-release/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*class=\"js-sp-link\">[\\s\\S]{0,500}?<time class=\"news__date\">(?P<date>[^<]+)</time>[\\s\\S]{0,150}?<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "9438",
+    "edinet_code": "E05049",
+    "name": "エムティーアイ",
+    "homepage_url": "https://www.mti.co.jp/",
+    "base_keywords": [
+      "ルナルナ",
+      "エムティーアイ",
+      "MTI"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mti.co.jp/",
+      "pattern": "<a\\s*class=\"news__item\"\\s*href=\"(?P<url>[^\"]+)\"\\s*>[\\s\\S]{0,200}?<time\\s*class=\"news__date\"\\s*datetime=\"[^\"]*\"\\s*>\\s*(?P<date>[^<]+?)\\s*</time>[\\s\\S]{0,300}?<span class=\"news__title\">\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "3418",
+    "edinet_code": "E31815",
+    "name": "バルニバービ",
+    "homepage_url": "https://www.balnibarbi.com/",
+    "base_keywords": [
+      "バルニバービ",
+      "GARB",
+      "トレンド飲食店"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://restaurant.balnibarbi.com/news/",
+      "pattern": "<li class=\"news-item\"><a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,400}?<time class=\"news-date en\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<h3 class=\"news-title\">(?P<title>[^<]+)</h3>"
+    }
   }
 ]
