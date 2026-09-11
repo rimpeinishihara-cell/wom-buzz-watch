@@ -1042,5 +1042,101 @@
       "url": "https://www.roland.com/jp/company/press_releases/",
       "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<figure>[\\s\\S]{0,300}?</a>\\s*<h3>(?P<title>[^<]+)</h3>\\s*<h5><p[^>]*>\\s*(?P<date>[\\d-]+)\\s*</p></h5>"
     }
+  },
+  {
+    "code": "5943",
+    "edinet_code": "E02379",
+    "name": "ノーリツ",
+    "homepage_url": "https://www.noritz.co.jp/",
+    "base_keywords": [
+      "ノーリツ",
+      "Noritz",
+      "給湯器"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.noritz.co.jp/company/news/",
+      "pattern": "<time datetime=\"[^\"]*\" class=\"news-list__item__date\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<a href=\"(?P<url>[^\"]+)\" class=\"news-list__item__link\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "5951",
+    "edinet_code": "E01427",
+    "name": "ダイニチ工業",
+    "homepage_url": "https://www.dainichi-net.co.jp/",
+    "base_keywords": [
+      "ダイニチ",
+      "Dainichi",
+      "石油ファンヒーター"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.dainichi-net.co.jp/company/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>[\\s\\S]{0,150}?<div class=\"title\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "5909",
+    "edinet_code": "E01444",
+    "name": "コロナ",
+    "homepage_url": "https://www.corona.co.jp/",
+    "base_keywords": [
+      "コロナ",
+      "CORONA",
+      "石油ファンヒーター"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.corona.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<time class=\"news_date\">(?P<date>[^<]+)</time>[\\s\\S]{0,150}?<p class=\"news_title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "6676",
+    "edinet_code": "E02086",
+    "name": "バッファロー",
+    "homepage_url": "https://www.buffalo.jp/",
+    "base_keywords": [
+      "バッファロー",
+      "BUFFALO",
+      "Wi-Fiルーター"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.buffalo.jp/news/product.html",
+      "pattern": "<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<a href=\"(?P<url>[^\"]+)\"[^>]*rel=\"bookmark\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "6727",
+    "edinet_code": "E02059",
+    "name": "ワコム",
+    "homepage_url": "https://www.wacom.com/ja-jp/",
+    "base_keywords": [
+      "ワコム",
+      "Wacom",
+      "ペンタブレット"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.wacom.com/ja-jp/about-wacom/news-and-events",
+      "pattern": "<div class=\"news-item-date col-md-2\">\\s*(?P<date>[\\d/]+)\\s*</div>\\s*<div class=\"news-item-title col-md-7\">\\s*<p>\\s*(?P<title>[^\\n<]+)\\s*</p>\\s*</div>\\s*<div class=\"news-links col-md-3\">\\s*<a href=\"(?P<url>[^\"]+)\""
+    }
+  },
+  {
+    "code": "7219",
+    "edinet_code": "E02238",
+    "name": "エッチ・ケー・エス",
+    "homepage_url": "https://www.hks-power.co.jp/",
+    "base_keywords": [
+      "HKS",
+      "エッチケーエス",
+      "チューニングパーツ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hks-power.co.jp/news/",
+      "pattern": "<dt>(?P<date>[\\d.]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></dd>"
+    }
   }
 ]
