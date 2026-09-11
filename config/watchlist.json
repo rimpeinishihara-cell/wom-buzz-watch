@@ -1330,5 +1330,133 @@
       "url": "http://www.milbon.co.jp/news/index/1",
       "pattern": "<div class=\"c_news\"><a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<time class=\"u_date_news\">(?P<date>[^<]+)</time>[\\s\\S]{0,250}?<span>(?P<title>[^<]+)</span>"
     }
+  },
+  {
+    "code": "2602",
+    "edinet_code": "E00428",
+    "name": "日清オイリオグループ",
+    "homepage_url": "https://www.nisshin-oillio.com/",
+    "base_keywords": [
+      "日清オイリオ",
+      "日清サラダ油",
+      "ボスコ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nisshin-oillio.com/company/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<div class=\"news_date\">(?P<date>[^<\\n]+)[\\s\\S]{0,200}?</div>\\s*<div class=\"news_txt[^\"]*\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "4526",
+    "edinet_code": "E00952",
+    "name": "理研ビタミン",
+    "homepage_url": "https://www.rikenvitamin.jp/",
+    "base_keywords": [
+      "理研ビタミン",
+      "わかめちゃん",
+      "ノンオイル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.rikenvitamin.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\" class=\"mod-newsList01-a[^\"]*\">\\s*<time[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<span class=\"__tit[^\"]*\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2594",
+    "edinet_code": "E00491",
+    "name": "キーコーヒー",
+    "homepage_url": "https://www.keycoffee.co.jp/",
+    "base_keywords": [
+      "キーコーヒー",
+      "KEY COFFEE",
+      "KEY DOORS"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.keycoffee.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*><div class=\"formdetail_main\">[\\s\\S]{0,200}?<p class=\"formdetail_left_date\">(?P<date>[^<]+)</p>[\\s\\S]{0,600}?<div class=\"formdetail_center\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "2804",
+    "edinet_code": "E00466",
+    "name": "ブルドックソース",
+    "homepage_url": "https://www.bulldog.co.jp/",
+    "base_keywords": [
+      "ブルドックソース",
+      "中濃ソース",
+      "うまソース"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.bulldog.co.jp/release/",
+      "pattern": "<a class=\"news__item__inner\" href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<time datetime=\"[^\"]*\" class=\"news__date\">(?P<date>[^<]+)</time>[\\s\\S]{0,150}?<div class=\"news__title[^\"]*\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "2923",
+    "edinet_code": "E00510",
+    "name": "サトウ食品",
+    "homepage_url": "https://www.satosyokuhin.co.jp/",
+    "base_keywords": [
+      "サトウ食品",
+      "サトウの切り餅",
+      "サトウのごはん"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.satosyokuhin.co.jp/newsrelease/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"><header><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,300}?</header>\\s*<h2>(?P<title>[^<]+)</h2>"
+    }
+  },
+  {
+    "code": "2933",
+    "edinet_code": "E36466",
+    "name": "紀文食品",
+    "homepage_url": "https://www.kibun.co.jp/",
+    "base_keywords": [
+      "紀文",
+      "紀文食品",
+      "おでん種"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kibun.co.jp/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\" target=\"_self\">\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,250}?</span>\\s*(?P<title>[^\\n<]+?)\\s*\\(?PDF"
+    }
+  },
+  {
+    "code": "2281",
+    "edinet_code": "E00335",
+    "name": "プリマハム",
+    "homepage_url": "https://www.primaham.co.jp/",
+    "base_keywords": [
+      "プリマハム",
+      "スマイルUP",
+      "PRIMA"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.primaham.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"heading\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>[\\s\\S]{0,200}?</div>\\s*<div class=\"detail\">(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "2288",
+    "edinet_code": "E00458",
+    "name": "丸大食品",
+    "homepage_url": "https://www.marudai.jp/",
+    "base_keywords": [
+      "丸大食品",
+      "丸大ハム",
+      "燻製屋"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "http://www.marudai.jp/bknumber/",
+      "pattern": "<p class=\"day\">\\s*(?P<date>[\\d.]+)[\\s\\S]{0,150}?</p>\\s*<p class=\"txt\">\\s*<a href=\"(?P<url>[^\"]+)\"\\s*>(?P<title>[^<]+)</a>"
+    }
   }
 ]
