@@ -1650,5 +1650,114 @@
       "url": "https://www.celsys.com/company/news/",
       "pattern": "<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,600}?<p class=\"p-news__date\">(?P<date>[^<]+)</p>[\\s\\S]{0,150}?<p class=\"p-news__title\">(?P<title>[^<]+)</p>"
     }
+  },
+  {
+    "code": "9708",
+    "edinet_code": "E04539",
+    "name": "帝国ホテル",
+    "homepage_url": "https://www.imperialhotel.co.jp/",
+    "base_keywords": [
+      "帝国ホテル",
+      "Imperial Hotel"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.imperialhotel.co.jp/j/company/release/",
+      "pattern": "<a class=\"m-link-info__link\" href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,300}?<time class=\"m-link-info__date\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<span class=\"m-link-info__text\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "9722",
+    "edinet_code": "E04560",
+    "name": "藤田観光",
+    "homepage_url": "https://www.fujita-kanko.co.jp/",
+    "base_keywords": [
+      "藤田観光",
+      "ワシントンホテル",
+      "箱根小涌園ユネッサン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fujita-kanko.co.jp/sub/news/",
+      "pattern": "<td class=\"date\"><span class=\"year\">(?P<y>[^<]+)</span><span class=\"mon_day\">(?P<date>[^<]+)</span></td>[\\s\\S]{0,300}?<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4691",
+    "edinet_code": "E35136",
+    "name": "ワシントンホテル",
+    "homepage_url": "https://www.washingtonhotel.co.jp/",
+    "base_keywords": [
+      "ワシントンホテル",
+      "R&Bホテル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.washingtonhotel.co.jp/corporation/news/",
+      "pattern": "<a class=\"over\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,400}?<p class=\"date\">\\s*(?P<date>[^<\\s][^<]*?)\\s*</p>[\\s\\S]{0,250}?<h4 class=\"txt\">\\s*(?P<title>[^<]+?)\\s*</h4>"
+    }
+  },
+  {
+    "code": "6565",
+    "edinet_code": "E33638",
+    "name": "ABホテル",
+    "homepage_url": "https://www.ab-hotel.jp/",
+    "base_keywords": [
+      "ABホテル",
+      "AB Hotel"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ab-hotel.jp/company/news/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]{0,150}?<a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "9633",
+    "edinet_code": "E04589",
+    "name": "東京テアトル",
+    "homepage_url": "https://www.theatres.co.jp/",
+    "base_keywords": [
+      "東京テアトル",
+      "テアトル新宿",
+      "映画館"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.theatres.co.jp/news/",
+      "pattern": "<li class=\"list__news\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,100}?<dt>(?P<date>[\\d.]+)</dt>[\\s\\S]{0,50}?<dd>(?P<title>[^<]+)</dd>"
+    }
+  },
+  {
+    "code": "4668",
+    "edinet_code": "E04981",
+    "name": "明光ネットワークジャパン",
+    "homepage_url": "https://www.meikonet.co.jp/",
+    "base_keywords": [
+      "明光義塾",
+      "明光ネットワークジャパン",
+      "進学塾"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.meikonet.co.jp/ja/news.html",
+      "pattern": "entrydate=\"(?P<date>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,600}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2485",
+    "edinet_code": "E05585",
+    "name": "ティア",
+    "homepage_url": "https://www.tear.co.jp/",
+    "base_keywords": [
+      "ティア",
+      "葬儀",
+      "家族葬"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.tear.co.jp/company/news/update.html",
+      "pattern": "<p>(?P<date>20\\d{2}年\\d{1,2}月\\d{1,2}日)\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
   }
 ]
