@@ -1458,5 +1458,101 @@
       "url": "http://www.marudai.jp/bknumber/",
       "pattern": "<p class=\"day\">\\s*(?P<date>[\\d.]+)[\\s\\S]{0,150}?</p>\\s*<p class=\"txt\">\\s*<a href=\"(?P<url>[^\"]+)\"\\s*>(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "2193",
+    "edinet_code": "E22663",
+    "name": "クックパッド",
+    "homepage_url": "https://cookpad.com/",
+    "base_keywords": [
+      "クックパッド",
+      "cookpad",
+      "レシピ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://info.cookpad.com/news/category/release",
+      "pattern": "<li class=\"n\"><a href=\"(?P<url>[^\"]+)\" title=\"(?P<title>[^\"]+)\"[\\s\\S]{0,1400}?<p class=\"date\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "6571",
+    "edinet_code": "E33838",
+    "name": "キュービーネットホールディングス",
+    "homepage_url": "https://www.qbhouse.co.jp/",
+    "base_keywords": [
+      "QBハウス",
+      "QB HOUSE",
+      "1000円カット"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.qbhouse.co.jp/topics/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<dl>\\s*<dt><time class=\"date\"[^>]*>(?P<date>[^<]+)</time><span>[^<]*</span>\\s*</dt>\\s*<dd>(?P<title>[^<]+)</dd>"
+    }
+  },
+  {
+    "code": "2121",
+    "edinet_code": "E05617",
+    "name": "MIXI",
+    "homepage_url": "https://mixi.co.jp/",
+    "base_keywords": [
+      "MIXI",
+      "モンスト",
+      "モンスターストライク"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://mixi.co.jp/news/",
+      "pattern": "<a class=\"c-newsCard__inner\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,1000}?<div class=\"c-newsCard__info--date\">\\s*(?P<date>[^<\\n]+)\\s*</div>\\s*</div>\\s*<p class=\"c-newsCard__title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "4337",
+    "edinet_code": "E03379",
+    "name": "ぴあ",
+    "homepage_url": "https://corporate.pia.jp/",
+    "base_keywords": [
+      "ぴあ",
+      "チケットぴあ",
+      "PIA"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corporate.pia.jp/news/press.html",
+      "pattern": "<article class=\"item\">\\s*<h1>(?P<date>[^<]+)</h1>[\\s\\S]{0,700}?<p class=\"link[^\"]*\"[^>]*><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9769",
+    "edinet_code": "E04796",
+    "name": "学究社",
+    "homepage_url": "https://www.gakkyusha.com/",
+    "base_keywords": [
+      "学究社",
+      "ena",
+      "進学塾"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gakkyusha.com/information/",
+      "pattern": "<h3><span class=\"entry-date\">(?P<date>[^<]+)</span><a href=\"(?P<url>[^\"]+)\" rel=\"bookmark\">(?P<title>[^<]+)</a></h3>"
+    }
+  },
+  {
+    "code": "4718",
+    "edinet_code": "E05028",
+    "name": "早稲田アカデミー",
+    "homepage_url": "https://www.waseda-ac.co.jp/",
+    "base_keywords": [
+      "早稲田アカデミー",
+      "早稲アカ",
+      "進学塾"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.waseda-ac.co.jp/info/",
+      "pattern": "<dt>(?P<date>[\\d/]+)</dt>\\s*<dd><p>(?:<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>|[^<]*<a href=\"[^\"]+\">(?P<title2>[^<]+)</a>)"
+    }
   }
 ]
