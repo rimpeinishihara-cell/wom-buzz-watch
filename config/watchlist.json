@@ -912,7 +912,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.pigeon.co.jp/news/data.json",
-      "pattern": "\"date\":\"(?P<date>[^\"]+)\",\"summary\":\"[^\"]*\",\"permalink\":\"(?P<url>[^\"]+)\",\"title\":\"(?P<title>[^\"]+)\""
+      "pattern": "\\{(?=[^}]*\"date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"permalink\":\"(?P<url>[^\"]+)\")(?=[^}]*\"title\":\"(?P<title>[^\"]+)\")[^}]*\\}"
     }
   },
   {
@@ -929,6 +929,118 @@
       "type": "html_regex",
       "url": "https://www.daiwa.com/jp/news/",
       "pattern": "<a href=\"(?P<url>(?!/jp/news\\?)[^\"]+)\"[^>]*>[\\s\\S]{0,400}?<div class=\"category\">[^<]*</div>\\s*<div class=\"title\">(?P<title>[^<]+)</div>[\\s\\S]{0,200}?<div class=\"date\">(?P<date>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "7965",
+    "edinet_code": "E02395",
+    "name": "象印マホービン",
+    "homepage_url": "https://www.zojirushi.co.jp/",
+    "base_keywords": [
+      "象印",
+      "ZOJIRUSHI",
+      "炎舞炊き"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.zojirushi.co.jp/corp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<time[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<p class=\"corp_news_contents_list_item_text\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "6440",
+    "edinet_code": "E01596",
+    "name": "JUKI",
+    "homepage_url": "https://www.juki.co.jp/",
+    "base_keywords": [
+      "JUKI",
+      "ジューキ",
+      "家庭用ミシン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.juki.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,200}?<span class=\"list-news__date\">(?P<date>[^<]+)</span>[\\s\\S]{0,300}?<span class=\"list-news__title\">\\s*(?P<title>[^<]+?)\\s*</span>"
+    }
+  },
+  {
+    "code": "2220",
+    "edinet_code": "E00385",
+    "name": "亀田製菓",
+    "homepage_url": "https://www.kamedaseika.co.jp/",
+    "base_keywords": [
+      "亀田製菓",
+      "柿の種",
+      "ハッピーターン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kamedaseika.co.jp/news/2026/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-news_itemLink\"[^>]*>\\s*<time class=\"c-news_itemDate\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,150}?<span class=\"c-news_itemContent\">(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "2211",
+    "edinet_code": "E00374",
+    "name": "不二家",
+    "homepage_url": "https://www.fujiya-peko.co.jp/",
+    "base_keywords": [
+      "不二家",
+      "ペコちゃん",
+      "ミルキー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fujiya-peko.co.jp/news/news/",
+      "pattern": "<article class=\"news__article\"><a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<time class=\"news__date\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,250}?<h2 class=\"news__title\">(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "7780",
+    "edinet_code": "E31560",
+    "name": "メニコン",
+    "homepage_url": "https://www.menicon.co.jp/",
+    "base_keywords": [
+      "メニコン",
+      "Menicon",
+      "コンタクトレンズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.menicon.co.jp/company/news/",
+      "pattern": "<li entry_date=\"[^\"]*\"[^>]*>\\s*<span class=\"day\">(?P<date>[^<]+)</span>\\s*<span class=\"cat[^\"]*\">[^<]*</span>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "7743",
+    "edinet_code": "E02414",
+    "name": "シード",
+    "homepage_url": "https://www.seed.co.jp/",
+    "base_keywords": [
+      "シード",
+      "SEED",
+      "コンタクトレンズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.seed.co.jp/topics/",
+      "pattern": "<dt><span class=\"date\">(?P<date>[^<]+)<img[^>]*></span></dt>\\s*<dd>\\s*<p class=\"iconLink01\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "7944",
+    "edinet_code": "E01834",
+    "name": "ローランド",
+    "homepage_url": "https://www.roland.com/jp/",
+    "base_keywords": [
+      "ローランド",
+      "Roland",
+      "電子楽器"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.roland.com/jp/company/press_releases/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<figure>[\\s\\S]{0,300}?</a>\\s*<h3>(?P<title>[^<]+)</h3>\\s*<h5><p[^>]*>\\s*(?P<date>[\\d-]+)\\s*</p></h5>"
     }
   }
 ]
