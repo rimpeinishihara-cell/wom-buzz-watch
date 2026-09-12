@@ -3370,5 +3370,109 @@
       "url": "https://www.kakiyasuhonten.co.jp/news/",
       "pattern": "<li class=\"pageList_item\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<p class=\"pageList_date\">(?P<date>[^<]+)</p>[\\s\\S]{1,150}?<p class=\"pageList_title\">(?P<title>[^<]+)</p>"
     }
+  },
+  {
+    "code": "250A",
+    "edinet_code": "E00467",
+    "name": "シマダヤ",
+    "homepage_url": "https://www.shimadaya.co.jp/",
+    "base_keywords": [
+      "シマダヤ",
+      "冷凍うどん"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.shimadaya.co.jp/news/",
+      "pattern": "<span class=\"u-text--date\">(?P<date>[^<]+)</span>[\\s\\S]{1,150}?<a class=\"u-text--link u-text--pdf\" href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "2876",
+    "edinet_code": "E00488",
+    "name": "デルソーレ",
+    "homepage_url": "https://del-sole.co.jp/",
+    "base_keywords": [
+      "デルソーレ",
+      "冷凍フォカッチャ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://del-sole.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>/news/\\d+/)\">[\\s\\S]{1,200}?<span class=\"plist\">\\s*(?P<title>[\\s\\S]*?)\\s*</span>\\s*<span class=\"tidesc\">\\((?P<date>[^)]+)\\)</span>"
+    }
+  },
+  {
+    "code": "2573",
+    "edinet_code": "E00408",
+    "name": "北海道コカ・コーラボトリング",
+    "homepage_url": "https://www.hokkaido.ccbc.co.jp/",
+    "base_keywords": [
+      "北海道コカ・コーラ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hokkaido.ccbc.co.jp/newsrelease/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"p-news__link --pdf\"[^>]*>\\s*<div class=\"p-news__head\">\\s*<span class=\"p-news__date\">(?P<date>[^<]+)</span>[\\s\\S]{1,150}?<p class=\"p-news__h\">\\s*(?P<title>[^<]+?)\\s*</p>"
+    }
+  },
+  {
+    "code": "2911",
+    "edinet_code": "E00487",
+    "name": "旭松食品",
+    "homepage_url": "https://www.asahimatsu.co.jp/",
+    "base_keywords": [
+      "旭松食品",
+      "高野豆腐"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.asahimatsu.co.jp/release/",
+      "pattern": "<h3>(?P<date>[^<]+)</h3>\\s*<p><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7955",
+    "edinet_code": "E02406",
+    "name": "クリナップ",
+    "homepage_url": "https://cleanup.jp/",
+    "base_keywords": [
+      "クリナップ",
+      "システムキッチン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://cleanup.jp/topics/",
+      "pattern": "<p class=\"index__information-list-date\">\\s*(?P<date>[^<]+?)\\s*</p>[\\s\\S]{1,800}?<a\\s+href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[\\s\\S]*?)\\s*</a>"
+    }
+  },
+  {
+    "code": "7791",
+    "edinet_code": "E36627",
+    "name": "ドリームベッド",
+    "homepage_url": "https://www.dreambed.co.jp/",
+    "base_keywords": [
+      "ドリームベッド",
+      "dream bed"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.dreambed.co.jp/company-notice/newsrelease/",
+      "pattern": "<time class=\"p-time\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,300}?<h2 class=\"p-list-summary__item__title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4559",
+    "edinet_code": "E00948",
+    "name": "ゼリア新薬工業",
+    "homepage_url": "https://www.zeria.co.jp/",
+    "base_keywords": [
+      "ゼリア新薬",
+      "ヘパリーゼ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.zeria.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>https://www\\.zeria\\.co\\.jp/media/[^\"]+)\" target=\"_blank\">[\\s\\S]{1,300}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,150}?<p class=\"news-text\">(?P<title>[^<]+)</p>"
+    }
   }
 ]
