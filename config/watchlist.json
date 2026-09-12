@@ -2997,21 +2997,6 @@
     }
   },
   {
-    "code": "2804",
-    "edinet_code": "E00466",
-    "name": "ブルドックソース",
-    "homepage_url": "https://www.bulldog.co.jp/",
-    "base_keywords": [
-      "ブルドックソース",
-      "中濃ソース"
-    ],
-    "news_source": {
-      "type": "html_regex",
-      "url": "https://www.bulldog.co.jp/release/",
-      "pattern": "<a class=\"news__item__inner\" href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<time datetime=\"[^\"]*\" class=\"news__date\">(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<div class=\"news__title[^\"]*\">(?P<title>[^<]+)</div>"
-    }
-  },
-  {
     "code": "2919",
     "edinet_code": "E00497",
     "name": "マルタイ",
