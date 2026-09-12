@@ -3819,5 +3819,125 @@
       "url": "https://www.noevirholdings.co.jp/news/",
       "pattern": "<li><span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"catIcon[^\"]*\">[^<]*</span>\\s*<p><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[\\s\\S]*?)</a></p>"
     }
+  },
+  {
+    "code": "4935",
+    "edinet_code": "E36133",
+    "name": "リベルタ",
+    "homepage_url": "https://liberta-j.co.jp/",
+    "base_keywords": [
+      "Diane",
+      "リベルタ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://liberta-j.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<p class=\"news-list-day font-lato\">(?P<date>[^<]+)<em[^>]*>[\\s\\S]{1,150}?</em></p>\\s*<p class=\"news-list-tit\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "7874",
+    "edinet_code": "E02444",
+    "name": "レック",
+    "homepage_url": "https://www.lecinc.co.jp/",
+    "base_keywords": [
+      "レック",
+      "激落ちくん"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.lecinc.co.jp/news/",
+      "pattern": "<time class=\"news-list-date\">\\s*<span class=\"en\">\\s*(?P<date>[^<]+?)\\s*</span>[\\s\\S]{1,300}?<a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[\\s\\S]*?)\\s*</a>"
+    }
+  },
+  {
+    "code": "4045",
+    "edinet_code": "E00770",
+    "name": "東亞合成",
+    "homepage_url": "https://www.toagosei.co.jp/",
+    "base_keywords": [
+      "アロンアルフア",
+      "東亞合成"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.toagosei.co.jp/news/index.html",
+      "pattern": "<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<a href=\"(?P<url>[^\"]+)\" class=\"newsList-link[^\"]*\" target=\"_blank\"><span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "5142",
+    "edinet_code": "E01096",
+    "name": "アキレス",
+    "homepage_url": "https://www.achilles.jp/",
+    "base_keywords": [
+      "アキレス",
+      "合成皮革"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.achilles.jp/news/2026/",
+      "pattern": "<p class=\"c-list-article__date\">(?P<date>[^<]+)</p>[\\s\\S]{1,400}?<a class=\"c-list-article__anchor\" href=\"(?P<url>[^\"]+)\"><span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "5343",
+    "edinet_code": "E01135",
+    "name": "ニッコー",
+    "homepage_url": "https://www.nikko-company.co.jp/",
+    "base_keywords": [
+      "NIKKO",
+      "洋食器"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nikko-company.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"p-card _type\\d\">[\\s\\S]{1,700}?<p class=\"p-card__date\">(?P<date>[^<]+)</p>[\\s\\S]{1,500}?<h2 class=\"p-card__heading c-link\">(?P<title>[^<]+)</h2>"
+    }
+  },
+  {
+    "code": "7740",
+    "edinet_code": "E02308",
+    "name": "タムロン",
+    "homepage_url": "https://www.tamron.com/",
+    "base_keywords": [
+      "タムロン",
+      "カメラレンズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.tamron.com/jp/consumer/news/",
+      "pattern": "<a href=\"(?P<url>/jp/consumer/news/detail/[^\"]+)\" class=\"[^\"]*rt_cf_n_href\">[\\s\\S]{1,700}?<p class=\"mod-news-item-top-day ls_en rt_cf_n_date\">(?P<date>[^<]+)</p>[\\s\\S]{1,400}?<span class=\"rt_cf_n_title\">(?P<title>[\\s\\S]*?)\\s*</span>"
+    }
+  },
+  {
+    "code": "7769",
+    "edinet_code": "E02294",
+    "name": "リズム",
+    "homepage_url": "https://www.rhythm.co.jp/",
+    "base_keywords": [
+      "リズム時計",
+      "リズム"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.rhythm.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*(?P<title>[\\s\\S]*?)\\s*</a>\\s*<time>(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "7745",
+    "edinet_code": "E02344",
+    "name": "Ａ＆Ｄホロンホールディングス",
+    "homepage_url": "https://andholon.com/",
+    "base_keywords": [
+      "A&D",
+      "体組成計 血圧計"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://andholon.com/news/",
+      "pattern": "<div class=\"newsList--date\">(?P<date>[^<]+)</div>[\\s\\S]{1,300}?<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*(?P<title>[\\s\\S]*?)\\s*</a>"
+    }
   }
 ]
