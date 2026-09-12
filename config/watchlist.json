@@ -3729,5 +3729,95 @@
       "url": "https://soir.jp/news/",
       "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-link\"[^>]*target=\"_blank\"[^>]*>[\\s\\S]{1,850}?<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<h2 class=\"c-headline-h2\">(?P<title>[^<]+)</h2>"
     }
+  },
+  {
+    "code": "4936",
+    "edinet_code": "E36321",
+    "name": "アクシージア",
+    "homepage_url": "https://axxzia.co.jp/",
+    "base_keywords": [
+      "AXXZIA",
+      "アクシージア"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://axxzia.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\"><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time><div class=\"cat\">[^<]*</div><div class=\"newsTtl\"><span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "4623",
+    "edinet_code": "E00909",
+    "name": "アサヒペン",
+    "homepage_url": "https://www.asahipen.jp/",
+    "base_keywords": [
+      "アサヒペン",
+      "DIYペンキ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.asahipen.jp/new/",
+      "pattern": "<dt>(?P<date>[^<]+)<span[^>]*>[^<]*</span></dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4932",
+    "edinet_code": "E35568",
+    "name": "アルマード",
+    "homepage_url": "https://www.almado.co.jp/",
+    "base_keywords": [
+      "アルマード",
+      "卵殻膜"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.almado.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"news-link\">\\s*<div class=\"news-list-head\">\\s*<time class=\"news-time\">\\s*(?P<date>[^<]+?)\\s*</time>[\\s\\S]{1,300}?<div class=\"news-list-body\">\\s*(?P<title>[^<]+?)\\s*<div"
+    }
+  },
+  {
+    "code": "4926",
+    "edinet_code": "E23479",
+    "name": "シーボン",
+    "homepage_url": "https://www.cbon.co.jp/",
+    "base_keywords": [
+      "シーボン",
+      "C'BON"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.cbon.co.jp/company/news",
+      "pattern": "<a class=\"content-article-item\" href=\"(?P<url>[^\"]+)\" >[\\s\\S]{1,300}?<span>(?P<date>[^<]+)</span>\\s*<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "4925",
+    "edinet_code": "E01063",
+    "name": "ハーバー研究所",
+    "homepage_url": "https://www.haba.co.jp/",
+    "base_keywords": [
+      "HABA",
+      "無添加主義"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://haba-lab.jp/news-release/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*target=\"_blank\" rel=\"noopener\" class=\"p-newsList__anc\">[\\s\\S]{1,300}?<time datetime=\"[^\"]*\" class=\"p-newsList__date\">(?P<date>[^<]+)</time>[\\s\\S]{1,150}?<p class=\"p-newsList__title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "4928",
+    "edinet_code": "E24991",
+    "name": "ノエビアホールディングス",
+    "homepage_url": "https://www.noevirholdings.co.jp/",
+    "base_keywords": [
+      "ノエビア",
+      "なめらか本舗"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.noevirholdings.co.jp/news/",
+      "pattern": "<li><span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"catIcon[^\"]*\">[^<]*</span>\\s*<p><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[\\s\\S]*?)</a></p>"
+    }
   }
 ]
