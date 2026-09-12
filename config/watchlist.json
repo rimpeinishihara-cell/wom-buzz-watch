@@ -4104,5 +4104,95 @@
       "url": "https://www.ibjapan.jp/information",
       "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"item_data\">\\s*<span class=\"text-blue font-lato bold\">(?P<date>[^<]+)</span>[\\s\\S]{1,150}?<p>\\s*(?P<title>[^<]+?)\\s*</p>"
     }
+  },
+  {
+    "code": "9557",
+    "edinet_code": "E37796",
+    "name": "エアークローゼット",
+    "homepage_url": "https://corp.air-closet.com/",
+    "base_keywords": [
+      "airCloset",
+      "ファッションレンタル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.air-closet.com/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,300}?<span class=\"date\">(?P<date>[^<]+)</span><span class=\"category[^\"]*\">[^<]*</span>[\\s\\S]{1,150}?<h3 class=\"title\">(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "6096",
+    "edinet_code": "E30682",
+    "name": "レアジョブ",
+    "homepage_url": "https://www.rarejob.co.jp/",
+    "base_keywords": [
+      "レアジョブ英会話",
+      "オンライン英会話"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.rarejob.co.jp/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>\\s*<div class=\"cat\">[^<]*</div>\\s*<div class=\"text\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "2120",
+    "edinet_code": "E05624",
+    "name": "ＬＩＦＵＬＬ",
+    "homepage_url": "https://lifull.com/",
+    "base_keywords": [
+      "LIFULL HOME'S",
+      "ライフル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://lifull.com/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*class=\"modListNews__item__inner\">\\s*<p class=\"modListNews__item__data\">(?P<date>[^<]+)</p>[\\s\\S]{1,300}?<p class=\"modListNews__item__text\">\\s*(?P<title>[\\s\\S]*?)\\s*</p>"
+    }
+  },
+  {
+    "code": "9713",
+    "edinet_code": "E04540",
+    "name": "ロイヤルホテル",
+    "homepage_url": "https://www.rihga.co.jp/",
+    "base_keywords": [
+      "リーガロイヤルホテル",
+      "ロイヤルホテル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.rihga.co.jp/release",
+      "pattern": "<p class=\"bl_topicList_date\">(?P<date>[^<]+)</p>\\s*<p class=\"bl_topicList_ttl js_text_truncate\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\" rel=\"noopener\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9656",
+    "edinet_code": "E04693",
+    "name": "グリーンランドリゾート",
+    "homepage_url": "https://www.greenland.co.jp/",
+    "base_keywords": [
+      "グリーンランド",
+      "熊本 遊園地"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.greenland.co.jp/park/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"news-list-link link-home\">\\s*<time datetime=\"[^\"]*\" class=\"p-entry__time\">(?P<date>[^<]+)</time>[\\s\\S]{1,250}?<span class=\"ttl-text\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2499",
+    "edinet_code": "E05631",
+    "name": "日本和装ホールディングス",
+    "homepage_url": "https://www.wasou.com/",
+    "base_keywords": [
+      "日本和装",
+      "着付け教室"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.wasou.com/news/",
+      "pattern": "<li><em>(?P<date>[^<]+)</em><a href=\"(?P<url>[^\"]+)\"><span class=\"material-icons\">arrow_circle_right</span>\\s*(?P<title>[^<]+)</a>"
+    }
   }
 ]
