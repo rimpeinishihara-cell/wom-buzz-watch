@@ -2296,5 +2296,66 @@
       "url": "https://onecareer.co.jp/news/",
       "pattern": "<a class=\"c-artCard__inner\" href=\"(?P<url>[^\"]+)\">\\s*<span class=\"c-artCard__headMeta\">(?P<date>[^<]+?)\\s*/[^<]*</span>[\\s\\S]{0,1100}?<h2 class=\"c-artCard__title\">(?P<title>[^<]+)</h2>"
     }
+  },
+  {
+    "code": "500A",
+    "edinet_code": "E41257",
+    "name": "TOブックス",
+    "homepage_url": "https://www.tobooks.jp/",
+    "base_keywords": [
+      "TOブックス",
+      "異世界系ラノベ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.tobooks.jp/new-releases",
+      "pattern": "<li class=\"news_ul_a\">[\\s\\S]{0,300}?<p class=\"news_ul_day\">(?P<date>[^<]+)</p>[\\s\\S]{0,3500}?<a[^>]*class=\"opac\"[^>]*href=\"(?P<url>[^\"]+)\"[\\s\\S]{0,4000}?<dt>(?P<title>[^<]+)</dt>"
+    }
+  },
+  {
+    "code": "3981",
+    "edinet_code": "E32992",
+    "name": "ビーグリー",
+    "homepage_url": "https://www.beaglee.com/",
+    "base_keywords": [
+      "まんが王国",
+      "ビーグリー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.beaglee.com/news/",
+      "pattern": "<a class=\"col-3 post[^\"]*\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,1200}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,150}?<p class=\"post-excerpt\">\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "9416",
+    "edinet_code": "E30010",
+    "name": "ビジョン",
+    "homepage_url": "https://www.vision-net.co.jp/",
+    "base_keywords": [
+      "グローバルWiFi",
+      "ビジョン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.vision-net.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<p class=\"newsTx01\">(?P<date>[^<]+)</p>\\s*<p class=\"newsTx02\">[^<]*</p>\\s*<p class=\"newsTx03\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2780",
+    "edinet_code": "E03416",
+    "name": "コメ兵ホールディングス",
+    "homepage_url": "https://www.komehyo.co.jp/",
+    "base_keywords": [
+      "コメ兵",
+      "KOMEHYO",
+      "ブランド買取"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.komehyo.co.jp/news",
+      "pattern": "<div class=\"date[^\"]*\">(?P<date>[^<]+)</div>[\\s\\S]{0,250}?<div class=\"title[^\"]*\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
