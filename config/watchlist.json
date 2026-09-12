@@ -4194,5 +4194,65 @@
       "url": "https://www.wasou.com/news/",
       "pattern": "<li><em>(?P<date>[^<]+)</em><a href=\"(?P<url>[^\"]+)\"><span class=\"material-icons\">arrow_circle_right</span>\\s*(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "9635",
+    "edinet_code": "E04591",
+    "name": "武蔵野興業",
+    "homepage_url": "https://www.smt-cinema.com/site/shinjuku/",
+    "base_keywords": [
+      "新宿ピカデリー",
+      "武蔵野興業"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.smt-cinema.com/site/shinjuku/news/index.html",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span><p class=\"tag\">[\\s\\S]{1,150}?<p class=\"text\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9632",
+    "edinet_code": "E04599",
+    "name": "スバル興業",
+    "homepage_url": "https://subaru-kougyou.jp/",
+    "base_keywords": [
+      "スバル興業",
+      "新宿スバル座"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://subaru-kougyou.jp/archive.html",
+      "pattern": "newUpStart3\\(\\d+,\\d+,\\d+,\"[^\"]*\",\"(?P<date>[^\"]+)\",\"[^\"]*\"\\)</script>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "5571",
+    "edinet_code": "E34326",
+    "name": "エキサイトホールディングス",
+    "homepage_url": "https://www.excite-holdings.co.jp/",
+    "base_keywords": [
+      "Excite",
+      "エキサイト"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.excite-holdings.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"news-archive-item__info c-news-item__info\">\\s*<p class=\"news-archive-item__date c-news-item__date\">\\s*(?P<date>[^<]+?)\\s*</p>[\\s\\S]{1,300}?<h3 class=\"news-archive-item__title c-news-item__title\">\\s*<span>\\s*(?P<title>[\\s\\S]*?)\\s*</span>"
+    }
+  },
+  {
+    "code": "5031",
+    "edinet_code": "E37333",
+    "name": "モイ",
+    "homepage_url": "https://about.moi.st/",
+    "base_keywords": [
+      "ツイキャス",
+      "モイ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://about.moi.st/ja/news",
+      "pattern": "<a href=\"(?P<url>https://about\\.moi\\.st/ja/\\d{4}/\\d{2}/\\d{2}/[^\"]+)\">[\\s\\S]{1,1000}?<p class=\"title\">(?P<title>[^<]+)</p>[\\s\\S]{1,100}?<p class=\"date\">(?P<date>[^<]+)</p>"
+    }
   }
 ]
