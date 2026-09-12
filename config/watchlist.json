@@ -3055,5 +3055,80 @@
       "url": "https://www.takara-standard.co.jp/topicsnews/",
       "pattern": "<p class=\"m-list-news_data\">\\s*(?P<date>[^<]+?)\\s*</p>[\\s\\S]{1,150}?<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*(?P<title>[\\s\\S]*?)\\s*</a>"
     }
+  },
+  {
+    "code": "8153",
+    "edinet_code": "E02675",
+    "name": "モスフードサービス",
+    "homepage_url": "https://www.mos.co.jp/",
+    "base_keywords": [
+      "モスバーガー",
+      "モスフードサービス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mos.co.jp/company/newsrelease/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span></span>\\s*<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<span>(?P<title>[\\s\\S]*?)</span>"
+    }
+  },
+  {
+    "code": "9337",
+    "edinet_code": "E38162",
+    "name": "トリドリ",
+    "homepage_url": "https://torikizoku.co.jp/",
+    "base_keywords": [
+      "鳥貴族",
+      "トリドリ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://torikizoku.co.jp/infos/news/",
+      "pattern": "<a href=\"(?P<url>https://torikizoku\\.co\\.jp/assets/uploads/[^\"]+)\" target=\"_blank\" class=\"\">[\\s\\S]{1,300}?<div class=\"top-news__list__item__data__date date\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<h4 class=\"top-news__list__item__title title\">(?P<title>[^<]+)<span"
+    }
+  },
+  {
+    "code": "9882",
+    "edinet_code": "E02735",
+    "name": "イエローハット",
+    "homepage_url": "https://www.yellowhat.jp/",
+    "base_keywords": [
+      "イエローハット",
+      "カー用品"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.yellowhat.jp/top_topics.html",
+      "pattern": "<a class=\"info__item\" href=\"(?P<url>[^\"]+)\" target=\"[^\"]*\" data-tags=\"[^\"]*\">\\s*<div class=\"info__group\">\\s*<div class=\"info__day\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<p class=\"info__text\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "9832",
+    "edinet_code": "E03138",
+    "name": "オートバックスセブン",
+    "homepage_url": "https://www.autobacs.co.jp/",
+    "base_keywords": [
+      "オートバックス",
+      "カー用品"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.autobacs.co.jp/ja/news.html",
+      "pattern": "<a href=\"(?P<url>/ja/news/news-\\d+\\.html)\" >\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2340",
+    "edinet_code": "E04727",
+    "name": "極楽湯ホールディングス",
+    "homepage_url": "https://www.gokurakuyu-holdings.co.jp/",
+    "base_keywords": [
+      "極楽湯",
+      "スーパー銭湯"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gokurakuyu-holdings.co.jp/news/getHoldingsNews",
+      "pattern": "\\{(?=[^}]*\"news_date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"news_title\":\"(?P<title>[^\"]+)\")(?=[^}]*\"url\":\"(?P<url>[^\"]+)\")[^}]*\\}"
+    }
   }
 ]
