@@ -3190,5 +3190,80 @@
       "url": "https://www.to-sho.net/cgi-bin/news/list.cgi",
       "pattern": "<td>(?P<date>[^<]+)</td>\\s*<td><img[^>]*></td>\\s*<td><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "4714",
+    "edinet_code": "E05024",
+    "name": "リソー教育グループ",
+    "homepage_url": "https://www.riso-kyoikugroup.com/",
+    "base_keywords": [
+      "TOMAS",
+      "リソー教育"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.riso-kyoikugroup.com/",
+      "pattern": "<span class=\"date\">[^0-9]*(?P<date>[0-9／]+)[^<]*</span>\\s*<span class=\"topic_txt\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "9795",
+    "edinet_code": "E04925",
+    "name": "ステップ",
+    "homepage_url": "https://www.stepnet.co.jp/",
+    "base_keywords": [
+      "ステップ",
+      "神奈川 学習塾"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.stepnet.co.jp/company/IR-news.html",
+      "pattern": "<div class=\"date state\">(?P<date>[^<]+)</div>\\s*<a href=\"(?P<url>[^\"]+)\" target=\"_blank\" rel=\"noopener\">(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "4678",
+    "edinet_code": "E04991",
+    "name": "秀英予備校",
+    "homepage_url": "https://www.shuei-yobiko.co.jp/",
+    "base_keywords": [
+      "秀英予備校",
+      "静岡 進学塾"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.shuei-yobiko.co.jp/corporate/ir/prerelease/index.html",
+      "pattern": "<td>(?P<date>[^<]+)<br />\\s*<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9723",
+    "edinet_code": "E04550",
+    "name": "京都ホテル",
+    "homepage_url": "https://www.kyotohotel.co.jp/",
+    "base_keywords": [
+      "京都ホテル",
+      "ホテルオークラ京都"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kyotohotel.co.jp/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\" class=\"pdf-link\" target=\"_blank\"><span class=\"date\">(?P<date>[^<]+)</span>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9643",
+    "edinet_code": "E04596",
+    "name": "中日本興業",
+    "homepage_url": "https://www.nakanihonkogyo.co.jp/",
+    "base_keywords": [
+      "ミッドランドスクエア シネマ",
+      "中日本興業"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nakanihonkogyo.co.jp/company/report/press-release/index.html",
+      "pattern": "<li class=\"info_day\">(?P<date>[^<]+)</li>\\s*<li class=\"ts_text\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
