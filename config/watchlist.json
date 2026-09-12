@@ -2860,5 +2860,110 @@
       "url": "https://www.heiwanet.co.jp/news/",
       "pattern": "<span class=\"date\">(?P<date>[^<]+)</span><span class=\"category\">[^<]*</span></dt>[\\s\\S]{1,150}?<dd class=\"title\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "7571",
+    "edinet_code": "E03299",
+    "name": "ヤマノホールディングス",
+    "homepage_url": "https://www.yamano-hd.com/",
+    "base_keywords": [
+      "ヤマノ",
+      "山野楽器"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.yamano-hd.com/news/",
+      "pattern": "<p class=\"component-news__date\">(?P<date>[^<]+)</p>\\s*<p class=\"component-news__category[^\"]*\">[^<]*</p>\\s*<p class=\"component-news__text\">\\s*<a href=\"(?P<url>[^\"]+)\"\\s*target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "6249",
+    "edinet_code": "E25169",
+    "name": "ゲームカードホールディングス",
+    "homepage_url": "https://www.gc-holdings.co.jp/",
+    "base_keywords": [
+      "ゲームカード",
+      "パチンコ プリペイドカード"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gc-holdings.co.jp/article/all/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\" rel=\"noopener nofollow\">\\s*<time class=\"list-time\" datetime=\"(?P<date>[^\"]+)\">[\\s\\S]{1,300}?<span class=\"title-main\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "6430",
+    "edinet_code": "E02073",
+    "name": "ダイコク電機",
+    "homepage_url": "https://www.daikoku.co.jp/",
+    "base_keywords": [
+      "ダイコク電機",
+      "パチンコ ホールコンピュータ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daikoku.co.jp/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"titHead\">[^<]*<span class=\"category[^\"]*\"><span>[^<]*</span></span>\\s*<time class=\"date\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,50}?</div>\\s*<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "6405",
+    "edinet_code": "E01724",
+    "name": "鈴茂器工",
+    "homepage_url": "https://www.suzumo.co.jp/",
+    "base_keywords": [
+      "SUZUMO",
+      "寿司ロボット"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.suzumo.co.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*class=\"news_item_link top\">[\\s\\S]{1,250}?<time class=\"news_item_date\">(?P<date>[\\s\\S]*?)</time>[\\s\\S]{1,450}?<p class=\"lead news_item_lead\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "5946",
+    "edinet_code": "E01659",
+    "name": "長府製作所",
+    "homepage_url": "https://www.chofu.co.jp/",
+    "base_keywords": [
+      "長府製作所",
+      "給湯器"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.chofu.co.jp/list_news.php",
+      "pattern": "<dt class=\"[^\"]*\">(?P<date>[^<]+)</dt>\\s*<dd>\\s*<a href=\"(?P<url>[^\"]+)\" target=\"_blank\" class=\"fc-black\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7989",
+    "edinet_code": "E02389",
+    "name": "立川ブラインド工業",
+    "homepage_url": "https://www.blind.co.jp/",
+    "base_keywords": [
+      "タチカワブラインド",
+      "ブラインド"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.blind.co.jp/news/",
+      "pattern": "<a class=\"newsItem[^\"]*\" href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,400}?<div class=\"newsItem -date[^\"]*\">\\s*(?P<date>[^<]+?)\\s*</div>[\\s\\S]{1,200}?<div class=\"newsItem -txt[^\"]*\">\\s*<div class=\"-txtWidth[^\"]*\">\\s*(?P<title>[^<]+?)\\s*</div>"
+    }
+  },
+  {
+    "code": "1301",
+    "edinet_code": "E00012",
+    "name": "極洋",
+    "homepage_url": "https://www.kyokuyo.co.jp/",
+    "base_keywords": [
+      "極洋",
+      "冷凍食品 水産"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kyokuyo.co.jp/cgi-bin/newsjson.cgi",
+      "pattern": "\\{(?=[^}]*\"date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"title\":\"(?P<title>[^\"]+)\")(?=[^}]*\"url\":\"(?P<url>[^\"]+)\")[^}]*\\}"
+    }
   }
 ]
