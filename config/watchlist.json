@@ -2617,5 +2617,97 @@
       "url": "https://www.kojima.net/corporation/ir/release_top.html",
       "pattern": "<div class=\"date\">(?P<date>[^<]+)</div>\\s*<div class=\"lbl[^\"]*\">[\\s\\S]{0,150}?<div class=\"title\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "9994",
+    "edinet_code": "E03227",
+    "name": "やまや",
+    "homepage_url": "https://www.yamaya.jp/",
+    "base_keywords": [
+      "やまや",
+      "酒のやまや"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.yamaya.jp/ynhp/contents/company/press.php",
+      "pattern": "<span class=\"news-item-date\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<a href=\"(?P<url>[^\"]+)\"[\\s\\S]{1,100}?class=\"news-item-title\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3415",
+    "edinet_code": "E31742",
+    "name": "TOKYO BASE",
+    "homepage_url": "https://tokyobase.co.jp/",
+    "base_keywords": [
+      "TOKYO BASE",
+      "UNITED TOKYO",
+      "PUBLIC TOKYO"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://tokyobase.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>https://tokyobase\\.co\\.jp/news/[^\"]+)\">[\\s\\S]{1,600}?<h3 class=\"c-card__title\">(?P<title>[^<]+)</h3>[\\s\\S]{1,200}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "9876",
+    "edinet_code": "E03163",
+    "name": "コックス",
+    "homepage_url": "https://www.cox-online.co.jp/",
+    "base_keywords": [
+      "コックス",
+      "ikka",
+      "LBC"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.cox-online.co.jp/news/corporate/",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd class=\"pdf\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3030",
+    "edinet_code": "E03473",
+    "name": "ハブ",
+    "homepage_url": "https://www.pub-hub.co.jp/",
+    "base_keywords": [
+      "英国風パブ HUB",
+      "HUB 82"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ircms.irstreet.com/contents/export.php?template=1566&brand=87&charset=4&url=https://www.pub-hub.co.jp/news/",
+      "pattern": "insert_document \\(\\\\'[^\\\\']*\\\\',\\\\'[^\\\\']*\\\\',\\\\'(?P<date>[^\\\\']+)\\\\', \\\\'(?P<url>[^\\\\']+)\\\\', \\\\'(?P<title>[^\\\\']+)\\\\'"
+    }
+  },
+  {
+    "code": "3021",
+    "edinet_code": "E03465",
+    "name": "パシフィックネット",
+    "homepage_url": "https://www.prins.co.jp/",
+    "base_keywords": [
+      "パシフィックネット",
+      "PCNET"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.prins.co.jp/company/ir/release/news/",
+      "pattern": "<dt class=\"info-data[^\"]*\">(?P<date>[^<]+)</dt>[\\s\\S]{1,300}?<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3082",
+    "edinet_code": "E03512",
+    "name": "きちりホールディングス",
+    "homepage_url": "https://www.kichiri.co.jp/",
+    "base_keywords": [
+      "きちり",
+      "炭火焼肉きちり"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kichiri.co.jp/ir/",
+      "pattern": "<th class=\"date ff-time-i\">(?P<date>[^<]+)</th>\\s*<td><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
