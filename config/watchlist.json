@@ -3939,5 +3939,80 @@
       "url": "https://andholon.com/news/",
       "pattern": "<div class=\"newsList--date\">(?P<date>[^<]+)</div>[\\s\\S]{1,300}?<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*(?P<title>[\\s\\S]*?)\\s*</a>"
     }
+  },
+  {
+    "code": "4274",
+    "edinet_code": "E00850",
+    "name": "細谷火工",
+    "homepage_url": "https://hosoya-pyro.co.jp/",
+    "base_keywords": [
+      "細谷火工",
+      "花火"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://hosoya-pyro.co.jp/news/",
+      "pattern": "<span class=\"news__item-date\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<a class=\"news__item-link text-p\" href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3140",
+    "edinet_code": "E21259",
+    "name": "ＢＲＵＮＯ",
+    "homepage_url": "https://bruno-inc.com/",
+    "base_keywords": [
+      "BRUNO",
+      "キッチン家電"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://bruno-inc.com/?pg=press",
+      "pattern": "<p>(?P<date>[^<]+?)(?:[（(][^）)]*[）)])?</p>\\s*<p class=\"bolder mgnt10 f14px\">(?P<title>[^<]+)</p>[\\s\\S]{1,800}?<a href=\"(?P<url>//file\\.idea-in\\.jp/download/[^\"]+)\""
+    }
+  },
+  {
+    "code": "3359",
+    "edinet_code": "E02982",
+    "name": "ｃｏｔｔａ",
+    "homepage_url": "https://www.cotta.co.jp/",
+    "base_keywords": [
+      "cotta",
+      "製菓製パン材料"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.cotta.co.jp/",
+      "pattern": "<a href=\"(?P<url>/pdf/[^\"]+)\" target=\"_blank\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<p class=\"title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "8139",
+    "edinet_code": "E02660",
+    "name": "ナガホリ",
+    "homepage_url": "https://www.nagahori.co.jp/",
+    "base_keywords": [
+      "ナガホリ",
+      "ジュエリー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nagahori.co.jp/release/topics/feed",
+      "pattern": "<item>\\s*<title>(?P<title>[^<]+)</title>\\s*<link>(?P<url>[^<]+)</link>\\s*<pubDate>(?P<date>[^<]+)</pubDate>"
+    }
+  },
+  {
+    "code": "3562",
+    "edinet_code": "E33037",
+    "name": "Ｎｏ．１",
+    "homepage_url": "https://www.number-1.co.jp/",
+    "base_keywords": [
+      "トレファクリユース",
+      "No.1"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.number-1.co.jp/news/release/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_self\" class=\"\">\\s*<dl class=\"c-news__detail\">\\s*<dt class=\"c-news__date\">(?P<date>[^<]+)</dt>[\\s\\S]{1,450}?<span class=\"c-news__text\">(?P<title>[^<]+)</span>"
+    }
   }
 ]
