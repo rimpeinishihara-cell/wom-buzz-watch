@@ -2799,5 +2799,66 @@
       "url": "https://www.sakataseed.co.jp/news/",
       "pattern": "<div class=\"p-news-item-date\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<a href=\"(?P<url>[^\"]+)\" class=\"p-news-item-link\">(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "3375",
+    "edinet_code": "E03460",
+    "name": "ZOA",
+    "homepage_url": "https://www.zoa.co.jp/",
+    "base_keywords": [
+      "ZOA",
+      "PCパーツ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.zoa.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>/news/detail\\.php\\?id=\\d+)\" >\\s*<p class=\"pageList_date\">(?P<date>[^<]+)</p>\\s*<p class=\"pageList_name\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "7523",
+    "edinet_code": "E03276",
+    "name": "アールビバン",
+    "homepage_url": "https://www.artvivant.co.jp/",
+    "base_keywords": [
+      "アールビバン",
+      "ARTVIVANT"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.artvivant.co.jp/ir/release/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<span class=\"b-ir__archive__list__svg\">[\\s\\S]{1,150}?<span class=\"b-ir__archive__list__title\">(?P<title>[^<]+)<span>(?P<date>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "7119",
+    "edinet_code": "E38427",
+    "name": "ハルメクホールディングス",
+    "homepage_url": "https://www.halmek-holdings.co.jp/",
+    "base_keywords": [
+      "ハルメク",
+      "シニア女性"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.halmek-holdings.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>/news/[a-z]+/\\d{4}/[^\"]+)\"><article[^>]*>[\\s\\S]{1,3300}?_article_date\">(?P<date>[\\s\\S]*?)</p>[\\s\\S]{1,300}?_article_text\"><span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "6412",
+    "edinet_code": "E02403",
+    "name": "平和",
+    "homepage_url": "https://www.heiwanet.co.jp/",
+    "base_keywords": [
+      "平和",
+      "パチンコ機",
+      "パチスロ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.heiwanet.co.jp/news/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span><span class=\"category\">[^<]*</span></dt>[\\s\\S]{1,150}?<dd class=\"title\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
