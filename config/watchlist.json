@@ -4284,5 +4284,50 @@
       "url": "https://www.meito.co.jp/news/",
       "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "6632",
+    "edinet_code": "E21320",
+    "name": "ＪＶＣケンウッド",
+    "homepage_url": "https://www.jvckenwood.com/",
+    "base_keywords": [
+      "JVCケンウッド",
+      "アマチュア無線"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.jvckenwood.com/jp/press.html",
+      "pattern": "<time datetime=\"[^\"]*\">\\s*(?P<date>[^<]+?)\\s*</time>[\\s\\S]{1,200}?<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "6820",
+    "edinet_code": "E01850",
+    "name": "アイコム",
+    "homepage_url": "https://www.icom.co.jp/",
+    "base_keywords": [
+      "アイコム",
+      "アマチュア無線機"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.icom.co.jp/news/",
+      "pattern": "<li><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>\\s*<span[^>]*>[^<]*</span>\\s*<p class=\"entry\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "6718",
+    "edinet_code": "E01849",
+    "name": "アイホン",
+    "homepage_url": "https://www.aiphone.co.jp/",
+    "base_keywords": [
+      "アイホン",
+      "インターホン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.aiphone.co.jp/docs/news/",
+      "pattern": "<dt class=\"c01_news\">(?P<date>[^<]+)</dt><dd>\\s*<span class=\"new\">[^<]*</span>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
