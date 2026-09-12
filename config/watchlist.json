@@ -2965,5 +2965,95 @@
       "url": "https://www.kyokuyo.co.jp/cgi-bin/newsjson.cgi",
       "pattern": "\\{(?=[^}]*\"date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"title\":\"(?P<title>[^\"]+)\")(?=[^}]*\"url\":\"(?P<url>[^\"]+)\")[^}]*\\}"
     }
+  },
+  {
+    "code": "2612",
+    "edinet_code": "E00433",
+    "name": "かどや製油",
+    "homepage_url": "https://www.kadoya.com/",
+    "base_keywords": [
+      "かどや製油",
+      "ごま油"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kadoya.com/news/",
+      "pattern": "<a class=\"newsMain__item[^\"]*\"[^>]*href=\"(?P<url>[^\"]+)\">\\s*<span class=\"newsMain__date\">\\s*(?P<date>[^<]+?)\\s*</span>[\\s\\S]{1,600}?<span class=\"newsMain__title\">\\s*<span class=\"newsMain__cramp\">\\s*(?P<title>[^<]+?)\\s*<"
+    }
+  },
+  {
+    "code": "2908",
+    "edinet_code": "E00481",
+    "name": "フジッコ",
+    "homepage_url": "https://www.fujicco.co.jp/",
+    "base_keywords": [
+      "フジッコ",
+      "おまめさん"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fujicco.co.jp/newsrelease/",
+      "pattern": "<div class=\"p-news__date\">\\s*(?P<date>[^<]+?)\\s*</div>[\\s\\S]{1,300}?<div class=\"p-news__article\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[\\s\\S]*?)</a>"
+    }
+  },
+  {
+    "code": "2804",
+    "edinet_code": "E00466",
+    "name": "ブルドックソース",
+    "homepage_url": "https://www.bulldog.co.jp/",
+    "base_keywords": [
+      "ブルドックソース",
+      "中濃ソース"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.bulldog.co.jp/release/",
+      "pattern": "<a class=\"news__item__inner\" href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<time datetime=\"[^\"]*\" class=\"news__date\">(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<div class=\"news__title[^\"]*\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "2919",
+    "edinet_code": "E00497",
+    "name": "マルタイ",
+    "homepage_url": "https://www.marutai.co.jp/",
+    "base_keywords": [
+      "マルタイ",
+      "棒ラーメン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.marutai.co.jp/topics/",
+      "pattern": "<a href=\"(?P<url>/topics/archives/\\d+)\" >[\\s\\S]{1,300}?<p class=\"date\">(?P<date>[^<]+)<span[^>]*>[^<]*</span></p>\\s*<p class=\"big_text\">\\s*<span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "4524",
+    "edinet_code": "E00941",
+    "name": "森下仁丹",
+    "homepage_url": "https://www.jintan.co.jp/",
+    "base_keywords": [
+      "森下仁丹",
+      "仁丹"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.jintan.co.jp/news/info/",
+      "pattern": "<dt><p class=\"date\"><span>[^<]*</span>(?P<date>[^<]+)</p></dt>[\\s\\S]{1,150}?<a href=\"(?P<url>[^\"]+)\" title=\"[^\"]*\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7981",
+    "edinet_code": "E02373",
+    "name": "タカラスタンダード",
+    "homepage_url": "https://www.takara-standard.co.jp/",
+    "base_keywords": [
+      "タカラスタンダード",
+      "システムキッチン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.takara-standard.co.jp/topicsnews/",
+      "pattern": "<p class=\"m-list-news_data\">\\s*(?P<date>[^<]+?)\\s*</p>[\\s\\S]{1,150}?<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*(?P<title>[\\s\\S]*?)\\s*</a>"
+    }
   }
 ]
