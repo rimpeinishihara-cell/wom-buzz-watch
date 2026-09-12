@@ -3639,5 +3639,95 @@
       "url": "https://www.yamatointr.co.jp/press",
       "pattern": "<th><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time></th>\\s*<td><span[^>]*>[^<]*</span><br>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "7872",
+    "edinet_code": "E03281",
+    "name": "エステールホールディングス",
+    "homepage_url": "https://www.estelle.co.jp/",
+    "base_keywords": [
+      "エステール",
+      "As-me ESTELLE"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.estelle.co.jp/ir/news/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<p class=\"title\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\" class=\"pdf\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7847",
+    "edinet_code": "E02464",
+    "name": "グラファイトデザイン",
+    "homepage_url": "https://graphitedesign.gd-inc.co.jp/",
+    "base_keywords": [
+      "Tour AD",
+      "グラファイトデザイン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://graphitedesign.gd-inc.co.jp/news/",
+      "pattern": "<li class=\"news-list-item\">\\s*<a href=\"(?P<url>[^\"]+)\" target=\"_blank\" rel=\"noopener noreferrer\">\\s*<span class=\"news-label\">[^<]*</span>\\s*<span class=\"news-date\">(?P<date>[^<]+)</span>\\s*<span class=\"news-title\">(?P<title>[\\s\\S]*?)<span class=\"news-icon\">"
+    }
+  },
+  {
+    "code": "8118",
+    "edinet_code": "E02645",
+    "name": "キング",
+    "homepage_url": "https://www.king-group.co.jp/",
+    "base_keywords": [
+      "キング",
+      "ネクタイ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.king-group.co.jp/c_ir.html",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8029",
+    "edinet_code": "E00604",
+    "name": "ルックホールディングス",
+    "homepage_url": "https://www.look-holdings.jp/",
+    "base_keywords": [
+      "EMODA",
+      "Ungrid"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://emoda-japan.com/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,300}?<p class=\"text00\">(?P<date>[^<]+)</p>\\s*<p class=\"text01\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3504",
+    "edinet_code": "E32204",
+    "name": "丸八ホールディングス",
+    "homepage_url": "https://www.maruhachi.co.jp/",
+    "base_keywords": [
+      "丸八真綿",
+      "布団"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.maruhachi.co.jp/%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E4%B8%80%E8%A6%A7",
+      "pattern": ">(?P<date>20\\d\\d年\\d{2}月\\d{2}日)\\s*[\\s\\S]{1,300}?<a href=\"(?P<url>[^\"]+)\" >(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8040",
+    "edinet_code": "E02679",
+    "name": "東京ソワール",
+    "homepage_url": "https://soir.jp/",
+    "base_keywords": [
+      "東京ソワール",
+      "ブラックフォーマル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://soir.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-link\"[^>]*target=\"_blank\"[^>]*>[\\s\\S]{1,850}?<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<h2 class=\"c-headline-h2\">(?P<title>[^<]+)</h2>"
+    }
   }
 ]
