@@ -2153,5 +2153,84 @@
       "url": "https://www.kabuki-za.co.jp/news_archive/",
       "pattern": "<dt><span class=\"list-news__date\">\\s*(?P<date>[^<]+?)\\s*</span>[\\s\\S]{0,150}?</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^\\n<]+)"
     }
+  },
+  {
+    "code": "4825",
+    "edinet_code": "E05162",
+    "name": "ウェザーニューズ",
+    "homepage_url": "https://weathernews.jp/",
+    "base_keywords": [
+      "ウェザーニュース",
+      "ウェザーニューズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://weathernews.jp/s/topics/",
+      "pattern": "<a href=\"(?P<url>/news/[^\"]+)\"[^>]*>[\\s\\S]{0,600}?<p data-text=\"title\">(?P<title>[^<]+)</p>[\\s\\S]{0,150}?<p data-text=\"date\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3930",
+    "edinet_code": "E32141",
+    "name": "はてな",
+    "homepage_url": "https://hatena.co.jp/",
+    "base_keywords": [
+      "はてな",
+      "はてなブログ",
+      "はてなブックマーク"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://hatena.co.jp/press/release/",
+      "pattern": "<a href=\"[^\"]*\" rel=\"nofollow\">\\s*<time datetime=\"[^\"]*\"[^>]*>\\s*(?P<date>[^<]+?)\\s*</time>\\s*</a>\\s*</div>\\s*<a href=\"(?P<url>[^\"]+)\" class=\"[^\"]*\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3904",
+    "edinet_code": "E31093",
+    "name": "カヤック",
+    "homepage_url": "https://www.kayac.com/",
+    "base_keywords": [
+      "面白法人カヤック",
+      "カヤック",
+      "スマウト"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kayac.com/news",
+      "pattern": "<a class=\"news-card\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,300}?<div class=\"news-card__date\">(?P<date>[^<]+)</div><div class=\"news-card__title\">(?:<div class=\"news-card__title__series\">[^<]*</div>)?(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "3633",
+    "edinet_code": "E22101",
+    "name": "GMOペパボ",
+    "homepage_url": "https://pepabo.com/",
+    "base_keywords": [
+      "minne",
+      "GMOペパボ",
+      "カラーミーショップ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://pepabo.com/news/",
+      "pattern": "<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<h3>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9601",
+    "edinet_code": "E04582",
+    "name": "松竹",
+    "homepage_url": "https://www.shochiku.co.jp/",
+    "base_keywords": [
+      "松竹",
+      "歌舞伎",
+      "松竹映画"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.shochiku.co.jp/news/",
+      "pattern": "<li><div class=\"create_time\">(?P<date>[^<]+)</div>[\\s\\S]{0,300}?<div class=\"news_title\"><a target=\"_blank\" href=\"(?P<url>[^\"]+)\">(?P<title>[\\s\\S]*?)</a>"
+    }
   }
 ]
