@@ -4014,5 +4014,95 @@
       "url": "https://www.number-1.co.jp/news/release/",
       "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_self\" class=\"\">\\s*<dl class=\"c-news__detail\">\\s*<dt class=\"c-news__date\">(?P<date>[^<]+)</dt>[\\s\\S]{1,450}?<span class=\"c-news__text\">(?P<title>[^<]+)</span>"
     }
+  },
+  {
+    "code": "3612",
+    "edinet_code": "E02767",
+    "name": "ワールド",
+    "homepage_url": "https://corp.world.co.jp/",
+    "base_keywords": [
+      "ワールド",
+      "Anayi"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.world.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>https://corp\\.world\\.co\\.jp/news/company/\\d+/\\d+)\">[\\s\\S]{1,400}?<span class=\"c-card__list__info__date\">(?P<date>[^<]+)</span>[\\s\\S]{1,150}?<div class=\"c-card__list__txt\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "7441",
+    "edinet_code": "E02813",
+    "name": "Ｍｉｓｕｍｉ",
+    "homepage_url": "https://www.misumi.co.jp/",
+    "base_keywords": [
+      "メガネのミスミ",
+      "Misumi"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.misumi.co.jp/news",
+      "pattern": "<a\\s+class=\"el-news__container\" href=\"(?P<url>[^\"]+)\">\\s*<time class=\"el-news__date\"\\s*datetime=\"[^\"]*\">\\s*(?P<date>[^<]+?)\\s*</time>[\\s\\S]{1,300}?<div class=\"el-news__detail\">\\s*<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "4343",
+    "edinet_code": "E05264",
+    "name": "イオンファンタジー",
+    "homepage_url": "https://www.fantasy.co.jp/",
+    "base_keywords": [
+      "モーリーファンタジー",
+      "イオンファンタジー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fantasy.co.jp/molly-fantasy/info/",
+      "pattern": "<dt class=\"date\"><span class=\"date-time\">(?P<date>[^<]+)</span></dt>\\s*<dd class=\"txt\"><a href=\"(?P<url>[^\"]+)\"><span class=\"txt\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2157",
+    "edinet_code": "E04751",
+    "name": "コシダカホールディングス",
+    "homepage_url": "https://www.koshidakaholdings.co.jp/",
+    "base_keywords": [
+      "まねきねこ",
+      "コシダカ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.koshidakaholdings.co.jp/ja/news.html",
+      "pattern": "entrydate=\"(?P<date>\\d{4}/\\d{2}/\\d{2})\"[^>]*>\\s*<div class=\"item\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*target=\"_blank\">[\\s\\S]{1,400}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "4301",
+    "edinet_code": "E05219",
+    "name": "アミューズ",
+    "homepage_url": "https://www.amuse.co.jp/",
+    "base_keywords": [
+      "アミューズ",
+      "芸能事務所"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.amuse.co.jp/topics/index.php",
+      "pattern": "<a href=\"(?P<url>/topics/(?P<date>\\d{4}/\\d{2})/[^\"]+\\.html)\" class=\"m-textNboxLink\">[\\s\\S]{1,600}?<p class=\"m-textNboxLink__text\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "6071",
+    "edinet_code": "E27066",
+    "name": "ＩＢＪ",
+    "homepage_url": "https://www.ibjapan.jp/",
+    "base_keywords": [
+      "IBJ",
+      "婚活"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ibjapan.jp/information",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"item_data\">\\s*<span class=\"text-blue font-lato bold\">(?P<date>[^<]+)</span>[\\s\\S]{1,150}?<p>\\s*(?P<title>[^<]+?)\\s*</p>"
+    }
   }
 ]
