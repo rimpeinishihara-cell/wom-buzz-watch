@@ -3280,5 +3280,95 @@
       "url": "https://www.production-ig.co.jp/hotnews",
       "pattern": "<li class=\"news release  \"><a href=\"(?P<url>/hotnews/(?P<date>\\d{4}/\\d{4})\\d*\\.html)\">(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "2882",
+    "edinet_code": "E25551",
+    "name": "イートアンドホールディングス",
+    "homepage_url": "https://www.eat-and.jp/",
+    "base_keywords": [
+      "大阪王将",
+      "イートアンド"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.eat-and.jp/news/",
+      "pattern": "<a class=\"p-listNews__link\" href=\"(?P<url>[^\"]+)\" target=\"_self\">\\s*<div class=\"p-listNews__box\">\\s*<span class=\"p-listNews__date\">(?P<date>[^<]+)</span>[\\s\\S]{1,200}?<p class=\"p-listNews__text\">(?P<title>[\\s\\S]*?)</p>"
+    }
+  },
+  {
+    "code": "409A",
+    "edinet_code": "E00410",
+    "name": "オリオンビール",
+    "homepage_url": "https://www.orionbeer.co.jp/",
+    "base_keywords": [
+      "オリオンビール",
+      "沖縄ビール"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.orionbeer.co.jp/news/history/2026",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\"><div><img[^>]*></div><div><span>(?P<title>[^<]+?)\\s*(?:<strong[^>]*>[^<]*</strong>)?</span><span>(?P<date>[^<]+)</span></div></a>"
+    }
+  },
+  {
+    "code": "2816",
+    "edinet_code": "E00501",
+    "name": "ダイショー",
+    "homepage_url": "https://www.daisho.co.jp/",
+    "base_keywords": [
+      "ダイショー",
+      "鍋つゆ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daisho.co.jp/ir/news",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<p class=\"cate\">[^<]*<span>[^<]*</span></p>\\s*<p class=\"ttl\">(?P<title>[^<]+)</p>\\s*<div class=\"pdf\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">"
+    }
+  },
+  {
+    "code": "2551",
+    "edinet_code": "E00422",
+    "name": "マルサンアイ",
+    "homepage_url": "https://www.marusanai.co.jp/",
+    "base_keywords": [
+      "マルサンアイ",
+      "豆乳"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.marusanai.co.jp/news/",
+      "pattern": "<span class=\"mc-news-card-heading-date-text__label\">(?P<date>[^<]+)</span>[\\s\\S]{1,700}?<p class=\"mc-news-card-text__label\">\\s*<a href=\"(?P<url>(?!/recipe/\")(?!/company/ir/library/data\")[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "2204",
+    "edinet_code": "E00372",
+    "name": "中村屋",
+    "homepage_url": "https://www.nakamuraya.co.jp/",
+    "base_keywords": [
+      "新宿中村屋",
+      "カリーパン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nakamuraya.co.jp/company/news/ir/",
+      "pattern": "<div class=\"news-list\">\\s*<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,300}?<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,150}?<p class=\"news-ttl\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2294",
+    "edinet_code": "E03283",
+    "name": "柿安本店",
+    "homepage_url": "https://www.kakiyasuhonten.co.jp/",
+    "base_keywords": [
+      "柿安",
+      "デパ地下惣菜"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kakiyasuhonten.co.jp/news/",
+      "pattern": "<li class=\"pageList_item\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<p class=\"pageList_date\">(?P<date>[^<]+)</p>[\\s\\S]{1,150}?<p class=\"pageList_title\">(?P<title>[^<]+)</p>"
+    }
   }
 ]
