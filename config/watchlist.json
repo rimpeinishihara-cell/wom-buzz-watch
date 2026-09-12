@@ -273,7 +273,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.natori.co.jp/news.html",
-      "pattern": "<dt[^>]*>(?P<date>[\\d/\\.\\-年月日]{6,14})</dt>\\s*<dd[^>]*>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+      "pattern": "<dt[^>]*>(?P<date>[\\d/\\.\\-年月日]{6,14})</dt>\\s*<dd[^>]*>\\s*<a href=\"(?P<url>(?!https://www\\.natori\\.co\\.jp/news\\.html\")(?!https://www\\.natori\\.co\\.jp/joy/gpseries\\.html\")(?!https://www\\.natori\\.co\\.jp/corporate/sustainability/report\\.html\")(?!https://www\\.natori\\.co\\.jp/dcms_media/other/company_j2\\.pdf\")(?!https://www\\.natori\\.co\\.jp/joy/power/surimi\\.html\")(?!https://www\\.natori\\.co\\.jp/joy/recipe\\.html\")(?!https://www\\.natori\\.co\\.jp/joy/recipe/rank\\.html\")(?!https://www\\.natori\\.co\\.jp/corporate/ir/holders\\.html\")[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
     }
   },
   {
@@ -514,7 +514,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.tsuburaya-fields.co.jp/news/",
-      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]{0,200}?<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]{0,200}?<a href=\"(?P<url>(?!(?:https?://[^\"/]+)?/ir/j/event_calender/\")(?!(?:https?://[^\"/]+)?/ir/j/library/meeting/\")(?!(?:https?://[^\"/]+)?/ir/j/library/statements/\")[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
     }
   },
   {
@@ -770,7 +770,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://aderia.jp/news/",
-      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,100}?<span class=\"title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,100}?<span class=\"title\"><a href=\"(?P<url>(?!https://aderia\\.jp/series/aderiaretro/\")[^\"]+)\">(?P<title>.*?)</a>"
     }
   },
   {
@@ -912,7 +912,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.pigeon.co.jp/news/data.json",
-      "pattern": "\\{(?=[^}]*\"date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"permalink\":\"(?P<url>[^\"]+)\")(?=[^}]*\"title\":\"(?P<title>[^\"]+)\")[^}]*\\}"
+      "pattern": "\\{(?=[^}]*\"date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"permalink\":\"(?P<url>(?!(?:https?://[^\"/]+)?/sustainability/environment_top/warming/\")(?!(?:https?://[^\"/]+)?/sustainability/environment_top/co2/\")(?!(?:https?://[^\"/]+)?/sustainability/evaluation/\")(?!(?:https?://[^\"/]+)?/ir/library/yuka_houkoku/\")(?!(?:https?://[^\"/]+)?/sustainability/activity/detail/post_34\\.html\")(?!(?:https?://[^\"/]+)?/ir/kabunushi_sokai/\")[^\"]+)\")(?=[^}]*\"title\":\"(?P<title>[^\"]+)\")[^}]*\\}"
     }
   },
   {
@@ -992,7 +992,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.fujiya-peko.co.jp/news/news/",
-      "pattern": "<article class=\"news__article\"><a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<time class=\"news__date\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,250}?<h2 class=\"news__title\">(?P<title>[^<]+)"
+      "pattern": "<article class=\"news__article\"><a href=\"(?P<url>(?!https://www\\.fujiya\\-peko\\.co\\.jp/mori/\")(?!https://www\\.fujiya\\-peko\\.co\\.jp/company/news/\")[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<time class=\"news__date\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,250}?<h2 class=\"news__title\">(?P<title>[^<]+)"
     }
   },
   {
@@ -1024,7 +1024,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.seed.co.jp/topics/",
-      "pattern": "<dt><span class=\"date\">(?P<date>[^<]+)<img[^>]*></span></dt>\\s*<dd>\\s*<p class=\"iconLink01\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)"
+      "pattern": "<dt><span class=\"date\">(?P<date>[^<]+)<img[^>]*></span></dt>\\s*<dd>\\s*<p class=\"iconLink01\"><a href=\"(?P<url>(?!(?:https?://[^\"/]+)?/company/csr/\")(?!(?:https?://[^\"/]+)?/airgrade/\")(?!(?:https?://[^\"/]+)?/heroine/\")(?!(?:https?://[^\"/]+)?/viewsupport/\")(?!(?:https?://[^\"/]+)?/belleme/\")(?!(?:https?://[^\"/]+)?/blog/eyemate/\")(?!(?:https?://[^\"/]+)?/sports/\")(?!(?:https?://[^\"/]+)?/edof/\")(?!(?:https?://[^\"/]+)?/edof/news/\")(?!(?:https?://[^\"/]+)?/eyecoffret/\")(?!(?:https?://[^\"/]+)?/products/contact/fine_uv_plus/index\\.html\")(?!(?:https?://[^\"/]+)?/multi/\")(?!(?:https?://[^\"/]+)?/products/contact/pure/download\\.html\")[^\"]+)\"[^>]*>(?P<title>[^<]+)"
     }
   },
   {
@@ -1056,7 +1056,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.noritz.co.jp/company/news/",
-      "pattern": "<time datetime=\"[^\"]*\" class=\"news-list__item__date\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<a href=\"(?P<url>[^\"]+)\" class=\"news-list__item__link\">(?P<title>[^<]+)</a>"
+      "pattern": "<time datetime=\"[^\"]*\" class=\"news-list__item__date\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<a href=\"(?P<url>(?!https://www\\.noritz\\.co\\.jp/company/ir/ir_library/document\\.html\")[^\"]+)\" class=\"news-list__item__link\">(?P<title>[^<]+)</a>"
     }
   },
   {
@@ -1104,7 +1104,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.buffalo.jp/news/product.html",
-      "pattern": "<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<a href=\"(?P<url>[^\"]+)\"[^>]*rel=\"bookmark\">(?P<title>[^<]+)</a>"
+      "pattern": "<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<a href=\"(?P<url>(?!https://www\\.buffalo\\.jp/news/detail/20260302\\-01\\.html\")(?!https://www\\.buffalo\\.jp/news/detail/20251208\\-01\\.html\")(?!https://www\\.buffalo\\.jp/news/detail/20251126\\-01\\.html\")(?!https://www\\.buffalo\\.jp/news/detail/20250130\\-01\\.html\")(?!https://www\\.buffalo\\.jp/news/detail/20241226\\-01\\.html\")(?!https://www\\.buffalo\\.jp/news/detail/20240419\\-01\\.html\")(?!https://www\\.buffalo\\.jp/news/detail/20240327\\-01\\.html\")[^\"]+)\"[^>]*rel=\"bookmark\">(?P<title>[^<]+)</a>"
     }
   },
   {
@@ -1136,7 +1136,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.hks-power.co.jp/news/",
-      "pattern": "<dt>(?P<date>[\\d.]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></dd>"
+      "pattern": "<dt>(?P<date>[\\d.]+)</dt>\\s*<dd><a href=\"(?P<url>(?![^\"]*event/hiperchallenge/index\\.html\")(?![^\"]*boost/powereditor_r/supporter\\.html\")(?![^\"]*engine/piston_ring_pin/index\\.html\")[^\"]+)\">(?P<title>[^<]+)</a></dd>"
     }
   },
   {
@@ -1168,7 +1168,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.carmate.co.jp/news/news/",
-      "pattern": "<dd>(?P<date>[^<]+)</dd>\\s*<dt>\\s*<h3><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></h3>"
+      "pattern": "<dd>(?P<date>[^<]+)</dd>\\s*<dt>\\s*<h3><a href=\"(?P<url>(?!https://www\\.carmate\\.co\\.jp/news/news/20260407\\.html\")(?!https://www\\.carmate\\.co\\.jp/news/news/cx530k\\.html\")(?!https://www\\.carmate\\.co\\.jp/news/news/cx543k\\.html\")(?!https://www\\.carmate\\.co\\.jp/news/news/pl260bl\\.html\")(?!https://www\\.carmate\\.co\\.jp/news/news/pl204\\.html\")(?!https://www\\.carmate\\.co\\.jp/news/news/2022\\-no4\\.html\")(?!https://www\\.carmate\\.co\\.jp/news/news/web\\.html\")(?!https://www\\.carmate\\.co\\.jp/news/news/inno\\-uk709\\.html\")[^\"]+)\">(?P<title>[^<]+)</a></h3>"
     }
   },
   {
@@ -1184,7 +1184,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.kawai.jp/news/newsc/pro/",
-      "pattern": "<a href=\"\\s*(?P<url>[^\"]+)\" class=\"l pro\">\\s*<dl class=\"cf\">\\s*<dt class=\"pro\">(?P<date>[^<]+)</dt>\\s*<dd>(?P<title>[^<]+)</dd>"
+      "pattern": "<a href=\"\\s*(?P<url>(?!https://www\\.kawai\\.jp/gx_campaign2503/\")(?!https://www\\.kawai\\.jp/promo/gakkifair2020/\")(?!http://www\\.kawai\\.jp/product/c/digitalpiano/caseries/\")[^\"]+)\" class=\"l pro\">\\s*<dl class=\"cf\">\\s*<dt class=\"pro\">(?P<date>[^<]+)</dt>\\s*<dd>(?P<title>[^<]+)</dd>"
     }
   },
   {
@@ -1296,7 +1296,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.bond.co.jp/bond/information/",
-      "pattern": "<p>(?P<date>[\\d.]+)\\s*</p>\\s*<p>[^<]*</p>[\\s\\S]{0,150}?<p[^>]*><a[^>]*href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+      "pattern": "<p>(?P<date>[\\d.]+)\\s*</p>\\s*<p>[^<]*</p>[\\s\\S]{0,150}?<p[^>]*><a[^>]*href=\"(?P<url>(?!https://www\\.bond\\.co\\.jp/bond/event/kids/contest/index\\.html\")(?!https://www\\.bond\\.co\\.jp/bond/event/kids/index\\.html\")(?!https://www\\.bond\\.co\\.jp/bond/special/su/\")(?!https://www\\.bond\\.co\\.jp/bond/special/saihou/\")(?!http://www\\.bond\\.co\\.jp/bond/event/kids/contest/index\\.html\")[^\"]+)\">(?P<title>[^<]+)</a>"
     }
   },
   {
@@ -1328,7 +1328,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "http://www.milbon.co.jp/news/index/1",
-      "pattern": "<div class=\"c_news\"><a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<time class=\"u_date_news\">(?P<date>[^<]+)</time>[\\s\\S]{0,250}?<span>(?P<title>[^<]+)</span>"
+      "pattern": "<div class=\"c_news\"><a href=\"(?P<url>(?!(?:https?://[^\"/]+)?/ja/sustainability/sustainability_report\\.html\")(?!(?:https?://[^\"/]+)?/shop/shop/c/c10/\")(?!(?:https?://[^\"/]+)?/shop/pages/c/c10/\")(?!(?:https?://[^\"/]+)?/shop/default\\.aspx\")(?!(?:https?://[^\"/]+)?/ja/sustainability/integrated_report\\.html\")(?!(?:https?://[^\"/]+)?/ja/ir/library/report\\.html\")(?!(?:https?://[^\"/]+)?/shop/c/c95/\")(?!(?:https?://[^\"/]+)?/shop/c/c10/\")(?!(?:https?://[^\"/]+)?/\")(?!(?:https?://[^\"/]+)?/ordeve\")(?!(?:https?://[^\"/]+)?/ja/brand/cronna/\")(?!(?:https?://[^\"/]+)?/ja/brand/elujuda/\")(?!(?:https?://[^\"/]+)?/ja/brand/\")(?!(?:https?://[^\"/]+)?/ja/brand/jemilefran/\")(?!(?:https?://[^\"/]+)?/ja/brand/plarmia/\")[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<time class=\"u_date_news\">(?P<date>[^<]+)</time>[\\s\\S]{0,250}?<span>(?P<title>[^<]+)</span>"
     }
   },
   {
@@ -1360,7 +1360,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.rikenvitamin.jp/news/",
-      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\" class=\"mod-newsList01-a[^\"]*\">\\s*<time[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<span class=\"__tit[^\"]*\">(?P<title>[^<]+)</span>"
+      "pattern": "<a href=\"(?P<url>(?!https://www\\.rikenvitamin\\.jp/shokuiku/\")(?!https://www\\.egaoderanchi\\.jp/\")(?!https://www\\.rikenvitamin\\.jp/shokuiku/dictionary/mame/\")[^\"]+)\" target=\"_blank\" class=\"mod-newsList01-a[^\"]*\">\\s*<time[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<span class=\"__tit[^\"]*\">(?P<title>[^<]+)</span>"
     }
   },
   {
@@ -1456,7 +1456,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "http://www.marudai.jp/bknumber/",
-      "pattern": "<p class=\"day\">\\s*(?P<date>[\\d.]+)[\\s\\S]{0,150}?</p>\\s*<p class=\"txt\">\\s*<a href=\"(?P<url>[^\"]+)\"\\s*>(?P<title>[^<]+)</a>"
+      "pattern": "<p class=\"day\">\\s*(?P<date>[\\d.]+)[\\s\\S]{0,150}?</p>\\s*<p class=\"txt\">\\s*<a href=\"(?P<url>(?!https://www\\.marudai\\.jp/user/products/special/ryuji2026/\")(?!https://www\\.marudai\\.jp/movie/\")[^\"]+)\"\\s*>(?P<title>[^<]+)</a>"
     }
   },
   {
@@ -1552,7 +1552,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.waseda-ac.co.jp/info/",
-      "pattern": "<dt>(?P<date>[\\d/]+)</dt>\\s*<dd><p>(?:<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>|[^<]*<a href=\"[^\"]+\">(?P<title2>[^<]+)</a>)"
+      "pattern": "<dt>(?P<date>[\\d/]+)</dt>\\s*<dd><p>(?:<a href=\"(?P<url>(?!(?:https?://[^\"/]+)?/movie/family\\.html\")(?!(?:https?://[^\"/]+)?/school/tamachi\\.html\")[^\"]+)\">(?P<title>[^<]+)</a>|[^<]*<a href=\"[^\"]+\">(?P<title2>[^<]+)</a>)"
     }
   },
   {
@@ -1725,7 +1725,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.theatres.co.jp/news/",
-      "pattern": "<li class=\"list__news\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,100}?<dt>(?P<date>[\\d.]+)</dt>[\\s\\S]{0,50}?<dd>(?P<title>[^<]+)</dd>"
+      "pattern": "<li class=\"list__news\">\\s*<a href=\"(?P<url>(?!https://www\\.theatres\\.co\\.jp/investor/ir/\")[^\"]+)\"[^>]*>[\\s\\S]{0,100}?<dt>(?P<date>[\\d.]+)</dt>[\\s\\S]{0,50}?<dd>(?P<title>[^<]+)</dd>"
     }
   },
   {
@@ -1741,7 +1741,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.meikonet.co.jp/ja/news.html",
-      "pattern": "entrydate=\"(?P<date>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,600}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
+      "pattern": "entrydate=\"(?P<date>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<a href=\"(?P<url>(?!http://www\\.meiko\\-zaidan\\.jp/\")[^\"]+)\"[^>]*>[\\s\\S]{0,600}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
     }
   },
   {
@@ -1757,7 +1757,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.tear.co.jp/company/news/update.html",
-      "pattern": "<p>(?P<date>20\\d{2}年\\d{1,2}月\\d{1,2}日)\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+      "pattern": "<p>(?P<date>20\\d{2}年\\d{1,2}月\\d{1,2}日)\\s*<a href=\"(?P<url>(?![^\"]*ir/policy/govemance\\.html\")(?![^\"]*company/news/news\\.html\")(?![^\"]*ir/stock/meeting\\.html\")(?![^\"]*ir/finance/tanshin\\.html\")(?![^\"]*ir/finance/highlight\\.html\")[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
     }
   },
   {
@@ -1916,7 +1916,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.gakken.co.jp/ja/news.html",
-      "pattern": "entrydate=\"(?P<date>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,600}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
+      "pattern": "entrydate=\"(?P<date>[^\"]+)\"[^>]*>[\\s\\S]{0,150}?<a href=\"(?P<url>(?!https://www\\.889100\\.com/sp/youji_free/\")(?!https://www\\.889100\\.com/\")(?!https://www\\.889100\\.com/sp/zero_campaign/\")(?!https://www\\.889100\\.com/sp/freetrial/\")(?!https://info\\.gakkensf\\.co\\.jp/2018/07/23/news\\-5097/\")(?!http://gakken\\-ict\\.co\\.jp/\")[^\"]+)\"[^>]*>[\\s\\S]{0,600}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
     }
   },
   {
@@ -2151,7 +2151,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.kabuki-za.co.jp/news_archive/",
-      "pattern": "<dt><span class=\"list-news__date\">\\s*(?P<date>[^<]+?)\\s*</span>[\\s\\S]{0,150}?</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^\\n<]+)"
+      "pattern": "<dt><span class=\"list-news__date\">\\s*(?P<date>[^<]+?)\\s*</span>[\\s\\S]{0,150}?</dt>\\s*<dd><a href=\"(?P<url>(?!https://www\\.kabuki\\-za\\.com/products/list\\?category_id%5B%5D=73\")(?!https://www\\.kabuki\\-za\\.co\\.jp/miyage/kobiki/hiroba\\.html\")(?!https://www\\.kabuki\\-za\\.co\\.jp/miyage/kobiki/baiten\\.html\")[^\"]+)\"[^>]*>\\s*(?P<title>[^\\n<]+)"
     }
   },
   {
@@ -2569,7 +2569,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://ir.aoki-hd.co.jp/ja/news/news.html",
-      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"c_icon\">[\\s\\S]{0,200}?<span class=\"news_tx\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^\\n<]+)"
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"c_icon\">[\\s\\S]{0,200}?<span class=\"news_tx\">\\s*<a href=\"(?P<url>(?!(?:https?://[^\"/]+)?/ja/ir/finance/monthlyreport/entertainment\\.html\")(?!(?:https?://[^\"/]+)?/ja/ir/finance/monthlyreport/fashion\\.html\")(?!(?:https?://[^\"/]+)?/ja/ir/irfiling/report\\.html\")(?!(?:https?://[^\"/]+)?/ja/ir/irfiling/presentation\\.html\")(?!(?:https?://[^\"/]+)?/ja/ir/irfiling/financialreport\\.html\")(?!(?:https?://[^\"/]+)?/ja/ir/stock/meeting\\.html\")(?!(?:https?://[^\"/]+)?/ja/ir/irfiling/results\\.html\")[^\"]+)\"[^>]*>\\s*(?P<title>[^\\n<]+)"
     }
   },
   {
@@ -2584,7 +2584,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://corp.izutsuya.co.jp/news/",
-      "pattern": "<dt>(?P<date>[\\d.]+)</dt><dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+      "pattern": "<dt>(?P<date>[\\d.]+)</dt><dd><a href=\"(?P<url>(?!https://izutsuya\\-corp\\.sakura\\.ne\\.jp/assets/2006/11/061113_IzutsuyaChange115Plan\\.pdf\")[^\"]+)\">(?P<title>[^<]+)</a>"
     }
   },
   {
