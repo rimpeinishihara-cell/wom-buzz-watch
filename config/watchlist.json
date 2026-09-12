@@ -3265,5 +3265,20 @@
       "url": "https://www.nakanihonkogyo.co.jp/company/report/press-release/index.html",
       "pattern": "<li class=\"info_day\">(?P<date>[^<]+)</li>\\s*<li class=\"ts_text\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "3791",
+    "edinet_code": "E02480",
+    "name": "IGポート",
+    "homepage_url": "https://www.production-ig.co.jp/",
+    "base_keywords": [
+      "Production I.G",
+      "IGポート"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.production-ig.co.jp/hotnews",
+      "pattern": "<li class=\"news release  \"><a href=\"(?P<url>/hotnews/(?P<date>\\d{4}/\\d{4})\\d*\\.html)\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
