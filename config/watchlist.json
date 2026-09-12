@@ -3474,5 +3474,95 @@
       "url": "https://www.zeria.co.jp/news/",
       "pattern": "<a href=\"(?P<url>https://www\\.zeria\\.co\\.jp/media/[^\"]+)\" target=\"_blank\">[\\s\\S]{1,300}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,150}?<p class=\"news-text\">(?P<title>[^<]+)</p>"
     }
+  },
+  {
+    "code": "2218",
+    "edinet_code": "E00382",
+    "name": "日糧製パン",
+    "homepage_url": "https://www.nichiryo-pan.co.jp/",
+    "base_keywords": [
+      "日糧製パン",
+      "北海道パン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "http://www.nichiryo-pan.co.jp/ir/news.html",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<span class=\"category_icon_[^\"]*\">[^<]*</span>\\s*<dd><a class=\"icon_pdf_after\" target=\"_blank\" href=\"(?P<url>[^\"]+)\">(?P<title>[\\s\\S]*?)</a>"
+    }
+  },
+  {
+    "code": "2215",
+    "edinet_code": "E00377",
+    "name": "第一屋製パン",
+    "homepage_url": "https://www.daiichipan.co.jp/",
+    "base_keywords": [
+      "第一パン",
+      "首都圏パン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daiichipan.co.jp/news/",
+      "pattern": "<li class=\"u-newslist__item[^\"]*\"><a href=\"(?P<url>[^\"]+)\" class=\"anchor\"><time datetime=\"[^\"]*\" class=\"u-newslist__time\">(?P<date>[^<]+)</time><span class=\"u-newslist__tag\">[^<]*</span><span class=\"u-newslist__subject\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2613",
+    "edinet_code": "E00434",
+    "name": "Ｊ－オイルミルズ",
+    "homepage_url": "https://www.j-oil.com/",
+    "base_keywords": [
+      "ボスコ",
+      "Jオイルミルズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.j-oil.com/press/product_index.html",
+      "pattern": "<a href=\"(?P<url>/press/article/[^\"]+)\" class=\"topics-list02__inner\">\\s*<div class=\"topics-list02__date\">(?P<date>[^<]+)</div>[\\s\\S]{1,300}?<div class=\"topics-list02__title\">(?P<title>[\\s\\S]*?)\\s*</div>"
+    }
+  },
+  {
+    "code": "4512",
+    "edinet_code": "E00928",
+    "name": "わかもと製薬",
+    "homepage_url": "https://www.wakamoto-pharm.co.jp/",
+    "base_keywords": [
+      "わかもと",
+      "強力わかもと"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.wakamoto-pharm.co.jp/news/",
+      "pattern": "<li><dl><dt>(?P<date>[^<]+)<span[^>]*>[^<]*</span></dt><dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8016",
+    "edinet_code": "E02521",
+    "name": "オンワードホールディングス",
+    "homepage_url": "https://www.onward-hd.co.jp/",
+    "base_keywords": [
+      "23区",
+      "J.PRESS"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.onward-hd.co.jp/release/",
+      "pattern": "<a href=\"(?P<url>/release/\\d+/[^\"]+)\" class=\"c-list-6__link\">[\\s\\S]{1,300}?<p class=\"c-list-6__date\">(?P<date>[^<]+)</p>[\\s\\S]{1,450}?<p class=\"c-list-6__ttl\">(?P<title>[\\s\\S]*?)</p>"
+    }
+  },
+  {
+    "code": "4977",
+    "edinet_code": "E26061",
+    "name": "新田ゼラチン",
+    "homepage_url": "https://www.nitta-gelatin.co.jp/",
+    "base_keywords": [
+      "新田ゼラチン",
+      "コラーゲン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nitta-gelatin.co.jp/ja/news/news.html",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<span class=\"news_tx\">\\s*<a href=\"(?P<url>[^\"]+)\"\\s*>\\s*(?P<title>[\\s\\S]*?)\\s*</a>"
+    }
   }
 ]
