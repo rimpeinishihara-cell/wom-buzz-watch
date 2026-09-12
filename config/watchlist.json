@@ -3564,5 +3564,80 @@
       "url": "https://www.nitta-gelatin.co.jp/ja/news/news.html",
       "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<span class=\"news_tx\">\\s*<a href=\"(?P<url>[^\"]+)\"\\s*>\\s*(?P<title>[\\s\\S]*?)\\s*</a>"
     }
+  },
+  {
+    "code": "7937",
+    "edinet_code": "E03180",
+    "name": "ツツミ",
+    "homepage_url": "https://www.tsutsumi.co.jp/",
+    "base_keywords": [
+      "ジュエリーツツミ",
+      "ツツミ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.tsutsumi.co.jp/ir/",
+      "pattern": "<li>(?P<date>[\\d.]+)<a href=\"(?P<url>[^\"]+)\" target=\"_blank\" >(?P<title>[^<]+)</a></li>"
+    }
+  },
+  {
+    "code": "7841",
+    "edinet_code": "E01459",
+    "name": "遠藤製作所",
+    "homepage_url": "https://endo-mfg.co.jp/",
+    "base_keywords": [
+      "EPON",
+      "ゴルフ 鍛造アイアン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://endo-mfg.co.jp/news/",
+      "pattern": "<p class=\"post--date\">(?P<date>[^<]+)</p>[\\s\\S]{1,600}?<a href=\"(?P<url>[^\"]+)\"\\s*target=\"_blank\" rel=\"noopener noreferrer\" class=\"post--link\">\\s*(?P<title>[\\s\\S]*?)\\s*<span class=\"icon"
+    }
+  },
+  {
+    "code": "3205",
+    "edinet_code": "E00550",
+    "name": "ダイドーリミテッド",
+    "homepage_url": "https://www.daidoh-limited.com/",
+    "base_keywords": [
+      "ニューヨーカー",
+      "Brooks Brothers"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daidoh-limited.com/topics/index.html",
+      "pattern": "<dt><span>[^<]*</span>(?P<date>[^<]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8013",
+    "edinet_code": "E00571",
+    "name": "ナイガイ",
+    "homepage_url": "https://www.naigai.co.jp/",
+    "base_keywords": [
+      "ナイガイ",
+      "靴下"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.naigai.co.jp/news/list00000000.html",
+      "pattern": "<td class=\"day\">(?P<date>[^<]+)</td>\\t<td class=\"read\"><div class=\"title\">(?:<span[^>]*>)?<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8127",
+    "edinet_code": "E00600",
+    "name": "ヤマトインターナショナル",
+    "homepage_url": "https://www.yamatointr.co.jp/",
+    "base_keywords": [
+      "クロコダイル",
+      "ヤマトインターナショナル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.yamatointr.co.jp/press",
+      "pattern": "<th><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time></th>\\s*<td><span[^>]*>[^<]*</span><br>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
