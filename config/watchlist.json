@@ -2709,5 +2709,95 @@
       "url": "https://www.kichiri.co.jp/ir/",
       "pattern": "<th class=\"date ff-time-i\">(?P<date>[^<]+)</th>\\s*<td><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "3542",
+    "edinet_code": "E32420",
+    "name": "ベガコーポレーション",
+    "homepage_url": "https://www.vega-c.com/",
+    "base_keywords": [
+      "LOWYA",
+      "ロウヤ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.vega-c.com/news/",
+      "pattern": "<a href=\"(?P<url>/pr/\\d+/)\" class=\"c-card\">[\\s\\S]{1,600}?<p class=\"c-card_text\">(?P<title>[\\s\\S]*?)</p>[\\s\\S]{1,150}?<p class=\"c-card_sub-text\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3091",
+    "edinet_code": "E03517",
+    "name": "ブロンコビリー",
+    "homepage_url": "https://www.bronco.co.jp/",
+    "base_keywords": [
+      "ブロンコビリー",
+      "ステーキハウス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.bronco.co.jp/corporate/news/",
+      "pattern": "<a class=\"\" href=\"(?P<url>[^\"]+)\" target=\"_blank\">[\\s\\S]{1,300}?<dt class=\"c-news__date\">(?P<date>[^<]+)</dt>[\\s\\S]{1,700}?<span class=\"c-news__text\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "7679",
+    "edinet_code": "E34943",
+    "name": "薬王堂ホールディングス",
+    "homepage_url": "https://www.yakuodo.co.jp/",
+    "base_keywords": [
+      "薬王堂",
+      "ドラッグストア"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.yakuodo.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"\\s*class=\"modListNews__item__flex\"[^>]*>\\s*<p class=\"category\">[^<]*</p>\\s*<time datetime=\"[^\"]*\" class=\"time\">(?P<date>[^<]+)</time>\\s*<p class=\"modText\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "6238",
+    "edinet_code": "E11661",
+    "name": "フリュー",
+    "homepage_url": "https://www.furyu.jp/",
+    "base_keywords": [
+      "プリクラ",
+      "プリントシール機"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.puri.furyu.jp/allnews/press/",
+      "pattern": "<a href=\"(?P<url>https://www\\.puri\\.furyu\\.jp/allnews/press/[^\"]+)\" rel=\"bookmark\" title=\"[^\"]*\">(?P<title>[^<]+)</a>[\\s\\S]{1,300}?<p class=\"entry-info\">Date: (?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "1379",
+    "edinet_code": "E00008",
+    "name": "ホクト",
+    "homepage_url": "https://www.hokto-kinoko.co.jp/",
+    "base_keywords": [
+      "ホクト",
+      "きのこ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hokto-kinoko.co.jp/infomation/",
+      "pattern": "<li class=\"list-cmn-news-item\"><a href=\"(?P<url>(?!/kinokolabo/)[^\"]+)\" class=\"list-cmn-news-body\"><p class=\"list-cmn-news-head\">(?P<date>[^<]+)</p><div class=\"list-cmn-news-detail\"><p class=\"txt-cmn s-under-line\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "1377",
+    "edinet_code": "E00006",
+    "name": "サカタのタネ",
+    "homepage_url": "https://www.sakataseed.co.jp/",
+    "base_keywords": [
+      "サカタのタネ",
+      "園芸種苗"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sakataseed.co.jp/news/",
+      "pattern": "<div class=\"p-news-item-date\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<a href=\"(?P<url>[^\"]+)\" class=\"p-news-item-link\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
