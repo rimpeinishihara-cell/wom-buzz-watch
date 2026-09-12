@@ -2524,5 +2524,98 @@
       "url": "https://www.chimney.co.jp/ir/news/",
       "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<div class=\"info-date-cat\">\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,150}?<div class=\"info-title\">\\s*<h3>(?P<title>[^<]+)</h3>"
     }
+  },
+  {
+    "code": "2778",
+    "edinet_code": "E03415",
+    "name": "パレモ・ホールディングス",
+    "homepage_url": "https://palemo.co.jp/",
+    "base_keywords": [
+      "パレモ",
+      "レディースアパレル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://palemo.co.jp/news/press",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[\\s\\S]{0,150}?>\\s*<div class=\"ir-cat-content-date\">(?P<date>[^<]+)</div>[\\s\\S]{0,500}?<div class=\"ir-cat-content-ttl\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "7494",
+    "edinet_code": "E03259",
+    "name": "コナカ",
+    "homepage_url": "https://www.konaka.co.jp/",
+    "base_keywords": [
+      "コナカ",
+      "DIFFERENCE",
+      "スーツ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.konaka.co.jp/news/",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd>[\\s\\S]{0,300}?<span class=\"cat_content\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "8214",
+    "edinet_code": "E03116",
+    "name": "AOKIホールディングス",
+    "homepage_url": "https://www.aoki-hd.co.jp/",
+    "base_keywords": [
+      "AOKI",
+      "快活CLUB",
+      "ORIHICA"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ir.aoki-hd.co.jp/ja/news/news.html",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"c_icon\">[\\s\\S]{0,200}?<span class=\"news_tx\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^\\n<]+)"
+    }
+  },
+  {
+    "code": "8260",
+    "edinet_code": "E03032",
+    "name": "井筒屋",
+    "homepage_url": "https://www.izutsuya.co.jp/",
+    "base_keywords": [
+      "井筒屋",
+      "百貨店"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.izutsuya.co.jp/news/",
+      "pattern": "<dt>(?P<date>[\\d.]+)</dt><dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "2791",
+    "edinet_code": "E03423",
+    "name": "大黒天物産",
+    "homepage_url": "https://www.e-dkt.co.jp/",
+    "base_keywords": [
+      "ラ・ムー",
+      "大黒天物産",
+      "ディオ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.e-dkt.co.jp/ir/",
+      "pattern": "<th>(?P<date>[^<]+)</th>\\s*<td><a[^>]*href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7513",
+    "edinet_code": "E03270",
+    "name": "コジマ",
+    "homepage_url": "https://www.kojima.net/",
+    "base_keywords": [
+      "コジマ",
+      "家電量販店"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kojima.net/corporation/ir/release_top.html",
+      "pattern": "<div class=\"date\">(?P<date>[^<]+)</div>\\s*<div class=\"lbl[^\"]*\">[\\s\\S]{0,150}?<div class=\"title\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
   }
 ]
