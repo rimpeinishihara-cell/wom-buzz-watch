@@ -2357,5 +2357,66 @@
       "url": "https://www.komehyo.co.jp/news",
       "pattern": "<div class=\"date[^\"]*\">(?P<date>[^<]+)</div>[\\s\\S]{0,250}?<div class=\"title[^\"]*\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
     }
+  },
+  {
+    "code": "7554",
+    "edinet_code": "E03293",
+    "name": "幸楽苑",
+    "homepage_url": "https://www.kourakuen.co.jp/",
+    "base_keywords": [
+      "幸楽苑",
+      "ラーメン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kourakuen.co.jp/news",
+      "pattern": "<a\\s*href=\"(?P<url>[^\"]+)\"\\s*>\\s*<div class=\"list-item\">[\\s\\S]{0,300}?<div class=\"date[^\"]*\">(?P<date>[^<]+)</div>\\s*<div class=\"title\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "7630",
+    "edinet_code": "E03329",
+    "name": "壱番屋",
+    "homepage_url": "https://www.ichibanya.co.jp/",
+    "base_keywords": [
+      "CoCo壱番屋",
+      "ココイチ",
+      "カレーハウス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ichibanya.co.jp/whatsnew/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\" class=\"_gaTrigger\"></mt:><span>(?P<date>[^<]+)<span[^>]*>[^<]*</span></span><i[^>]*></i>(?P<title>[^<]+?)<i"
+    }
+  },
+  {
+    "code": "8160",
+    "edinet_code": "E03121",
+    "name": "木曽路",
+    "homepage_url": "https://www.kisoji.co.jp/",
+    "base_keywords": [
+      "木曽路",
+      "しゃぶしゃぶ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://shabu-shabu.kisoji.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*class=\"icon_pdf\">\\s*<div class=\"inner\">\\s*<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>\\s*<h3>(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "9900",
+    "edinet_code": "E03178",
+    "name": "サガミホールディングス",
+    "homepage_url": "https://www.sagami-holdings.co.jp/",
+    "base_keywords": [
+      "サガミ",
+      "和食麺処サガミ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sagami-holdings.co.jp/newsrelease/",
+      "pattern": "<dt>\\s*(?P<date>[^<\\n]+?)\\s*<span[^>]*>\\s*[^<]*</span></dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^\\n<]+)"
+    }
   }
 ]
