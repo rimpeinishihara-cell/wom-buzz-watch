@@ -2232,5 +2232,69 @@
       "url": "https://www.shochiku.co.jp/news/",
       "pattern": "<li><div class=\"create_time\">(?P<date>[^<]+)</div>[\\s\\S]{0,300}?<div class=\"news_title\"><a target=\"_blank\" href=\"(?P<url>[^\"]+)\">(?P<title>[\\s\\S]*?)</a>"
     }
+  },
+  {
+    "code": "4480",
+    "edinet_code": "E33586",
+    "name": "メドレー",
+    "homepage_url": "https://www.medley.jp/",
+    "base_keywords": [
+      "CLINICS",
+      "ジョブメドレー",
+      "メドレー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.medley.jp/release/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-news\">[\\s\\S]{0,500}?<time class=\"c-news__date\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<h3 class=\"c-news__title\">(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "472A",
+    "edinet_code": "E41144",
+    "name": "ミラティブ",
+    "homepage_url": "https://www.mirrativ.co.jp/",
+    "base_keywords": [
+      "ミラティブ",
+      "Mirrativ",
+      "ゲーム配信"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mirrativ.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"un_news_link\">[\\s\\S]{0,300}?<time datetime=\"[^\"]*\" class=\"un_news_time\">(?P<date>[^<]+)</time>[\\s\\S]{0,50}?</div>\\s*<h3 class=\"un_news_title\">(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "4436",
+    "edinet_code": "E34754",
+    "name": "ミンカブ・ジ・インフォノイド",
+    "homepage_url": "https://minkabu.co.jp/",
+    "base_keywords": [
+      "みんかぶ",
+      "ミンカブ",
+      "株価情報"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://minkabu.co.jp/news/",
+      "pattern": "<div class=\"c-archive__date\"><span class=\"c-archive-date\">(?P<date>[^<]+)</span></div>\\s*<div class=\"c-archive__body\">\\s*<p><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4377",
+    "edinet_code": "E36944",
+    "name": "ワンキャリア",
+    "homepage_url": "https://onecareer.co.jp/",
+    "base_keywords": [
+      "ワンキャリア",
+      "ONE CAREER",
+      "就活"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://onecareer.co.jp/news/",
+      "pattern": "<a class=\"c-artCard__inner\" href=\"(?P<url>[^\"]+)\">\\s*<span class=\"c-artCard__headMeta\">(?P<date>[^<]+?)\\s*/[^<]*</span>[\\s\\S]{0,1100}?<h2 class=\"c-artCard__title\">(?P<title>[^<]+)</h2>"
+    }
   }
 ]
