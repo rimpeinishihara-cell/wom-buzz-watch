@@ -4254,5 +4254,35 @@
       "url": "https://about.moi.st/ja/news",
       "pattern": "<a href=\"(?P<url>https://about\\.moi\\.st/ja/\\d{4}/\\d{2}/\\d{2}/[^\"]+)\">[\\s\\S]{1,1000}?<p class=\"title\">(?P<title>[^<]+)</p>[\\s\\S]{1,100}?<p class=\"date\">(?P<date>[^<]+)</p>"
     }
+  },
+  {
+    "code": "2586",
+    "edinet_code": "E31035",
+    "name": "フルッタフルッタ",
+    "homepage_url": "https://www.frutafruta.com/",
+    "base_keywords": [
+      "フルッタフルッタ",
+      "アサイー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.frutafruta.com/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"detail\">\\s*<dl>\\s*<dt><span class=\"date\">(?P<date>[^<]+)</span>[^<]*<span class=\"type\">[^<]*</span></dt>\\s*<dd>\\s*<p class=\"title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2207",
+    "edinet_code": "E00376",
+    "name": "ｍｅｉｔｏ",
+    "homepage_url": "https://www.meito.co.jp/",
+    "base_keywords": [
+      "メイトー",
+      "協同乳業"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.meito.co.jp/news/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
   }
 ]
