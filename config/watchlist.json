@@ -3130,5 +3130,65 @@
       "url": "https://www.gokurakuyu-holdings.co.jp/news/getHoldingsNews",
       "pattern": "\\{(?=[^}]*\"news_date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"news_title\":\"(?P<title>[^\"]+)\")(?=[^}]*\"url\":\"(?P<url>[^\"]+)\")[^}]*\\}"
     }
+  },
+  {
+    "code": "7590",
+    "edinet_code": "E02888",
+    "name": "タカショー",
+    "homepage_url": "https://takasho.co.jp/",
+    "base_keywords": [
+      "タカショー",
+      "ガーデン エクステリア"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://takasho.co.jp/news/pro",
+      "pattern": "<a href=\"(?P<url>/cms/pressrelease/[^\"]+)\" target=\"_blank\"[^>]*>\\s*<span>(?P<date>[^<]+)</span>\\s*<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "299A",
+    "edinet_code": "E40236",
+    "name": "クラシル",
+    "homepage_url": "https://kurashiru.co.jp/",
+    "base_keywords": [
+      "クラシル",
+      "レシピ動画"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://kurashiru.co.jp/news/press",
+      "pattern": "<a href=\"(?P<url>/news/press/[^\"]+)\" class=\"inner\"[^>]*>[\\s\\S]{1,600}?<span class=\"year\"[^>]*>(?P<date>[^<]+)</span><span class=\"month\"[^>]*>[^<]+</span><span class=\"day\"[^>]*>[^<]+</span>[\\s\\S]{1,150}?<p class=\"text\"[^>]*>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3710",
+    "edinet_code": "E05336",
+    "name": "ジョルダン",
+    "homepage_url": "https://www.jorudan.co.jp/",
+    "base_keywords": [
+      "ジョルダン",
+      "乗換案内"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://about.jorudan.co.jp/company/data/press/press2026.html",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8920",
+    "edinet_code": "E04018",
+    "name": "東祥",
+    "homepage_url": "https://www.to-sho.net/",
+    "base_keywords": [
+      "東祥",
+      "JOYFIT"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.to-sho.net/cgi-bin/news/list.cgi",
+      "pattern": "<td>(?P<date>[^<]+)</td>\\s*<td><img[^>]*></td>\\s*<td><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
   }
 ]
