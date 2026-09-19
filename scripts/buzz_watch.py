@@ -49,7 +49,7 @@ USER_AGENT = (
 
 MAX_TRACKED_PRODUCT_KEYWORDS = 6  # 社名以外に追跡する商品キーワードの上限(API負荷抑制)
 CHECK_INTERVAL_DAYS = 30  # 1社あたりのチェック間隔(月1回)
-MAX_COMPANIES_PER_RUN = 10  # 1回の実行で処理する企業数の上限(将来300社規模でも1日10社に抑える)
+MAX_COMPANIES_PER_RUN = 20  # 1回の実行で処理する企業数の上限(540社規模でも月1周できる下限。実行時間はジョブ上限30分に収まる想定)
 MIN_HISTORY_FOR_SPIKE = 5  # 急上昇判定に必要な最低日数
 BASELINE_WINDOW = 28  # 直近何日を基準値計算に使うか
 
