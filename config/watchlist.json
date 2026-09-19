@@ -698,7 +698,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://bushiroad.com/news/",
-      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<span class=\"category\"[^>]*>[^<]*</span>[\\s\\S]{0,300}?<h2><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<span class=\"category\"[^>]*>[^<]*</span>[\\s\\S]{0,300}?<h2><a href=\"(?P<url>(?![^\"]*cfvanguard_PR/status/2092226795496169596/?\")(?![^\"]*news/post\\-5/?\")[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
     }
   },
   {
@@ -711,21 +711,6 @@
       "正露丸",
       "クレベリン"
     ]
-  },
-  {
-    "code": "4540",
-    "edinet_code": "E00941",
-    "name": "森下仁丹",
-    "homepage_url": "https://www.jintan.co.jp/",
-    "base_keywords": [
-      "森下仁丹",
-      "仁丹"
-    ],
-    "news_source": {
-      "type": "html_regex",
-      "url": "https://www.jintan.co.jp/news/",
-      "pattern": "<dt><p class=\"date\"><span>[^<]*</span>(?P<date>[\\d.]+)</p></dt>\\s*<dd>\\s*<a href=\"(?P<url>[^\"]+)\" title=\"(?P<title>[^\"]+)\""
-    }
   },
   {
     "code": "9166",
@@ -2553,7 +2538,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.konaka.co.jp/news/",
-      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd>[\\s\\S]{0,300}?<span class=\"cat_content\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)"
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd>[\\s\\S]{0,300}?<span class=\"cat_content\"><a href=\"(?P<url>(?![^\"]*ir/getsuji_\\-2026\\.html/?\")[^\"]+)\"[^>]*>(?P<title>[^<]+)"
     }
   },
   {
@@ -2993,7 +2978,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.fujicco.co.jp/newsrelease/",
-      "pattern": "<div class=\"p-news__date\">\\s*(?P<date>[^<]+?)\\s*</div>[\\s\\S]{1,300}?<div class=\"p-news__article\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[\\s\\S]*?)</a>"
+      "pattern": "<div class=\"p-news__date\">\\s*(?P<date>[^<]+?)\\s*</div>[\\s\\S]{1,300}?<div class=\"p-news__article\">\\s*<a href=\"(?P<url>(?![^\"]*okazubatakesyokudo/topics/ichijyusansai\\.html/?\")(?![^\"]*omamemarche/report/?\")(?![^\"]*therapy/monitor/?\")(?![^\"]*nebari_kachi/?\")(?![^\"]*fujicco/map/index\\.html/?\")(?![^\"]*fujicco/umamineral/index\\.html/?\")(?![^\"]*beanslife/?\")(?![^\"]*mamecco/school_tournament/top\\.html/?\")(?![^\"]*cyforum/?\")(?![^\"]*fujicconi_yorokonbu/home/?\")(?![^\"]*products/ad/?\")(?![^\"]*event/mizuni/monitor\\.html/?\")(?![^\"]*fujicco/amajoppa/index\\.html/?\")(?![^\"]*campaign/tanekin/index\\.html/?\")(?![^\"]*shiokonbu/fujicco/?\")[^\"]+)\"[^>]*>(?P<title>[\\s\\S]*?)</a>"
     }
   },
   {
@@ -3083,7 +3068,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.yellowhat.jp/top_topics.html",
-      "pattern": "<a class=\"info__item\" href=\"(?P<url>[^\"]+)\" target=\"[^\"]*\" data-tags=\"[^\"]*\">\\s*<div class=\"info__group\">\\s*<div class=\"info__day\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<p class=\"info__text\">(?P<title>[^<]+)</p>"
+      "pattern": "<a class=\"info__item\" href=\"(?P<url>(?![^\"]*yellowhat/reservation/?\")(?![^\"]*tokusyuu/free_paper/index\\.html/?\")[^\"]+)\" target=\"[^\"]*\" data-tags=\"[^\"]*\">\\s*<div class=\"info__group\">\\s*<div class=\"info__day\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<p class=\"info__text\">(?P<title>[^<]+)</p>"
     }
   },
   {
@@ -3173,7 +3158,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.to-sho.net/cgi-bin/news/list.cgi",
-      "pattern": "<td>(?P<date>[^<]+)</td>\\s*<td><img[^>]*></td>\\s*<td><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+      "pattern": "<td>(?P<date>[^<]+)</td>\\s*<td><img[^>]*></td>\\s*<td><a href=\"(?P<url>(?![^\"]*ir/irevent/individual\\.html/?\")(?![^\"]*ir/irevent/index\\.html/?\")(?![^\"]*ir/irevent/results\\.html/?\")(?![^\"]*ir/financialreport/fr_summary\\.html/?\")[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
     }
   },
   {
@@ -3742,7 +3727,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.asahipen.jp/new/",
-      "pattern": "<dt>(?P<date>[^<]+)<span[^>]*>[^<]*</span></dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+      "pattern": "<dt>(?P<date>[^<]+)<span[^>]*>[^<]*</span></dt>\\s*<dd><a href=\"(?P<url>(?![^\"]*diycircle/?\")(?![^\"]*products/view/30023/?\")(?![^\"]*products/view/25293/?\")[^\"]+)\">(?P<title>[^<]+)</a>"
     }
   },
   {
@@ -3967,7 +3952,7 @@
     "news_source": {
       "type": "html_regex",
       "url": "https://www.cotta.co.jp/",
-      "pattern": "<a href=\"(?P<url>/pdf/[^\"]+)\" target=\"_blank\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<p class=\"title\">(?P<title>[^<]+)</p>"
+      "pattern": "<a href=\"(?P<url>(?![^\"]*pdf/220513_kessan\\.pdf/?\")(?![^\"]*pdf/210812_kessan\\.pdf/?\")(?![^\"]*pdf/210113_ir\\.pdf/?\")(?![^\"]*pdf/220214_kessan\\.pdf/?\")(?![^\"]*pdf/210210_ir\\.pdf/?\")(?![^\"]*pdf/220812_kessan\\.pdf/?\")(?![^\"]*pdf/150213_kessan\\.pdf/?\")(?![^\"]*pdf/210514_kessan\\.pdf/?\")(?![^\"]*pdf/210212_kessan\\.pdf/?\")/pdf/[^\"]+)\" target=\"_blank\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<p class=\"title\">(?P<title>[^<]+)</p>"
     }
   },
   {
@@ -4313,6 +4298,4118 @@
       "type": "html_regex",
       "url": "https://www.aiphone.co.jp/docs/news/",
       "pattern": "<dt class=\"c01_news\">(?P<date>[^<]+)</dt><dd>\\s*<span class=\"new\">[^<]*</span>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4777",
+    "edinet_code": "E05114",
+    "name": "株式会社ガーラ",
+    "homepage_url": "https://www.gala.biz/",
+    "base_keywords": [
+      "ガーラ",
+      "GALA",
+      "Flyff",
+      "ラグナロク"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gala.biz/news/press-releases",
+      "pattern": "<div class=\"news-date\">(?P<date>[^<]+)</div><a[^>]*href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "590A",
+    "edinet_code": "E41542",
+    "name": "ギフティグループ株式会社",
+    "homepage_url": "https://giftee-group.com/",
+    "base_keywords": [
+      "ギフティ",
+      "giftee",
+      "eギフト"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://giftee-group.com/press/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"_container_1qpkt_1\"[^>]*><div class=\"_metaBlock_1qpkt_21\"><time dateTime=\"(?P<date>[^\"]+)\"[^>]*>[^<]*</time>[\\s\\S]*?<span class=\"_titleText_1qpkt_15\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "9441",
+    "edinet_code": "E03342",
+    "name": "株式会社ベルパーク",
+    "homepage_url": "https://www.bellpark.co.jp/",
+    "base_keywords": [
+      "ベルパーク",
+      "ソフトバンク",
+      "携帯ショップ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.bellpark.co.jp/news/release",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd><p><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></p></dd>"
+    }
+  },
+  {
+    "code": "9402",
+    "edinet_code": "E04376",
+    "name": "中部日本放送株式会社",
+    "homepage_url": "https://hicbc.com/",
+    "base_keywords": [
+      "CBC",
+      "CBCテレビ",
+      "中部日本放送"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://hicbc.com/tv/corporation/newsrelease/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<dt>(?P<date>[^<]+)</dt>\\s*<dd>(?P<title>[^<]+)</dd>\\s*</a>"
+    }
+  },
+  {
+    "code": "2484",
+    "edinet_code": "E05584",
+    "name": "株式会社出前館",
+    "homepage_url": "https://corporate.demae-can.co.jp/",
+    "base_keywords": [
+      "出前館",
+      "demae-can",
+      "ピザ半額祭",
+      "ゴイゴイ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corporate.demae-can.co.jp/pr/news/search.json",
+      "pattern": "\\{(?=[^}]*\"date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"title\":\"(?P<title>[^\"\\\\]+)[^\"]*\")(?=[^}]*\"url\":\"(?P<url>[^\"]+)\")[^}]*\\}"
+    }
+  },
+  {
+    "code": "3668",
+    "edinet_code": "E27062",
+    "name": "株式会社コロプラ",
+    "homepage_url": "https://colopl.co.jp/",
+    "base_keywords": [
+      "コロプラ",
+      "白猫プロジェクト",
+      "黒猫のウィズ",
+      "アリス・ギア・アイギス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://colopl.co.jp/news/pressrelease/",
+      "pattern": "<time class=\"news-txt-item-time\">(?P<date>[^<]+)</time>[\\s\\S]*?<div class=\"news-txt-item-tit\">\\s*<a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3696",
+    "edinet_code": "E30919",
+    "name": "株式会社セレス",
+    "homepage_url": "https://ceres-inc.jp/",
+    "base_keywords": [
+      "セレス",
+      "モッピー",
+      "ポイントインカム",
+      "Moppy"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ceres-inc.jp/news/",
+      "pattern": "<dt>\\s*(?P<date>[^<]+)<em[^>]*>[^<]*</em>\\s*</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7047",
+    "edinet_code": "E34537",
+    "name": "ポート株式会社",
+    "homepage_url": "https://www.theport.jp/",
+    "base_keywords": [
+      "ポート",
+      "就活会議",
+      "キャリアパーク",
+      "ポート株式会社"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.theport.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"item__head\">\\s*<p class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]*?<h3 class=\"ttl\"><span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "3679",
+    "edinet_code": "E30047",
+    "name": "株式会社じげん",
+    "homepage_url": "https://zigexn.co.jp/",
+    "base_keywords": [
+      "じげん",
+      "ZIGExN",
+      "引越し",
+      "求人"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://zigexn.co.jp/feed/"
+    }
+  },
+  {
+    "code": "2934",
+    "edinet_code": "E33800",
+    "name": "ジェイフロンティア",
+    "homepage_url": "https://jfrontier.jp/",
+    "base_keywords": [
+      "ジェイフロンティア",
+      "SOKUYAKU",
+      "ミュゼプラチナム"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://jfrontier.jp/pressrelease/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<p class=\"category pressrelease\">プレスリリース</p>\\s*<p class=\"entry\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a></p>"
+    }
+  },
+  {
+    "code": "3825",
+    "edinet_code": "E05645",
+    "name": "リミックスポイント",
+    "homepage_url": "https://www.remixpoint.co.jp/",
+    "base_keywords": [
+      "リミックスポイント",
+      "BitPoint"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.remixpoint.co.jp/category/corporate/news/feed"
+    }
+  },
+  {
+    "code": "3793",
+    "edinet_code": "E05552",
+    "name": "ドリコム",
+    "homepage_url": "https://drecom.co.jp/",
+    "base_keywords": [
+      "ドリコム",
+      "Wizardry Variants Daphne",
+      "DRECOM CREATORS STUDIO"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://drecom.co.jp/product_news/",
+      "pattern": "<a class=\"m-topics-card\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{0,300}?<span class=\"m-topics-card__title\">(?P<title>[^<]+)</span>\\s*<span class=\"m-topics-card__date\">(?P<date>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "3758",
+    "edinet_code": "E05453",
+    "name": "アエリア",
+    "homepage_url": "https://www.aeria.jp/",
+    "base_keywords": [
+      "アエリア",
+      "サイバード",
+      "イケメンシリーズ",
+      "リベル・エンタテインメント"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.aeria.jp/pr",
+      "pattern": "<td>(?P<date>[0-9/]+)</td>\\s*<td><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a></td>"
+    }
+  },
+  {
+    "code": "4499",
+    "edinet_code": "E35632",
+    "name": "Speee",
+    "homepage_url": "https://speee.jp/",
+    "base_keywords": [
+      "Speee",
+      "イエウール"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://speee.jp/news/",
+      "pattern": "<a class=\"c-article-list__link-wrap\" href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{0,900}?<p class=\"c-article-list__link-wrap__detail__date\">(?P<date>[^<]+)</p>\\s*<p class=\"c-article-list__link-wrap__detail__title\">\\s*(?P<title>[^<]+?)\\s*</p>"
+    }
+  },
+  {
+    "code": "3911",
+    "edinet_code": "E31348",
+    "name": "Aiming",
+    "homepage_url": "https://aiming-inc.com/",
+    "base_keywords": [
+      "Aiming",
+      "イナズマイレブン クロス",
+      "陰の実力者になりたくて"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://aiming-inc.com/news/",
+      "pattern": "<time datetime=\"(?P<date>[^\"]+)\">[^<]*</time><div class=\"news-detail\"><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4376",
+    "edinet_code": "E36733",
+    "name": "くふうカンパニーホールディングス",
+    "homepage_url": "https://kufu.co.jp/",
+    "base_keywords": [
+      "くふうカンパニー",
+      "くらしのマーケット",
+      "ふるさと納税",
+      "Zaim"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://kufu.co.jp/feed/"
+    }
+  },
+  {
+    "code": "3834",
+    "edinet_code": "E04496",
+    "name": "朝日ネット",
+    "homepage_url": "https://asahi-net.jp/",
+    "base_keywords": [
+      "朝日ネット",
+      "ASAHIネット"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.asahi-net.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"m-news-list__item-inner--show\">[\\s\\S]{0,150}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,150}?<p class=\"m-news-list__text\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "4393",
+    "edinet_code": "E34116",
+    "name": "バンク・オブ・イノベーション",
+    "homepage_url": "https://boi.jp/",
+    "base_keywords": [
+      "バンク・オブ・イノベーション",
+      "メメントモリ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://boi.jp/news/",
+      "pattern": "<time>(?P<date>[^<]+)</time>\\s*</dt>\\s*<dd>\\s*<ul class=\"list-link_arrow\">\\s*<li><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a></li>"
+    }
+  },
+  {
+    "code": "3760",
+    "edinet_code": "E05449",
+    "name": "ケイブ",
+    "homepage_url": "https://www.cave.co.jp/",
+    "base_keywords": [
+      "ケイブ",
+      "CAVE",
+      "ゴシックは魔法乙女",
+      "怒首領蜂"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.cave.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-postList2_box\">[\\s\\S]{0,300}?<p class=\"c-postList2_date[^\"]*\">(?P<date>[^<]+)</p>[\\s\\S]{0,200}?<p class=\"c-postList2_title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2138",
+    "edinet_code": "E05621",
+    "name": "クルーズ株式会社",
+    "homepage_url": "https://crooz.co.jp/",
+    "base_keywords": [
+      "クルーズ",
+      "CROOZ",
+      "KOALA INN"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://crooz.co.jp/news/",
+      "pattern": "href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,300}?<p class=\"title\">\\s*(?P<title>[\\s\\S]+?)\\s*</p>\\s*<p class=\"data\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "4437",
+    "edinet_code": "E34587",
+    "name": "gooddaysホールディングス株式会社",
+    "homepage_url": "https://gooddays.jp/",
+    "base_keywords": [
+      "gooddays",
+      "goodroom",
+      "グッドルーム",
+      "goodcoffee",
+      "goodsauna",
+      "Redx"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://gooddays.jp/news/",
+      "pattern": "href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,1000}?<h3 class=\"articleTtl\">(?P<title>[^<]+)</h3>[\\s\\S]{1,150}?<p class=\"infoDate\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2326",
+    "edinet_code": "E05303",
+    "name": "デジタルアーツ株式会社",
+    "homepage_url": "https://www.daj.jp/",
+    "base_keywords": [
+      "デジタルアーツ",
+      "i-フィルター",
+      "i-FILTER",
+      "FinalCode"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daj.jp/company/release/",
+      "pattern": "<time datetime=\"(?P<date>[^\"]+)\">[\\s\\S]{1,250}?<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "3989",
+    "edinet_code": "E33242",
+    "name": "シェアリングテクノロジー株式会社",
+    "homepage_url": "https://www.sharing-tech.co.jp/",
+    "base_keywords": [
+      "シェアリングテクノロジー",
+      "シェアテク",
+      "ハチ発生指数",
+      "シロアリ発生指数",
+      "生活救急車"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://sharing-tech.co.jp/news/news_list.csv",
+      "pattern": "[^,\\n]+,(?P<date>\\d{4}-\\d{2}-\\d{2}),(?P<title>[^\\n]+?),(?P<url>https?://[^,\\r\\n]+)\\r?\\n"
+    }
+  },
+  {
+    "code": "414A",
+    "edinet_code": "E40904",
+    "name": "株式会社オーバーラップホールディングス",
+    "homepage_url": "https://hd.over-lap.co.jp/",
+    "base_keywords": [
+      "オーバーラップ",
+      "OVERLAP",
+      "オーバーラップ文庫",
+      "ガルドコミックス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://hd.over-lap.co.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<span>(?P<date>[\\d.]+)</span>[\\s\\S]{1,300}?<span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "3979",
+    "edinet_code": "E32794",
+    "name": "株式会社うるる",
+    "homepage_url": "https://www.uluru.biz/",
+    "base_keywords": [
+      "うるる",
+      "シュフティ",
+      "NJSS",
+      "キッズ入札クエスト"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.uluru.biz/news",
+      "pattern": "href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,400}?<span class=\"news-date\">(?P<date>[^<]+)</span>[\\s\\S]{1,50}?<h1 class=\"entry-title\">\\s*(?P<title>[^\\t\\n<]+)"
+    }
+  },
+  {
+    "code": "6194",
+    "edinet_code": "E32400",
+    "name": "株式会社アトラエ",
+    "homepage_url": "https://atrae.co.jp/",
+    "base_keywords": [
+      "アトラエ",
+      "Green",
+      "Wevox"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://atrae.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>/news/[^\"]+)\"[^>]*>[\\s\\S]{1,600}?<span class=\"ff-code article-date\">(?P<date>[^<]+)</span><p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "7849",
+    "edinet_code": "E00736",
+    "name": "スターツ出版株式会社",
+    "homepage_url": "https://starts-pub.jp/",
+    "base_keywords": [
+      "スターツ出版",
+      "野いちご",
+      "ベリーズカフェ",
+      "ノベマ",
+      "Oz magazine"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://starts-pub.jp/news/",
+      "pattern": "<time class=\"entry-date updated\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{1,300}?<h2 class=\"title\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3928",
+    "edinet_code": "E31991",
+    "name": "株式会社マイネット",
+    "homepage_url": "https://www.mynet.co.jp/",
+    "base_keywords": [
+      "マイネット",
+      "刻のイシュタリア",
+      "J.League Fantasy Card"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mynet.co.jp/news",
+      "pattern": "<a href=\"(?P<url>/news/[^\"]+)\">[\\s\\S]{1,900}?<time class=\"date\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{1,100}?<span class=\"text\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "4845",
+    "edinet_code": "E05187",
+    "name": "株式会社スカラ",
+    "homepage_url": "https://scalagrp.jp/",
+    "base_keywords": [
+      "スカラ",
+      "Scala",
+      "スマポ",
+      "株主パスポート"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://scalagrp.jp/news/topic",
+      "pattern": "<sd-date datetime=\"(?P<date>[^\"]+)\"[^>]*>[\\s\\S]{1,300}?<a class=\"box[^\"]*\" href=\"(?P<url>[^\"]+)\"><p class=\"text[^\"]*\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "4175",
+    "edinet_code": "E36322",
+    "name": "株式会社coly",
+    "homepage_url": "https://colyinc.com/",
+    "base_keywords": [
+      "coly",
+      "Stand My Heroes",
+      "魔法使いの約束"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://colyinc.com/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<article class=\"article\">\\s*<div class=\"data\">\\s*<div class=\"data_head\">\\s*<time datetime=\"(?P<date>[^\"]+)\">.*?<h2>(?P<title>[^<]+)</h2>"
+    }
+  },
+  {
+    "code": "3656",
+    "edinet_code": "E25867",
+    "name": "KLab株式会社",
+    "homepage_url": "https://www.klab.com/jp/",
+    "base_keywords": [
+      "KLab",
+      "AI VTuber",
+      "キャプテン翼 ZERO"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.klab.com/jp/assets/rss/rss_release.xml"
+    }
+  },
+  {
+    "code": "4382",
+    "edinet_code": "E33880",
+    "name": "HEROZ株式会社",
+    "homepage_url": "https://heroz.co.jp/",
+    "base_keywords": [
+      "HEROZ",
+      "将棋ウォーズ",
+      "棋神"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://heroz.co.jp/topics/release/",
+      "pattern": "<a href=\"(?P<url>https://heroz\\.co\\.jp/release/[^\"]+)\"><date>(?P<date>[^<]+)</date><aside[^>]*></aside>(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "7359",
+    "edinet_code": "E36173",
+    "name": "株式会社東京通信グループ",
+    "homepage_url": "https://tokyo-tsushin.com/",
+    "base_keywords": [
+      "東京通信グループ",
+      "タップル",
+      "マッチングアプリ タップル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.tapple.co.jp/news/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*</div>\\s*<h3 class=\"title\">(?P<title>[^<]+)</h3>\\s*</div><a class=\"item__link js-pjax\" href=\"(?P<url>[^\"]+)\">"
+    }
+  },
+  {
+    "code": "4177",
+    "edinet_code": "E36343",
+    "name": "株式会社i-plug",
+    "homepage_url": "https://i-plug.co.jp/",
+    "base_keywords": [
+      "i-plug",
+      "OfferBox",
+      "オファーボックス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://i-plug.co.jp/category/news/",
+      "pattern": "<a class=\"p-news-archive__link\" href=\"(?P<url>[^\"]+)\">.*?<time class=\"p-news-archive__date\" datetime=\"(?P<date>[^\"]+)\">.*?<span class=\"p-news-archive__title\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "4644",
+    "edinet_code": "E04959",
+    "name": "イマジニア株式会社",
+    "homepage_url": "https://www.imagineer.co.jp/",
+    "base_keywords": [
+      "イマジニア",
+      "Fit Boxing",
+      "メダロット"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.imagineer.co.jp/news_release/",
+      "pattern": "<a href=\"(?P<url>/news/article\\.php\\?id=\\d+)\">\\s*<p class=\"date\">(?P<date>[^<]+)</p>\\s*<p class=\"category\">.*?</p>\\s*<p class=\"title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "4484",
+    "edinet_code": "E35287",
+    "name": "ランサーズ株式会社",
+    "homepage_url": "https://www.lancers.co.jp/",
+    "base_keywords": [
+      "ランサーズ",
+      "Lancers",
+      "クラウドソーシング"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.lancers.co.jp/news/category/pr/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"p-news__tabs-body-item-definition-link\"><dl[^>]*><dt class=\"p-news__tabs-body-item-definition-date\">(?P<date>[^<]+)</dt>.*?<dd class=\"p-news__tabs-body-item-definition-info\"><span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "5618",
+    "edinet_code": "E39203",
+    "name": "ナイル株式会社",
+    "homepage_url": "https://nyle.co.jp/",
+    "base_keywords": [
+      "ナイル",
+      "アプリブ",
+      "Nyle"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://nyle.co.jp/news/",
+      "pattern": "\"id\":\"(?P<url>[^\"]+)\",\"createdAt\":\"[^\"]+\",\"updatedAt\":\"[^\"]+\",\"publishedAt\":\"(?P<date>[^\"]+)\",\"revisedAt\":\"[^\"]+\",\"title\":\"(?P<title>[^\"]+)\""
+    }
+  },
+  {
+    "code": "4262",
+    "edinet_code": "E37206",
+    "name": "株式会社ニフティライフスタイル",
+    "homepage_url": "https://niftylifestyle.co.jp/",
+    "base_keywords": [
+      "ニフティライフスタイル",
+      "ニフティ不動産",
+      "ニフティ温泉"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://niftylifestyle.co.jp/news/",
+      "pattern": "<a class=\"block-posts-item-link\" href=\"(?P<url>[^\"]+)\">\\s*<span class=\"block-posts-item-date\">(?P<date>[^<]+)</span>\\s*<span class=\"block-posts-item-title\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2315",
+    "edinet_code": "E05331",
+    "name": "株式会社CAICA DIGITAL",
+    "homepage_url": "https://www.caica.jp/",
+    "base_keywords": [
+      "CAICA DIGITAL",
+      "カイカ",
+      "暗号資産"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.caica.jp/tag/news,disclosure,pr,kessan,other/",
+      "pattern": "<time datetime=\"(?P<date>[^\"]+)\">[^<]*</time>[\\s\\S]{1,400}?<div class=\"text-gray-800 font-bold\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a></div>"
+    }
+  },
+  {
+    "code": "3991",
+    "edinet_code": "E33364",
+    "name": "ウォンテッドリー株式会社",
+    "homepage_url": "https://www.wantedly.com/",
+    "base_keywords": [
+      "ウォンテッドリー",
+      "Wantedly"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://wantedlyinc.com/ja/news/press_release",
+      "pattern": "<a[^>]*class=\"entry-item\" href=\"(?P<url>[^\"]+)\"><div class='entry-header'>\\s*<div class='category press_release'>\\s*PRESS RELEASE\\s*</div>\\s*<div class='date'>(?P<date>[^<]+)</div>\\s*</div>\\s*<div class='entry-title'>(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "3935",
+    "edinet_code": "E32238",
+    "name": "株式会社エディア",
+    "homepage_url": "https://edia.co.jp/",
+    "base_keywords": [
+      "エディア",
+      "まるくじ",
+      "くじコレ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://edia.co.jp/news/category/pressrelease/",
+      "pattern": "class=\"vk_post vk_post-postType-post postListText post-\\d+[^\"]*\"[\\s\\S]{1,320}?<span class=\"postListText_date published\"><i[^>]*></i>(?P<date>[^<]+)</span>[\\s\\S]{1,280}?<p class=\"postListText_title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[\\s\\S]*?)</a>"
+    }
+  },
+  {
+    "code": "3674",
+    "edinet_code": "E27394",
+    "name": "株式会社オークファン",
+    "homepage_url": "https://aucfan.co.jp/",
+    "base_keywords": [
+      "オークファン",
+      "aucfan",
+      "KACHIKA",
+      "AP LAB"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://aucfan.co.jp/press/release/",
+      "pattern": "clf-irp-date[\\s\\S]{1,250}?<span>\\s*(?P<date>[^<]+?)\\s*</span>[\\s\\S]{1,250}?<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[\\s\\S]*?)</a>"
+    }
+  },
+  {
+    "code": "5139",
+    "edinet_code": "E38180",
+    "name": "オープンワーク株式会社",
+    "homepage_url": "https://www.openwork.co.jp/",
+    "base_keywords": [
+      "オープンワーク",
+      "OpenWork",
+      "社員クチコミ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.openwork.co.jp/press",
+      "pattern": "<dt>(?P<date>[^<]+)</dt><dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></dd>"
+    }
+  },
+  {
+    "code": "3931",
+    "edinet_code": "E32108",
+    "name": "株式会社バリューゴルフ",
+    "homepage_url": "https://corp.valuegolf.co.jp/",
+    "base_keywords": [
+      "バリューゴルフ",
+      "1人予約ランド",
+      "ジーパーズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.valuegolf.co.jp/",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd class=\"cf\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></dd>"
+    }
+  },
+  {
+    "code": "607A",
+    "edinet_code": "E41973",
+    "name": "every株式会社",
+    "homepage_url": "https://corp.every.tv/",
+    "base_keywords": [
+      "エブリー",
+      "every",
+      "DELISH KITCHEN",
+      "デリッシュキッチン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.every.tv/news/",
+      "pattern": "<a class=\"c-itemNews__inner\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,600}?<time class=\"c-itemCase__metaDate\" datetime=\"(?P<date>[^\"]+)\">[\\s\\S]{1,200}?<h3 class=\"c-itemNews__title\">(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "4445",
+    "edinet_code": "E34513",
+    "name": "リビン・テクノロジーズ株式会社",
+    "homepage_url": "https://www.lvn.co.jp/",
+    "base_keywords": [
+      "リビン・テクノロジーズ",
+      "リビンマッチ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.lvn.co.jp/post_news/",
+      "pattern": "data-href=\"(?P<url>[^\"]+)\">\\s*<td class=\"date\">(?P<date>[^<]+)</td>\\s*<td class=\"entry wide\">(?P<title>[\\s\\S]*?)</td>"
+    }
+  },
+  {
+    "code": "3912",
+    "edinet_code": "E31331",
+    "name": "株式会社モバイルファクトリー",
+    "homepage_url": "https://www.mobilefactory.jp/",
+    "base_keywords": [
+      "モバイルファクトリー",
+      "駅メモ",
+      "ステーションメモリーズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mobilefactory.jp/newsreleases/",
+      "pattern": "<a href=\"(?P<url>/newsrelease/[^\"]+)\"[^>]*title=\"[^\"]*\">(?P<title>[^<]+)</a>\\s*</h1>\\s*<p class=\"date\">\\s*<time>(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "4441",
+    "edinet_code": "E34814",
+    "name": "トビラシステムズ",
+    "homepage_url": "https://tobila.com/",
+    "base_keywords": [
+      "トビラシステムズ",
+      "トビラフォン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://tobila.com/news/release/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]{1,150}?<h3><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4017",
+    "edinet_code": "E36100",
+    "name": "クリーマ",
+    "homepage_url": "https://www.creema.co.jp/",
+    "base_keywords": [
+      "クリーマ",
+      "Creema"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.creema.co.jp/news/",
+      "pattern": "datetime=\"(?P<date>[^\"]+)\"[\\s\\S]{1,400}?<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "410A",
+    "edinet_code": "E40916",
+    "name": "GMOコマース",
+    "homepage_url": "https://www.gmo-c.jp/",
+    "base_keywords": [
+      "GMOコマース",
+      "カラーミーショップ"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.gmo-c.jp/info/feed/"
+    }
+  },
+  {
+    "code": "4199",
+    "edinet_code": "E36661",
+    "name": "ワンダープラネット",
+    "homepage_url": "https://wonderpla.net/",
+    "base_keywords": [
+      "ワンダープラネット",
+      "クラッシュフィーバー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://wonderpla.net/news/",
+      "pattern": "<a href=\"(?P<url>https://wonderpla\\.net/news/\\d+/)\">[\\s\\S]{1,400}?<p class=\"text\">(?P<title>[^<]+)</p>[\\s\\S]{1,200}?<p class=\"date\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3667",
+    "edinet_code": "E27047",
+    "name": "enish",
+    "homepage_url": "https://www.enish.jp/",
+    "base_keywords": [
+      "enish",
+      "エニッシュ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.enish.jp/category/news/",
+      "pattern": "margin-bottom: -20px;\">(?P<date>[^<]+)</div>[\\s\\S]{1,150}?<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3810",
+    "edinet_code": "E05601",
+    "name": "サイバーステップホールディングス",
+    "homepage_url": "https://cshd.cyberstep.com/",
+    "base_keywords": [
+      "サイバーステップ",
+      "トレバ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://cshd.cyberstep.com/cshd/news/",
+      "pattern": "<time class=\"whatsnew-list-date\">(?P<date>[^<]+)</time>[\\s\\S]{1,400}?<a href=\"(?P<url>[^\"]+)\"[^>]*class=\"whatsnew-list-title\">\\s*(?P<title>[^\\t\\n]+)"
+    }
+  },
+  {
+    "code": "3998",
+    "edinet_code": "E33626",
+    "name": "すららネット",
+    "homepage_url": "https://surala.jp/",
+    "base_keywords": [
+      "すららネット",
+      "すらら"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://surala.jp/categories/release/",
+      "pattern": "newsDate\">(?P<date>[^<]+)</div>[\\s\\S]{1,300}?<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3845",
+    "edinet_code": "E05682",
+    "name": "アイフリークモバイル",
+    "homepage_url": "https://www.i-freek.co.jp/",
+    "base_keywords": [
+      "アイフリークモバイル",
+      "なないろえほんの国"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.i-freek.co.jp/news/",
+      "pattern": "href=\"(?P<url>https://www\\.i-freek\\.co\\.jp/news/\\d+/)\"[\\s\\S]{1,120}?class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]{1,80}?class=\"title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3686",
+    "edinet_code": "E30466",
+    "name": "ディー・エル・イー",
+    "homepage_url": "https://www.dle.jp/",
+    "base_keywords": [
+      "ディー・エル・イー",
+      "DLE",
+      "秘密結社 鷹の爪"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.dle.jp/jp/news/",
+      "pattern": "<time>(?P<date>[^<]+)</time>\\s*<h2><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "5619",
+    "edinet_code": "E39171",
+    "name": "マーソ",
+    "homepage_url": "https://www.mrso.co.jp/",
+    "base_keywords": [
+      "マーソ",
+      "MRSO"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mrso.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>/news/[^\"]+)\">\\s*<dt>\\s*<p class=\"mr_date\">(?P<date>[^<]+)</p>[\\s\\S]{1,120}?<dd>(?P<title>[^<]+)</dd>"
+    }
+  },
+  {
+    "code": "5616",
+    "edinet_code": "E39162",
+    "name": "雨風太陽",
+    "homepage_url": "https://ame-kaze-taiyo.jp/",
+    "base_keywords": [
+      "雨風太陽",
+      "ポケットマルシェ",
+      "ポケマル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ame-kaze-taiyo.jp/news/",
+      "pattern": "<a href=\"(?P<url>https://ame-kaze-taiyo\\.jp/news/[^\"]+)\">\\s*<div class=\"_top\">\\s*<div class=\"ymd\">\\s*(?P<date><span>\\d+</span>\\.<span>\\d+</span>\\.<span>\\d+</span>)[\\s\\S]{1,300}?<h2>(?P<title>[^<]+)</h2>"
+    }
+  },
+  {
+    "code": "4073",
+    "edinet_code": "E36666",
+    "name": "ジィ・シィ企画",
+    "homepage_url": "https://www.gck.co.jp/",
+    "base_keywords": [
+      "ジィ・シィ企画"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gck.co.jp/news/",
+      "pattern": "<span class=\"infor_date\">(?P<date>[^<]+)</span>[\\s\\S]{1,250}?<dd><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3624",
+    "edinet_code": "E05707",
+    "name": "アクセルマーク",
+    "homepage_url": "https://www.axelmark.co.jp/",
+    "base_keywords": [
+      "アクセルマーク",
+      "ニアリーフォーセブン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.axelmark.co.jp/pr/",
+      "pattern": "<p class=\"dateIcon\"><time>(?P<date>[^<]+)</time>[\\s\\S]{1,300}?<p class=\"description\"><a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "3807",
+    "edinet_code": "E05457",
+    "name": "フィスコ",
+    "homepage_url": "https://www.fisco.co.jp/",
+    "base_keywords": [
+      "フィスコ",
+      "FISCO"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fisco.co.jp/news/",
+      "pattern": "<td nowrap>(?P<date>[^<&]+)&nbsp;&nbsp;</td>\\s*<td class=\"text\"><a href=(?P<url>[^\\s>]+)[^>]*>(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "198A",
+    "edinet_code": "E39708",
+    "name": "PostPrime",
+    "homepage_url": "https://corp.postprime.com/",
+    "base_keywords": [
+      "PostPrime",
+      "ポストプライム",
+      "高橋ダン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.postprime.com/news",
+      "pattern": "<span class=\"news-item__date\">(?P<date>[^<]+)</span>\\s*<a\\s+href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4059",
+    "edinet_code": "E35945",
+    "name": "まぐまぐ",
+    "homepage_url": "https://www.mag2.co.jp/",
+    "base_keywords": [
+      "まぐまぐ",
+      "まぐまぐ！"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mag2.co.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<dt[\\s\\S]{1,600}?<dd class=\"news__date\">(?P<date>[^<]+)</dd>\\s*<dd class=\"news__title__txt\">(?P<title>[^<]+)</dd>"
+    }
+  },
+  {
+    "code": "184A",
+    "edinet_code": "E39653",
+    "name": "学びエイド",
+    "homepage_url": "https://corp.manabi-aid.jp/",
+    "base_keywords": [
+      "学びエイド",
+      "映像授業"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.manabi-aid.jp/",
+      "pattern": "<span class=\"published entry-meta_items\">(?P<date>[^<]+)</span>[\\s\\S]{1,600}?<h1 class=\"media-heading entry-title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3808",
+    "edinet_code": "E05587",
+    "name": "オーケーウェブ",
+    "homepage_url": "https://okweb.co.jp/",
+    "base_keywords": [
+      "オーケーウェブ",
+      "OKWAVE",
+      "OKWEB",
+      "GRATICA"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://okweb.co.jp/news/info/",
+      "pattern": "<a class=\"box_news_all preview\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,900}?<h2 class=\"tit-news\">(?P<title>[^<]+)</h2>\\s*<time>(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "3775",
+    "edinet_code": "E05497",
+    "name": "ガイアックス",
+    "homepage_url": "https://www.gaiax.co.jp/",
+    "base_keywords": [
+      "ガイアックス",
+      "Gaiax"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gaiax.co.jp/newsroom/pressrelease/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" aria-label=\"(?P<title>[^\"]+)\"[^>]*class=\"wpex-card-inner[\\s\\S]{1,3000}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "259A",
+    "edinet_code": "E39945",
+    "name": "ケイ・ウノ",
+    "homepage_url": "https://www.k-uno.co.jp/",
+    "base_keywords": [
+      "ケイ・ウノ",
+      "ケイウノ",
+      "K.UNO"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.k-uno.co.jp/news/all",
+      "pattern": "<span class=\"newsListdate\">(?P<date>[^<]+)</span>[\\s\\S]{1,500}?<p class=\"newsListTit\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "262A",
+    "edinet_code": "E03492",
+    "name": "インターメスティック",
+    "homepage_url": "https://www.zoff.com/",
+    "base_keywords": [
+      "インターメスティック",
+      "Zoff",
+      "ゾフ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.zoff.com/news/",
+      "pattern": "<a class=\"p-newsList__link\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,1500}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,100}?<h2 class=\"p-newsList__title\">(?P<title>[^<]+)</h2>"
+    }
+  },
+  {
+    "code": "2653",
+    "edinet_code": "E03349",
+    "name": "イオン九州",
+    "homepage_url": "https://www.aeon-kyushu.info/",
+    "base_keywords": [
+      "イオン九州",
+      "イオン九州ネットスーパー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.aeon-kyushu.info/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<div class=\"meta\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>[\\s\\S]{1,200}?<div class=\"title\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "2664",
+    "edinet_code": "E03356",
+    "name": "カワチ薬品",
+    "homepage_url": "https://www.cawachi.co.jp/",
+    "base_keywords": [
+      "カワチ薬品"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.cawachi.co.jp/customer/news/",
+      "pattern": "<a class=\"item\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,500}?<p class=\"date\">(?P<date>[^<]+)</p><p class=\"title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2666",
+    "edinet_code": "E03355",
+    "name": "オートウェーブ",
+    "homepage_url": "https://auto-wave.co.jp/",
+    "base_keywords": [
+      "オートウェーブ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://auto-wave.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>/news/detail_\\d+\\.html)\"[^>]*>\\s*<div class=\"news-info\">\\s*<time class=\"news-date\"><span id=\"topics_date\">(?P<date>[^<]+)</span></time>[\\s\\S]{1,200}?<span id=\"topics_title\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2669",
+    "edinet_code": "E03358",
+    "name": "カネ美食品",
+    "homepage_url": "https://www.kanemi-foods.co.jp/",
+    "base_keywords": [
+      "カネ美食品",
+      "リーズデリ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kanemi-foods.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<dl>\\s*<dt><span class=\"item_date\" datetime=\"[^\"]*\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<dd class=\"ttl\">(?P<title>[^<]+)</dd>"
+    }
+  },
+  {
+    "code": "2685",
+    "edinet_code": "E03368",
+    "name": "アンドエスティHD",
+    "homepage_url": "https://www.andst-hd.co.jp/",
+    "base_keywords": [
+      "アンドエスティHD",
+      "アダストリア",
+      "GLOBAL WORK"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.andst-hd.co.jp/news/",
+      "pattern": "<a\\s+href=\"(?P<url>[^\"]+)\"\\s+class=\"link\"[\\s\\S]{1,600}?<dt class=\"title\">(?P<title>[^<]+)</dt>\\s*<dd class=\"meta\">\\s*<span class=\"date\">(?P<date>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2694",
+    "edinet_code": "E03374",
+    "name": "焼肉坂井ホールディングス",
+    "homepage_url": "https://ys-holdings.co.jp/",
+    "base_keywords": [
+      "焼肉坂井",
+      "肉匠坂井",
+      "ヤマダモンゴル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ys-holdings.co.jp/news/",
+      "pattern": "<li class=\"topics-item\"><a href=\"(?P<url>[^\"]+)\">\\s*<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,400}?<p class=\"topics-item_details\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2698",
+    "edinet_code": "E03377",
+    "name": "キャンドゥ",
+    "homepage_url": "https://www.cando-web.co.jp/",
+    "base_keywords": [
+      "キャンドゥ",
+      "Can★Do"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.cando-web.co.jp/news/",
+      "pattern": "<li data-year=\"\\d+\" data-date=\"\\d+\"[^>]*><a href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,400}?<p class=\"date\"[^>]*>(?P<date>[^<]+)</p>[\\s\\S]{1,500}?<span class=\"ttl-inn\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "2735",
+    "edinet_code": "E03391",
+    "name": "ワッツ",
+    "homepage_url": "https://www.watts-jp.com/",
+    "base_keywords": [
+      "ワッツ",
+      "Watts",
+      "100円ショップ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.watts-jp.com/news/",
+      "pattern": "<div class=\"menu-box__sub\">\\s*<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,300}?<p class=\"title\">(?P<title>[^<]+)</p>\\s*<p class=\"date\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2742",
+    "edinet_code": "E03395",
+    "name": "ハローズ",
+    "homepage_url": "https://www.halows.com/",
+    "base_keywords": [
+      "ハローズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.halows.com/news/",
+      "pattern": "<div class=\"p_postlist_day c_day\">(?P<date>[^<]+)</div>[\\s\\S]{1,300}?<div class=\"p_postlist_title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<\\t\\n]+)"
+    }
+  },
+  {
+    "code": "2747",
+    "edinet_code": "E03397",
+    "name": "北雄ラッキー",
+    "homepage_url": "https://www.hokuyu-lucky.co.jp/",
+    "base_keywords": [
+      "北雄ラッキー",
+      "ラッキー",
+      "CoGCa"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hokuyu-lucky.co.jp/news/",
+      "pattern": "<span class=\"published entry-meta-items\">(?P<date>[^<]+)</span>[\\s\\S]{1,400}?<h1 class=\"media-heading entry-title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "2752",
+    "edinet_code": "E03400",
+    "name": "フジオフードグループ本社",
+    "homepage_url": "https://fujiogroup.com/",
+    "base_keywords": [
+      "フジオフード",
+      "串家物語",
+      "だし茶漬けえん"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://fujiogroup.com/company/news/",
+      "pattern": "<li class=\"news-item\">\\s*<p class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]{1,150}?<p class=\"txt\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "2753",
+    "edinet_code": "E03398",
+    "name": "あみやき亭",
+    "homepage_url": "https://amiyakitei.jp/",
+    "base_keywords": [
+      "あみやき亭"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://amiyakitei.jp/topics/",
+      "pattern": "<article class=\"topics__article\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,700}?<h3 class=\"topics__articleTitle\">(?P<title>[^<]+)</h3>\\s*<time class=\"topics__articleDate\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "2790",
+    "edinet_code": "E03421",
+    "name": "ナフコ",
+    "homepage_url": "https://www.nafco.tv/",
+    "base_keywords": [
+      "ナフコ",
+      "ホームセンター"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nafco.tv/news/",
+      "pattern": "<article class=\"news-index-news__article js-news-year__article\"[^>]*><a href=\"(?P<url>(?![^\"]*ir/financial/monthly)[^\"]+)\"[^>]*>[\\s\\S]{1,300}?<time class=\"news-index-news__date\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,300}?<h2 class=\"news-index-news__title\">(?P<title>[^<]+)<"
+    }
+  },
+  {
+    "code": "2798",
+    "edinet_code": "E03428",
+    "name": "ワイズテーブルコーポレーション",
+    "homepage_url": "https://www.ystable.co.jp/",
+    "base_keywords": [
+      "ワイズテーブル",
+      "XEX",
+      "サルヴァトーレ クオモ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ystable.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<h3>[^<]*</h3><img[^>]*>\\s*</a>(?P<date>\\d{4}-\\d\\d-\\d\\d)<h6 class=\"heading\"><a href=\"[^\"]+\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3028",
+    "edinet_code": "E03475",
+    "name": "アルペン",
+    "homepage_url": "https://www.alpen-group.jp/",
+    "base_keywords": [
+      "アルペン",
+      "スポーツデポ",
+      "ゴルフ5"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.alpen-group.jp/corporate/news/",
+      "pattern": "<li>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<p class=\"news-date\">(?P<date>[^<]+)</p>[\\s\\S]{1,300}?<p class=\"news-ttl\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3032",
+    "edinet_code": "E03474",
+    "name": "ゴルフ・ドゥ",
+    "homepage_url": "https://www.golfdo.com/",
+    "base_keywords": [
+      "ゴルフ・ドゥ",
+      "ゴルフドゥ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.golfdo.com/news/other",
+      "pattern": "<a href=\"(?P<url>https://www\\.golfdo\\.com/news/detail\\?id=\\d+)\">\\s*<span class=\"date\">(?P<date>[^<]+)</span>\\s*<p class=\"word_break_all\">\\s*(?P<title>[^<]+?)\\s*</p>"
+    }
+  },
+  {
+    "code": "3053",
+    "edinet_code": "E03478",
+    "name": "ペッパーフードサービス",
+    "homepage_url": "https://pepper-fs.co.jp/",
+    "base_keywords": [
+      "ペッパーフードサービス",
+      "いきなり!ステーキ",
+      "いきなりステーキ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.pepper-fs.co.jp/news/",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd class=\"icon\">[\\s\\S]{1,200}?</dd>\\s*<dd class=\"txt\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3058",
+    "edinet_code": "E03487",
+    "name": "三洋堂ホールディングス",
+    "homepage_url": "https://ir.sanyodo.co.jp/",
+    "base_keywords": [
+      "三洋堂",
+      "三洋堂書店"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://sanyodo1907.com/news/",
+      "pattern": "<time class=\"timebox\">(?P<date>[^<]+)</time>[\\s\\S]{1,300}?<dd>(?P<title>[^<]+)</dd>\\s*</dl>\\s*<a href=\"(?P<url>[^\"]+)\""
+    }
+  },
+  {
+    "code": "3059",
+    "edinet_code": "E03494",
+    "name": "ヒラキ",
+    "homepage_url": "https://company.hiraki.co.jp/",
+    "base_keywords": [
+      "ヒラキ",
+      "靴のヒラキ"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://company.hiraki.co.jp/news/feed/"
+    }
+  },
+  {
+    "code": "3069",
+    "edinet_code": "E03508",
+    "name": "JFLAホールディングス",
+    "homepage_url": "https://j-fla.com/",
+    "base_keywords": [
+      "JFLAホールディングス",
+      "牛角",
+      "Crepes Familia",
+      "クレープ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ssl4.eir-parts.net/V4Public/EIR/3069/ja/announcement/announcement_1.js",
+      "pattern": "\\{(?=[^}]*\"format_date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"link\":\"(?![^\"]*rex-holdings\\.co\\.jp/?\")(?P<url>[^\"]+)\")(?=[^}]*\"title\":\"(?P<title>[^\"]+)\")[^}]*\\}"
+    }
+  },
+  {
+    "code": "3063",
+    "edinet_code": "E03495",
+    "name": "ジェイグループホールディングス",
+    "homepage_url": "https://www.jgroup.jp/",
+    "base_keywords": [
+      "ジェイグループ",
+      "磯丸水産"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.jgroup.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-pageNews_listItem[^\"]*\">\\s*<p><span class=\"news_head\"><span class=\"news_date\">(?P<date>[^<]+)</span>[\\s\\S]{1,200}?<span class=\"news_ttl\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "3068",
+    "edinet_code": "E03496",
+    "name": "WDI",
+    "homepage_url": "https://www.wdi.co.jp/",
+    "base_keywords": [
+      "WDI",
+      "ハードロックカフェ",
+      "サラベス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.wdi.co.jp/news",
+      "pattern": "<p class=\"news__date[^\"]*\"><span class=\"news__badge hide-pc\">[^<]*</span>(?P<date>[^<]+)<span[\\s\\S]{1,200}?<a href=\"(?P<url>[^\"]+)\"\\s+class=\"u-text u-text16\">(?P<title>[\\s\\S]+?)</a>"
+    }
+  },
+  {
+    "code": "2762",
+    "edinet_code": "E03404",
+    "name": "SANKO MARKETING FOODS",
+    "homepage_url": "https://www.sankofoods.com/",
+    "base_keywords": [
+      "SANKO MARKETING FOODS",
+      "三光マーケティングフーズ",
+      "まるがまる",
+      "磯丸"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ssl4.eir-parts.net/V4Public/EIR/2762/ja/announcement/announcement_1.js",
+      "pattern": "\\{(?=[^}]*\"format_date\":\"(?P<date>[^\"]+)\")(?=[^}]*\"link\":\"(?![^\"]*shop/akamaruya/index\\.html)(?P<url>[^\"]+)\")(?=[^}]*\"title\":\"(?P<title>[^\"]+)\")[^}]*\\}"
+    }
+  },
+  {
+    "code": "3067",
+    "edinet_code": "E03485",
+    "name": "東京一番フーズ",
+    "homepage_url": "https://www.tokyo-ichiban-foods.co.jp/",
+    "base_keywords": [
+      "東京一番フーズ",
+      "とらふぐ亭"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.torafugu.co.jp/news/",
+      "pattern": "<li class=\"m-news_item\">\\s*<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,600}?<p class=\"m-news_date gothic\">(?P<date>[^<]+)</p>\\s*</div>\\s*<p class=\"m-news_text\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3075",
+    "edinet_code": "E03507",
+    "name": "銚子丸",
+    "homepage_url": "https://www.choushimaru.co.jp/",
+    "base_keywords": [
+      "銚子丸",
+      "すし銚子丸"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.choushimaru.co.jp/news/",
+      "pattern": "<h3 class=\"letgo\" id=\"mincho\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></h3>\\s*<div class=\"boxH3\"[^>]*>\\s*<p><img[^>]*>(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3080",
+    "edinet_code": "E03509",
+    "name": "ジェーソン",
+    "homepage_url": "https://jason.co.jp/",
+    "base_keywords": [
+      "ジェーソン",
+      "JASON"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://jason.co.jp/new/",
+      "pattern": "<dl>\\s*<a href=\"(?P<url>[^\"]+)\">\\s*<dt>\\s*(?P<date>[^<\\s][^<]*?)\\s*</dt>\\s*<dd>\\s*(?P<title>[^<]+?)\\s*</dd>"
+    }
+  },
+  {
+    "code": "3096",
+    "edinet_code": "E03524",
+    "name": "オーシャンシステム",
+    "homepage_url": "https://www.ocean-system.com/",
+    "base_keywords": [
+      "オーシャンシステム",
+      "チャレンジャー",
+      "業務スーパー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ocean-system.com/company/news/",
+      "pattern": "<div class=\"days\">(?P<date>[^<]+)</div><a href=\"(?P<url>[^\"]+)\"\\s*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3133",
+    "edinet_code": "E31367",
+    "name": "海帆",
+    "homepage_url": "https://kaihan.co.jp/",
+    "base_keywords": [
+      "海帆",
+      "昭和食堂",
+      "えびすや"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://kaihan.co.jp/news/",
+      "pattern": "<a class=\"news_article\" href=\"(?P<url>[^\"]+)\"><div[^>]*>\\s*<time class=\"news_date\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<p class=\"news_title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3137",
+    "edinet_code": "E31574",
+    "name": "ファンデリー",
+    "homepage_url": "https://www.fundely.co.jp/",
+    "base_keywords": [
+      "ファンデリー",
+      "ミールタイム",
+      "MFD"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fundely.co.jp/release/back_number",
+      "pattern": "<td>\\s*(?P<date>\\d{4}-\\d\\d-\\d\\d)\\s*</td>[\\s\\S]{1,400}?<a href=\"(?P<url>/release/\\d+/detail)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3138",
+    "edinet_code": "E31625",
+    "name": "富士山マガジンサービス",
+    "homepage_url": "https://www.fujisan.co.jp/",
+    "base_keywords": [
+      "富士山マガジンサービス",
+      "Fujisan",
+      "雑誌"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fujisan.co.jp/pressrelease/",
+      "pattern": "<div class=\"card card--01\">\\s*<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,700}?<div class=\"card__title\">\\s*<span class=\"num\"></span>\\s*<br/>\\s*(?P<title>[^<]+?)\\s*</div>\\s*<div class=\"card__text\">\\s*(?P<date>\\d{4}/\\d\\d/\\d\\d)"
+    }
+  },
+  {
+    "code": "3159",
+    "edinet_code": "E23841",
+    "name": "丸善CHIホールディングス",
+    "homepage_url": "https://www.maruzen-chi.co.jp/",
+    "base_keywords": [
+      "丸善",
+      "ジュンク堂",
+      "丸善CHI"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.maruzen-chi.co.jp/ja/ir/news.html",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,600}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "3169",
+    "edinet_code": "E26095",
+    "name": "ミサワ",
+    "homepage_url": "https://www.misawa-corp.co.jp/",
+    "base_keywords": [
+      "ミサワ",
+      "unico",
+      "ウニコ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.misawa-corp.co.jp/news/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,200}?<p class=\"news_ttl\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "3172",
+    "edinet_code": "E26322",
+    "name": "ティーライフ",
+    "homepage_url": "https://www.tealife.co.jp/",
+    "base_keywords": [
+      "ティーライフ",
+      "サラシア",
+      "ダイエットプーアール茶"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList2.aspx?company=AS70625&len=30&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]*)\"[\\s\\S]*?\"publishDate\":\"(?P<date>[^\"]*)\"[\\s\\S]*?\"url\":\"(?P<url>[^\"]*)\""
+    }
+  },
+  {
+    "code": "3175",
+    "edinet_code": "E26842",
+    "name": "エー・ピーホールディングス",
+    "homepage_url": "https://ap-holdings.jp/",
+    "base_keywords": [
+      "エー・ピーホールディングス",
+      "塚田農場",
+      "四十八漁場"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ap-holdings.jp/news-and-action/",
+      "pattern": "<h5 class=\"vk_post_title media-title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a></h5><div class=\"vk_post_dates\"><div class=\"vk_post_date media-date published\"><i[^>]*></i>(?P<date>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "3177",
+    "edinet_code": "E26821",
+    "name": "ありがとうサービス",
+    "homepage_url": "https://www.arigatou-s.com/",
+    "base_keywords": [
+      "ありがとうサービス",
+      "買取王国",
+      "マンガ倉庫"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.arigatou-s.com/category/info/",
+      "pattern": "<time class=\"entry-date updated\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<h3 class=\"title\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a></h3>"
+    }
+  },
+  {
+    "code": "3181",
+    "edinet_code": "E27202",
+    "name": "買取王国",
+    "homepage_url": "https://okoku.co.jp/",
+    "base_keywords": [
+      "買取王国",
+      "工具買取王国",
+      "マイシュウサガール"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://okoku.jp/inc/news/",
+      "pattern": "<span class=\"news_date\">\\s*(?P<date>[\\d.]+)\\s*</span>\\s*<div class=\"news_title4list\">\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "3185",
+    "edinet_code": "E27615",
+    "name": "夢展望",
+    "homepage_url": "https://www.dreamvs.jp/",
+    "base_keywords": [
+      "夢展望",
+      "Dream vs",
+      "ドリームバイエス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.dreamv.co.jp/ja/irnews.xml",
+      "pattern": "<item>\\s*<title>(?P<title>.*?)</title>\\s*<link>(?P<url>[^<]+)</link>\\s*<description></description>\\s*<pubDate>(?P<date>[^<]+)</pubDate>"
+    }
+  },
+  {
+    "code": "3190",
+    "edinet_code": "E30451",
+    "name": "ホットマン",
+    "homepage_url": "https://hotman.co.jp/",
+    "base_keywords": [
+      "ホットマン",
+      "1秒タオル",
+      "ホットマン タオル"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://hotman.co.jp/articles/news/rss2.xml"
+    }
+  },
+  {
+    "code": "3191",
+    "edinet_code": "E30501",
+    "name": "ジョイフル本田",
+    "homepage_url": "https://www.joyfulhonda.co.jp/",
+    "base_keywords": [
+      "ジョイフル本田",
+      "ホームジョイ本田",
+      "Pet's CLOVER"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.joyfulhonda.co.jp/ja/information.html",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,500}?<span class=\"news_tx\">(?P<title>.*?)</span>"
+    }
+  },
+  {
+    "code": "3196",
+    "edinet_code": "E30898",
+    "name": "ホットランドホールディングス",
+    "homepage_url": "https://hotland.co.jp/",
+    "base_keywords": [
+      "ホットランド",
+      "築地銀だこ",
+      "銀だこ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://hotland.co.jp/news/",
+      "pattern": "<a[^>]*href=\"(?P<url>[^\"]+)\"[^>]*><article[\\s\\S]{0,400}?<span class=\"text-sm\">(?P<date>[^<]+)</span>[\\s\\S]{0,400}?<span class=\"line-clamp-1[^\"]*\">(?P<title>.*?)</span>"
+    }
+  },
+  {
+    "code": "3221",
+    "edinet_code": "E30656",
+    "name": "ヨシックスホールディングス",
+    "homepage_url": "https://yossix.co.jp/",
+    "base_keywords": [
+      "ヨシックス",
+      "や台ずし",
+      "ひとくち餃子の頂"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://yossix.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<span class=\"up_ymd\">(?P<date>[^<]+)</span>[\\s\\S]{0,200}?<span class=\"title\">(?P<title>.*?)</span>"
+    }
+  },
+  {
+    "code": "3222",
+    "edinet_code": "E31159",
+    "name": "ユナイテッド・スーパーマーケット・ホールディングス",
+    "homepage_url": "https://www.usmh.co.jp/",
+    "base_keywords": [
+      "ユナイテッド・スーパーマーケット",
+      "マルエツ",
+      "カスミ",
+      "マックスバリュ関東"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.usmh.co.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*><span class=\"a-date\">(?P<date>[^<]+)</span><span class=\"a-category\">[\\s\\S]{0,120}?</span></span><span class=\"a-title\">(?P<title>.*?)</span>"
+    }
+  },
+  {
+    "code": "3224",
+    "edinet_code": "E31321",
+    "name": "ゼネラル・オイスター",
+    "homepage_url": "https://www.g-oyster.com/",
+    "base_keywords": [
+      "ゼネラル・オイスター",
+      "エイスシーオイスターバー",
+      "オイスターバー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://oysterbar.co.jp/topics/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"topics-page__list-link\">[\\s\\S]{0,1500}?<time datetime=\"[^\"]*\" class=\"topics-page__list-date\">(?P<date>[^<]+)</time>[\\s\\S]{0,300}?<p class=\"topics-page__list-title\"><span>(?P<title>.*?)</span>"
+    }
+  },
+  {
+    "code": "3317",
+    "edinet_code": "E03432",
+    "name": "フライングガーデン",
+    "homepage_url": "https://www.fgarden.co.jp/",
+    "base_keywords": [
+      "フライングガーデン",
+      "爆弾ハンバーグ",
+      "フライングガーデン フェア"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fgarden.co.jp/topics/",
+      "pattern": "<dt>(?P<date>[\\d.]+)<span class=\"icon[^\"]*\">[^<]*</span></dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "3329",
+    "edinet_code": "E03436",
+    "name": "東和フードサービス",
+    "homepage_url": "https://www.towafood-net.co.jp/",
+    "base_keywords": [
+      "東和フードサービス",
+      "椿屋珈琲",
+      "ダッキーダック"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.towafood-net.co.jp/company/news/",
+      "pattern": "<li>\\s*<a href=\"(?P<url>[^\"]+)\">\\s*<figure[^>]*></figure>\\s*<div class=\"box\">\\s*<p class=\"date\">\\s*(?P<date>[\\d.]+)\\s*</p>[\\s\\S]{0,300}?<h4>\\s*(?P<title>.*?)\\s*</h4>"
+    }
+  },
+  {
+    "code": "3346",
+    "edinet_code": "E00390",
+    "name": "ヒロタグループホールディングス",
+    "homepage_url": "https://hirotaghd.com/",
+    "base_keywords": [
+      "ヒロタ",
+      "ヒロタ シュークリーム",
+      "洋菓子のヒロタ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://hirotaghd.com/news/",
+      "pattern": "<time class=\"date published updated\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,900}?<h1 class=\"entry-title\"><a [^>]*href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "3353",
+    "edinet_code": "E03443",
+    "name": "メディカル一光グループ",
+    "homepage_url": "https://www.m-ikkou.co.jp/",
+    "base_keywords": [
+      "メディカル一光",
+      "フラワー薬局",
+      "一光薬局"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.m-ikkou.co.jp/",
+      "pattern": "<a href=\"(?P<url>(?![^\"]*ir/library/info/?\")(?![^\"]*ir/library/report/?\")[^\"]+)\" title=\"[^\"]*\">\\s*<p class=\"news_date\">(?P<date>[^<]+)</p>\\s*<p class=\"news_category\">[^<]*</p>\\s*<p class=\"news_title\">(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "3361",
+    "edinet_code": "E03454",
+    "name": "トーエル",
+    "homepage_url": "https://www.toell.co.jp/",
+    "base_keywords": [
+      "トーエル",
+      "アルピナウォーター",
+      "信濃湧水"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.toell.co.jp/newsrelease/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<p class=\"link\"><a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "3372",
+    "edinet_code": "E03457",
+    "name": "関門海",
+    "homepage_url": "http://www.kanmonkai.co.jp/",
+    "base_keywords": [
+      "関門海",
+      "玄品",
+      "とらふぐ 玄品"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kanmonkai.co.jp/pr/pr.php",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "3395",
+    "edinet_code": "E05556",
+    "name": "サンマルクホールディングス",
+    "homepage_url": "https://www.saint-marc-hd.com/hd/",
+    "base_keywords": [
+      "サンマルクカフェ",
+      "サンマルクホールディングス",
+      "牛かつ もと村"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.saint-marc-hd.com/hd/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-news-item__inner\"[^>]*>\\s*<div class=\"c-news-item__header\">\\s*<div class=\"c-news-item__date\">(?P<date>[^<]+)</div>[\\s\\S]{0,900}?<p class=\"c-news-item__text\">\\s*<span>\\s*(?P<title>.*?)\\s*</span>"
+    }
+  },
+  {
+    "code": "3399",
+    "edinet_code": "E03470",
+    "name": "丸千代山岡家",
+    "homepage_url": "https://www.yamaokaya.com/",
+    "base_keywords": [
+      "山岡家",
+      "ラーメン山岡家",
+      "味噌ラーメン山岡家"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.yamaokaya.com/news/feed/"
+    }
+  },
+  {
+    "code": "3538",
+    "edinet_code": "E32181",
+    "name": "ウイルプラスホールディングス",
+    "homepage_url": "https://www.willplus.co.jp/",
+    "base_keywords": [
+      "ウイルプラス",
+      "ウイルプラスHD",
+      "輸入車 ディーラー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList2.aspx?company=AS01236&len=30&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]*)\"[\\s\\S]*?\"publishDate\":\"(?P<date>[^\"]*)\"[\\s\\S]*?\"url\":\"(?P<url>[^\"]*)\""
+    }
+  },
+  {
+    "code": "3548",
+    "edinet_code": "E32697",
+    "name": "バロックジャパンリミテッド",
+    "homepage_url": "https://www.baroque-global.com/",
+    "base_keywords": [
+      "バロックジャパン",
+      "MOUSSY",
+      "SLY",
+      "rienda",
+      "RODEO CROWNS"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.baroque-global.com/jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<div class=\"news-col\">[\\s\\S]{0,400}?<time datetime=\"[^\"]*\" class=\"c-news__time\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<dd>\\s*(?P<title>.*?)\\s*</dd>"
+    }
+  },
+  {
+    "code": "3544",
+    "edinet_code": "E32381",
+    "name": "サツドラホールディングス",
+    "homepage_url": "https://satudora-hd.co.jp/",
+    "base_keywords": [
+      "サツドラ",
+      "EZOCA",
+      "サツドラホールディングス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://satudora-hd.co.jp/news/",
+      "pattern": "<article><a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<ul class=\"category\">[\\s\\S]{0,120}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>\\s*<h2 class=\"title\">(?P<title>.*?)</h2>"
+    }
+  },
+  {
+    "code": "3556",
+    "edinet_code": "E31751",
+    "name": "リネットジャパングループ",
+    "homepage_url": "https://corp.renet.jp/",
+    "base_keywords": [
+      "リネットジャパン",
+      "ネットオフ",
+      "小型家電リサイクル"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://corp.renet.jp/?feed=rss2"
+    }
+  },
+  {
+    "code": "3558",
+    "edinet_code": "E32966",
+    "name": "ジェイドグループ",
+    "homepage_url": "https://jade-group.jp/",
+    "base_keywords": [
+      "ジェイドグループ",
+      "LOCONDO",
+      "Reebok",
+      "d fashion"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://jade-group.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<div class=\"thumb\">[\\s\\S]{0,1500}?<div class=\"data\">(?P<date>[^<]+)</div>\\s*<div class=\"text\">\\s*(?P<title>[^<]+?)\\s*<"
+    }
+  },
+  {
+    "code": "556A",
+    "edinet_code": "E41554",
+    "name": "犬猫生活",
+    "homepage_url": "https://corp.inuneko-seikatsu.co.jp/",
+    "base_keywords": [
+      "犬猫生活",
+      "犬猫生活 ごはん",
+      "犬猫生活 サプリ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.inuneko-seikatsu.co.jp/press/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<p class=\"img\">[\\s\\S]{0,400}?<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,200}?<p class=\"ttl\">(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "5884",
+    "edinet_code": "E38682",
+    "name": "クラダシ",
+    "homepage_url": "https://corp.kuradashi.jp/",
+    "base_keywords": [
+      "クラダシ",
+      "Kuradashi",
+      "KURADASHI フードロス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.kuradashi.jp/pressrelease/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"[^\"]*\">\\s*<div class=\"[^\"]*\">\\s*(?P<date>\\d{4}/\\d{2}/\\d{2})\\s*</div>[\\s\\S]{0,600}?<div class=\"text-13[^\"]*\">\\s*(?P<title>.*?)\\s*</div>"
+    }
+  },
+  {
+    "code": "5888",
+    "edinet_code": "E38738",
+    "name": "DAIWA CYCLE",
+    "homepage_url": "https://www.daiwa-cycle.co.jp/",
+    "base_keywords": [
+      "ダイワサイクル",
+      "DAIWA CYCLE",
+      "ダイワサイクル 電動自転車"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daiwa-cycle.co.jp/info",
+      "pattern": "<li>\\s*<span>[^<]*</span>\\s*<time>(?P<date>[^<]+)</time>\\s*<p>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "5891",
+    "edinet_code": "E39133",
+    "name": "SAKIGAKEホールディングス",
+    "homepage_url": "https://www.sakigake-holdings.co.jp/",
+    "base_keywords": [
+      "魁力屋",
+      "ラーメン魁力屋",
+      "三田製麺所",
+      "SAKIGAKE"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sakigake-holdings.co.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-irListItem__link\">[\\s\\S]{0,300}?<time class=\"c-irListItem__date\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<p class=\"c-irListItem__title\">(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "7112",
+    "edinet_code": "E37960",
+    "name": "キューブ",
+    "homepage_url": "https://www.cube-co.com/",
+    "base_keywords": [
+      "キューブ",
+      "MARK & LONA",
+      "マークアンドロナ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.cube-co.com/ja/news.html",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?:<span class=\"n_img\">[\\s\\S]{0,400}?</span>)?\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{0,600}?<span class=\"news_tx\">(?P<title>.*?)</span>"
+    }
+  },
+  {
+    "code": "7127",
+    "edinet_code": "E36757",
+    "name": "一家ホールディングス",
+    "homepage_url": "https://ikka-holdings.co.jp/",
+    "base_keywords": [
+      "一家ホールディングス",
+      "屋台屋 博多劇場",
+      "ラムちゃん"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ikka-holdings.co.jp/news/",
+      "pattern": "<a class=\"group-texts__link\" href=\"(?P<url>[^\"]+)\"[^>]*><p class=\"group-texts__date\">(?P<date>[^<]+)</p>[\\s\\S]{0,300}?<h3 class=\"group-texts__title\">(?P<title>.*?)</h3>"
+    }
+  },
+  {
+    "code": "5892",
+    "edinet_code": "E39222",
+    "name": "yutori",
+    "homepage_url": "https://yutori.tokyo/",
+    "base_keywords": [
+      "yutori",
+      "Her lip to",
+      "minum",
+      "9090"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList2.aspx?company=AS09313&len=30&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]*)\"[\\s\\S]*?\"publishDate\":\"(?P<date>[^\"]*)\"[\\s\\S]*?\"url\":\"(?P<url>[^\"]*)\""
+    }
+  },
+  {
+    "code": "7138",
+    "edinet_code": "E37457",
+    "name": "TORICO",
+    "homepage_url": "https://www.torico-corp.com/",
+    "base_keywords": [
+      "TORICO",
+      "トリコ",
+      "マンガ展",
+      "ホーリンラブブックス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.torico-corp.com/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*></a>\\s*<span class=\"date\"[^>]*>(?P<date>[^<]+)</span>[\\s\\S]{0,250}?<p class=\"news_ttl\"[^>]*>(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "7140",
+    "edinet_code": "E37589",
+    "name": "ペットゴー",
+    "homepage_url": "https://corp.petgo.jp/",
+    "base_keywords": [
+      "ペットゴー",
+      "petgo",
+      "ペットゴー キャンペーン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.petgo.jp/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\" class=\"hov\">\\s*<div class=\"data\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>[\\s\\S]{0,300}?<div class=\"title\">(?P<title>.*?)</div>"
+    }
+  },
+  {
+    "code": "7412",
+    "edinet_code": "E03231",
+    "name": "アトム",
+    "homepage_url": "https://www.atom-corp.co.jp/",
+    "base_keywords": [
+      "アトム",
+      "ステーキ宮",
+      "にぎりの徳兵衛",
+      "海鮮アトム"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.atom-corp.co.jp/information/index.php",
+      "pattern": "<li>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<dl>\\s*<dt>\\s*<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,200}?<dd>\\s*(?P<title>.*?)\\s*</dd>"
+    }
+  },
+  {
+    "code": "7416",
+    "edinet_code": "E03233",
+    "name": "はるやまホールディングス",
+    "homepage_url": "https://www.haruyama.co.jp/",
+    "base_keywords": [
+      "はるやま",
+      "はるやま アイシリーズ",
+      "Perfect Suit FActory"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.haruyama.co.jp/news/press.php",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\"[^>]*><p class=\"news__list-data\">(?P<date>[^<]+)<span[^>]*>[^<]*</span></p><p class=\"news__list-title\">(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "7421",
+    "edinet_code": "E03236",
+    "name": "カッパ・クリエイト",
+    "homepage_url": "https://www.kappa-create.co.jp/",
+    "base_keywords": [
+      "かっぱ寿司",
+      "カッパ・クリエイト",
+      "かっぱ寿司 食べ放題"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kappa-create.co.jp/",
+      "pattern": "<dl class=\"cf\">\\s*<dt>(?P<date>[^<]+)</dt>\\s*<dd class=\"ico[^\"]*\"><img[^>]*></dd>\\s*<dd class=\"txt\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "7506",
+    "edinet_code": "E03266",
+    "name": "ハウスオブローゼ",
+    "homepage_url": "https://www.houseofrose.co.jp/",
+    "base_keywords": [
+      "ハウス オブ ローゼ",
+      "HOUSE OF ROSE",
+      "Oh!Baby",
+      "ミルキュアミー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.houseofrose.co.jp/topics/",
+      "pattern": "<a class=\"topics_link\" href=\"(?P<url>[^\"]+)\"\\s*>[\\s\\S]{0,400}?<p class=\"topics_date\">(?P<date>[^<]+)</p>\\s*</div>\\s*<p class=\"topics_title\">(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "7508",
+    "edinet_code": "E03267",
+    "name": "G-7ホールディングス",
+    "homepage_url": "https://www.g-7holdings.co.jp/",
+    "base_keywords": [
+      "G-7",
+      "業務スーパー",
+      "バイクワールド",
+      "Workman Colors"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.g-7holdings.co.jp/gr-news/",
+      "pattern": "<dt>(?P<date>[^<]+)<span class=\"-cate\">[^<]*</span></dt>\\s*<dd>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "7509",
+    "edinet_code": "E03269",
+    "name": "アイエーグループ",
+    "homepage_url": "https://www.ia-group.co.jp/",
+    "base_keywords": [
+      "アイエーグループ",
+      "オートバックス",
+      "I.A group"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ia-group.co.jp/news",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"cat[^\"]*\">[^<]*</span>\\s*</div>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "7512",
+    "edinet_code": "E03268",
+    "name": "イオン北海道",
+    "homepage_url": "https://www.aeon-hokkaido.jp/",
+    "base_keywords": [
+      "イオン北海道",
+      "マックスバリュ北海道",
+      "イオン北海道 セール"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.aeon-hokkaido.jp/corporation/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<p><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{0,300}?</p>\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "7514",
+    "edinet_code": "E03271",
+    "name": "ヒマラヤ",
+    "homepage_url": "https://www.hmry.jp/",
+    "base_keywords": [
+      "ヒマラヤ",
+      "ヒマラヤスポーツ",
+      "着ながらケア"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hmry.jp/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\"><span>(?P<date>[^<]+)</span>(?P<title>[^<]+)</a></li>"
+    }
+  },
+  {
+    "code": "7520",
+    "edinet_code": "E03274",
+    "name": "エコス",
+    "homepage_url": "https://www.eco-s.co.jp/",
+    "base_keywords": [
+      "エコス",
+      "TAIRAYA",
+      "たいらや",
+      "エコスグループ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList2.aspx?company=AS01203&len=30&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]*)\"[\\s\\S]*?\"publishDate\":\"(?P<date>[^\"]*)\"[\\s\\S]*?\"url\":\"(?P<url>[^\"]*)\""
+    }
+  },
+  {
+    "code": "7515",
+    "edinet_code": "E03272",
+    "name": "マルヨシセンター",
+    "homepage_url": "http://ww2.maruyoshi-center.co.jp/",
+    "base_keywords": [
+      "マルヨシセンター",
+      "マルヨシ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "http://ww2.maruyoshi-center.co.jp/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<span class=\"cat\\d*\">[^<]*</span>\\s*<span class=\"pubdate\">(?P<date>[^<]+)</span>\\s*<span class=\"txt\">(?P<title>.*?)</span>"
+    }
+  },
+  {
+    "code": "7524",
+    "edinet_code": "E03278",
+    "name": "マルシェ",
+    "homepage_url": "https://www.marche.co.jp/",
+    "base_keywords": [
+      "マルシェ",
+      "酔虎伝",
+      "八剣伝",
+      "居心伝"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.marche.co.jp/feed"
+    }
+  },
+  {
+    "code": "7545",
+    "edinet_code": "E03287",
+    "name": "西松屋チェーン",
+    "homepage_url": "https://www.24028.jp/",
+    "base_keywords": [
+      "西松屋",
+      "西松屋 新商品",
+      "ELFINDOLL"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.24028.jp/news/shop",
+      "pattern": "<dt>(?P<date>[\\d.]+)</dt>\\s*<dd>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<i></i>(?P<title>.*?)\\s*</a>"
+    }
+  },
+  {
+    "code": "7561",
+    "edinet_code": "E03294",
+    "name": "ハークスレイホールディングス",
+    "homepage_url": "https://www.hurxley.co.jp/",
+    "base_keywords": [
+      "ハークスレイ",
+      "ほっかほっか亭",
+      "ハークスレイ グループ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hurxley.co.jp/group_news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"c-archive-list-item-body\">\\s*<div class=\"c-archive-list-item-head\">\\s*<p class=\"c-archive-list-date\">(?P<date>[^<]+)</p>[\\s\\S]{0,500}?<p class=\"c-archive-list-txt\">(?P<title>.*?)</p>"
+    }
+  },
+  {
+    "code": "7562",
+    "edinet_code": "E03295",
+    "name": "安楽亭",
+    "homepage_url": "https://www.anrakutei.co.jp/",
+    "base_keywords": [
+      "安楽亭",
+      "安楽亭 食べ放題",
+      "安楽亭コスパ宣言"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://anrakutei.jp/topic/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>\\s*<p class=\"title\">(?P<title>.*?)</p>[\\s\\S]{0,2500}?<a href=\"(?P<url>[^\"]+)\">詳細を見る</a>"
+    }
+  },
+  {
+    "code": "7578",
+    "edinet_code": "E03304",
+    "name": "ニチリョク",
+    "homepage_url": "https://www.nichiryoku.co.jp/",
+    "base_keywords": [
+      "ニチリョク",
+      "ニチリョク 霊園",
+      "ニチリョクの墓じまい"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nichiryoku.co.jp/news/",
+      "pattern": "<li class=\"list-item\" id=\"post-\\d+\"><dl class=\"dl-item\"><dt><time class=\"posted-on-time\">(?P<date>[^<]+)</time><span class=\"posts-category\">[^<]*</span></dt><dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "7585",
+    "edinet_code": "E03306",
+    "name": "かんなん丸",
+    "homepage_url": "https://kannanmaru.co.jp/",
+    "base_keywords": [
+      "かんなん丸",
+      "庄や",
+      "日本海庄や",
+      "うたうんだ村"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://kannanmaru.co.jp/",
+      "pattern": "<h3 class=\"elementor-post__title\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>.*?)\\s*</a>\\s*</h3>\\s*<div class=\"elementor-post__meta-data\">\\s*<span class=\"elementor-post-date\">\\s*(?P<date>[^<]*?)\\s*</span>"
+    }
+  },
+  {
+    "code": "7593",
+    "edinet_code": "E02889",
+    "name": "VTホールディングス",
+    "homepage_url": "https://www.vt-holdings.co.jp/",
+    "base_keywords": [
+      "VTホールディングス",
+      "Jネットレンタカー",
+      "ホンダカーズ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.vt-holdings.co.jp/news/pr/index.html",
+      "pattern": "<div id=\"(?P<url>\\d{8})\" class=\"pr-news-wrapper\">[\\s\\S]{0,500}?<dt>(?P<date>[^<]+)</dt>\\s*<dd>(?P<title>.*?)</dd>"
+    }
+  },
+  {
+    "code": "7596",
+    "edinet_code": "E03310",
+    "name": "魚力",
+    "homepage_url": "https://uoriki.co.jp/",
+    "base_keywords": [
+      "魚力",
+      "魚力海鮮寿司",
+      "魚力市場"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://uoriki.co.jp/marinnews/",
+      "pattern": "itemid=\"(?P<url>[^\"]+)\" content=\"(?P<title>[^\"]*)\" /><meta itemprop=\"datePublished\" content=\"(?P<date>[^\"]*)\""
+    }
+  },
+  {
+    "code": "7601",
+    "edinet_code": "E03312",
+    "name": "ポプラ",
+    "homepage_url": "https://www.poplar-cvs.co.jp/",
+    "base_keywords": [
+      "ポプラ",
+      "コンビニ ポプラ",
+      "生活彩家"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.poplar-cvs.co.jp/",
+      "pattern": "<dt><p class=\"news_category3\">(?P<date>[^<]+)</p></dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>.*?)</a>"
+    }
+  },
+  {
+    "code": "7610",
+    "edinet_code": "E03319",
+    "name": "テイツー",
+    "homepage_url": "https://www.tay2.co.jp/",
+    "base_keywords": [
+      "テイツー",
+      "古本市場",
+      "ふるいち"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList2.aspx?company=AS90259&len=30&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]*)\"[\\s\\S]*?\"publishDate\":\"(?P<date>[^\"]*)\"[\\s\\S]*?\"url\":\"(?P<url>[^\"]*)\""
+    }
+  },
+  {
+    "code": "7606",
+    "edinet_code": "E03316",
+    "name": "ユナイテッドアローズ",
+    "homepage_url": "https://www.united-arrows.co.jp/",
+    "base_keywords": [
+      "ユナイテッドアローズ",
+      "UNITED ARROWS",
+      "BEAUTY&YOUTH",
+      "GREEN LABEL RELAXING"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.united-arrows.co.jp/news/feed/"
+    }
+  },
+  {
+    "code": "7621",
+    "edinet_code": "E03324",
+    "name": "株式会社うかい",
+    "homepage_url": "https://www.ukai.co.jp/",
+    "base_keywords": [
+      "うかい",
+      "アトリエうかい"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList.aspx?company=76210&len=50&doctype=300&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]+)\",\"publishDate\":\"(?P<date>[^\"]+)\".*?\"url\":\"(?P<url>[^\"]+)\""
+    }
+  },
+  {
+    "code": "7646",
+    "edinet_code": "E03343",
+    "name": "株式会社PLANT",
+    "homepage_url": "https://www.plant-co.jp/",
+    "base_keywords": [
+      "PLANT",
+      "スーパーセンタープラント"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.plant-co.jp/ir/news_release.html",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd[^>]*>[^<]*</dd>\\s*<dd class=\"news_txt\">\\s*<a href=\"(?P<url>[^\"]+)\"\\s*class=\"pdf click-element click-news_release non-android\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7674",
+    "edinet_code": "E34747",
+    "name": "株式会社NATTY SWANKYホールディングス",
+    "homepage_url": "https://nattyswanky.com/",
+    "base_keywords": [
+      "ダンダダン",
+      "NATTY SWANKY",
+      "肉汁餃子のダンダダン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://nattyswanky.com/news/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7678",
+    "edinet_code": "E34704",
+    "name": "株式会社あさくま",
+    "homepage_url": "https://www.asakuma.co.jp/",
+    "base_keywords": [
+      "あさくま",
+      "ステーキのあさくま"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.asakuma.co.jp/",
+      "pattern": "<li><span>【(?P<date>[^】]+)】</span><a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<div>(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "7682",
+    "edinet_code": "E35125",
+    "name": "株式会社浜木綿",
+    "homepage_url": "https://www.hamayuu.co.jp/",
+    "base_keywords": [
+      "浜木綿",
+      "中国料理 浜木綿"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hamayuu.co.jp/event/",
+      "pattern": "<div><time>(?P<date>[^<]+)</time><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)<svg"
+    }
+  },
+  {
+    "code": "8163",
+    "edinet_code": "E03090",
+    "name": "SRSホールディングス株式会社",
+    "homepage_url": "https://srsholdings.com/",
+    "base_keywords": [
+      "SRSホールディングス",
+      "和食さと",
+      "にぎり長次郎"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://srsholdings.com/blogs/news",
+      "pattern": "data-article-published-at=\"(?P<date>[^\"]+)\"[\\s\\S]*?href=\"(?![^\"]*ir-library-monthly\")(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "7625",
+    "edinet_code": "E03327",
+    "name": "株式会社グローバルダイニング",
+    "homepage_url": "https://www.global-dining.com/",
+    "base_keywords": [
+      "グローバルダイニング",
+      "権八",
+      "モンスーンカフェ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.global-dining.com/information/",
+      "pattern": "flex items-center gap-3 text-\\[#333333\\] mt-1\">(?P<date>[^<]+)<img[^>]*>\\s*</div><div class=\"flex-1\"><a [^>]*href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7640",
+    "edinet_code": "E03336",
+    "name": "株式会社トップカルチャー",
+    "homepage_url": "https://www.topculture.co.jp/",
+    "base_keywords": [
+      "トップカルチャー",
+      "蔦屋書店",
+      "TSUTAYA"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.topculture.co.jp/information/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]*?<a class=\"text\" href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "7643",
+    "edinet_code": "E03340",
+    "name": "株式会社ダイイチ",
+    "homepage_url": "https://www.daiichi-d.co.jp/",
+    "base_keywords": [
+      "ダイイチ",
+      "フレッシュ＆ハート"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daiichi-d.co.jp/category/news",
+      "pattern": "<dt>\\s*(?P<date>[\\d.]+)\\s*</dt>\\s*<dd>\\s*<a href=\"(?P<url>[^\"]+)\" rel=\"bookmark\">\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "7636",
+    "edinet_code": "E03331",
+    "name": "株式会社ハンズマン",
+    "homepage_url": "https://www.handsman.co.jp/",
+    "base_keywords": [
+      "ハンズマン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.handsman.co.jp/news",
+      "pattern": "<article> <a href=\"(?P<url>[^\"]+)\"[^>]*><p class=\"day\"><time>(?P<date>[^<]+)</time></p><h3 class=\"title\">\\s*(?P<title>[^<]+?)\\s*</h3>"
+    }
+  },
+  {
+    "code": "8005",
+    "edinet_code": "E03054",
+    "name": "株式会社スクロール",
+    "homepage_url": "https://www.scroll.jp/",
+    "base_keywords": [
+      "スクロール",
+      "Scroll"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.scroll.jp/news/",
+      "pattern": "<time class=\"entry-date published\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<h2 class=\"entry-title\"><a href=\"(?P<url>[^\"]+)\" rel=\"bookmark\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8173",
+    "edinet_code": "E03052",
+    "name": "株式会社Joshin",
+    "homepage_url": "https://www.joshin.co.jp/",
+    "base_keywords": [
+      "Joshin",
+      "ジョーシン",
+      "上新電機"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.joshin.co.jp/ja/news/info.html",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,600}?<span class=\"news_tx\">\\s*(?P<title>[^<]+?)\\s*</span>"
+    }
+  },
+  {
+    "code": "8179",
+    "edinet_code": "E04783",
+    "name": "ロイヤルホールディングス株式会社",
+    "homepage_url": "https://www.royal-holdings.co.jp/",
+    "base_keywords": [
+      "ロイヤルホスト",
+      "ロイヤルホールディングス",
+      "てんや"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.royal-holdings.co.jp/release/",
+      "pattern": "<article class=\"c-postList01Item\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,600}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>\\s*</p>\\s*<h2 class=\"c-postList01Item_heading\">(?P<title>[^<]+)</h2>"
+    }
+  },
+  {
+    "code": "8185",
+    "edinet_code": "E03077",
+    "name": "株式会社チヨダ",
+    "homepage_url": "https://www.chiyodagrp.co.jp/",
+    "base_keywords": [
+      "チヨダ",
+      "シュープラザ",
+      "東京靴流通センター"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.chiyodagrp.co.jp/news_topics/",
+      "pattern": "<li class=\"[^\"]*\"><a href=\"(?P<url>[^\"]+)\">\\s*<span class=\"release-date\">(?P<date>[^<]+)</span>[\\s\\S]{1,200}?<p class=\"release-title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "8190",
+    "edinet_code": "E03072",
+    "name": "株式会社ヤマナカ",
+    "homepage_url": "https://www.super-yamanaka.co.jp/",
+    "base_keywords": [
+      "ヤマナカ",
+      "スーパーヤマナカ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.super-yamanaka.co.jp/company/news/",
+      "pattern": "<li class=\"news-item-[^\"]*\"><span class=\"cat\">[^<]*</span><span class=\"title\">\\s*<div class=\"wp-block-file\"><a id=\"[^\"]*\" href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>[\\s\\S]{1,600}?<span class=\"news-date\">\\((?P<date>[^)]+)\\)</span>"
+    }
+  },
+  {
+    "code": "8181",
+    "edinet_code": "E04784",
+    "name": "株式会社東天紅",
+    "homepage_url": "https://www.totenko.co.jp/",
+    "base_keywords": [
+      "東天紅",
+      "中国料理 東天紅"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.totenko.co.jp/",
+      "pattern": "<a class=\"c--newsList__link\" href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,700}?<h3 class=\"c--newsList__title\">(?P<title>[^<]+)</h3>[\\s\\S]{1,200}?<time class=\"c--newsList__date\">(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "8200",
+    "edinet_code": "E03099",
+    "name": "株式会社リンガーハット",
+    "homepage_url": "https://www.ringerhut.co.jp/",
+    "base_keywords": [
+      "リンガーハット",
+      "長崎ちゃんぽん",
+      "とんかつ濵かつ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ringerhut.co.jp/info/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<time datetime=\"[^\"]*\" class=\"newslist__time\">(?P<date>[^<]+)</time>\\s*<div class=\"newslist__category\">[\\s\\S]{1,200}?</div>\\s*<div class=\"newslist__title\">(?P<title>[\\s\\S]+?)</div>"
+    }
+  },
+  {
+    "code": "8202",
+    "edinet_code": "E03101",
+    "name": "ラオックスホールディングス株式会社",
+    "homepage_url": "https://www.laox.co.jp/",
+    "base_keywords": [
+      "ラオックス",
+      "Laox"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.laox.co.jp/corporate/information/",
+      "pattern": "<span class=\"posted_on\">\\s*(?P<date>[\\d.]+)\\s*</span>[\\s\\S]{1,900}?<a href=\"(?P<url>[^\"]+)\"[^>]*class=\"link_news\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8203",
+    "edinet_code": "E03103",
+    "name": "株式会社ミスターマックス・ホールディングス",
+    "homepage_url": "https://www.mrmaxhd.co.jp/",
+    "base_keywords": [
+      "ミスターマックス",
+      "MrMax"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mrmaxhd.co.jp/release/",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>[\\s\\S]{1,900}?<p class=\"txt\">\\s*<a href=\"(?![^\"]*ir-library/monthly)(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "8198",
+    "edinet_code": "E03087",
+    "name": "マックスバリュ東海株式会社",
+    "homepage_url": "https://www.mv-tokai.co.jp/",
+    "base_keywords": [
+      "マックスバリュ東海",
+      "マックスバリュ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.mv-tokai.co.jp/info/",
+      "pattern": "<article class=\"post pbloc-news news_item\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<div class=\"date\">\\s*<span>(?P<date>[^<]+)</span>[\\s\\S]{1,500}?<h3>(?P<title>[\\s\\S]+?)</h3>"
+    }
+  },
+  {
+    "code": "8217",
+    "edinet_code": "E03119",
+    "name": "株式会社オークワ",
+    "homepage_url": "https://www.okuwa.net/",
+    "base_keywords": [
+      "オークワ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.okuwa.net/kouhou/",
+      "pattern": "<div class=\"date\">(?P<date>[^<]+)</div>\\s*<div class=\"kiji\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)<img"
+    }
+  },
+  {
+    "code": "8218",
+    "edinet_code": "E03120",
+    "name": "株式会社コメリ",
+    "homepage_url": "https://www.komeri.bit.or.jp/",
+    "base_keywords": [
+      "コメリ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.komeri.bit.or.jp/news/",
+      "pattern": "<article class=\"c-article-box__item\"[^>]*>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<div class=\"c-article-box__body\">\\s*<div class=\"c-article-box__info\"><p class=\"c-article-box__date\">(?P<date>[^<]+)</p>[\\s\\S]{1,300}?<h4 class=\"c-article-box__title\">(?P<title>[\\s\\S]+?)</h4>"
+    }
+  },
+  {
+    "code": "8237",
+    "edinet_code": "E03017",
+    "name": "株式会社松屋",
+    "homepage_url": "https://www.matsuya.com/",
+    "base_keywords": [
+      "松屋銀座",
+      "松屋"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList.aspx?company=82370&len=50&doctype=200&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]+)\",\"publishDate\":\"(?P<date>[^\"]+)\".*?\"url\":\"(?P<url>[^\"]+)\""
+    }
+  },
+  {
+    "code": "8219",
+    "edinet_code": "E03124",
+    "name": "青山商事株式会社",
+    "homepage_url": "https://www.aoyama-syouji.co.jp/",
+    "base_keywords": [
+      "洋服の青山",
+      "青山商事",
+      "THE SUIT COMPANY"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList.aspx?company=AS00098&len=50&doctype=201,202,203,204,205,206,207,208,200&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]+)\",\"publishDate\":\"(?P<date>[^\"]+)\".*?\"url\":\"(?P<url>[^\"]+)\""
+    }
+  },
+  {
+    "code": "8230",
+    "edinet_code": "E03134",
+    "name": "株式会社はせがわ",
+    "homepage_url": "https://www.hasegawa.jp/",
+    "base_keywords": [
+      "はせがわ",
+      "お仏壇のはせがわ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hasegawa.jp/blogs/news",
+      "pattern": "<a href=\"(?P<url>/blogs/news/[^\"]+)\">\\s*<span class=\"posted-date\">(?P<date>[^<]+)</span>\\s*<span class=\"category\">[^<]*</span>\\s*<p class=\"post-title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "8255",
+    "edinet_code": "E03133",
+    "name": "アクシアルリテイリング株式会社",
+    "homepage_url": "https://www.axial-r.com/",
+    "base_keywords": [
+      "アクシアル",
+      "原信",
+      "ナルス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.axial-r.com/news",
+      "pattern": "<dt[^>]*>(?P<date>[^<]+)</dt>\\s*<dd[^>]*><span class=\"news_icon\">[\\s\\S]{1,200}?</span>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8276",
+    "edinet_code": "E03081",
+    "name": "株式会社平和堂",
+    "homepage_url": "https://www.heiwado.jp/",
+    "base_keywords": [
+      "平和堂",
+      "アルプラザ",
+      "フレンドマート"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.heiwado.jp/news",
+      "pattern": "<li class=\"news__list__item\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,600}?<span class=\"news__list__item__date\">(?P<date>[^<]+)</span>[\\s\\S]{1,40}?<span class=\"news__list__item__ttl\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "8247",
+    "edinet_code": "E03025",
+    "name": "株式会社大和",
+    "homepage_url": "https://www.daiwa-dp.co.jp/",
+    "base_keywords": [
+      "大和",
+      "香林坊大和",
+      "富山大和"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daiwa-dp.co.jp/company/news-topics/",
+      "pattern": "<div class=\"entry\" data-category=\"[^\"]*\">\\s*<dl>\\s*<dt>(?P<date>[^<]+)</dt>\\s*<dd>[\\s\\S]{1,2500}?<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "8244",
+    "edinet_code": "E03021",
+    "name": "株式会社近鉄百貨店",
+    "homepage_url": "https://www.d-kintetsu.co.jp/",
+    "base_keywords": [
+      "近鉄百貨店",
+      "あべのハルカス近鉄本店"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.d-kintetsu.co.jp/corporate/ir/release.html",
+      "pattern": "<div class=\"irc_calendar_Lyymmdd\">(?P<date>[^<]+)</div>\\s*<div class=\"irc_calendar_Ltext\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8278",
+    "edinet_code": "E03118",
+    "name": "株式会社フジ",
+    "homepage_url": "https://www.the-fuji.com/",
+    "base_keywords": [
+      "フジ",
+      "フジグラン",
+      "エミフル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.the-fuji.com/company/news/",
+      "pattern": "<li>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<h4>(?P<date>[\\d.]+)<span[^>]*>[^<]*</span></h4>\\s*<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "8291",
+    "edinet_code": "E02544",
+    "name": "日産東京販売ホールディングス株式会社",
+    "homepage_url": "https://www.nissan-tokyo-hd.co.jp/",
+    "base_keywords": [
+      "日産東京販売",
+      "車検館",
+      "日産"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xj-storage.jp/public-list/GetList.aspx?company=82910&len=50&doctype=200,300&output=json",
+      "pattern": "\"title\":\"(?P<title>[^\"]+)\",\"publishDate\":\"(?P<date>[^\"]+)\".*?\"url\":\"(?P<url>[^\"]+)\""
+    }
+  },
+  {
+    "code": "8281",
+    "edinet_code": "E03129",
+    "name": "ゼビオホールディングス株式会社",
+    "homepage_url": "https://www.xebio.co.jp/",
+    "base_keywords": [
+      "ゼビオ",
+      "スーパースポーツゼビオ",
+      "XEBIO"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.xebio.co.jp/ja/news",
+      "pattern": "<time class=\"news-item__time\">(?P<date>[^<]+)</time>[\\s\\S]{1,120}?<li class=\"news-item__ttl\"><a href=\"(?P<url>[^\"]+)\"\\s+class=\"font_size\">(?P<title>[\\s\\S]+?)</a></a>"
+    }
+  },
+  {
+    "code": "9279",
+    "edinet_code": "E34336",
+    "name": "株式会社ギフトホールディングス",
+    "homepage_url": "https://www.gift-group.co.jp/",
+    "base_keywords": [
+      "ギフトホールディングス",
+      "町田商店",
+      "豚山"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gift-group.co.jp/news",
+      "pattern": "<a href=\"(?P<url>/news/[^\"]+)\" class=\"news__item__list__link[^\"]*\"><div class=\"news__item__list__attri\"><div class=\"date\">(?P<date>[\\s\\S]+?)</div><div fs-cmsfilter-field=\"category\"[^>]*>[^<]*</div></div><h3[^>]*>(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "9835",
+    "edinet_code": "E03141",
+    "name": "株式会社ジュンテンドー",
+    "homepage_url": "https://www.juntendo.co.jp/",
+    "base_keywords": [
+      "ジュンテンドー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.juntendo.co.jp/news/",
+      "pattern": "<li class=\"c-news_item[^\"]*\" data-year=\"\\d+\" data-release-date=\"(?P<date>[^\"]+)\"[^>]*>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*class=\"c-news_link\">[\\s\\S]{1,700}?<strong>\\s*(?P<title>[^<]+?)\\s*</strong>"
+    }
+  },
+  {
+    "code": "9823",
+    "edinet_code": "E03173",
+    "name": "株式会社マミーマートホールディングス",
+    "homepage_url": "https://mami-mart-holdings.com/",
+    "base_keywords": [
+      "マミーマート",
+      "生鮮市場TOP"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://mami-mart.com/whatsnew/",
+      "pattern": "<dt>(?P<date>[\\d/]+)</dt>\\s*<dd>\\s*<a href=\"[^\"]*\"><img[^>]*/></a>\\s*<p><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9846",
+    "edinet_code": "E03146",
+    "name": "株式会社天満屋ストア",
+    "homepage_url": "https://www.tenmaya-store.co.jp/",
+    "base_keywords": [
+      "天満屋ストア",
+      "天満屋ハピータウン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.tenmaya-store.co.jp/company/news/",
+      "pattern": "<dt>\\s*(?P<date>[\\d.]+)\\s*<span>[^<]*</span></dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9850",
+    "edinet_code": "E03145",
+    "name": "株式会社グルメ杵屋",
+    "homepage_url": "https://www.gourmet-kineya-hd.co.jp/",
+    "base_keywords": [
+      "グルメ杵屋",
+      "杵屋",
+      "そじ坊"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.gourmet-kineya-hd.co.jp/news/",
+      "pattern": "<time class=\"c-news-list__date\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<h2 class=\"c-news-list__headline\">(?P<title>[^<]+)</h2>\\s*</div>\\s*<a href=\"(?P<url>[^\"]+)\""
+    }
+  },
+  {
+    "code": "9853",
+    "edinet_code": "E03147",
+    "name": "株式会社銀座ルノアール",
+    "homepage_url": "https://www.ginza-renoir.co.jp/",
+    "base_keywords": [
+      "ルノアール",
+      "銀座ルノアール",
+      "ベーカリーヒナタ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ginza-renoir.co.jp/information/",
+      "pattern": "<li>\\s*<a href=\"(?P<url>[^\"]+)\" class=\"article-link[^\"]*\"[\\s\\S]{1,600}?<time class=\"article-published\">(?P<date>[^<]+)</time>\\s*<span class=\"article-category[^>]*>[^<]*</span>\\s*<span class=\"article-title\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "9890",
+    "edinet_code": "E03166",
+    "name": "株式会社マキヤ",
+    "homepage_url": "https://www.makiya-group.co.jp/",
+    "base_keywords": [
+      "マキヤ",
+      "マミー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.makiya-group.co.jp/news/",
+      "pattern": "<time datetime=\"[^\"]*\" class=\"news-list-date\">(?P<date>[^<]+)</time>\\s*<p class=\"news-list-cat\">[\\s\\S]{1,120}?</p>\\s*<p class=\"news-list-title\"><a href=\"(?![^\"]*makiya-group-store-information)(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9903",
+    "edinet_code": "E03179",
+    "name": "株式会社カンセキ",
+    "homepage_url": "https://www.kanseki.co.jp/",
+    "base_keywords": [
+      "カンセキ",
+      "ホームセンターカンセキ",
+      "WILD-1"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kanseki.co.jp/release/",
+      "pattern": "<a class=\"p-topInfo__anchor\" href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<time class=\"p-topInfo__time\">(?P<date>[^<]+)</time>\\s*<div class=\"p-topInfo__word\">\\s*<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "9878",
+    "edinet_code": "E03160",
+    "name": "株式会社セキド",
+    "homepage_url": "https://sekido.com/",
+    "base_keywords": [
+      "セキド",
+      "Love Love",
+      "&choa!"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://sekido.com/news",
+      "pattern": "<li>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<div class=\"news__list__data flex\">\\s*<div class=\"news__list__data__date\">(?P<date>[^<]+)</div>[\\s\\S]{1,900}?<h3 class=\"title news__list__title\">(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "9946",
+    "edinet_code": "E03188",
+    "name": "ミニストップ株式会社",
+    "homepage_url": "https://www.ministop.co.jp/",
+    "base_keywords": [
+      "ミニストップ",
+      "ミニちきちゃん"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ministop.co.jp/corporate/release/index.html",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<dl class=\"newsBlock\">\\s*<dt class=\"date\">(?P<date>[^<]+)<span[\\s\\S]{1,200}?<dd class=\"newsDetail\">\\s*<p>(?P<title>[\\s\\S]+?)</p>"
+    }
+  },
+  {
+    "code": "9950",
+    "edinet_code": "E03202",
+    "name": "株式会社ハチバン",
+    "homepage_url": "https://www.hachiban.co.jp/",
+    "base_keywords": [
+      "ハチバン",
+      "8番らーめん"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hachiban.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"tp_news_date cf\">\\s*<div class=\"tp_news_date_day\">(?P<date>[^<]+)</div>[\\s\\S]{1,900}?<p class=\"tp_news_title\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "9956",
+    "edinet_code": "E03207",
+    "name": "株式会社バローホールディングス",
+    "homepage_url": "https://valorholdings.co.jp/",
+    "base_keywords": [
+      "バロー",
+      "バローホールディングス",
+      "ホームセンターバロー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://valorholdings.co.jp/news/",
+      "pattern": "<li class=\"p-news__list__item\">\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<span class=\"-date\">(?P<date>[^<]+)</span>[\\s\\S]{1,200}?<span class=\"-content\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "9973",
+    "edinet_code": "E02775",
+    "name": "KOZOホールディングス株式会社",
+    "homepage_url": "https://kozohd.co.jp/",
+    "base_keywords": [
+      "小僧寿し",
+      "KOZO",
+      "タコベル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://kozohd.co.jp/company/ir/",
+      "pattern": "<dt>(?P<date>令和[^<]+)</dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "9976",
+    "edinet_code": "E03219",
+    "name": "株式会社セキチュー",
+    "homepage_url": "https://www.sekichu.co.jp/",
+    "base_keywords": [
+      "セキチュー",
+      "ホームセンターセキチュー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sekichu.co.jp/news/",
+      "pattern": "<dt><span class=\"ico-news[^\"]*\">[^<]*</span>(?P<date>[^<]+)</dt>\\s*<dd>[\\s\\S]{1,400}?<li class=\"event-name\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "9974",
+    "edinet_code": "E03216",
+    "name": "株式会社ベルク",
+    "homepage_url": "https://www.belc.jp/",
+    "base_keywords": [
+      "ベルク",
+      "Belc"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.belc.jp/news",
+      "pattern": "<a class=\"m-idx__wrp\" href=\"(?P<url>[^\"]+)\">\\s*<div class=\"m-idx__date\">\\s*<time class=\"m-idx__dateItm\" datetime=\"[^\"]*\">\\s*(?P<date>[^<]+?)\\s*</time>[\\s\\S]{1,900}?<em>\\s*(?P<title>[^<]+?)\\s*</em>"
+    }
+  },
+  {
+    "code": "9979",
+    "edinet_code": "E03223",
+    "name": "株式会社大庄",
+    "homepage_url": "https://www.daisyo.co.jp/",
+    "base_keywords": [
+      "大庄",
+      "庄や",
+      "日本海庄や"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.daisyo.co.jp/newsrelease/",
+      "pattern": "<li class=\"result\"><div>(?P<date>[^<]+)</div>\\s*<p><a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^<]+?)\\s*</p></a>"
+    }
+  },
+  {
+    "code": "9993",
+    "edinet_code": "E03228",
+    "name": "株式会社ヤマザワ",
+    "homepage_url": "https://yamazawa.co.jp/",
+    "base_keywords": [
+      "ヤマザワ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://yamazawa.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"><dl class=\"info-item\">\\s*<dt>(?P<date>[^<]+)</dt>\\s*<dd>\\s*(?P<title>[^<]+?)\\s*</dd>"
+    }
+  },
+  {
+    "code": "9990",
+    "edinet_code": "E03225",
+    "name": "株式会社サックスバーホールディングス",
+    "homepage_url": "https://www.sacs-bar.co.jp/",
+    "base_keywords": [
+      "サックスバー",
+      "グランサックス",
+      "NAUGHTIAM"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sacs-bar.co.jp/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\"[^>]*><div class=\"thumb\">[\\s\\S]{1,500}?<div class=\"date\">(?P<date>[^<]+)</div><div class=\"title\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "9978",
+    "edinet_code": "E03221",
+    "name": "株式会社文教堂グループホールディングス",
+    "homepage_url": "https://www.bunkyodo.co.jp/",
+    "base_keywords": [
+      "文教堂",
+      "駿河屋"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.bunkyodo.co.jp/ir/news/",
+      "pattern": "<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,900}?<p class=\"newsTitle\">\\s*<a href=\"(?P<url>[^\"]+)\">\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "2378",
+    "edinet_code": "E05361",
+    "name": "株式会社ルネサンス",
+    "homepage_url": "https://www.s-renaissance.co.jp/",
+    "base_keywords": [
+      "ルネサンス",
+      "スポーツクラブ ルネサンス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.s-renaissance.co.jp/news/",
+      "pattern": "<dt>(?P<date>[\\d/]+)</dt>\\s*<dd>\\s*<div><p class=\"[^\"]*\">[^<]*</p></div>\\s*<p><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[\\s\\S]+?)</a>"
+    }
+  },
+  {
+    "code": "4801",
+    "edinet_code": "E05145",
+    "name": "セントラルスポーツ株式会社",
+    "homepage_url": "https://company.central.co.jp/",
+    "base_keywords": [
+      "セントラルスポーツ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://company.central.co.jp/news/",
+      "pattern": "<time class=\"newstime\">(?P<date>[^<]+)</time>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*><span class=\"newstitle\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "212A",
+    "edinet_code": "E39732",
+    "name": "フィットイージー株式会社",
+    "homepage_url": "https://fiteasy.co.jp/",
+    "base_keywords": [
+      "フィットイージー",
+      "FIT-EASY"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://fiteasy.co.jp/news/",
+      "pattern": "<a class=\"news-link[^\"]*\" href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,300}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,300}?<p class=\"news-ttl\">\\s*(?P<title>[^<]+?)\\s*</p>"
+    }
+  },
+  {
+    "code": "2379",
+    "edinet_code": "E05368",
+    "name": "ディップ株式会社",
+    "homepage_url": "https://www.dip-net.co.jp/",
+    "base_keywords": [
+      "ディップ",
+      "バイトル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.dip-net.co.jp/news/",
+      "pattern": "<a class=\"newslist__inner\" href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,400}?<div class=\"newslist__date\">(?P<date>[^<]+)</div>[\\s\\S]{1,300}?<h3 class=\"newslist__title\">(?P<title>[\\s\\S]+?)</h3>"
+    }
+  },
+  {
+    "code": "4849",
+    "edinet_code": "E05192",
+    "name": "エン株式会社",
+    "homepage_url": "https://corp.en-japan.com/",
+    "base_keywords": [
+      "エン転職",
+      "エン・ジャパン",
+      "エン株式会社"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.en-japan.com/newsrelease/",
+      "pattern": "<li class=\"news\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>\\s*<div class=\"text\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[\\s\\S]+?)</a>"
+    }
+  },
+  {
+    "code": "9251",
+    "edinet_code": "E37038",
+    "name": "株式会社AB&Company",
+    "homepage_url": "https://ab-company.co.jp/jp/",
+    "base_keywords": [
+      "Agu",
+      "Agu. hair",
+      "AB&Company",
+      "numberA"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ab-company.co.jp/jp/",
+      "pattern": "<div class=\"news-cls\">\\s*<span>(?P<date>[^<]+)</span>\\s*<span>[^<]*</span>\\s*</div>\\s*<p><a href=[\\'\"](?P<url>[^\\'\"]+)[\\'\"][^>]*>(?P<title>[^<]+)"
+    }
+  },
+  {
+    "code": "9733",
+    "edinet_code": "E04824",
+    "name": "ナガセ",
+    "homepage_url": "https://www.toshin.com/nagase/",
+    "base_keywords": [
+      "ナガセ",
+      "東進"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.toshin.com/news_release/",
+      "pattern": "<dt>\\s*(?P<date>[^<]+?)\\s*</dt>[\\s\\S]{1,400}?<a class=\"news__txt\" href=\"(?P<url>[^\"]+)\"[^>]*>(?:\\s*<span[^>]*>[^<]*</span>)?\\s*(?P<title>[^<]+?)\\s*</a>"
+    }
+  },
+  {
+    "code": "7358",
+    "edinet_code": "E35908",
+    "name": "ポピンズ",
+    "homepage_url": "https://www.poppins.co.jp/",
+    "base_keywords": [
+      "ポピンズ",
+      "ベビーシッター"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.poppins.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">[\\s\\S]{1,400}?<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,100}?<h3 class=\"title\">(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "7366",
+    "edinet_code": "E36134",
+    "name": "LITALICO",
+    "homepage_url": "https://litalico.co.jp/",
+    "base_keywords": [
+      "LITALICO",
+      "発達障害"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://litalico.co.jp/news/_payload.js",
+      "pattern": "\\{id:\"(?P<url>[^\"]+)\"[\\s\\S]{1,150}?title:\"(?P<title>[^\"]+)\",date:\"(?P<date>[^\"]+)\""
+    }
+  },
+  {
+    "code": "2454",
+    "edinet_code": "E05514",
+    "name": "オールアバウト",
+    "homepage_url": "https://corp.allabout.co.jp/",
+    "base_keywords": [
+      "オールアバウト",
+      "All About"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.allabout.co.jp/corporate/press",
+      "pattern": "<time>(?P<date>[^<]+)</time>(?:<span class=\"category[^\"]*\">[^<]*</span>)?<span class=\"company\">[^<]*</span><div class=\"newsContent\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[\\s\\S]+?)</a>"
+    }
+  },
+  {
+    "code": "2148",
+    "edinet_code": "E05686",
+    "name": "アイティメディア",
+    "homepage_url": "https://www.itmedia.co.jp/",
+    "base_keywords": [
+      "アイティメディア",
+      "ねとらぼ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.itmedia.co.jp/pr/releases/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"><span class=\"date\">(?P<date>[^<]+)</span><span class=\"title\">(?P<title>[^<]+)</span></a>"
+    }
+  },
+  {
+    "code": "6047",
+    "edinet_code": "E31454",
+    "name": "Gunosy",
+    "homepage_url": "https://gunosy.co.jp/",
+    "base_keywords": [
+      "Gunosy",
+      "グノシー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://gunosy.co.jp/news/pressrelease/",
+      "pattern": "<p class=\"date\">(?P<date>[^<]+)</p>[\\s\\S]{1,150}?<p class=\"title\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "6046",
+    "edinet_code": "E31448",
+    "name": "リンクバル",
+    "homepage_url": "https://linkbal.co.jp/",
+    "base_keywords": [
+      "リンクバル",
+      "Omiai",
+      "machicon"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://linkbal.co.jp/news/pr/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">[\\s\\S]{1,300}?datetime=\"(?P<date>[^\"]+)\"[\\s\\S]{1,400}?<h2 class=\"article-heading\">\\s*(?P<title>[^<]+?)\\s*</h2>"
+    }
+  },
+  {
+    "code": "6054",
+    "edinet_code": "E26032",
+    "name": "リブセンス",
+    "homepage_url": "https://www.livesense.co.jp/",
+    "base_keywords": [
+      "リブセンス",
+      "マッハバイト"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.livesense.co.jp/news/category/news-release/",
+      "pattern": "<a class=\"news-article\\s*\\n\\s*news-article-link\" href=\"(?P<url>[^\"]+)\"[\\s\\S]{1,300}?datetime=\"(?P<date>[^\"]+)\"[\\s\\S]{1,150}?<h2 class=\"news-article news-article-title\">(?P<title>[\\s\\S]+?)</h2>"
+    }
+  },
+  {
+    "code": "9701",
+    "edinet_code": "E04535",
+    "name": "東京會舘",
+    "homepage_url": "https://www.kaikan.co.jp/",
+    "base_keywords": [
+      "東京會舘",
+      "丸の内"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kaikan.co.jp/press_room/",
+      "pattern": "<a class=\"dla\"\\s+href=\"(?P<url>[^\"]+)\" target=\"_blank\">[\\s\\S]{1,80}?<dt class=\"news\">(?P<date>[^<]+)</dt>\\s*<dd>(?P<title>[^<]+?)\\s*<img"
+    }
+  },
+  {
+    "code": "9720",
+    "edinet_code": "E04566",
+    "name": "ホテルニューグランド",
+    "homepage_url": "https://www.hotel-newgrand.co.jp/",
+    "base_keywords": [
+      "ホテルニューグランド",
+      "横浜"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hotel-newgrand.co.jp/press/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<span class=\"day\">(?P<date>[^<]+)</span>\\s*<span class=\"linktitle\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "6548",
+    "edinet_code": "E33110",
+    "name": "旅工房",
+    "homepage_url": "https://about.tabikobo.com/",
+    "base_keywords": [
+      "旅工房",
+      "海外旅行"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://about.tabikobo.com/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"news-lists-item-inner\">\\s*<div class=\"news-lists-time\"><time datetime=\"[^\"]*\">(?P<date>[^<]+)</time></div>[\\s\\S]{1,120}?<p class=\"news-lists-text\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "7048",
+    "edinet_code": "E34508",
+    "name": "ベルトラ",
+    "homepage_url": "https://corp.veltra.com/",
+    "base_keywords": [
+      "ベルトラ",
+      "現地ツアー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://corp.veltra.com/press/",
+      "pattern": "<p class=\"p-press__date\">\\s*(?P<date>[^<]+?)\\s*<span[\\s\\S]{1,150}?</span>\\s*</p>\\s*<p class=\"p-press__text\"><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "2415",
+    "edinet_code": "E05428",
+    "name": "ヒューマンホールディングス",
+    "homepage_url": "https://www.athuman.com/",
+    "base_keywords": [
+      "ヒューマンアカデミー",
+      "ヒューマンHD"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.athuman.com/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-news-list__item\">\\s*<span class=\"c-news-list__outline\">\\s*<span class=\"c-news-list__date c-date\"><time\\s+datetime=\"[^\"]*\">(?P<date>[^<]+)</time></span>[\\s\\S]{1,200}?<span class=\"c-news-list__title\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "9788",
+    "edinet_code": "E04934",
+    "name": "ナック",
+    "homepage_url": "https://www.nacoo.com/",
+    "base_keywords": [
+      "ナック",
+      "クリクラ",
+      "おそうじ本舗"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nacoo.com/",
+      "pattern": "<div class=\"newsDate\">(?P<date>[^<]+)</div>[\\s\\S]{1,400}?<div class=\"newsTitle\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "4712",
+    "edinet_code": "E05020",
+    "name": "KeyHolder",
+    "homepage_url": "https://www.keyholder.co.jp/",
+    "base_keywords": [
+      "KeyHolder",
+      "アイドル"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.keyholder.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" target=\"_blank\">\\s*<div class=\"c-news__body\">[\\s\\S]{1,400}?<div class=\"c-news__date\">\\s*<p>(?P<date>[^<]+)</p>[\\s\\S]{1,150}?<p class=\"c-txt-v2\">\\s*(?P<title>[^<]+?)\\s*</p>"
+    }
+  },
+  {
+    "code": "2935",
+    "edinet_code": "E37741",
+    "name": "ピックルスホールディングス",
+    "homepage_url": "https://www.pickles-hd.co.jp/",
+    "base_keywords": [
+      "ピックルス",
+      "ご飯がススムキムチ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.pickles.co.jp/enjoy/news/",
+      "pattern": "<div class=\"r_news_txt\">\\s*<p class=\"tag\">[^<]*</p>\\s*<p><a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a></p>\\s*<p class=\"news_day\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "2917",
+    "edinet_code": "E00495",
+    "name": "大森屋",
+    "homepage_url": "https://ohmoriya-inc.co.jp/",
+    "base_keywords": [
+      "大森屋",
+      "海苔"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ohmoriya-inc.co.jp/news",
+      "pattern": "<dt>(?P<date>\\d\\d/\\d\\d)</dt>\\s*<dd>\\s*<a href=\"(?P<url>https://ohmoriya-inc\\.co\\.jp/(?:wp-content/|news/)[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "2058",
+    "edinet_code": "E00502",
+    "name": "ヒガシマル",
+    "homepage_url": "https://www.higashimaru.co.jp/",
+    "base_keywords": [
+      "ヒガシマル",
+      "うどんスープ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.higashimaru.co.jp/about/news/",
+      "pattern": "<dt>(?P<date>20\\d\\d年\\d+月\\d+日)<span>[^<]*</span></dt>\\s*<dd><a href=\"(?P<url>[^\"]+)\" class=\"arrow\">(?P<title>[\\s\\S]+?)</a>"
+    }
+  },
+  {
+    "code": "2818",
+    "edinet_code": "E00513",
+    "name": "ピエトロ",
+    "homepage_url": "https://www.pietro.co.jp/",
+    "base_keywords": [
+      "ピエトロ",
+      "ドレッシング"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.pietro.co.jp/newsrelease/",
+      "pattern": "<li>\\s*<a href=\"(?P<url>[^\"]+)\" class=\"blank\" target=\"_blank\">\\s*<p>(?P<date>[^<]+?)\\s*<span[\\s\\S]{1,120}?<h4>(?P<title>[^<]+)</h4>"
+    }
+  },
+  {
+    "code": "2894",
+    "edinet_code": "E00453",
+    "name": "石井食品",
+    "homepage_url": "https://www.ishiifood.co.jp/",
+    "base_keywords": [
+      "石井食品",
+      "おべんとクン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.ishiifood.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"link\">[\\s\\S]{1,800}?<strong class=\"link-content__date\">(?P<date>[^<]+)</strong>\\s*<h3 class=\"link-content__ttl\">(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "559A",
+    "edinet_code": "E40689",
+    "name": "梅乃宿酒造",
+    "homepage_url": "https://www.umenoyado.com/",
+    "base_keywords": [
+      "梅乃宿",
+      "あらごしみかん酒"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.umenoyado.com/news/",
+      "pattern": "<a class=\"c_news_post__link\" href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,400}?<p class=\"c_news_post__date\">(?P<date>[^<]+)</p>[\\s\\S]{1,900}?<p class=\"ttl\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3529",
+    "edinet_code": "E00567",
+    "name": "アツギ",
+    "homepage_url": "https://www.atsugi.co.jp/",
+    "base_keywords": [
+      "アツギ",
+      "タイツ",
+      "ストッキング"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.atsugi.co.jp/news/",
+      "pattern": "<a class=\"p-listNews__link\" href=\"(?P<url>[^\"]+)\"[^>]*>[\\s\\S]{1,600}?<time[^>]*datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<div class=\"p-listNews__text\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "8107",
+    "edinet_code": "E02628",
+    "name": "キムラタン",
+    "homepage_url": "https://www.kimuratan.co.jp/",
+    "base_keywords": [
+      "キムラタン",
+      "ベビー服"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kimuratan.co.jp/cr_newslist/",
+      "pattern": "<li>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<span class=\"date\">(?P<date>[^<]+)</span>\\s*<span class=\"title[^\"]*\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "247A",
+    "edinet_code": "E39903",
+    "name": "Aiロボティクス",
+    "homepage_url": "https://ai-robotics.co.jp/",
+    "base_keywords": [
+      "Aiロボティクス",
+      "toletta",
+      "スマートねこトイレ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ai-robotics.co.jp/news/",
+      "pattern": "<a\\s+href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<figure>[\\s\\S]{1,400}?<time datetime=\"[^\"]*\">\\s*(?P<date>[^<]+?)\\s*</time>\\s*<p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "3421",
+    "edinet_code": "E01451",
+    "name": "稲葉製作所",
+    "homepage_url": "https://www.inaba-ss.co.jp/",
+    "base_keywords": [
+      "イナバ物置",
+      "稲葉製作所"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.inaba-ss.co.jp/topics/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"c-news__item\"[^>]*>\\s*<div class=\"c-news__meta\">\\s*<time class=\"c-news__date\" datetime=\"[^\"]*\">(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<div class=\"c-news__title\">(?P<title>[^<]+)</div>"
+    }
+  },
+  {
+    "code": "5956",
+    "edinet_code": "E02442",
+    "name": "トーソー",
+    "homepage_url": "https://www.toso.co.jp/",
+    "base_keywords": [
+      "トーソー",
+      "カーテンレール",
+      "ブラインド"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.toso.co.jp/assets/data/news/new_product.json",
+      "pattern": "\"date\":\\s*\"(?P<date>[^\"]+)\",\\s*\"type\":\\s*\"[^\"]*\",\\s*\"text\":\\s*\"<a href='(?P<url>[^']+)'[^>]*>(?P<title>[^<]+)</a>\""
+    }
+  },
+  {
+    "code": "5966",
+    "edinet_code": "E01420",
+    "name": "京都機械工具",
+    "homepage_url": "https://ktc.jp/",
+    "base_keywords": [
+      "KTC",
+      "京都機械工具"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://ktc.jp/news",
+      "pattern": "<p class=\"text\"><a href=\"(?P<url>https://ktc\\.jp/news/\\d+)\"\\s*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "6445",
+    "edinet_code": "E01595",
+    "name": "ジャノメ",
+    "homepage_url": "https://www.janome.co.jp/",
+    "base_keywords": [
+      "ジャノメ",
+      "JANOME",
+      "ミシン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www7.janome.co.jp/news/",
+      "pattern": "<span class=\"news-item-date\">(?P<date>[^<]+?)\\s*</span><span class=\"news_category\">[^<]*</span><br>\\s*<a href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "6484",
+    "edinet_code": "E01434",
+    "name": "KVK",
+    "homepage_url": "https://www.kvk.co.jp/",
+    "base_keywords": [
+      "KVK",
+      "水栓金具"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.kvk.co.jp/news/",
+      "pattern": "<th><time>(?P<date>[^<]+)</time></th>\\s*<td><a href=\"(?P<url>[^\"]+)\"><p>(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "6230",
+    "edinet_code": "E35587",
+    "name": "SANEI",
+    "homepage_url": "https://www.sanei.ltd/",
+    "base_keywords": [
+      "SANEI",
+      "水栓",
+      "水まわり"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.sanei.ltd/news/",
+      "pattern": "<li><a href=\"(?P<url>[^\"]+)\"[^>]*><time datetime=\"[^\"]*\" class=\"m-listNews__date\">(?P<date>[^<]+)</time><p class=\"m-listNews__txt\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "6257",
+    "edinet_code": "E02488",
+    "name": "藤商事",
+    "homepage_url": "https://www.fujimarukun.co.jp/",
+    "base_keywords": [
+      "藤商事",
+      "パチンコ"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.fujimarukun.co.jp/news/",
+      "pattern": "<dt><span>(?P<date>[^<]+)</span></dt>\\s*<dd class=\"cat\">[\\s\\S]{1,150}?</dd>\\s*<dd><a [^>]*?href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[\\s\\S]+?)</a>"
+    }
+  },
+  {
+    "code": "6986",
+    "edinet_code": "E01841",
+    "name": "双葉電子工業",
+    "homepage_url": "https://www.futaba.co.jp/",
+    "base_keywords": [
+      "双葉電子工業",
+      "Futaba",
+      "ラジコン"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.futaba.co.jp/news",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<div class=\"news__data\">[\\s\\S]{1,300}?<span class=\"news__data--date\">(?P<date>[^<]+)</span>[\\s\\S]{1,400}?<div class=\"news__title\">\\s*(?P<title>[^<]+?)\\s*</div>"
+    }
+  },
+  {
+    "code": "6788",
+    "edinet_code": "E02333",
+    "name": "日本トリム",
+    "homepage_url": "https://www.nihon-trim.co.jp/",
+    "base_keywords": [
+      "日本トリム",
+      "整水器"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.nihon-trim.co.jp/news/",
+      "pattern": "<a href=(?P<url>[^\\s>]+)\\s*(?:target=\"_blank\")?\\s*>\\s*<div class=\"cate[^\"]*\"></div><time>(?P<date>[^<]+)</time><h3 class=\"newTtl\">(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "6694",
+    "edinet_code": "E33025",
+    "name": "ズーム",
+    "homepage_url": "https://zoomcorp.com/ja/jp/",
+    "base_keywords": [
+      "ズーム",
+      "ZOOM",
+      "レコーダー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://zoomcorp.com/ja/jp/news/",
+      "pattern": "<h2 class=\"card-title\"><a href=\"(?P<url>[^\"]+)\" class=\"stretched-link\">(?P<title>[^<]+)</a></h2>[\\s\\S]{1,600}?<time datetime=\"[^\"]*\">(?P<date>[^<]+)</time>"
+    }
+  },
+  {
+    "code": "6897",
+    "edinet_code": "E02017",
+    "name": "ツインバード",
+    "homepage_url": "https://www.twinbird.jp/",
+    "base_keywords": [
+      "ツインバード",
+      "トースター"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.twinbird.jp/news/",
+      "pattern": "<a class=\"m-news-list__itm__link\" href=\"(?P<url>[^\"]+)\">\\s*<span class=\"m-news-list__itm__link__date\">(?P<date>[^<]+)</span>\\s*<div class=\"m-news-list__itm__link__txt\">\\s*(?P<title>[^<]+?)\\s*</div>"
+    }
+  },
+  {
+    "code": "6612",
+    "edinet_code": "E36091",
+    "name": "バルミューダ",
+    "homepage_url": "https://www.balmuda.com/jp/",
+    "base_keywords": [
+      "バルミューダ",
+      "BALMUDA"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.balmuda.com/jp/news",
+      "pattern": "<h3><a href=\"(?P<url>[^\"]+)\" rel=\"bookmark\"[^>]*>(?P<title>[^<]+)</a></h3>\\s*<span class=\"PostDate\">(?P<date>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "7992",
+    "edinet_code": "E02365",
+    "name": "セーラー万年筆",
+    "homepage_url": "https://sailor.co.jp/",
+    "base_keywords": [
+      "セーラー万年筆",
+      "万年筆"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://sailor.co.jp/news/",
+      "pattern": "<li class=\"NewsList__listItem\"><a href=\"(?P<url>[^\"]+)\"><span class=\"NewsList__listItemDate\">(?P<date>[^<]+)</span>[\\s\\S]{1,150}?<p class=\"NewsList__listItemTitle\">(?P<title>[\\s\\S]+?)</p></a>"
+    }
+  },
+  {
+    "code": "6803",
+    "edinet_code": "E01932",
+    "name": "ティアック",
+    "homepage_url": "https://www.teac.co.jp/",
+    "base_keywords": [
+      "ティアック",
+      "TEAC",
+      "TASCAM"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://teac.jp/jp/support/news",
+      "pattern": "<time class=\"news-date\">(?P<date>[^<]+)</time>\\s*<span class=\"news-tag\">[^<]*</span>\\s*<a class=\"news-text\" href=\"(?P<url>[^\"]+)\">(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7865",
+    "edinet_code": "E02882",
+    "name": "ピープル",
+    "homepage_url": "https://www.people-kk.co.jp/",
+    "base_keywords": [
+      "ピープル",
+      "知育玩具",
+      "ピタゴラス"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.people-kk.co.jp/news/release/",
+      "pattern": "<p class=\"bCatListDate[^\"]*\">(?P<date>[^<]+)</p>\\s*<h5>\\s*<a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "7483",
+    "edinet_code": "E02840",
+    "name": "ドウシシャ",
+    "homepage_url": "https://www.doshisha.co.jp/",
+    "base_keywords": [
+      "ドウシシャ",
+      "家電",
+      "owala"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.doshisha.co.jp/news/",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd class=\"cat[^\"]*\">[\\s\\S]{1,300}?</dd>\\s*<dd class=\"txt\"><a href=\"(?P<url>[^\"]+)\"[^>]*>(?P<title>[^<]+)</a>"
+    }
+  },
+  {
+    "code": "8051",
+    "edinet_code": "E02560",
+    "name": "山善",
+    "homepage_url": "https://www.yamazen.co.jp/",
+    "base_keywords": [
+      "山善",
+      "YAMAZEN",
+      "家電"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.yamazen.co.jp/news/",
+      "pattern": "<dt>(?P<date>[^<]+)</dt>\\s*<dd class=\"news_category[^\"]*\">[^<]*</dd>\\s*<dd class=\"news_title\"><a href=\"(?P<url>[^\"]+)\"[^>]*><span>(?P<title>[^<]+)</span></a>"
+    }
+  },
+  {
+    "code": "3167",
+    "edinet_code": "E25165",
+    "name": "TOKAIホールディングス",
+    "homepage_url": "https://www.tokaiholdings.co.jp/",
+    "base_keywords": [
+      "TOKAI",
+      "うるのん",
+      "宅配水"
+    ],
+    "news_source": {
+      "type": "rss",
+      "url": "https://www.tokaiholdings.co.jp/news/rss/group.xml"
+    }
+  },
+  {
+    "code": "8135",
+    "edinet_code": "E03076",
+    "name": "ゼット",
+    "homepage_url": "https://zett.jp/",
+    "base_keywords": [
+      "ゼット",
+      "ZETT",
+      "野球用品"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://zett.jp/news/",
+      "pattern": "<a href=\"(?P<url>/article_source/data/news/detail/\\d+\\.html)\" target=\"_self\" class=\"bl_newspanel_inner\">[\\s\\S]{1,400}?<p class=\"bl_newspanel_days\">(?P<date>[^<]+?)\\s*<span class=\"b_tag\">[\\s\\S]{1,400}?</span></p>\\s*<p class=\"b_p hp_mt_10\">(?P<title>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "9885",
+    "edinet_code": "E02727",
+    "name": "シャルレ",
+    "homepage_url": "https://www.charle.co.jp/",
+    "base_keywords": [
+      "シャルレ",
+      "下着"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.charle.co.jp/news/index.json",
+      "pattern": "\"date\":\"(?P<date>[^\"]+)\",\\s*\"title\":\"(?P<title>[^\"]+)\",\\s*\"permalink\":\"(?P<url>[^\"]+)\""
+    }
+  },
+  {
+    "code": "1375",
+    "edinet_code": "E00007",
+    "name": "ユキグニファクトリー",
+    "homepage_url": "https://www.yukiguni-factory.co.jp/",
+    "base_keywords": [
+      "雪国まいたけ",
+      "ユキグニファクトリー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.yukiguni-factory.co.jp/news/",
+      "pattern": "<a href=\"(?P<url>[^\"]+)\" class=\"news__list-item-card\">[\\s\\S]{1,2200}?<time class=\"news__list-item-card-date\"[^>]*>(?P<date>[^<]+)</time>[\\s\\S]{1,200}?<h2 class=\"news__list-item-card-title\">\\s*(?P<title>[^<]+?)\\s*</h2>"
+    }
+  },
+  {
+    "code": "1380",
+    "edinet_code": "E00344",
+    "name": "秋川牧園",
+    "homepage_url": "https://www.akikawabokuen.com/",
+    "base_keywords": [
+      "秋川牧園",
+      "無添加",
+      "鶏肉"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.akikawabokuen.com/new/",
+      "pattern": "<a href=\"(?P<url>https://www\\.akikawabokuen\\.com/posts/\\d+/)\" class=\"d-b hov\">[\\s\\S]{1,600}?<span>(?P<date>[^<]+)</span></p>\\s*<h3[^>]*>(?P<title>[^<]+)</h3>"
+    }
+  },
+  {
+    "code": "8207",
+    "edinet_code": "E03108",
+    "name": "テンアライド株式会社",
+    "homepage_url": "https://www.teng.co.jp/",
+    "base_keywords": [
+      "テンアライド",
+      "天狗",
+      "テング酒場"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.teng.co.jp/newsrelease/",
+      "pattern": "<a href=\"(?![^\"]*grandfoodhall/limited\\.html\")(?P<url>(?![^\"]*shops/osaka/434594eb83ff20985f0eda8207c6533800763d86\\.html\")(?![^\"]*shops/tokyo/af3bcfc3f6ed1221ad6b59dea67f67f7909afbfd\\.html\")[^\"]+)\" class=\"article-link[^\"]*\">\\s*<time class=\"article-published\">(?P<date>[^<]+)</time>\\s*<span class=\"logo-main\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "9842",
+    "edinet_code": "E02706",
+    "name": "アークランズ株式会社",
+    "homepage_url": "https://www.arclands.co.jp/",
+    "base_keywords": [
+      "アークランズ",
+      "ムサシ",
+      "サンデー"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.arclands.co.jp/ja/news.html",
+      "pattern": "<li class=\"[^\"]*\" entrydate=\"[^\"]*\"\\s*>\\s*<div class=\"item\">\\s*<a href=\"(?P<url>(?![^\"]*ir/library/getsuji\\.html\")(?![^\"]*ja/ir/announce\\.html\")(?![^\"]*ir/library/result\\.html\")(?![^\"]*ir/library/report\\.html\")[^\"]+)\"[^>]*>\\s*<span class=\"date\">(?P<date>[^<]+)</span>[\\s\\S]{1,400}?<span class=\"news_tx\">(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "5967",
+    "edinet_code": "E01380",
+    "name": "TONE",
+    "homepage_url": "https://www.tonetool.co.jp/",
+    "base_keywords": [
+      "TONE",
+      "トネ",
+      "工具"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.tonetool.co.jp/topics/",
+      "pattern": "<a href=\"(?P<url>(?![^\"]*topics/index_product\\.php\")(?![^\"]*ir/data/jigyou\\.php\")(?![^\"]*ir/data/tanshin\\.php\")(?![^\"]*recruit\")(?![^\"]*ir/stockholders\\.php\")(?![^\"]*ir/shareholders\\.php\")(?![^\"]*ir/data/shouken\\.php\")[^\"]+)\"[^>]*?class=\"p-news-01__link[^\"]*\"[^>]*>[\\s\\S]{1,600}?<span class=\"p-news-01__date\">(?P<date>[^<]+)</span>[\\s\\S]{1,300}?<p class=\"p-news-01__ttl\"><span>(?P<title>[^<]+)</span>"
+    }
+  },
+  {
+    "code": "3851",
+    "edinet_code": "E02489",
+    "name": "株式会社日本一ソフトウェア",
+    "homepage_url": "https://nippon1.jp/",
+    "base_keywords": [
+      "日本一ソフトウェア",
+      "ディスガイア",
+      "プリニー",
+      "ほの暮しの庭"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://nippon1.jp/topics/",
+      "pattern": "<a class=\"topics-link\" href=\"(?P<url>(?![^\"]*consumer/prinny_sugoroku/?\")(?![^\"]*consumer/honogurashi/?\")(?![^\"]*shinigamihime/topics/vote/?\")[^\"]+)\"[^>]*>[\\s\\S]*?<p class=\"topics-subject\">(?P<title>[^<]+)</p><p class=\"topics-date\">(?P<date>[^<]+)</p>"
+    }
+  },
+  {
+    "code": "7516",
+    "edinet_code": "E03273",
+    "name": "コーナン商事",
+    "homepage_url": "https://www.hc-kohnan.com/",
+    "base_keywords": [
+      "コーナン",
+      "コーナン商事",
+      "コーナンPB"
+    ],
+    "news_source": {
+      "type": "html_regex",
+      "url": "https://www.hc-kohnan.com/news/",
+      "pattern": "<li><a href=\"(?P<url>(?![^\"]*corporate/ir/shareholder\\-meeting/?\")(?![^\"]*corporate/ir/results/?\")(?![^\"]*service/stores/kohnan_pay/?\")(?![^\"]*corporate/ir/monthly\\-report/?\")(?![^\"]*corporate/ir/briefing_session/?\")[^\"]+)\"[^>]*><span class=\"_date\">(?P<date>[^<]+)</span><span class=\"_cat\">[^<]*</span><span class=\"_text\">(?P<title>.*?)</span></a></li>"
     }
   }
 ]
