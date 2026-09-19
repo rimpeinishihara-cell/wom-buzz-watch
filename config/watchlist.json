@@ -6,7 +6,9 @@
     "homepage_url": "https://www.amifa.co.jp/",
     "base_keywords": [
       "アミファ",
-      "はらぺこあおむし シール"
+      "はらぺこあおむし シール",
+      "amifa",
+      "カプセルシール"
     ],
     "news_source": {
       "type": "rss",
@@ -55,7 +57,10 @@
       "テプラ",
       "ポメラ",
       "Toffy",
-      "ラドンナ"
+      "ラドンナ",
+      "ホルポ",
+      "ナナメクリ",
+      "フラッティ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -93,7 +98,8 @@
     "homepage_url": "https://www.lihit-lab.com/",
     "base_keywords": [
       "リヒトラブ",
-      "LIHIT LAB"
+      "LIHIT LAB",
+      "プニラボ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -158,7 +164,8 @@
       "プライドポテト",
       "ポリンキー",
       "ドンタコス",
-      "スコーン"
+      "スコーン",
+      "金のポテト"
     ],
     "news_source": {
       "type": "html_regex",
@@ -173,7 +180,10 @@
     "homepage_url": "https://www.kanro.co.jp/",
     "base_keywords": [
       "カンロ",
-      "ピュレグミ"
+      "ピュレグミ",
+      "グミッツェル",
+      "ヒトツブカンロ",
+      "とろみ～グミ"
     ]
   },
   {
@@ -183,7 +193,9 @@
     "homepage_url": "https://www.iwatsukaseika.co.jp/",
     "base_keywords": [
       "岩塚製菓",
-      "瑞花"
+      "瑞花",
+      "味しらべ",
+      "THEひとつまみ"
     ],
     "news_source": {
       "type": "rss",
@@ -199,7 +211,9 @@
       "ブルボン",
       "ルマンド",
       "アルフォート",
-      "プチシリーズ"
+      "プチシリーズ",
+      "フェットチーネグミ",
+      "バウンシーグミ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -215,7 +229,8 @@
     "base_keywords": [
       "サンクゼール",
       "久世福商店",
-      "KUZE FUKU & SONS"
+      "KUZE FUKU & SONS",
+      "黒糖ミルク珈琲の素"
     ],
     "news_source": {
       "type": "rss",
@@ -253,7 +268,10 @@
     "homepage_url": "https://www.imuraya-group.com/",
     "base_keywords": [
       "井村屋",
-      "あずきバー"
+      "あずきバー",
+      "すまん",
+      "やわもちアイス",
+      "こしあんバー"
     ],
     "news_source": {
       "type": "rss",
@@ -268,7 +286,8 @@
     "base_keywords": [
       "なとり",
       "チーズ鱈",
-      "ジャッキーカルパス"
+      "ジャッキーカルパス",
+      "チータラ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -351,7 +370,9 @@
     "base_keywords": [
       "フェリシモ",
       "フェリシモ定期便",
-      "YOU+MORE!"
+      "YOU+MORE!",
+      "kraso",
+      "御簾ポーチ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -371,7 +392,9 @@
       "ブラックキャップ",
       "モンダミン",
       "バスクリン",
-      "アイスノン"
+      "アイスノン",
+      "OUT ZONER",
+      "マモルーム"
     ],
     "news_source": {
       "type": "html_regex",
@@ -405,7 +428,9 @@
       "I-ne",
       "BOTANIST",
       "SALONIA",
-      "YOLU"
+      "YOLU",
+      "WELLP",
+      "Qurap"
     ],
     "news_source": {
       "type": "html_regex",
@@ -438,7 +463,9 @@
       "北の達人コーポレーション",
       "北の快適工房",
       "ヒアロディープパッチ",
-      "カイテキオリゴ"
+      "カイテキオリゴ",
+      "サラブリッチ",
+      "ディープパッチ"
     ],
     "news_source": {
       "type": "rss",
@@ -453,7 +480,8 @@
     "base_keywords": [
       "ニチバン",
       "セロテープ",
-      "ケアリーヴ"
+      "ケアリーヴ",
+      "ロイヒつぼ膏"
     ],
     "news_source": {
       "type": "html_regex",
@@ -468,7 +496,9 @@
     "homepage_url": "https://www.anycolor.co.jp/",
     "base_keywords": [
       "ANYCOLOR",
-      "にじさんじ"
+      "にじさんじ",
+      "にじさんじフェス",
+      "にじさんじ甲子園"
     ]
   },
   {
@@ -479,7 +509,9 @@
     "base_keywords": [
       "オイシックス・ラ・大地",
       "Oisix",
-      "らでぃっしゅぼーや"
+      "らでぃっしゅぼーや",
+      "Kit Oisix",
+      "超ラクKit"
     ],
     "news_source": {
       "type": "html_regex",
@@ -509,7 +541,9 @@
     "base_keywords": [
       "円谷フィールズホールディングス",
       "ウルトラマン",
-      "円谷プロダクション"
+      "円谷プロダクション",
+      "ULTRAMAN STORE",
+      "ウルトラマンオメガ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -525,7 +559,8 @@
     "base_keywords": [
       "第一興商",
       "DAM",
-      "ビッグエコー"
+      "ビッグエコー",
+      "LIVE DAM WAO"
     ],
     "news_source": {
       "type": "rss",
@@ -1404,7 +1439,9 @@
     "base_keywords": [
       "紀文",
       "紀文食品",
-      "おでん種"
+      "おでん種",
+      "SURIMI BAR",
+      "チーちく"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1420,7 +1457,9 @@
     "base_keywords": [
       "プリマハム",
       "スマイルUP",
-      "PRIMA"
+      "PRIMA",
+      "ジョンソンヴィル",
+      "ギルティ ソーセージ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1452,7 +1491,8 @@
     "base_keywords": [
       "クックパッド",
       "cookpad",
-      "レシピ"
+      "レシピ",
+      "レシピスクラップ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1484,7 +1524,9 @@
     "base_keywords": [
       "MIXI",
       "モンスト",
-      "モンスターストライク"
+      "モンスターストライク",
+      "mixi2",
+      "フェスティバトル"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1500,7 +1542,9 @@
     "base_keywords": [
       "ぴあ",
       "チケットぴあ",
-      "PIA"
+      "PIA",
+      "ぴあアリーナMM",
+      "東京建物 ぴあシアター"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1564,7 +1608,9 @@
     "base_keywords": [
       "アカツキ",
       "Akatsuki",
-      "陰陽師"
+      "陰陽師",
+      "怪獣8号 THE GAME",
+      "HYKE"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1580,7 +1626,9 @@
     "base_keywords": [
       "gumi",
       "ジョジョの奇妙な冒険",
-      "FFBE"
+      "FFBE",
+      "ヒロアカ UNITED SURVIVAL",
+      "ジョジョ オラオラオーバードライブ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1596,7 +1644,9 @@
     "base_keywords": [
       "マーベラス",
       "ルーンファクトリー",
-      "剣と魔法のログレス"
+      "剣と魔法のログレス",
+      "龍の国 ルーンファクトリー",
+      "牧場物語 グランドバザール"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1612,7 +1662,10 @@
     "base_keywords": [
       "日本ファルコム",
       "英雄伝説",
-      "イース"
+      "イース",
+      "空の軌跡 the 1st",
+      "空の軌跡 the 2nd",
+      "亰都ザナドゥ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1643,7 +1696,9 @@
     "homepage_url": "https://www.imperialhotel.co.jp/",
     "base_keywords": [
       "帝国ホテル",
-      "Imperial Hotel"
+      "Imperial Hotel",
+      "帝国ホテル バターサンド",
+      "ガルガンチュワ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1674,7 +1729,8 @@
     "homepage_url": "https://www.washingtonhotel.co.jp/",
     "base_keywords": [
       "ワシントンホテル",
-      "R&Bホテル"
+      "R&Bホテル",
+      "ワシントンR&Bホテル"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1817,7 +1873,9 @@
     "base_keywords": [
       "アイスタイル",
       "cosme",
-      "@cosme"
+      "@cosme",
+      "@cosme TOKYO",
+      "ベストコスメアワード"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1833,7 +1891,8 @@
     "base_keywords": [
       "BASE",
       "ネットショップ",
-      "PAY.JP"
+      "PAY.JP",
+      "PAY ID"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1849,7 +1908,8 @@
     "base_keywords": [
       "エニグモ",
       "BUYMA",
-      "バイマ"
+      "バイマ",
+      "BUYMA TRAVEL"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1880,7 +1940,9 @@
     "homepage_url": "https://corporate.wowow.co.jp/",
     "base_keywords": [
       "WOWOW",
-      "ワウワウ"
+      "ワウワウ",
+      "北方謙三 水滸伝",
+      "連続ドラマW"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1896,7 +1958,9 @@
     "base_keywords": [
       "学研",
       "Gakken",
-      "学研ゼミ"
+      "学研ゼミ",
+      "学研の学習",
+      "学研の科学"
     ],
     "news_source": {
       "type": "html_regex",
@@ -1960,7 +2024,8 @@
     "base_keywords": [
       "銀のさら",
       "宅配寿司",
-      "ライドオンエクスプレス"
+      "ライドオンエクスプレス",
+      "釜寅"
     ],
     "news_source": {
       "type": "html_regex",
@@ -2007,7 +2072,9 @@
     "base_keywords": [
       "鎌倉新書",
       "いい葬儀",
-      "終活"
+      "終活",
+      "いいお墓",
+      "いい仏壇"
     ],
     "news_source": {
       "type": "html_regex",
@@ -2958,7 +3025,9 @@
     "homepage_url": "https://www.kadoya.com/",
     "base_keywords": [
       "かどや製油",
-      "ごま油"
+      "ごま油",
+      "イゾレッタ",
+      "かどや ISOLETTA"
     ],
     "news_source": {
       "type": "html_regex",
@@ -2973,7 +3042,8 @@
     "homepage_url": "https://www.fujicco.co.jp/",
     "base_keywords": [
       "フジッコ",
-      "おまめさん"
+      "おまめさん",
+      "カスピ海ヨーグルト"
     ],
     "news_source": {
       "type": "html_regex",
@@ -2988,7 +3058,9 @@
     "homepage_url": "https://www.marutai.co.jp/",
     "base_keywords": [
       "マルタイ",
-      "棒ラーメン"
+      "棒ラーメン",
+      "マルタイ 生麺",
+      "マルタイラーメン"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3003,7 +3075,8 @@
     "homepage_url": "https://www.jintan.co.jp/",
     "base_keywords": [
       "森下仁丹",
-      "仁丹"
+      "仁丹",
+      "ビフィーナ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3033,7 +3106,9 @@
     "homepage_url": "https://www.mos.co.jp/",
     "base_keywords": [
       "モスバーガー",
-      "モスフードサービス"
+      "モスフードサービス",
+      "月見フォカッチャ",
+      "モスのメニュー表"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3048,7 +3123,8 @@
     "homepage_url": "https://torikizoku.co.jp/",
     "base_keywords": [
       "鳥貴族",
-      "トリドリ"
+      "トリドリ",
+      "トリキ スイーツ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3063,7 +3139,8 @@
     "homepage_url": "https://www.yellowhat.jp/",
     "base_keywords": [
       "イエローハット",
-      "カー用品"
+      "カー用品",
+      "ハットの日"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3078,7 +3155,8 @@
     "homepage_url": "https://www.autobacs.co.jp/",
     "base_keywords": [
       "オートバックス",
-      "カー用品"
+      "カー用品",
+      "クルマのバースデーポイント"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3123,7 +3201,8 @@
     "homepage_url": "https://kurashiru.co.jp/",
     "base_keywords": [
       "クラシル",
-      "レシピ動画"
+      "レシピ動画",
+      "レシアル"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3258,7 +3337,9 @@
     "homepage_url": "https://www.eat-and.jp/",
     "base_keywords": [
       "大阪王将",
-      "イートアンド"
+      "イートアンド",
+      "羽根つき餃子",
+      "MEGA中華ガチャ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3273,7 +3354,9 @@
     "homepage_url": "https://www.orionbeer.co.jp/",
     "base_keywords": [
       "オリオンビール",
-      "沖縄ビール"
+      "沖縄ビール",
+      "オリオン 75BEER",
+      "オリオン BEACH CHILL"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3303,7 +3386,8 @@
     "homepage_url": "https://www.marusanai.co.jp/",
     "base_keywords": [
       "マルサンアイ",
-      "豆乳"
+      "豆乳",
+      "ひとつ上の豆乳"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3318,7 +3402,8 @@
     "homepage_url": "https://www.nakamuraya.co.jp/",
     "base_keywords": [
       "新宿中村屋",
-      "カリーパン"
+      "カリーパン",
+      "中村屋 ピザまん"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3333,7 +3418,8 @@
     "homepage_url": "https://www.kakiyasuhonten.co.jp/",
     "base_keywords": [
       "柿安",
-      "デパ地下惣菜"
+      "デパ地下惣菜",
+      "柿安 鬼滅の刃"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3348,7 +3434,8 @@
     "homepage_url": "https://www.shimadaya.co.jp/",
     "base_keywords": [
       "シマダヤ",
-      "冷凍うどん"
+      "冷凍うどん",
+      "流水麺"
     ],
     "news_source": {
       "type": "html_regex",
@@ -3512,7 +3599,9 @@
     "homepage_url": "https://www.onward-hd.co.jp/",
     "base_keywords": [
       "23区",
-      "J.PRESS"
+      "J.PRESS",
+      "アンフィーロ",
+      "しろたん"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4217,7 +4306,8 @@
     "homepage_url": "https://www.frutafruta.com/",
     "base_keywords": [
       "フルッタフルッタ",
-      "アサイー"
+      "アサイー",
+      "おうちでアサイーボウル"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4232,7 +4322,8 @@
     "homepage_url": "https://www.meito.co.jp/",
     "base_keywords": [
       "メイトー",
-      "協同乳業"
+      "協同乳業",
+      "メイトーのなめらかプリン"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4262,7 +4353,8 @@
     "homepage_url": "https://www.icom.co.jp/",
     "base_keywords": [
       "アイコム",
-      "アマチュア無線機"
+      "アマチュア無線機",
+      "IC-7110"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4294,7 +4386,8 @@
       "ガーラ",
       "GALA",
       "Flyff",
-      "ラグナロク"
+      "ラグナロク",
+      "Flyff Legacy"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4310,7 +4403,8 @@
     "base_keywords": [
       "ギフティ",
       "giftee",
-      "eギフト"
+      "eギフト",
+      "giftee Box"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4376,7 +4470,9 @@
       "コロプラ",
       "白猫プロジェクト",
       "黒猫のウィズ",
-      "アリス・ギア・アイギス"
+      "アリス・ギア・アイギス",
+      "アクティブシネマRPG 369",
+      "ウィズジェネレーション"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4393,7 +4489,8 @@
       "セレス",
       "モッピー",
       "ポイントインカム",
-      "Moppy"
+      "Moppy",
+      "モッピーソリティア"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4442,7 +4539,8 @@
     "base_keywords": [
       "ジェイフロンティア",
       "SOKUYAKU",
-      "ミュゼプラチナム"
+      "ミュゼプラチナム",
+      "酵水素328選"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4472,7 +4570,8 @@
     "base_keywords": [
       "ドリコム",
       "Wizardry Variants Daphne",
-      "DRECOM CREATORS STUDIO"
+      "DRECOM CREATORS STUDIO",
+      "デモンズナイトフィーバー"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4489,7 +4588,8 @@
       "アエリア",
       "サイバード",
       "イケメンシリーズ",
-      "リベル・エンタテインメント"
+      "リベル・エンタテインメント",
+      "A3! エースリー"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4537,7 +4637,8 @@
       "くふうカンパニー",
       "くらしのマーケット",
       "ふるさと納税",
-      "Zaim"
+      "Zaim",
+      "みんなのウェディング"
     ],
     "news_source": {
       "type": "rss",
@@ -4551,7 +4652,8 @@
     "homepage_url": "https://asahi-net.jp/",
     "base_keywords": [
       "朝日ネット",
-      "ASAHIネット"
+      "ASAHIネット",
+      "manaba"
     ],
     "news_source": {
       "type": "html_regex",
@@ -4599,7 +4701,8 @@
     "base_keywords": [
       "クルーズ",
       "CROOZ",
-      "KOALA INN"
+      "KOALA INN",
+      "SHOGUN PRIVATE RESIDENCE"
     ],
     "news_source": {
       "type": "html_regex",
@@ -5620,7 +5723,9 @@
     "base_keywords": [
       "ペッパーフードサービス",
       "いきなり!ステーキ",
-      "いきなりステーキ"
+      "いきなりステーキ",
+      "ペッパーランチ",
+      "ステーキくに"
     ],
     "news_source": {
       "type": "html_regex",
@@ -5666,7 +5771,9 @@
       "JFLAホールディングス",
       "牛角",
       "Crepes Familia",
-      "クレープ"
+      "クレープ",
+      "どさん子ラーメン",
+      "キムカツ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -5714,7 +5821,8 @@
       "SANKO MARKETING FOODS",
       "三光マーケティングフーズ",
       "まるがまる",
-      "磯丸"
+      "磯丸",
+      "金の蔵"
     ],
     "news_source": {
       "type": "html_regex",
@@ -5729,7 +5837,8 @@
     "homepage_url": "https://www.tokyo-ichiban-foods.co.jp/",
     "base_keywords": [
       "東京一番フーズ",
-      "とらふぐ亭"
+      "とらふぐ亭",
+      "魚の飯"
     ],
     "news_source": {
       "type": "html_regex",
@@ -5744,7 +5853,8 @@
     "homepage_url": "https://www.choushimaru.co.jp/",
     "base_keywords": [
       "銚子丸",
-      "すし銚子丸"
+      "すし銚子丸",
+      "爆盛り寿司"
     ],
     "news_source": {
       "type": "html_regex",
@@ -5807,7 +5917,9 @@
     "base_keywords": [
       "ファンデリー",
       "ミールタイム",
-      "MFD"
+      "MFD",
+      "旬をすぐに",
+      "超カレー"
     ],
     "news_source": {
       "type": "html_regex",
@@ -5887,7 +5999,8 @@
     "base_keywords": [
       "エー・ピーホールディングス",
       "塚田農場",
-      "四十八漁場"
+      "四十八漁場",
+      "焼鳥 たてやま"
     ],
     "news_source": {
       "type": "html_regex",
@@ -5951,7 +6064,8 @@
     "base_keywords": [
       "ホットマン",
       "1秒タオル",
-      "ホットマン タオル"
+      "ホットマン タオル",
+      "タオルの本質"
     ],
     "news_source": {
       "type": "rss",
@@ -5982,7 +6096,8 @@
     "base_keywords": [
       "ホットランド",
       "築地銀だこ",
-      "銀だこ"
+      "銀だこ",
+      "銀だこ酒場"
     ],
     "news_source": {
       "type": "html_regex",
@@ -6079,7 +6194,8 @@
     "base_keywords": [
       "ヒロタ",
       "ヒロタ シュークリーム",
-      "洋菓子のヒロタ"
+      "洋菓子のヒロタ",
+      "ヒロタ シューアイス"
     ],
     "news_source": {
       "type": "html_regex",
@@ -6143,7 +6259,9 @@
     "base_keywords": [
       "サンマルクカフェ",
       "サンマルクホールディングス",
-      "牛かつ もと村"
+      "牛かつ もと村",
+      "鎌倉パスタ",
+      "倉式珈琲店"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7062,7 +7180,8 @@
     "name": "株式会社コメリ",
     "homepage_url": "https://www.komeri.bit.or.jp/",
     "base_keywords": [
-      "コメリ"
+      "コメリ",
+      "ナチュラルシーズン"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7077,7 +7196,8 @@
     "homepage_url": "https://www.matsuya.com/",
     "base_keywords": [
       "松屋銀座",
-      "松屋"
+      "松屋",
+      "松屋PREMIUM"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7093,7 +7213,8 @@
     "base_keywords": [
       "洋服の青山",
       "青山商事",
-      "THE SUIT COMPANY"
+      "THE SUIT COMPANY",
+      "みんなのスーツ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7108,7 +7229,8 @@
     "homepage_url": "https://www.hasegawa.jp/",
     "base_keywords": [
       "はせがわ",
-      "お仏壇のはせがわ"
+      "お仏壇のはせがわ",
+      "推し壇"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7124,7 +7246,8 @@
     "base_keywords": [
       "アクシアル",
       "原信",
-      "ナルス"
+      "ナルス",
+      "ハナウェル"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7219,7 +7342,8 @@
     "base_keywords": [
       "ゼビオ",
       "スーパースポーツゼビオ",
-      "XEBIO"
+      "XEBIO",
+      "ヴィクトリアゴルフ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7235,7 +7359,8 @@
     "base_keywords": [
       "ギフトホールディングス",
       "町田商店",
-      "豚山"
+      "豚山",
+      "元祖油堂"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7279,7 +7404,8 @@
     "homepage_url": "https://www.tenmaya-store.co.jp/",
     "base_keywords": [
       "天満屋ストア",
-      "天満屋ハピータウン"
+      "天満屋ハピータウン",
+      "天満屋ハピーズ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7311,7 +7437,8 @@
     "base_keywords": [
       "ルノアール",
       "銀座ルノアール",
-      "ベーカリーヒナタ"
+      "ベーカリーヒナタ",
+      "ミヤマ珈琲"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7326,7 +7453,8 @@
     "homepage_url": "https://www.makiya-group.co.jp/",
     "base_keywords": [
       "マキヤ",
-      "マミー"
+      "マミー",
+      "エスポット"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7373,7 +7501,8 @@
     "homepage_url": "https://www.ministop.co.jp/",
     "base_keywords": [
       "ミニストップ",
-      "ミニちきちゃん"
+      "ミニちきちゃん",
+      "ハロハロ"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7388,7 +7517,8 @@
     "homepage_url": "https://www.hachiban.co.jp/",
     "base_keywords": [
       "ハチバン",
-      "8番らーめん"
+      "8番らーめん",
+      "野菜麻辣らーめん"
     ],
     "news_source": {
       "type": "html_regex",
@@ -7450,7 +7580,8 @@
     "homepage_url": "https://www.belc.jp/",
     "base_keywords": [
       "ベルク",
-      "Belc"
+      "Belc",
+      "クルベ"
     ],
     "news_source": {
       "type": "html_regex",
