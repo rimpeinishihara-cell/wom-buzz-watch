@@ -4091,21 +4091,6 @@
     }
   },
   {
-    "code": "6096",
-    "edinet_code": "E30682",
-    "name": "レアジョブ",
-    "homepage_url": "https://www.rarejob.co.jp/",
-    "base_keywords": [
-      "レアジョブ英会話",
-      "オンライン英会話"
-    ],
-    "news_source": {
-      "type": "html_regex",
-      "url": "https://www.rarejob.co.jp/news/",
-      "pattern": "<li><a href=\"(?P<url>[^\"]+)\">\\s*<div class=\"date\">(?P<date>[^<]+)</div>\\s*<div class=\"cat\">[^<]*</div>\\s*<div class=\"text\">(?P<title>[^<]+)</div>"
-    }
-  },
-  {
     "code": "2120",
     "edinet_code": "E05624",
     "name": "ＬＩＦＵＬＬ",
