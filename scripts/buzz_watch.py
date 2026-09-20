@@ -212,28 +212,62 @@ ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 # --- LLM呼び出し: Gemini無料枠を先に使い、使えなくなったらClaude(従量課金)に切り替える ---
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash-lite"
 GEMINI_MIN_INTERVAL_SEC = 4.5  # 無料枠の毎分リクエスト上限(約15回)に収まる間隔
-_llm_state = {"gemini_exhausted": False, "gemini_last": 0.0, "gemini_calls": 0, "claude_calls": 0}
+_llm_state = {"gemini_exhausted": False, "gemini_last": 0.0, "gemini_calls": 0, "claude_calls": 0, "gemini_model": None, "gemini_discovered": False}
 
 
 def llm_available() -> bool:
     return bool(os.environ.get("GEMINI_API_KEY") or os.environ.get("ANTHROPIC_API_KEY"))
 
 
+def _gemini_version_key(name: str) -> tuple:
+    m = re.search(r"gemini-(\d+(?:\.\d+)?)", name)
+    return (float(m.group(1)) if m else 0.0,)
+
+
+def _discover_gemini_model(key: str) -> str | None:
+    """モデル名が見つからない(404)場合に、このキーで使えるモデル一覧から無料枠向きの軽量モデルを選ぶ。
+    安定版のflash-lite(最新世代)→flash(最新世代)の順。preview/live/tts/image等は除外。"""
+    try:
+        r = requests.get(
+            "https://generativelanguage.googleapis.com/v1beta/models?pageSize=200",
+            headers={"x-goog-api-key": key},
+            timeout=30,
+        )
+        r.raise_for_status()
+        models = r.json().get("models", [])
+    except Exception as e:  # noqa: BLE001
+        log(f"  [WARN] gemini model list failed: {type(e).__name__}")
+        return None
+    names = [
+        m["name"].split("/", 1)[-1]
+        for m in models
+        if "generateContent" in m.get("supportedGenerationMethods", [])
+    ]
+    bad = re.compile(r"preview|exp|live|tts|image|audio|embed|thinking|vision|robotics|computer|aqa|latest|customtools|\d{3,}")
+    lite = sorted((n for n in names if re.fullmatch(r"gemini-[\d.]+-flash-lite", n) and not bad.search(n)), key=_gemini_version_key, reverse=True)
+    flash = sorted((n for n in names if re.fullmatch(r"gemini-[\d.]+-flash", n) and not bad.search(n)), key=_gemini_version_key, reverse=True)
+    chosen = (lite or flash or [None])[0]
+    log(f"  [INFO] gemini model discovery: flash-lite={lite[:3]} flash={flash[:3]} -> {chosen}")
+    return chosen
+
+
 def _call_gemini(prompt: str, max_tokens: int) -> str | None:
     key = os.environ.get("GEMINI_API_KEY")
     if not key or _llm_state["gemini_exhausted"]:
         return None
-    gen_config: dict = {"maxOutputTokens": max(max_tokens * 2, 256), "temperature": 0}
-    if GEMINI_MODEL.startswith("gemini-2.5"):
-        gen_config["thinkingConfig"] = {"thinkingBudget": 0}  # 思考トークンで出力が切れるのを防ぐ
-    for attempt in range(2):
+    retried_429 = False
+    for attempt in range(3):
+        model = _llm_state["gemini_model"] or GEMINI_MODEL
+        gen_config: dict = {"maxOutputTokens": max(max_tokens * 2, 256), "temperature": 0}
+        if model.startswith("gemini-2.5"):
+            gen_config["thinkingConfig"] = {"thinkingBudget": 0}  # 思考トークンで出力が切れるのを防ぐ
         wait = GEMINI_MIN_INTERVAL_SEC - (time.time() - _llm_state["gemini_last"])
         if wait > 0:
             time.sleep(wait)
         _llm_state["gemini_last"] = time.time()
         try:
             r = requests.post(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
+                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                 headers={"x-goog-api-key": key, "content-type": "application/json"},
                 json={"contents": [{"parts": [{"text": prompt}]}], "generationConfig": gen_config},
                 timeout=45,
@@ -250,8 +284,16 @@ def _call_gemini(prompt: str, max_tokens: int) -> str | None:
                 _llm_state["gemini_calls"] += 1
                 return text
             return None
+        if r.status_code == 404 and not _llm_state["gemini_discovered"]:
+            _llm_state["gemini_discovered"] = True
+            found = _discover_gemini_model(key)
+            if found and found != model:
+                log(f"  [INFO] gemini model {model} not found; trying {found}")
+                _llm_state["gemini_model"] = found
+                continue
         if r.status_code == 429:
-            if attempt == 0:
+            if not retried_429:
+                retried_429 = True
                 log("  [WARN] gemini 429 (rate/quota), retrying in 20s")
                 time.sleep(20)
                 continue
@@ -262,7 +304,7 @@ def _call_gemini(prompt: str, max_tokens: int) -> str | None:
             time.sleep(5)
             continue
         if r.status_code in (400, 401, 403, 404):
-            log(f"  [WARN] gemini config error HTTP {r.status_code} (key/model?): switching to Claude for this run")
+            log(f"  [WARN] gemini config error HTTP {r.status_code} model={model} body={r.text[:160]!r}: switching to Claude for this run")
             _llm_state["gemini_exhausted"] = True
         else:
             log(f"  [WARN] gemini HTTP {r.status_code}")
@@ -316,6 +358,7 @@ def llm_post(*, json: dict, timeout: int = 30) -> _LLMResponse:
 def log_llm_stats():
     log(
         f"[LLM] gemini_calls={_llm_state['gemini_calls']} claude_calls={_llm_state['claude_calls']} "
+        f"gemini_model={_llm_state['gemini_model'] or GEMINI_MODEL} "
         f"gemini_exhausted={_llm_state['gemini_exhausted']}"
     )
 
