@@ -22,9 +22,13 @@ import requests
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from buzz_watch import (  # noqa: E402
     ANTHROPIC_MODEL,
+    build_cost_lines,
+    fetch_usd_jpy_rate,
     llm_available,
+    llm_usage_totals,
     llm_post,
     log_llm_stats,
+    record_cost_log,
     CHECK_INTERVAL_DAYS,
     MAX_COMPANIES_PER_RUN,
     JST,
@@ -158,6 +162,7 @@ def ai_judge(company: dict, info: dict) -> dict | None:
                 "messages": [{"role": "user", "content": build_prompt(company, info)}],
             },
             timeout=45,
+            purpose="board",
             prefer="flash",  # 掲示板の判定は精度が要るので、軽量版ではなく通常のflashを使う
         )
         resp.raise_for_status()
@@ -238,6 +243,9 @@ def main():
         if len(candidates) > MAX_AI_CALLS_PER_RUN:
             log(f"[WARN] AI call cap reached: judged {MAX_AI_CALLS_PER_RUN}/{len(candidates)}")
     log_llm_stats()
+    jpy_rate = fetch_usd_jpy_rate() if llm_usage_totals()["claude_calls"] else None
+    month = record_cost_log("board", today, jpy_rate)
+    cost_lines = build_cost_lines("掲示板", today, jpy_rate, month)
     log(f"[BOARD] alerts={len(alerts)}")
 
     if alerts and not args.dry_run:
@@ -250,6 +258,11 @@ def main():
             send_discord(webhook, lines)
         else:
             log("[WARN] DISCORD_WEBHOOK_URL not set, skipping notification")
+
+    if cost_lines and not args.dry_run:
+        webhook = os.environ.get("DISCORD_WEBHOOK_URL")
+        if webhook:
+            send_discord(webhook, cost_lines)
 
 
 if __name__ == "__main__":

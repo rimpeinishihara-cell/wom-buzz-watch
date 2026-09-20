@@ -214,7 +214,8 @@ GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash-lite"  # 件�
 GEMINI_MODEL_QUALITY = os.environ.get("GEMINI_MODEL_QUALITY") or "gemini-3.8-flash"  # 掲示板のバズ判定など精度が要る判定用
 GEMINI_MIN_INTERVAL_SEC = 4.5  # 軽量モデル: 無料枠の毎分リクエスト上限(約15回)に収まる間隔
 GEMINI_MIN_INTERVAL_QUALITY_SEC = 13.0  # 通常のflash: 無料枠の毎分上限が小さい(約5回)想定
-_llm_state = {"gemini_exhausted": False, "gemini_last": 0.0, "gemini_calls": 0, "claude_calls": 0, "gemini_models": {"lite": None, "flash": None}, "gemini_discovered": False}
+_llm_state = {"gemini_exhausted": False, "gemini_last": 0.0, "gemini_calls": 0, "claude_calls": 0, "gemini_models": {"lite": None, "flash": None}, "gemini_discovered": False,
+              "usage": {}, "gemini_disabled_reason": None}
 
 
 def llm_available() -> bool:
@@ -253,7 +254,7 @@ def _discover_gemini_model(key: str) -> dict | None:
     return chosen if chosen["lite"] else None
 
 
-def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite") -> str | None:
+def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite", purpose: str = "other") -> str | None:
     key = os.environ.get("GEMINI_API_KEY")
     if not key or _llm_state["gemini_exhausted"]:
         return None
@@ -288,6 +289,9 @@ def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite") -> str | No
                 return None  # 安全性フィルタ等で本文なし → Claudeで再試行させる
             if text:
                 _llm_state["gemini_calls"] += 1
+                meta = r.json().get("usageMetadata", {})
+                _record_usage("gemini", model, purpose, meta.get("promptTokenCount", 0),
+                              meta.get("candidatesTokenCount", 0) + meta.get("thoughtsTokenCount", 0))
                 return text
             return None
         if r.status_code == 404 and not _llm_state["gemini_discovered"]:
@@ -301,6 +305,7 @@ def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite") -> str | No
             if re.search(r"PerDay|per day|RequestsPerDay", r.text, re.I):
                 log("  [WARN] gemini daily free quota exhausted: switching to Claude for this run")
                 _llm_state["gemini_exhausted"] = True
+                _llm_state["gemini_disabled_reason"] = "1日の無料枠の上限"
                 return None
             if retries_429 < 2:
                 retries_429 += 1
@@ -309,6 +314,7 @@ def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite") -> str | No
                 continue
             log("  [WARN] gemini rate limit persists: switching to Claude for this run")
             _llm_state["gemini_exhausted"] = True
+            _llm_state["gemini_disabled_reason"] = "毎分の上限が解消せず"
             return None
         if r.status_code >= 500:
             if retries_5xx < 2:
@@ -321,13 +327,14 @@ def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite") -> str | No
         if r.status_code in (400, 401, 403, 404):
             log(f"  [WARN] gemini config error HTTP {r.status_code} model={model} body={r.text[:160]!r}: switching to Claude for this run")
             _llm_state["gemini_exhausted"] = True
+            _llm_state["gemini_disabled_reason"] = f"設定エラー HTTP {r.status_code}"
         else:
             log(f"  [WARN] gemini HTTP {r.status_code}")
         return None
     return None
 
 
-def _call_claude(payload: dict, timeout: int) -> str | None:
+def _call_claude(payload: dict, timeout: int, purpose: str = "other") -> str | None:
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         return None
@@ -339,11 +346,14 @@ def _call_claude(payload: dict, timeout: int) -> str | None:
             timeout=timeout,
         )
         resp.raise_for_status()
-        text = resp.json()["content"][0]["text"].strip()
+        body = resp.json()
+        text = body["content"][0]["text"].strip()
     except Exception as e:  # noqa: BLE001
         log(f"  [WARN] claude request failed: {type(e).__name__}: {e}")
         return None
     _llm_state["claude_calls"] += 1
+    usage = body.get("usage", {})
+    _record_usage("claude", payload.get("model", ANTHROPIC_MODEL), purpose, usage.get("input_tokens", 0), usage.get("output_tokens", 0))
     return text or None
 
 
@@ -358,24 +368,145 @@ class _LLMResponse:
         return {"content": [{"text": self._text}]}
 
 
-def llm_post(*, json: dict, timeout: int = 30, prefer: str = "lite") -> _LLMResponse:
+def llm_post(*, json: dict, timeout: int = 30, prefer: str = "lite", purpose: str = "other") -> _LLMResponse:
     """Anthropic Messages API形式のリクエストを受け取り、Gemini無料枠 → Claude の順で実行する。
     どちらも失敗したら例外を投げる(呼び出し側の既存のフォールバック処理に任せる)。"""
     prompt = json["messages"][0]["content"]
-    text = _call_gemini(prompt, json.get("max_tokens", 200), prefer)
+    text = _call_gemini(prompt, json.get("max_tokens", 200), prefer, purpose)
     if not text:
-        text = _call_claude(json, timeout)
+        text = _call_claude(json, timeout, purpose)
     if not text:
         raise RuntimeError("no LLM provider succeeded")
     return _LLMResponse(text)
 
 
+# $/1Mトークン (入力, 出力)。未掲載モデルはコスト表示を省略しトークン数のみ出す。
+CLAUDE_PRICING_PER_MTOK = {
+    "claude-haiku-4-5-20251001": (1.00, 5.00),
+    "claude-haiku-4-5": (1.00, 5.00),
+    "claude-sonnet-5": (2.00, 10.00),
+    "claude-opus-5": (5.00, 25.00),
+}
+COST_LOG_PATH = STATE_DIR / "llm_cost_log.json"
+PURPOSE_LABELS = {"news": "新着ニュース", "brand": "ブランド発見", "board": "掲示板", "other": "その他"}
+
+
+def _record_usage(provider: str, model: str, purpose: str, tokens_in: int, tokens_out: int):
+    e = _llm_state["usage"].setdefault(f"{provider}|{model}|{purpose}", {"calls": 0, "in": 0, "out": 0})
+    e["calls"] += 1
+    e["in"] += int(tokens_in or 0)
+    e["out"] += int(tokens_out or 0)
+
+
+def estimate_cost_usd(model: str, input_tokens: int, output_tokens: int) -> float | None:
+    pricing = CLAUDE_PRICING_PER_MTOK.get(model)
+    if pricing is None:
+        return None
+    return input_tokens / 1_000_000 * pricing[0] + output_tokens / 1_000_000 * pricing[1]
+
+
+def fetch_usd_jpy_rate() -> float | None:
+    """円換算用の為替レート。取得に失敗しても本筋の処理には影響しないためNoneを返す。"""
+    try:
+        resp = requests.get("https://api.frankfurter.app/latest?from=USD&to=JPY", timeout=10)
+        resp.raise_for_status()
+        return float(resp.json()["rates"]["JPY"])
+    except Exception:
+        return None
+
+
+def format_cost(cost_usd: float | None, jpy_rate: float | None) -> str:
+    if cost_usd is None:
+        return "不明(料金表未登録モデル)"
+    s = f"${cost_usd:.4f}"
+    if jpy_rate is not None:
+        s += f"(約{cost_usd * jpy_rate:,.1f}円)"
+    return s
+
+
+def llm_usage_totals() -> dict:
+    """使用状況を提供元・モデル・用途別に集計する。"""
+    g_models: dict[str, int] = {}
+    c_models: dict[str, dict] = {}
+    purposes: dict[str, dict] = {}
+    g_in = g_out = c_in = c_out = g_calls = c_calls = 0
+    cost_usd: float | None = 0.0
+    for key, e in _llm_state["usage"].items():
+        provider, model, purpose = key.split("|", 2)
+        p = purposes.setdefault(purpose, {"gemini": 0, "claude": 0})
+        p[provider] += e["calls"]
+        if provider == "gemini":
+            g_calls += e["calls"]; g_in += e["in"]; g_out += e["out"]
+            g_models[model] = g_models.get(model, 0) + e["calls"]
+        else:
+            c_calls += e["calls"]; c_in += e["in"]; c_out += e["out"]
+            m = c_models.setdefault(model, {"calls": 0, "in": 0, "out": 0})
+            m["calls"] += e["calls"]; m["in"] += e["in"]; m["out"] += e["out"]
+            est = estimate_cost_usd(model, e["in"], e["out"])
+            cost_usd = None if (est is None or cost_usd is None) else cost_usd + est
+    if not c_calls:
+        cost_usd = 0.0
+    return {"gemini_calls": g_calls, "gemini_in": g_in, "gemini_out": g_out, "gemini_models": g_models,
+            "claude_calls": c_calls, "claude_in": c_in, "claude_out": c_out, "claude_models": c_models,
+            "claude_cost_usd": cost_usd, "purposes": purposes,
+            "gemini_disabled_reason": _llm_state["gemini_disabled_reason"]}
+
+
 def log_llm_stats():
+    t = llm_usage_totals()
+    jpy = fetch_usd_jpy_rate() if t["claude_calls"] else None
     log(
-        f"[LLM] gemini_calls={_llm_state['gemini_calls']} claude_calls={_llm_state['claude_calls']} "
-        f"gemini_models={_llm_state['gemini_models']} "
-        f"gemini_exhausted={_llm_state['gemini_exhausted']}"
+        f"[LLM] Gemini呼び出し: {t['gemini_calls']} (無料枠, コスト0円)"
+        f"{' / 停止: ' + t['gemini_disabled_reason'] if t['gemini_disabled_reason'] else ''} "
+        f"(input={t['gemini_in']}, output={t['gemini_out']} tokens)"
     )
+    log(
+        f"[LLM] Claude呼び出し: {t['claude_calls']}, 概算コスト: {format_cost(t['claude_cost_usd'], jpy)} "
+        f"(input={t['claude_in']}, output={t['claude_out']} tokens)"
+    )
+    if t["purposes"]:
+        parts = [f"{PURPOSE_LABELS.get(k, k)} gemini{v['gemini']}/claude{v['claude']}" for k, v in sorted(t["purposes"].items())]
+        log("[LLM] 用途別: " + ", ".join(parts))
+
+
+def record_cost_log(job: str, date_str: str, jpy_rate: float | None) -> dict:
+    """この実行の判定コストを state/llm_cost_log.json に追記し、今月の累計を返す。"""
+    t = llm_usage_totals()
+    history = load_json(COST_LOG_PATH, [])
+    history.append({
+        "date": date_str, "job": job,
+        "gemini_calls": t["gemini_calls"], "gemini_models": t["gemini_models"],
+        "gemini_tokens": {"in": t["gemini_in"], "out": t["gemini_out"]},
+        "gemini_disabled_reason": t["gemini_disabled_reason"],
+        "claude_calls": t["claude_calls"], "claude_models": {m: v["calls"] for m, v in t["claude_models"].items()},
+        "claude_tokens": {"in": t["claude_in"], "out": t["claude_out"]},
+        "claude_cost_usd": t["claude_cost_usd"], "purposes": t["purposes"], "usd_jpy": jpy_rate,
+    })
+    cutoff = (datetime.date.fromisoformat(date_str) - datetime.timedelta(days=400)).isoformat()
+    history = [h for h in history if h.get("date", "") >= cutoff]
+    save_json(COST_LOG_PATH, history)
+    month = date_str[:7]
+    month_runs = [h for h in history if h.get("date", "").startswith(month)]
+    month_usd = sum(h.get("claude_cost_usd") or 0.0 for h in month_runs)
+    return {"month_usd": month_usd, "month_gemini": sum(h.get("gemini_calls", 0) for h in month_runs),
+            "month_claude": sum(h.get("claude_calls", 0) for h in month_runs)}
+
+
+def build_cost_lines(label: str, date_str: str, jpy_rate: float | None, month: dict | None = None) -> list[str]:
+    """Discordに添える判定コストの行(月次ウォッチと同じ書式)。AIを1回も呼んでいなければ空。"""
+    t = llm_usage_totals()
+    lines: list[str] = []
+    if t["gemini_calls"]:
+        per_model = ", ".join(f"{m} {n}件" for m, n in t["gemini_models"].items())
+        lines.append(f"\U0001f193 {date_str}のGemini判定(無料枠・{label}): {t['gemini_calls']}件 コスト0円 ({per_model})")
+    if t["gemini_disabled_reason"]:
+        lines.append(f"⚠️ Geminiは途中で停止({t['gemini_disabled_reason']})。以降はClaudeで判定")
+    if t["claude_calls"]:
+        models = ", ".join(t["claude_models"].keys())
+        lines.append(f"\U0001f4b0 {date_str}のClaude判定コスト({label}): 約{format_cost(t['claude_cost_usd'], jpy_rate)} ({models}, {t['claude_calls']}件判定)")
+    if lines and month is not None:
+        lines.append(f"\U0001f4c5 今月の累計: Claude 約{format_cost(month['month_usd'], jpy_rate)} ({month['month_claude']}件) / Gemini {month['month_gemini']}件(無料枠)")
+    return lines
 
 
 GROWTH_CATEGORIES = ("新商品", "新店舗", "新業態", "新販路", "コラボ", "その他")
@@ -396,6 +527,7 @@ def extract_keyword_with_ai(
         return ("その他", kw) if kw else None
     try:
         resp = llm_post(
+            purpose="news",
             json={
                 "model": ANTHROPIC_MODEL,
                 "max_tokens": 50,
@@ -500,6 +632,7 @@ def discover_segment_keywords_with_ai(business_overview: str, company_name: str)
         return []
     try:
         resp = llm_post(
+            purpose="brand",
             json={
                 "model": ANTHROPIC_MODEL,
                 "max_tokens": 200,
@@ -1017,6 +1150,13 @@ def main():
             log("[WARN] DISCORD_WEBHOOK_URL not set, skipping notification")
 
     log_llm_stats()
+    jpy_rate = fetch_usd_jpy_rate() if llm_usage_totals()["claude_calls"] else None
+    month = record_cost_log("check", today, jpy_rate)
+    cost_lines = build_cost_lines("ニュース・ブランド", today, jpy_rate, month)
+    if cost_lines and not args.dry_run:
+        webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
+        if webhook_url:
+            send_discord(webhook_url, cost_lines)
     log(f"Done. new_products={len(new_product_lines)} spikes={len(discord_lines)}")
 
 
