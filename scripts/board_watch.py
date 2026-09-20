@@ -22,6 +22,9 @@ import requests
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from buzz_watch import (  # noqa: E402
     ANTHROPIC_MODEL,
+    llm_available,
+    llm_post,
+    log_llm_stats,
     CHECK_INTERVAL_DAYS,
     MAX_COMPANIES_PER_RUN,
     JST,
@@ -146,11 +149,9 @@ def build_prompt(company: dict, info: dict) -> str:
     )
 
 
-def ai_judge(company: dict, info: dict, api_key: str) -> dict | None:
+def ai_judge(company: dict, info: dict) -> dict | None:
     try:
-        resp = requests.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={"x-api-key": api_key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+        resp = llm_post(
             json={
                 "model": ANTHROPIC_MODEL,
                 "max_tokens": 150,
@@ -194,9 +195,9 @@ def main():
     log(f"[BOARD/ROTATION] {len(watchlist)} companies, {len(due)} due, processing {len(todays)} today")
 
     session = requests.Session()
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        log("[WARN] ANTHROPIC_API_KEY not set: board posts will be tracked but not judged")
+    use_llm = llm_available()
+    if not use_llm:
+        log("[WARN] no GEMINI_API_KEY/ANTHROPIC_API_KEY set: board posts will be tracked but not judged")
 
     ok = fail = 0
     candidates: list[tuple[dict, str, dict]] = []
@@ -225,16 +226,17 @@ def main():
     save_json(BOARD_STATE_PATH, state)
 
     alerts: list[tuple[int, str]] = []
-    if api_key:
+    if use_llm:
         candidates.sort(key=lambda c: -c[2]["delta"])
         for company, suffix, info in candidates[:MAX_AI_CALLS_PER_RUN]:
-            verdict = ai_judge(company, info, api_key)
+            verdict = ai_judge(company, info)
             time.sleep(0.3)
             if verdict:
                 log(f"[BOARD/BUZZ] {company['name']}({company['code']}): {verdict['summary']}")
                 alerts.append((info["delta"], format_line(company, suffix, verdict, info)))
         if len(candidates) > MAX_AI_CALLS_PER_RUN:
             log(f"[WARN] AI call cap reached: judged {MAX_AI_CALLS_PER_RUN}/{len(candidates)}")
+    log_llm_stats()
     log(f"[BOARD] alerts={len(alerts)}")
 
     if alerts and not args.dry_run:

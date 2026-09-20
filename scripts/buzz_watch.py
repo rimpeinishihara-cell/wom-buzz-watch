@@ -209,6 +209,116 @@ def title_to_keyword(title: str) -> str:
 
 ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 
+# --- LLM呼び出し: Gemini無料枠を先に使い、使えなくなったらClaude(従量課金)に切り替える ---
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash-lite"
+GEMINI_MIN_INTERVAL_SEC = 4.5  # 無料枠の毎分リクエスト上限(約15回)に収まる間隔
+_llm_state = {"gemini_exhausted": False, "gemini_last": 0.0, "gemini_calls": 0, "claude_calls": 0}
+
+
+def llm_available() -> bool:
+    return bool(os.environ.get("GEMINI_API_KEY") or os.environ.get("ANTHROPIC_API_KEY"))
+
+
+def _call_gemini(prompt: str, max_tokens: int) -> str | None:
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key or _llm_state["gemini_exhausted"]:
+        return None
+    gen_config: dict = {"maxOutputTokens": max(max_tokens * 2, 256), "temperature": 0}
+    if GEMINI_MODEL.startswith("gemini-2.5"):
+        gen_config["thinkingConfig"] = {"thinkingBudget": 0}  # 思考トークンで出力が切れるのを防ぐ
+    for attempt in range(2):
+        wait = GEMINI_MIN_INTERVAL_SEC - (time.time() - _llm_state["gemini_last"])
+        if wait > 0:
+            time.sleep(wait)
+        _llm_state["gemini_last"] = time.time()
+        try:
+            r = requests.post(
+                f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
+                headers={"x-goog-api-key": key, "content-type": "application/json"},
+                json={"contents": [{"parts": [{"text": prompt}]}], "generationConfig": gen_config},
+                timeout=45,
+            )
+        except requests.RequestException as e:
+            log(f"  [WARN] gemini request error: {type(e).__name__}")
+            return None
+        if r.status_code == 200:
+            try:
+                text = r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
+            except (KeyError, IndexError, ValueError, TypeError):
+                return None  # 安全性フィルタ等で本文なし → Claudeで再試行させる
+            if text:
+                _llm_state["gemini_calls"] += 1
+                return text
+            return None
+        if r.status_code == 429:
+            if attempt == 0:
+                log("  [WARN] gemini 429 (rate/quota), retrying in 20s")
+                time.sleep(20)
+                continue
+            log("  [WARN] gemini free tier exhausted for this run: switching to Claude")
+            _llm_state["gemini_exhausted"] = True
+            return None
+        if r.status_code >= 500 and attempt == 0:
+            time.sleep(5)
+            continue
+        if r.status_code in (400, 401, 403, 404):
+            log(f"  [WARN] gemini config error HTTP {r.status_code} (key/model?): switching to Claude for this run")
+            _llm_state["gemini_exhausted"] = True
+        else:
+            log(f"  [WARN] gemini HTTP {r.status_code}")
+        return None
+    return None
+
+
+def _call_claude(payload: dict, timeout: int) -> str | None:
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        return None
+    try:
+        resp = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+            json=payload,
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        text = resp.json()["content"][0]["text"].strip()
+    except Exception as e:  # noqa: BLE001
+        log(f"  [WARN] claude request failed: {type(e).__name__}: {e}")
+        return None
+    _llm_state["claude_calls"] += 1
+    return text or None
+
+
+class _LLMResponse:
+    def __init__(self, text: str):
+        self._text = text
+
+    def raise_for_status(self):
+        pass
+
+    def json(self):
+        return {"content": [{"text": self._text}]}
+
+
+def llm_post(*, json: dict, timeout: int = 30) -> _LLMResponse:
+    """Anthropic Messages API形式のリクエストを受け取り、Gemini無料枠 → Claude の順で実行する。
+    どちらも失敗したら例外を投げる(呼び出し側の既存のフォールバック処理に任せる)。"""
+    prompt = json["messages"][0]["content"]
+    text = _call_gemini(prompt, json.get("max_tokens", 200))
+    if not text:
+        text = _call_claude(json, timeout)
+    if not text:
+        raise RuntimeError("no LLM provider succeeded")
+    return _LLMResponse(text)
+
+
+def log_llm_stats():
+    log(
+        f"[LLM] gemini_calls={_llm_state['gemini_calls']} claude_calls={_llm_state['claude_calls']} "
+        f"gemini_exhausted={_llm_state['gemini_exhausted']}"
+    )
+
 
 GROWTH_CATEGORIES = ("新商品", "新店舗", "新業態", "新販路", "コラボ", "その他")
 
@@ -222,18 +332,11 @@ def extract_keyword_with_ai(
     ANTHROPIC_API_KEY が未設定の場合は簡易ヒューリスティックにフォールバックする
     (この場合は種別を「その他」として扱う)。
     """
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
+    if not llm_available():
         kw = title_to_keyword(title)
         return ("その他", kw) if kw else None
     try:
-        resp = requests.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={
-                "x-api-key": api_key,
-                "anthropic-version": "2023-06-01",
-                "content-type": "application/json",
-            },
+        resp = llm_post(
             json={
                 "model": ANTHROPIC_MODEL,
                 "max_tokens": 50,
@@ -334,17 +437,10 @@ def discover_segment_keywords_with_ai(business_overview: str, company_name: str)
     """有報の「事業の内容」全文から、業績インパクトが大きい主力事業・ブランド名を
     複数抽出する(新商品ニュースの巡回では拾えない、既存の稼ぎ頭を見逃さないため)。
     """
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
+    if not llm_available():
         return []
     try:
-        resp = requests.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={
-                "x-api-key": api_key,
-                "anthropic-version": "2023-06-01",
-                "content-type": "application/json",
-            },
+        resp = llm_post(
             json={
                 "model": ANTHROPIC_MODEL,
                 "max_tokens": 200,
@@ -861,6 +957,7 @@ def main():
         elif new_product_lines or discord_lines:
             log("[WARN] DISCORD_WEBHOOK_URL not set, skipping notification")
 
+    log_llm_stats()
     log(f"Done. new_products={len(new_product_lines)} spikes={len(discord_lines)}")
 
 
