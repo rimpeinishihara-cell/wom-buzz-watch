@@ -49,14 +49,22 @@ USER_AGENT = (
 
 MAX_TRACKED_PRODUCT_KEYWORDS = 6  # 社名以外に追跡する商品キーワードの上限(API負荷抑制)
 CHECK_INTERVAL_DAYS = 30  # 1社あたりのチェック間隔(月1回)
-MAX_COMPANIES_PER_RUN = 20  # 1回の実行で処理する企業数の上限(540社規模でも月1周できる下限。実行時間はジョブ上限30分に収まる想定)
-MIN_HISTORY_FOR_SPIKE = 5  # 急上昇判定に必要な最低日数
-BASELINE_WINDOW = 28  # 直近何日を基準値計算に使うか
+MAX_COMPANIES_PER_RUN = 20  # 1回の実行で処理する企業数の上限(540社規模でも月1周できる下限。20社で約35〜45分かかるためworkflowのtimeoutは60分)
+MIN_HISTORY_FOR_SPIKE = 5  # 履歴だけでTrendsの急上昇を判定する場合に必要な最低記録数(日次運用時代の名残)
+MIN_HISTORY_FOR_YAHOO = 2  # Yahoo!(その時点の瞬間値)の急上昇判定に必要な最低記録数。月1回の確認でも成立する値
+BASELINE_WINDOW = 28  # 履歴から基準値を計算する際に使う直近の記録数
+HISTORY_RETENTION_DAYS = 400  # 履歴の保持日数(月1回の確認でも複数回ぶん残すため)
 
 # --- 急上昇判定の閾値 ---
 TRENDS_RATIO_THRESHOLD = 2.5
 TRENDS_ABS_JUMP_THRESHOLD = 40  # 0-100スケールでの絶対上昇幅
 YAHOO_RATIO_THRESHOLD = 3.0
+
+# --- Google Trends の3か月時系列そのものから判定する設定(月1回の確認でも初回から判定できる) ---
+TRENDS_SERIES_RECENT_DAYS = 7  # 直近この日数の平均を「現在値」とする
+TRENDS_SERIES_MIN_POINTS = 28  # 時系列がこの点数未満なら判定しない
+TRENDS_MIN_RECENT_LEVEL = 15  # 現在値がこれ未満なら判定しない(検索量が極小のキーワードの1日だけの揺れを除外)
+TRENDS_MIN_ACTIVE_DAYS = 3  # 直近期間で値が0でない日がこれ未満なら判定しない(単発のスパイク除外)
 
 
 def nfkc(s: str) -> str:
@@ -494,6 +502,11 @@ class TrendsClient:
         return None
 
     def get_interest(self, keyword: str, timeframe: str = "today 3-m", geo: str = "JP") -> int | None:
+        series = self.get_interest_series(keyword, timeframe, geo)
+        return series[-1] if series else None
+
+    def get_interest_series(self, keyword: str, timeframe: str = "today 3-m", geo: str = "JP") -> list[int] | None:
+        """指定期間の関心度(0-100)の時系列を古い順で返す。"""
         self._bootstrap()
         try:
             explore_url = "https://trends.google.com/trends/api/explore"
@@ -522,7 +535,7 @@ class TrendsClient:
             timeline = data2["default"]["timelineData"]
             if not timeline:
                 return None
-            return int(timeline[-1]["value"][0])
+            return [int(p["value"][0]) for p in timeline]
         except Exception as e:  # noqa: BLE001
             log(f"  [WARN] trends error ({keyword}): {type(e).__name__}: {e}")
             return None
@@ -590,32 +603,60 @@ def save_json(path: Path, data):
 # ============================================================
 
 
-def detect_spike(values_by_date: dict[str, dict], today: str) -> dict | None:
-    """values_by_date: {date: {"trends": int|None, "yahoo": int|None}}"""
-    dates_sorted = sorted(d for d in values_by_date if d < today)
-    if len(dates_sorted) < MIN_HISTORY_FOR_SPIKE:
+def detect_trends_series_spike(series: list[int] | None) -> dict | None:
+    """Google Trendsの3か月時系列そのものから急上昇を判定する。
+    直近TRENDS_SERIES_RECENT_DAYS日の平均を、それ以前の中央値と比べる。
+    自前の履歴に依存しないため、月1回しか確認しない運用でも初回から判定できる。
+    """
+    if not series or len(series) < TRENDS_SERIES_MIN_POINTS:
         return None
+    recent = series[-TRENDS_SERIES_RECENT_DAYS:]
+    earlier = series[:-TRENDS_SERIES_RECENT_DAYS]
+    latest = sum(recent) / len(recent)
+    if latest < TRENDS_MIN_RECENT_LEVEL:
+        return None
+    if sum(1 for v in recent if v > 0) < TRENDS_MIN_ACTIVE_DAYS:
+        return None
+    baseline = sorted(earlier)[len(earlier) // 2]
+    ratio = latest / max(baseline, 5)
+    jump = latest - baseline
+    if ratio >= TRENDS_RATIO_THRESHOLD or jump >= TRENDS_ABS_JUMP_THRESHOLD:
+        return {"latest": round(latest), "baseline": baseline, "ratio": round(ratio, 2)}
+    return None
+
+
+def detect_spike(
+    values_by_date: dict[str, dict], today: str, trends_series: list[int] | None = None
+) -> dict | None:
+    """values_by_date: {date: {"trends": int|None, "yahoo": int|None}}
+    trends_series: 今回取得したGoogle Trendsの時系列(あれば履歴なしでTrendsを判定する)"""
+    dates_sorted = sorted(d for d in values_by_date if d < today)
     recent_dates = dates_sorted[-BASELINE_WINDOW:]
 
     today_v = values_by_date.get(today, {})
     result = {}
 
+    series_spike = detect_trends_series_spike(trends_series)
+    if series_spike:
+        result["trends"] = series_spike
+
+    yahoo_hist = [values_by_date[d]["yahoo"] for d in recent_dates if values_by_date[d].get("yahoo") is not None]
+    if len(dates_sorted) >= MIN_HISTORY_FOR_YAHOO and yahoo_hist and today_v.get("yahoo") is not None:
+        baseline = sorted(yahoo_hist)[len(yahoo_hist) // 2]
+        latest = today_v["yahoo"]
+        ratio = latest / max(baseline, 3)
+        if ratio >= YAHOO_RATIO_THRESHOLD:
+            result["yahoo"] = {"latest": latest, "baseline": baseline, "ratio": round(ratio, 2)}
+
+    # 日次運用時代の互換: 履歴が十分あり、時系列判定で未検出の場合のみ履歴ベースでもTrendsを判定
     trends_hist = [values_by_date[d]["trends"] for d in recent_dates if values_by_date[d].get("trends") is not None]
-    if trends_hist and today_v.get("trends") is not None:
+    if "trends" not in result and len(dates_sorted) >= MIN_HISTORY_FOR_SPIKE and trends_hist and today_v.get("trends") is not None:
         baseline = sorted(trends_hist)[len(trends_hist) // 2]  # median
         latest = today_v["trends"]
         ratio = latest / max(baseline, 5)
         jump = latest - baseline
         if ratio >= TRENDS_RATIO_THRESHOLD or jump >= TRENDS_ABS_JUMP_THRESHOLD:
             result["trends"] = {"latest": latest, "baseline": baseline, "ratio": round(ratio, 2)}
-
-    yahoo_hist = [values_by_date[d]["yahoo"] for d in recent_dates if values_by_date[d].get("yahoo") is not None]
-    if yahoo_hist and today_v.get("yahoo") is not None:
-        baseline = sorted(yahoo_hist)[len(yahoo_hist) // 2]
-        latest = today_v["yahoo"]
-        ratio = latest / max(baseline, 3)
-        if ratio >= YAHOO_RATIO_THRESHOLD:
-            result["yahoo"] = {"latest": latest, "baseline": baseline, "ratio": round(ratio, 2)}
 
     return result or None
 
@@ -770,19 +811,22 @@ def main():
             log(f"  checking keyword: {kw}")
             kw_hist = company_history.setdefault(kw, {})
 
-            trends_val = trends_client.get_interest(kw)
+            trends_series = trends_client.get_interest_series(kw)
+            trends_val = trends_series[-1] if trends_series else None
             time.sleep(2.5)
             yahoo_val = get_yahoo_realtime_count(kw)
             time.sleep(2.0)
 
             kw_hist[today] = {"trends": trends_val, "yahoo": yahoo_val}
-            # 90日以上前のデータは削除(state肥大化防止)
-            cutoff = (datetime.datetime.now(JST) - datetime.timedelta(days=90)).strftime("%Y-%m-%d")
+            # 保持期間を超えた古いデータは削除(state肥大化防止)
+            cutoff = (
+                datetime.datetime.now(JST) - datetime.timedelta(days=HISTORY_RETENTION_DAYS)
+            ).strftime("%Y-%m-%d")
             for d in list(kw_hist.keys()):
                 if d < cutoff:
                     del kw_hist[d]
 
-            spike = detect_spike(kw_hist, today)
+            spike = detect_spike(kw_hist, today, trends_series)
             if spike:
                 parts = []
                 if "trends" in spike:
