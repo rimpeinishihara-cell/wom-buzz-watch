@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2026-09-21",
+    "job": "board",
+    "gemini_calls": 0,
+    "gemini_models": {},
+    "gemini_tokens": {
+      "in": 0,
+      "out": 0
+    },
+    "gemini_disabled_reason": "1日の無料枠の上限",
+    "claude_calls": 19,
+    "claude_models": {
+      "claude-haiku-4-5-20251001": 19
+    },
+    "claude_tokens": {
+      "in": 53178,
+      "out": 277
+    },
+    "claude_cost_usd": 0.054563,
+    "purposes": {
+      "board": {
+        "gemini": 0,
+        "claude": 19
+      }
+    },
+    "usd_jpy": 157.89
+  }
+]
