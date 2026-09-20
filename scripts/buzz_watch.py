@@ -212,7 +212,8 @@ ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 # --- LLM呼び出し: Gemini無料枠を先に使い、使えなくなったらClaude(従量課金)に切り替える ---
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash-lite"  # 件数の多い軽い判定用(実際のIDは404時に自動探索)
 GEMINI_MODEL_QUALITY = os.environ.get("GEMINI_MODEL_QUALITY") or "gemini-3.8-flash"  # 掲示板のバズ判定など精度が要る判定用
-GEMINI_MIN_INTERVAL_SEC = 4.5  # 無料枠の毎分リクエスト上限(約15回)に収まる間隔
+GEMINI_MIN_INTERVAL_SEC = 4.5  # 軽量モデル: 無料枠の毎分リクエスト上限(約15回)に収まる間隔
+GEMINI_MIN_INTERVAL_QUALITY_SEC = 13.0  # 通常のflash: 無料枠の毎分上限が小さい(約5回)想定
 _llm_state = {"gemini_exhausted": False, "gemini_last": 0.0, "gemini_calls": 0, "claude_calls": 0, "gemini_models": {"lite": None, "flash": None}, "gemini_discovered": False}
 
 
@@ -256,15 +257,17 @@ def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite") -> str | No
     key = os.environ.get("GEMINI_API_KEY")
     if not key or _llm_state["gemini_exhausted"]:
         return None
-    retried_429 = False
-    for attempt in range(3):
+    retries_429 = 0
+    retries_5xx = 0
+    for attempt in range(6):
         default = GEMINI_MODEL_QUALITY if prefer == "flash" else GEMINI_MODEL
         model = _llm_state["gemini_models"].get(prefer) or default
         out_tokens = max(max_tokens * 8, 1024) if prefer == "flash" else max(max_tokens * 2, 256)  # flashは考える分の枠を残す
         gen_config: dict = {"maxOutputTokens": out_tokens, "temperature": 0}
         if model.startswith("gemini-2.5"):
             gen_config["thinkingConfig"] = {"thinkingBudget": 0}  # 思考トークンで出力が切れるのを防ぐ
-        wait = GEMINI_MIN_INTERVAL_SEC - (time.time() - _llm_state["gemini_last"])
+        min_interval = GEMINI_MIN_INTERVAL_QUALITY_SEC if prefer == "flash" else GEMINI_MIN_INTERVAL_SEC
+        wait = min_interval - (time.time() - _llm_state["gemini_last"])
         if wait > 0:
             time.sleep(wait)
         _llm_state["gemini_last"] = time.time()
@@ -295,17 +298,26 @@ def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite") -> str | No
                 _llm_state["gemini_models"] = found
                 continue
         if r.status_code == 429:
-            if not retried_429:
-                retried_429 = True
-                log("  [WARN] gemini 429 (rate/quota), retrying in 20s")
-                time.sleep(20)
+            if re.search(r"PerDay|per day|RequestsPerDay", r.text, re.I):
+                log("  [WARN] gemini daily free quota exhausted: switching to Claude for this run")
+                _llm_state["gemini_exhausted"] = True
+                return None
+            if retries_429 < 2:
+                retries_429 += 1
+                log(f"  [WARN] gemini 429 (per-minute limit?), waiting 45s (retry {retries_429}/2)")
+                time.sleep(45)
                 continue
-            log("  [WARN] gemini free tier exhausted for this run: switching to Claude")
+            log("  [WARN] gemini rate limit persists: switching to Claude for this run")
             _llm_state["gemini_exhausted"] = True
             return None
-        if r.status_code >= 500 and attempt == 0:
-            time.sleep(5)
-            continue
+        if r.status_code >= 500:
+            if retries_5xx < 2:
+                retries_5xx += 1
+                log(f"  [WARN] gemini HTTP {r.status_code}, retrying in {10 * retries_5xx}s")
+                time.sleep(10 * retries_5xx)
+                continue
+            log(f"  [WARN] gemini HTTP {r.status_code}: using Claude for this call")
+            return None
         if r.status_code in (400, 401, 403, 404):
             log(f"  [WARN] gemini config error HTTP {r.status_code} model={model} body={r.text[:160]!r}: switching to Claude for this run")
             _llm_state["gemini_exhausted"] = True
