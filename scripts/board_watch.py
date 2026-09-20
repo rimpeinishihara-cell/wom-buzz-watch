@@ -158,6 +158,7 @@ def ai_judge(company: dict, info: dict) -> dict | None:
                 "messages": [{"role": "user", "content": build_prompt(company, info)}],
             },
             timeout=45,
+            prefer="flash",  # 掲示板の判定は精度が要るので、軽量版ではなく通常のflashを使う
         )
         resp.raise_for_status()
         text = resp.json()["content"][0]["text"].strip()

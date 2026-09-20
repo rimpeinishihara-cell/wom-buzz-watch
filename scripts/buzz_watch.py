@@ -210,9 +210,10 @@ def title_to_keyword(title: str) -> str:
 ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 
 # --- LLM呼び出し: Gemini無料枠を先に使い、使えなくなったらClaude(従量課金)に切り替える ---
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash-lite"
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash-lite"  # 件数の多い軽い判定用(実際のIDは404時に自動探索)
+GEMINI_MODEL_QUALITY = os.environ.get("GEMINI_MODEL_QUALITY") or "gemini-3.8-flash"  # 掲示板のバズ判定など精度が要る判定用
 GEMINI_MIN_INTERVAL_SEC = 4.5  # 無料枠の毎分リクエスト上限(約15回)に収まる間隔
-_llm_state = {"gemini_exhausted": False, "gemini_last": 0.0, "gemini_calls": 0, "claude_calls": 0, "gemini_model": None, "gemini_discovered": False}
+_llm_state = {"gemini_exhausted": False, "gemini_last": 0.0, "gemini_calls": 0, "claude_calls": 0, "gemini_models": {"lite": None, "flash": None}, "gemini_discovered": False}
 
 
 def llm_available() -> bool:
@@ -224,7 +225,7 @@ def _gemini_version_key(name: str) -> tuple:
     return (float(m.group(1)) if m else 0.0,)
 
 
-def _discover_gemini_model(key: str) -> str | None:
+def _discover_gemini_model(key: str) -> dict | None:
     """モデル名が見つからない(404)場合に、このキーで使えるモデル一覧から無料枠向きの軽量モデルを選ぶ。
     安定版のflash-lite(最新世代)→flash(最新世代)の順。preview/live/tts/image等は除外。"""
     try:
@@ -246,19 +247,21 @@ def _discover_gemini_model(key: str) -> str | None:
     bad = re.compile(r"preview|exp|live|tts|image|audio|embed|thinking|vision|robotics|computer|aqa|latest|customtools|\d{3,}")
     lite = sorted((n for n in names if re.fullmatch(r"gemini-[\d.]+-flash-lite", n) and not bad.search(n)), key=_gemini_version_key, reverse=True)
     flash = sorted((n for n in names if re.fullmatch(r"gemini-[\d.]+-flash", n) and not bad.search(n)), key=_gemini_version_key, reverse=True)
-    chosen = (lite or flash or [None])[0]
+    chosen = {"lite": (lite or flash or [None])[0], "flash": (flash or lite or [None])[0]}
     log(f"  [INFO] gemini model discovery: flash-lite={lite[:3]} flash={flash[:3]} -> {chosen}")
-    return chosen
+    return chosen if chosen["lite"] else None
 
 
-def _call_gemini(prompt: str, max_tokens: int) -> str | None:
+def _call_gemini(prompt: str, max_tokens: int, prefer: str = "lite") -> str | None:
     key = os.environ.get("GEMINI_API_KEY")
     if not key or _llm_state["gemini_exhausted"]:
         return None
     retried_429 = False
     for attempt in range(3):
-        model = _llm_state["gemini_model"] or GEMINI_MODEL
-        gen_config: dict = {"maxOutputTokens": max(max_tokens * 2, 256), "temperature": 0}
+        default = GEMINI_MODEL_QUALITY if prefer == "flash" else GEMINI_MODEL
+        model = _llm_state["gemini_models"].get(prefer) or default
+        out_tokens = max(max_tokens * 8, 1024) if prefer == "flash" else max(max_tokens * 2, 256)  # flashは考える分の枠を残す
+        gen_config: dict = {"maxOutputTokens": out_tokens, "temperature": 0}
         if model.startswith("gemini-2.5"):
             gen_config["thinkingConfig"] = {"thinkingBudget": 0}  # 思考トークンで出力が切れるのを防ぐ
         wait = GEMINI_MIN_INTERVAL_SEC - (time.time() - _llm_state["gemini_last"])
@@ -287,9 +290,9 @@ def _call_gemini(prompt: str, max_tokens: int) -> str | None:
         if r.status_code == 404 and not _llm_state["gemini_discovered"]:
             _llm_state["gemini_discovered"] = True
             found = _discover_gemini_model(key)
-            if found and found != model:
-                log(f"  [INFO] gemini model {model} not found; trying {found}")
-                _llm_state["gemini_model"] = found
+            if found and found.get(prefer) and found[prefer] != model:
+                log(f"  [INFO] gemini model {model} not found; trying {found[prefer]}")
+                _llm_state["gemini_models"] = found
                 continue
         if r.status_code == 429:
             if not retried_429:
@@ -343,11 +346,11 @@ class _LLMResponse:
         return {"content": [{"text": self._text}]}
 
 
-def llm_post(*, json: dict, timeout: int = 30) -> _LLMResponse:
+def llm_post(*, json: dict, timeout: int = 30, prefer: str = "lite") -> _LLMResponse:
     """Anthropic Messages API形式のリクエストを受け取り、Gemini無料枠 → Claude の順で実行する。
     どちらも失敗したら例外を投げる(呼び出し側の既存のフォールバック処理に任せる)。"""
     prompt = json["messages"][0]["content"]
-    text = _call_gemini(prompt, json.get("max_tokens", 200))
+    text = _call_gemini(prompt, json.get("max_tokens", 200), prefer)
     if not text:
         text = _call_claude(json, timeout)
     if not text:
@@ -358,7 +361,7 @@ def llm_post(*, json: dict, timeout: int = 30) -> _LLMResponse:
 def log_llm_stats():
     log(
         f"[LLM] gemini_calls={_llm_state['gemini_calls']} claude_calls={_llm_state['claude_calls']} "
-        f"gemini_model={_llm_state['gemini_model'] or GEMINI_MODEL} "
+        f"gemini_models={_llm_state['gemini_models']} "
         f"gemini_exhausted={_llm_state['gemini_exhausted']}"
     )
 
