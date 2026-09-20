@@ -10,6 +10,11 @@ on:
         required: false
         type: boolean
         default: false
+      only_board:
+        description: "掲示板検知だけ実行する(本体のcheckジョブを飛ばす)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -20,6 +25,7 @@ concurrency:
 
 jobs:
   check:
+    if: ${{ github.event.inputs.only_board != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -51,6 +57,48 @@ jobs:
           git add state/
           if ! git diff --cached --quiet; then
             git commit -m "chore: update buzz-watch state [skip ci]"
+            git push
+          else
+            echo "No state change"
+          fi
+
+  board:
+    # Yahoo!ファイナンス掲示板の「バズの形跡」検知。上のcheckジョブが状態をpushし終えてから
+    # 走らせる(同じリポジトリへのpush競合を避けるため)。checkが失敗しても実行する。
+    needs: check
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run board check
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          python scripts/board_watch.py $ARGS
+
+      - name: Commit updated state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/board_state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update board state [skip ci]"
+            git pull --rebase origin master
             git push
           else
             echo "No state change"
