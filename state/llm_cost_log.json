@@ -385,5 +385,38 @@
       }
     },
     "usd_jpy": null
+  },
+  {
+    "date": "2026-09-27",
+    "job": "check",
+    "gemini_calls": 130,
+    "gemini_models": {
+      "gemini-3.5-flash-lite": 130
+    },
+    "gemini_tokens": {
+      "in": 98706,
+      "out": 1256
+    },
+    "gemini_disabled_reason": null,
+    "claude_calls": 2,
+    "claude_models": {
+      "claude-haiku-4-5-20251001": 2
+    },
+    "claude_tokens": {
+      "in": 1110,
+      "out": 49
+    },
+    "claude_cost_usd": 0.001355,
+    "purposes": {
+      "brand": {
+        "gemini": 20,
+        "claude": 0
+      },
+      "news": {
+        "gemini": 110,
+        "claude": 2
+      }
+    },
+    "usd_jpy": 157.59
   }
 ]
