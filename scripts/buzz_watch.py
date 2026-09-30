@@ -624,6 +624,24 @@ def get_edinetdb_business_overview(edinet_code: str, api_key: str) -> str | None
         return None
 
 
+LEGAL_ENTITY_RE = re.compile(
+    r"S\.?A\.?\s*(DE|de)\s|GmbH|Pte\.?\s*Ltd|B\.V\.|N\.V\.|Co\.,?\s*Ltd\.?$|"
+    r"\bInc\.?$|\bCorp(oration)?\.?$|\bLLC$|\bLtd\.?$|America\s+Inc|International\s+Corp",
+    re.I,
+)
+
+
+def _looks_like_legal_entity_name(kw: str) -> bool:
+    """海外子会社等の正式法人名(例:「GDI MEX S.A. DE C.V.」)はSNSで検索される言葉ではないため、
+    ブランド名候補から除外する。地域名+Inc./Corporationのような典型パターンと、
+    英字のみで30字を超える(自然なブランド名としては長すぎる)ものを弾く。"""
+    if LEGAL_ENTITY_RE.search(kw):
+        return True
+    if len(kw) > 30 and re.fullmatch(r"[A-Za-z0-9 .,&'()/-]+", kw):
+        return True
+    return False
+
+
 def discover_segment_keywords_with_ai(business_overview: str, company_name: str) -> list[str]:
     """有報の「事業の内容」全文から、業績インパクトが大きい主力事業・ブランド名を
     複数抽出する(新商品ニュースの巡回では拾えない、既存の稼ぎ頭を見逃さないため)。
@@ -657,6 +675,8 @@ def discover_segment_keywords_with_ai(business_overview: str, company_name: str)
                             "(例:「3Dアイス」はGold Starが独自に販売する具体的な商品名なので含める。"
                             "一方「アイスクリーム」は業界全体を指す一般名詞なので含めない)。\n\n"
                             "【絶対に含めないもの】\n"
+                            "・海外子会社等の正式法人名(例:「GDI MEX S.A. DE C.V.」「Kadoya America Inc.」)。"
+                            "SNSや検索で消費者が使う言葉ではないため、たとえ有報に記載があっても除外してください。\n"
                             "・業界・施設タイプそのものを指す一般名詞(例:「バッティングセンター」"
                             "「ボウリング場」「蓄電池システム」)。これは特定の店舗ブランド名"
                             "(例:「アピナ」)ではなく、どの会社の同種施設・製品にも当てはまる"
@@ -686,7 +706,7 @@ def discover_segment_keywords_with_ai(business_overview: str, company_name: str)
         if not text or text.upper().startswith("NONE"):
             return []
         keywords = [line.strip(" 　「」『』:：・-") for line in text.splitlines()]
-        return [k[:40] for k in keywords if k]
+        return [k[:40] for k in keywords if k and not _looks_like_legal_entity_name(k)]
     except Exception as e:  # noqa: BLE001
         log(f"  [WARN] segment keyword discovery failed: {type(e).__name__}: {e}")
         return []
@@ -1011,6 +1031,7 @@ def main():
     trends_client = TrendsClient()
     discord_lines: list[str] = []
     new_product_lines: list[str] = []
+    segment_discovery_lines: list[str] = []
 
     for company in todays_batch:
         code = company["code"]
@@ -1028,11 +1049,14 @@ def main():
         segment_keywords = load_json(STATE_DIR / "segment_keywords.json", {})
         company_segment_kws = segment_keywords.get(code, [])
         new_segment_kws = discover_new_segment_keywords(company, bo_versions)
+        newly_added_segment_kws = []
         for kw in new_segment_kws:
             if kw not in company_segment_kws:
                 company_segment_kws.append(kw)
                 log(f"  [SEGMENT/new] discovered core keyword: {kw}")
-                new_product_lines.append(f"・**{name}**[主力事業]: 「{kw}」を新たに常時監視対象に追加")
+                newly_added_segment_kws.append(kw)
+        if newly_added_segment_kws:
+            segment_discovery_lines.append(f"・**{name}**: {'、'.join(newly_added_segment_kws)}")
         segment_keywords[code] = company_segment_kws
         save_json(STATE_DIR / "segment_keywords.json", segment_keywords)
         core_keywords = list(company["base_keywords"]) + company_segment_kws
@@ -1125,7 +1149,9 @@ def main():
                     parts.append(
                         f"X投稿頻度(Yahoo!リアルタイム) {s['baseline']/10:.1f}→{s['latest']/10:.1f}件/時 ({s['ratio']}倍)"
                     )
-                discord_lines.append(f"・**{name}** 「{kw}」: " + " / ".join(parts))
+                line = f"・**{name}** 「{kw}」: " + " / ".join(parts)
+                log(f"  [SPIKE] {line[2:]}")
+                discord_lines.append(line)
 
     save_json(SEEN_NEWS_PATH, seen_news)
     save_json(HISTORY_PATH, history)
@@ -1141,12 +1167,18 @@ def main():
                     webhook_url,
                     ["**\U0001f4e2 業績インパクトが期待できる新着を検知・追跡開始**"] + new_product_lines,
                 )
+            if segment_discovery_lines:
+                send_discord(
+                    webhook_url,
+                    ["**\U0001f4dd 有報から主力ブランド・事業を発見し常時監視に追加(登録作業、バズではありません)**"]
+                    + segment_discovery_lines,
+                )
             if discord_lines:
                 send_discord(
                     webhook_url,
                     ["**\U0001f525 口コミバズ検知**"] + discord_lines,
                 )
-        elif new_product_lines or discord_lines:
+        elif new_product_lines or discord_lines or segment_discovery_lines:
             log("[WARN] DISCORD_WEBHOOK_URL not set, skipping notification")
 
     log_llm_stats()
