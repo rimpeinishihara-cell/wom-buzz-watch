@@ -1122,6 +1122,10 @@ def main():
         for kw in kw_list:
             log(f"  checking keyword: {kw}")
             kw_hist = company_history.setdefault(kw, {})
+            # このキーワードを過去に一度もチェックしたことがなければ、その企業本来の検索水準を
+            # まだ知らない(比較対象のbeforeがない)。Google Trendsの3か月時系列は独立に取得できて
+            # しまうため、初回チェックのキーワードは急上昇判定から除外する(次回以降は判定対象になる)。
+            is_first_check_for_kw = not kw_hist
 
             trends_series = trends_client.get_interest_series(kw)
             trends_val = trends_series[-1] if trends_series else None
@@ -1138,7 +1142,7 @@ def main():
                 if d < cutoff:
                     del kw_hist[d]
 
-            spike = detect_spike(kw_hist, today, trends_series)
+            spike = None if is_first_check_for_kw else detect_spike(kw_hist, today, trends_series)
             if spike:
                 parts = []
                 if "trends" in spike:
