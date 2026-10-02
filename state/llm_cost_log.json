@@ -658,5 +658,36 @@
       }
     },
     "usd_jpy": 157.0
+  },
+  {
+    "date": "2026-10-02",
+    "job": "check",
+    "gemini_calls": 124,
+    "gemini_models": {
+      "gemini-3.5-flash-lite": 124
+    },
+    "gemini_tokens": {
+      "in": 98298,
+      "out": 1006
+    },
+    "gemini_disabled_reason": null,
+    "claude_calls": 0,
+    "claude_models": {},
+    "claude_tokens": {
+      "in": 0,
+      "out": 0
+    },
+    "claude_cost_usd": 0.0,
+    "purposes": {
+      "brand": {
+        "gemini": 19,
+        "claude": 0
+      },
+      "news": {
+        "gemini": 105,
+        "claude": 0
+      }
+    },
+    "usd_jpy": null
   }
 ]
