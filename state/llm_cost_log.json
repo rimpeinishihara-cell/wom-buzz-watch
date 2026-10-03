@@ -749,5 +749,34 @@
       }
     },
     "usd_jpy": null
+  },
+  {
+    "date": "2026-10-03",
+    "job": "board",
+    "gemini_calls": 17,
+    "gemini_models": {
+      "gemini-3.8-flash": 17
+    },
+    "gemini_tokens": {
+      "in": 39957,
+      "out": 2679
+    },
+    "gemini_disabled_reason": "1日の無料枠の上限",
+    "claude_calls": 1,
+    "claude_models": {
+      "claude-haiku-4-5-20251001": 1
+    },
+    "claude_tokens": {
+      "in": 2755,
+      "out": 5
+    },
+    "claude_cost_usd": 0.00278,
+    "purposes": {
+      "board": {
+        "gemini": 17,
+        "claude": 1
+      }
+    },
+    "usd_jpy": 157.67
   }
 ]
